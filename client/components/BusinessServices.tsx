@@ -70,71 +70,49 @@ export default function BusinessServices() {
 
         {/* Services Grid */}
         <div className="flex gap-6 h-[446px] relative">
-          {/* First Column - 碳咨询 (Featured) */}
-          <div className="relative w-[156px] h-full rounded-lg overflow-hidden group">
-            <img
-              src={services[0].image}
-              alt={services[0].title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/48" />
-            <div className="absolute inset-0 bg-brand-green/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {/* All Services with Consistent Hover Effects */}
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            const isMiddleCard = index === 1; // 碳交易 card is wider
 
-            {/* Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <div className="flex justify-center mb-4">
-                <MessageCircleMore className="w-12 h-12 text-white" />
+            return (
+              <div
+                key={index}
+                className={`relative ${isMiddleCard ? "w-[244px]" : "w-[156px]"} h-full rounded-lg overflow-hidden group cursor-pointer`}
+              >
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/48" />
+                <div className="absolute inset-0 bg-brand-green/90 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+
+                {/* Default State - Only Title */}
+                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 group-hover:opacity-0 transition-opacity duration-300">
+                  <h3 className="text-white text-center text-lg font-medium whitespace-nowrap">
+                    {service.title}
+                  </h3>
+                </div>
+
+                {/* Hover State - Full Content */}
+                <div className="absolute inset-0 p-6 text-white opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-center items-center">
+                  <div className="flex justify-center mb-4">
+                    <IconComponent className="w-12 h-12 text-white" />
+                  </div>
+                  <h3 className="text-center text-lg font-medium mb-4">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-white/70 leading-6 mb-6 text-center">
+                    {service.subtitle}
+                  </p>
+                  <button className="bg-white text-brand-green font-semibold py-3 px-6 rounded-full text-sm hover:bg-gray-50 transition-colors">
+                    了解更多
+                  </button>
+                </div>
               </div>
-              <h3 className="text-center text-lg font-medium mb-4">
-                {services[0].title}
-              </h3>
-              <p className="text-sm text-white/70 leading-6 mb-6">
-                {services[0].subtitle}
-              </p>
-              <button className="w-full bg-white text-brand-green font-semibold py-3 px-6 rounded-full text-sm hover:bg-gray-50 transition-colors">
-                了解更多
-              </button>
-            </div>
-          </div>
-
-          {/* Middle Section - Large Featured */}
-          <div className="relative w-[244px] h-full rounded-lg overflow-hidden">
-            <img
-              src={services[1].image}
-              alt={services[1].title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/48" />
-            <div className="absolute inset-0 bg-brand-green/90" />
-
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
-              <h3 className="text-white text-center text-lg font-medium">
-                {services[1].title}
-              </h3>
-            </div>
-          </div>
-
-          {/* Remaining Services */}
-          {services.slice(2).map((service, index) => (
-            <div
-              key={index}
-              className="relative w-[156px] h-full rounded-lg overflow-hidden group"
-            >
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/48" />
-              <div className="absolute inset-0 bg-brand-green/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
-                <h3 className="text-white text-center text-lg font-medium whitespace-nowrap">
-                  {service.title}
-                </h3>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
