@@ -4,10 +4,16 @@ import { useState } from "react";
 interface DropdownProps {
   title: string;
   isActive?: boolean;
+  isScrolled?: boolean;
   children: React.ReactNode;
 }
 
-function Dropdown({ title, isActive = false, children }: DropdownProps) {
+function Dropdown({
+  title,
+  isActive = false,
+  isScrolled = false,
+  children,
+}: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -18,23 +24,31 @@ function Dropdown({ title, isActive = false, children }: DropdownProps) {
     >
       <div className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer">
         <span
-          className={`font-inter text-[15px] font-medium leading-[22px] ${
-            isActive ? "text-brand-green" : "text-white"
+          className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
+            isActive
+              ? "text-brand-green"
+              : isScrolled
+                ? "text-[#333]"
+                : "text-white"
           }`}
         >
           {title}
         </span>
         <ChevronDown
-          className={`w-5 h-5 ${
-            isActive ? "text-brand-green" : "text-neutral-200"
-          } ${isOpen ? "rotate-180" : ""} transition-transform duration-200`}
+          className={`w-5 h-5 transition-all duration-300 ${
+            isActive
+              ? "text-brand-green"
+              : isScrolled
+                ? "text-[#333]"
+                : "text-neutral-200"
+          } ${isOpen ? "rotate-180" : ""}`}
         />
       </div>
 
-      {/* Dropdown Content */}
+      {/* Dropdown Content - Full Width */}
       {isOpen && (
-        <div className="absolute top-full left-0 pt-2 z-50">
-          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-[1440px] h-[506px]">
+        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-screen max-w-[1440px]">
             {children}
           </div>
         </div>
@@ -43,10 +57,16 @@ function Dropdown({ title, isActive = false, children }: DropdownProps) {
   );
 }
 
-export function ProductServicesDropdown() {
+interface DropdownComponentProps {
+  isScrolled?: boolean;
+}
+
+export function ProductServicesDropdown({
+  isScrolled = false,
+}: DropdownComponentProps) {
   return (
-    <Dropdown title="产品服务" isActive>
-      <div className="flex h-full">
+    <Dropdown title="产品服务" isActive isScrolled={isScrolled}>
+      <div className="flex h-[506px]">
         {/* Left Sidebar */}
         <div className="w-[340px] h-[506px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
           <h3 className="text-[#333] font-inter text-[18px] font-bold leading-[20px] tracking-[-0.1px] mb-4">
@@ -62,7 +82,7 @@ export function ProductServicesDropdown() {
         </div>
 
         {/* Main Content */}
-        <div className="relative w-[1100px] h-[506px] bg-white">
+        <div className="relative flex-1 h-[506px] bg-white">
           {/* Row 1 - Top positioned elements */}
           <div className="absolute top-[30px] left-[32px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
@@ -98,7 +118,7 @@ export function ProductServicesDropdown() {
               地方碳普惠交易
             </div>
             <div className="text-brand-green font-inter text-[14px] leading-5 tracking-[-0.1px] bg-[rgba(236,248,246,0.8)] rounded-[4px] px-3 py-1 w-[218px]">
-              CCER资产开发与交易
+              CCER资产开发与��易
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               绿证交易
@@ -210,7 +230,7 @@ export function ProductServicesDropdown() {
               零碳园区解决方案
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              其他低/零碳解决方案
+              其他���/零碳解决方案
             </div>
           </div>
         </div>
@@ -219,10 +239,12 @@ export function ProductServicesDropdown() {
   );
 }
 
-export function SolutionsDropdown() {
+export function SolutionsDropdown({
+  isScrolled = false,
+}: DropdownComponentProps) {
   return (
-    <Dropdown title="解决方案" isActive>
-      <div className="flex">
+    <Dropdown title="解决方案" isScrolled={isScrolled}>
+      <div className="flex h-[400px]">
         {/* Left Sidebar */}
         <div className="w-[340px] bg-brand-green-50 p-8">
           <h3 className="text-[#333] font-inter text-lg font-bold leading-5 tracking-[-0.1px] mb-4">
@@ -294,37 +316,16 @@ export function SolutionsDropdown() {
               </div>
             </div>
           </div>
-
-          {/* Apps Section */}
-          <div className="mt-8 flex items-center gap-8">
-            <div className="flex flex-col items-center">
-              <div className="w-[90px] h-[90px] bg-gray-200 rounded-lg mb-2 flex items-center justify-center">
-                <span className="text-xs text-gray-500">甬城低碳</span>
-              </div>
-              <span className="text-[#666] font-inter text-sm font-medium leading-6 tracking-[-0.14px]">
-                甬城低碳
-              </span>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-[90px] h-[90px] bg-gray-200 rounded-lg mb-2 flex items-center justify-center">
-                <span className="text-xs text-gray-500">足迹计算</span>
-              </div>
-              <span className="text-[#666] font-inter text-sm font-medium leading-6 tracking-[-0.14px]">
-                个人碳足迹计算
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </Dropdown>
   );
 }
 
-export function NewsDropdown() {
+export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
   return (
-    <Dropdown title="资讯中心">
-      <div className="p-8">
+    <Dropdown title="资讯中心" isScrolled={isScrolled}>
+      <div className="p-8 h-[300px]">
         <div className="grid grid-cols-4 gap-8">
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
@@ -371,10 +372,10 @@ export function NewsDropdown() {
   );
 }
 
-export function AboutDropdown() {
+export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
   return (
-    <Dropdown title="关于我们">
-      <div className="p-8">
+    <Dropdown title="关于我们" isScrolled={isScrolled}>
+      <div className="p-8 h-[300px]">
         <div className="grid grid-cols-3 gap-8">
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
