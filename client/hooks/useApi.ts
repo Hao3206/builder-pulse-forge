@@ -109,6 +109,14 @@ export const useNews = (params?: {
     queryKey: queryKeys.news(params),
     queryFn: () => withErrorHandling(() => newsService.getNews(params)),
     staleTime: 3 * 60 * 1000, // 3分钟
+    retry: (failureCount, error) => {
+      // 网络错误重试3次，其他错误不重试
+      if (error?.message?.includes("Failed to fetch")) {
+        return failureCount < 3;
+      }
+      return false;
+    },
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 };
 
