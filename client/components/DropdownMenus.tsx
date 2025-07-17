@@ -1,5 +1,6 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface DropdownProps {
   title: string;
@@ -362,7 +363,7 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
               通知广告
             </h4>
             <div className="space-y-2">
-              <div className="text-[#999] font-inter text-sm">重要通知</div>
+              <div className="text-[#999] font-inter text-sm">重���通知</div>
               <div className="text-[#999] font-inter text-sm">公告信息</div>
             </div>
           </div>
@@ -373,6 +374,12 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
 }
 
 export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <Dropdown title="关于我们" isScrolled={isScrolled}>
       <div className="p-8 h-[300px]">
@@ -382,9 +389,24 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
               公司介绍
             </h4>
             <div className="space-y-2">
-              <div className="text-[#999] font-inter text-sm">企业简介</div>
-              <div className="text-[#999] font-inter text-sm">发展历程</div>
-              <div className="text-[#999] font-inter text-sm">企业文化</div>
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("/about")}
+              >
+                企业简介
+              </div>
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("/about")}
+              >
+                发展历程
+              </div>
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("/about")}
+              >
+                企业文化
+              </div>
             </div>
           </div>
 
@@ -393,8 +415,12 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
               成功案例
             </h4>
             <div className="space-y-2">
-              <div className="text-[#999] font-inter text-sm">典型案例</div>
-              <div className="text-[#999] font-inter text-sm">客户见证</div>
+              <div className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors">
+                典型案例
+              </div>
+              <div className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors">
+                客户见证
+              </div>
             </div>
           </div>
 
@@ -403,8 +429,18 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
               联系我们
             </h4>
             <div className="space-y-2">
-              <div className="text-[#999] font-inter text-sm">联系方式</div>
-              <div className="text-[#999] font-inter text-sm">地址信息</div>
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("/about")}
+              >
+                联系方式
+              </div>
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("/about")}
+              >
+                地址信息
+              </div>
             </div>
           </div>
         </div>
