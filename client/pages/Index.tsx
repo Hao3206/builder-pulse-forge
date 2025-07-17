@@ -9,6 +9,7 @@ import TrainingServices from "../components/TrainingServices";
 import SuccessCases from "../components/SuccessCases";
 import Partners from "../components/Partners";
 import Footer from "../components/Footer";
+import ApiDebug from "../components/ApiDebug";
 
 export default function Index() {
   const [isScrolled, setIsScrolled] = useState(false);
