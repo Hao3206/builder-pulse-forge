@@ -5,7 +5,7 @@ import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 export default function NewsResources() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
 
-  // 使用API hooks获取数据
+  // 使用API hooks获取数据，添加错误处理
   const {
     data: featuredNews,
     isLoading: featuredLoading,
@@ -20,6 +20,57 @@ export default function NewsResources() {
     category: selectedCategory || undefined,
     limit: 6,
   });
+
+  // 提供fallback数据
+  const fallbackNews = [
+    {
+      id: "fallback-1",
+      title: "浙东环交所助力企业实现碳中和目标",
+      summary:
+        "通过专业的碳管理服务和创新的交易机制，帮助企业建立完善的碳管理体系。",
+      content: "",
+      category: "company" as const,
+      author: "浙东环交所",
+      publishedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      featured: true,
+      image:
+        "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=400&fit=crop",
+      tags: ["碳中和", "碳管理", "企业服务"],
+      readTime: 3,
+    },
+    {
+      id: "fallback-2",
+      title: "CCER市场重启，碳交易迎来新发展",
+      summary:
+        "全国温室气体自愿减排交易市场正式重启，为企业和个人参与碳减排提供新途径。",
+      content: "",
+      category: "news" as const,
+      author: "行业观察",
+      publishedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      featured: true,
+      image:
+        "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop",
+      tags: ["CCER", "碳交易", "市场"],
+      readTime: 4,
+    },
+  ];
+
+  const fallbackData = {
+    articles: fallbackNews,
+    pagination: {
+      current: 1,
+      total: fallbackNews.length,
+      pages: 1,
+      hasNext: false,
+      hasPrev: false,
+    },
+  };
+
+  // 如果API失败，使用fallback数据
+  const displayFeaturedNews = featuredError ? fallbackNews : featuredNews || [];
+  const displayNewsData = newsError ? fallbackData : newsData || fallbackData;
 
   const categories = [
     { key: "", label: "全部", color: "bg-gray-100" },
@@ -122,7 +173,7 @@ export default function NewsResources() {
                         </div>
                       </div>
                       <button className="flex items-center gap-1 text-brand-green font-medium text-sm hover:text-brand-green/80 transition-colors">
-                        阅读更多
+                        阅读���多
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
