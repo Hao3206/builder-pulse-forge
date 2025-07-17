@@ -27,7 +27,7 @@ export default function NewsResources() {
       id: "fallback-1",
       title: "浙东环交所助力企业实现碳中和目标",
       summary:
-        "通过专业的碳管理服务和���新的交易机制，帮助企业建立完善的碳管理体系。",
+        "通过专业的碳管理服务和创新的交易机制，帮助企业建立完善的碳管理体系。",
       content: "",
       category: "company" as const,
       author: "浙东环交所",
@@ -80,7 +80,7 @@ export default function NewsResources() {
     { key: "announcement", label: "通知广告", color: "bg-orange-100" },
   ];
 
-  // 检查是否是网络错误
+  // ��查是否是网络错误
   const isNetworkError = (error: any) => {
     return (
       error?.message?.includes("Failed to fetch") ||
@@ -129,7 +129,7 @@ export default function NewsResources() {
               精选资讯
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {featuredNews.slice(0, 2).map((article) => (
+              {displayFeaturedNews.slice(0, 2).map((article) => (
                 <div
                   key={article.id}
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
@@ -303,7 +303,7 @@ export default function NewsResources() {
                 上一页
               </button>
               <span className="px-4 py-2 text-gray-700">
-                第 {newsData.pagination.current} 页，���{" "}
+                第 {newsData.pagination.current} 页，共{" "}
                 {newsData.pagination.pages} 页
               </span>
               <button
