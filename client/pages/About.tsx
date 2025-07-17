@@ -10,7 +10,7 @@ export default function About() {
   const honors = [
     {
       id: 1,
-      title: "国家级碳资产管理资质",
+      title: "国家级���资产管理资质",
       image: "#D9D9D9",
     },
     {
@@ -25,7 +25,7 @@ export default function About() {
     },
     {
       id: 4,
-      title: "��碳标准编制单位",
+      title: "双碳标准编制单位",
       image: "#D9D9D9",
     },
   ];
@@ -40,183 +40,33 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white font-inter">
+      {/* Sticky Header */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+        <Header isScrolled={isScrolled} />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative w-full flex flex-col items-center bg-[#F8F9FB]">
-        {/* Header */}
-        <div className="w-full flex justify-center items-center h-[88px] px-40 border-b border-white/21">
-          <div className="flex items-center gap-[91px] px-8">
-            {/* Logo */}
-            <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
-              alt="浙东环交所 Logo"
-              className="w-[157px] h-[50px]"
-            />
-
-            <div className="flex items-center gap-40">
-              {/* Navigation */}
-              <nav className="flex items-center gap-8">
-                <div className="flex items-center justify-center gap-1.5 rounded-md">
-                  <span className="font-inter text-[15px] font-medium leading-[22px] text-white">
-                    产品服务
-                  </span>
-                  <svg
-                    className="w-5 h-5 text-white"
-                    viewBox="0 0 21 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M15.5 8.33301L11.0893 12.7438C10.7638 13.0692 10.2362 13.0692 9.91074 12.7438L5.5 8.33301"
-                      stroke="currentColor"
-                      strokeWidth="1.67"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-
-                <div className="flex items-center justify-center gap-1.5 rounded-md">
-                  <span className="font-inter text-[15px] font-medium leading-[22px] text-[#F9F9F9]">
-                    解决方案
-                  </span>
-                  <svg
-                    className="w-5 h-5 text-[#F9F9F9]"
-                    viewBox="0 0 21 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M15.5 8.33301L11.0893 12.7438C10.7638 13.0692 10.2362 13.0692 9.91074 12.7438L5.5 8.33301"
-                      stroke="currentColor"
-                      strokeWidth="1.67"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-
-                <div className="flex items-center justify-center gap-3 rounded-md">
-                  <span className="font-inter text-[15px] font-medium leading-[22px] text-[#F9F9F9]">
-                    成功案例
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-center gap-1.5 rounded-md">
-                  <span className="font-inter text-[15px] font-medium leading-[22px] text-[#F9F9F9]">
-                    资讯中心
-                  </span>
-                  <svg
-                    className="w-5 h-5 text-[#F9F9F9]"
-                    viewBox="0 0 21 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M15.5 8.33301L11.0893 12.7438C10.7638 13.0692 10.2362 13.0692 9.91074 12.7438L5.5 8.33301"
-                      stroke="currentColor"
-                      strokeWidth="1.67"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-
-                <div className="flex items-center justify-center gap-1.5 rounded-md">
-                  <span className="font-inter text-[15px] font-medium leading-[22px] text-white">
-                    关于我们
-                  </span>
-                  <svg
-                    className="w-5 h-5 text-white"
-                    viewBox="0 0 21 20"
-                    fill="none"
-                  >
-                    <path
-                      d="M15.5 8.33301L11.0893 12.7438C10.7638 13.0692 10.2362 13.0692 9.91074 12.7438L5.5 8.33301"
-                      stroke="currentColor"
-                      strokeWidth="1.67"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-              </nav>
-
-              {/* Right Side Actions */}
-              <div className="flex items-start gap-[30px]">
-                {/* Phone */}
-                <div className="flex items-center gap-[7px]">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    viewBox="0 0 21 20"
-                    fill="none"
-                  >
-                    <g clipPath="url(#clip0_241_685)">
-                      <path
-                        d="M3.51583 0.954422L3.49161 0.974422C3.48258 0.98025 3.47364 0.986214 3.46479 0.992313L3.40479 1.03651C3.34703 1.0827 3.29678 1.13757 3.25583 1.19915L3.24372 1.21968L1.63215 2.83231C-0.329955 4.79442 1.92952 9.37177 6.54268 13.9828L6.87321 14.3097C11.3374 18.6655 15.6958 20.7507 17.619 18.9013L19.3274 17.1928C20.2985 16.2686 20.3374 14.7139 19.4022 13.7313L19.2032 13.5313L19.1485 13.4823L16.5964 11.4534C15.6174 10.7092 14.2079 10.8076 13.3306 11.7113L12.6179 12.4244L12.5495 12.3813C10.802 11.2668 9.31948 9.78349 8.20583 8.03546L8.14688 7.94126L8.82426 7.17968L8.81268 7.19126C9.26317 6.75409 9.53116 6.16237 9.56261 5.53542C9.59406 4.90846 9.38663 4.2929 8.98215 3.81284L7.04215 1.37284C6.62803 0.85261 6.02533 0.516836 5.36503 0.438488C4.70473 0.360139 4.04019 0.545549 3.51583 0.954422ZM6.05372 2.15968L8.06215 4.68599C8.36952 5.10915 8.37688 5.66177 8.10374 6.07862L8.06374 6.13389L6.58899 7.79284L6.81952 8.1881C8.16527 10.4983 10.0866 12.4204 12.3964 13.7671L12.8169 14.0123L14.2306 12.5976L14.3 12.5313C14.5184 12.3365 14.7997 12.2269 15.0923 12.2227C15.3849 12.2184 15.6692 12.3198 15.8932 12.5081L18.3327 14.4476L18.4874 14.6018C18.7055 14.8311 18.8236 15.1376 18.8157 15.4539C18.8078 15.7703 18.6746 16.0705 18.4453 16.2886L16.7348 17.9992C15.5274 19.1602 11.5348 17.1886 7.4353 13.0897L7.26688 12.9202C3.25532 8.85493 1.3353 4.91599 2.52635 3.72599L4.32108 1.92915L4.29268 1.9502C4.55457 1.74606 4.88643 1.65349 5.21617 1.69262C5.54591 1.73174 5.84689 1.89939 6.05374 2.15915L6.05372 2.15968Z"
-                        fill="white"
-                      />
-                    </g>
-                  </svg>
-                  <span className="font-inter text-[15px] font-normal leading-[22px] text-white">
-                    0574-87310818
-                  </span>
-                </div>
-
-                {/* Language Selector */}
-                <div className="flex items-center gap-2 px-0.5">
-                  <svg
-                    className="w-5 h-5 text-white"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <svg
-                    className="w-3 h-3 text-white"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                  >
-                    <path
-                      d="M10 4.5L6 8.5L2 4.5"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-
-                {/* Search */}
-                <svg
-                  className="w-5 h-5 text-white"
-                  viewBox="0 0 21 20"
-                  fill="none"
-                >
-                  <g clipPath="url(#clip0_241_692)">
-                    <path
-                      d="M3.97964 13.8602C3.29752 13.1816 2.75676 12.3744 2.38864 11.4854C2.02052 10.5963 1.83234 9.64314 1.83501 8.68092C1.83501 6.72479 2.59649 4.886 3.97964 3.50285C4.65816 2.82088 5.46515 2.2802 6.35395 1.91209C7.24274 1.54397 8.1957 1.35572 9.15771 1.35821C11.1151 1.35821 12.9526 2.1197 14.337 3.50285C15.019 4.18137 15.5597 4.98836 15.9278 5.87716C16.2959 6.76595 16.4842 7.71891 16.4817 8.68092C16.4843 9.64314 16.2962 10.5963 15.928 11.4854C15.5599 12.3744 15.0192 13.1816 14.337 13.8602C13.6585 14.5425 12.8513 15.0833 11.9622 15.4514C11.0732 15.8196 10.12 16.0077 9.15771 16.0049C7.20158 16.0049 5.36279 15.2434 3.97964 13.8602ZM20.2816 18.8636L15.7252 14.3071C17.1841 12.6091 17.928 10.4115 17.8004 8.17643C17.6728 5.94133 16.6837 3.84272 15.041 2.32172C13.3983 0.800712 11.2299 -0.0242368 8.99155 0.020266C6.75325 0.0647688 4.61936 0.975257 3.0384 2.56036C1.82735 3.7706 1.00247 5.31285 0.66811 6.992C0.333752 8.67114 0.504939 10.4117 1.16002 11.9936C1.81509 13.5754 2.92463 14.9274 4.34825 15.8785C5.77186 16.8296 7.4456 17.3372 9.15771 17.3368C11.2227 17.3368 13.2191 16.5957 14.7839 15.2484L19.3403 19.8048C19.4652 19.9296 19.6344 19.9997 19.811 19.9997C19.9875 19.9997 20.1568 19.9296 20.2816 19.8048C20.4064 19.68 20.4765 19.5107 20.4765 19.3342C20.4765 19.1577 20.4064 18.9884 20.2816 18.8636Z"
-                      fill="white"
-                    />
-                  </g>
-                </svg>
-              </div>
-            </div>
-          </div>
+      <section className="relative w-full flex flex-col items-center bg-[#F8F9FB] pt-[88px]">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://api.builder.io/api/v1/image/assets/TEMP/2de65da77c5648ddbe85ded358b4e35acab603fb?width=2969')",
+          }}
+        >
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         {/* Hero Content */}
-        <div className="flex h-[286px] flex-col items-center gap-6 w-full">
-          <h1 className="w-full mt-[102px] text-white text-center font-inter text-[44px] font-bold leading-[60px] tracking-[-0.88px]">
+        <div className="relative z-10 flex h-[600px] flex-col items-center justify-center gap-6 w-full px-4">
+          <h1 className="text-white text-center font-inter text-[44px] font-bold leading-[60px] tracking-[-0.88px] max-w-4xl">
             关于浙东环境能源交易所
           </h1>
-          <p className="w-full text-white/80 text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.1px]">
+          <p className="text-white/80 text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.1px] max-w-2xl">
             推动全球双碳目标的实现，助力可持续发展的低碳未来
           </p>
         </div>
-
-        {/* Background Image */}
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/2de65da77c5648ddbe85ded358b4e35acab603fb?width=2969"
-          alt="Forest Background"
-          className="w-[1484px] h-[1036px] relative -mt-[525px] -mr-[29px]"
-        />
       </section>
 
       {/* Company Introduction Section */}
@@ -284,7 +134,7 @@ export default function About() {
             </h2>
           </div>
           <p className="w-[704px] h-[71px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
-            宁波浙东环境能源交易所成立于2011年，是由宁波市人民政府批准、国务院部际联席会议备案的环境权益类交易机构。专注于节能减排、环境保护与能源领域的权益交易，致力于为电力、能源、化工等行业客户提供碳资产开发管理、双碳咨��与培训服务。
+            宁波浙东环境能源交易所成立于2011年，是由宁波市人民政府批准、国务院部际联席会议备案的环境权益类交易机构。专注于节能减排、环境保护与能源领域的权益交易，致力于为电力、能源、化工等行业客户提供碳资产开发管理、双碳咨询与培训服务。
           </p>
         </div>
 
@@ -425,7 +275,7 @@ export default function About() {
               />
               <div className="flex flex-col items-start gap-2.5 w-full">
                 <h3 className="text-[#333] font-inter text-[22px] font-bold leading-7 tracking-[-0.22px] w-full">
-                  宁波市节能协会碳中和专委会
+                  宁波市节能协���碳中和专委会
                 </h3>
                 <p className="text-[#666] font-inter text-base font-normal leading-[26px] tracking-[-0.16px] w-full">
                   牵头行业研究与政策制定，推动绿色低碳技术的应用
@@ -540,7 +390,7 @@ export default function About() {
                   碳盘查与碳足迹核算
                 </h3>
                 <p className="text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                  对企业进���全面碳排放监测，计算和核查产品碳足迹。
+                  对企业进行全面碳排放监测，计算和核查产品碳足迹。
                 </p>
               </div>
             </div>
@@ -612,7 +462,7 @@ export default function About() {
               </div>
               <div className="flex flex-col items-start gap-2 flex-1 w-full">
                 <h3 className="text-[#333] font-inter text-[22px] font-bold leading-[30px] tracking-[-0.22px] w-full">
-                  碳交易与���金融服务
+                  碳交易与碳金融服务
                 </h3>
                 <p className="text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
                   提供绿证、CCER交易服务及碳税和碳金融产品。
