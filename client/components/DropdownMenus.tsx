@@ -243,6 +243,12 @@ export function ProductServicesDropdown({
 export function SolutionsDropdown({
   isScrolled = false,
 }: DropdownComponentProps) {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <Dropdown title="解决方案" isScrolled={isScrolled}>
       <div className="flex h-[400px]">
@@ -266,14 +272,17 @@ export function SolutionsDropdown({
             {/* Left Column */}
             <div className="space-y-8">
               <div>
-                <div className="flex items-center gap-1 mb-2">
-                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px]">
+                <div
+                  className="flex items-center gap-1 mb-2 cursor-pointer"
+                  onClick={() => handleNavigation("/solution")}
+                >
+                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
                     能碳管理系统(园区/工厂)解决方案
                   </span>
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案描述性文字文案文案文案文案文案文案文案文案
+                  全面赋能工厂实现能碳精益管理，助力双碳目标落地
                 </p>
               </div>
 
