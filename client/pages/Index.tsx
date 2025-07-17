@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import BusinessServices from "../components/BusinessServices";
@@ -10,15 +11,31 @@ import Partners from "../components/Partners";
 import Footer from "../components/Footer";
 
 export default function Index() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white font-inter">
-      {/* Header with transparent overlay on hero */}
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 z-20">
-          <Header />
-        </div>
-        <Hero />
+      {/* Sticky Header */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        }`}
+      >
+        <Header isScrolled={isScrolled} />
       </div>
+
+      {/* Hero Section */}
+      <Hero />
 
       {/* Main Content Sections */}
       <BusinessServices />
