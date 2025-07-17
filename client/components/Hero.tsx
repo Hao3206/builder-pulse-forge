@@ -1,32 +1,132 @@
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const carouselData = [
+  {
+    id: 1,
+    image:
+      "https://images.unsplash.com/photo-1497436072909-f5e4be242e9b?w=1920&h=1080&fit=crop",
+    title: "万泽时代作为国内新一代创新型数字创新",
+    subtitle: "围绕企业双碳数字化转型为能源企业提供解决方案",
+  },
+  {
+    id: 2,
+    image:
+      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&h=1080&fit=crop",
+    title: "智慧能源管理平台助力企业降本增效",
+    subtitle: "通过数字化手段实现能源监测与优��管理",
+  },
+  {
+    id: 3,
+    image:
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&h=1080&fit=crop",
+    title: "碳资产管理系统引领绿色发展新时代",
+    subtitle: "专业的碳排放监测与交易管理解决方案",
+  },
+  {
+    id: 4,
+    image:
+      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1920&h=1080&fit=crop",
+    title: "构建零碳园区生态系统",
+    subtitle: "打造可持续发展的智慧园区管理平台",
+  },
+];
+
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselData.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % carouselData.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + carouselData.length) % carouselData.length,
+    );
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
   return (
-    <section className="relative w-full h-[810px] overflow-hidden">
-      {/* Background Image */}
+    <section
+      className="relative w-full h-[810px] overflow-hidden"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
+      {/* Carousel Images */}
       <div className="absolute inset-0">
-        <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/388fe73d1c5aa72a1f2ad99dbc8cdb91c9c0e3ef?width=3872"
-          alt="Mountain landscape background"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30" />
+        {carouselData.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+        ))}
       </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-200"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-6 h-6 text-white" />
+      </button>
+
+      <button
+        onClick={nextSlide}
+        className="absolute right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-200"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-6 h-6 text-white" />
+      </button>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
-        <h1 className="text-neutral-200 font-inter text-[44px] font-black leading-[60px] tracking-[-0.44px] mb-4 max-w-[838px]">
-          万泽时代作为国内新一代创新型数字创新
+        <h1 className="text-neutral-200 font-inter text-[44px] font-black leading-[60px] tracking-[-0.44px] mb-4 max-w-[838px] transition-all duration-500">
+          {carouselData[currentSlide].title}
         </h1>
 
-        <p className="text-neutral-200 font-inter text-[23px] font-medium leading-[60px] tracking-[-0.23px] max-w-[502px]">
-          围绕企业双碳数字化转型为能源企业提供解决方案
+        <p className="text-neutral-200 font-inter text-[23px] font-medium leading-[60px] tracking-[-0.23px] max-w-[502px] transition-all duration-500">
+          {carouselData[currentSlide].subtitle}
         </p>
 
         {/* Pagination Dots */}
         <div className="flex items-center gap-2 mt-16">
-          <div className="w-5 h-1 bg-white rounded-full" />
-          <div className="w-5 h-1 bg-white/52 rounded-full" />
-          <div className="w-5 h-1 bg-white/52 rounded-full" />
-          <div className="w-5 h-1 bg-white/52 rounded-full" />
+          {carouselData.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-5 h-1 rounded-full transition-all duration-300 ${
+                index === currentSlide
+                  ? "bg-white"
+                  : "bg-white/52 hover:bg-white/70"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
