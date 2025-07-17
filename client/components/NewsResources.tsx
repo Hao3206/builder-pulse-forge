@@ -80,7 +80,7 @@ export default function NewsResources() {
     { key: "announcement", label: "通知广告", color: "bg-orange-100" },
   ];
 
-  // ��查是否是网络错误
+  // 检查是否是网络错误
   const isNetworkError = (error: any) => {
     return (
       error?.message?.includes("Failed to fetch") ||
@@ -234,8 +234,9 @@ export default function NewsResources() {
                 </div>
               </div>
             ))
-          ) : newsData?.articles && newsData.articles.length > 0 ? (
-            newsData.articles.map((article) => (
+          ) : displayNewsData?.articles &&
+            displayNewsData.articles.length > 0 ? (
+            displayNewsData.articles.map((article) => (
               <div
                 key={article.id}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
@@ -286,7 +287,7 @@ export default function NewsResources() {
           ) : (
             <div className="col-span-full text-center py-12">
               <p className="text-gray-500 text-lg">
-                {selectedCategory ? "该分类下暂无资讯" : "暂无资讯内容"}
+                {selectedCategory ? "该分���下暂无资讯" : "暂无资讯内容"}
               </p>
             </div>
           )}
