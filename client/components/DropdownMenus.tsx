@@ -62,158 +62,155 @@ export function ProductServicesDropdown() {
         </div>
 
         {/* Main Content */}
-        <div className="w-[1100px] h-[506px] bg-white px-8 py-[30px] grid grid-cols-3 gap-8">
-          {/* Column 1 */}
-          <div className="space-y-8">
-            <div>
-              <div className="flex items-center gap-1 mb-4">
-                <span className="text-brand-green font-inter text-base font-semibold leading-6 tracking-[-0.16px]">
-                  碳交易
-                </span>
-                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-              </div>
-              <div className="space-y-3">
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  地方碳普惠交易
-                </div>
-                <div className="text-brand-green font-inter text-sm leading-5 tracking-[-0.1px] bg-brand-green-50 rounded px-3 py-1">
-                  CCER资产开发与交易
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  绿证交易
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  企���碳资产管理
-                </div>
-              </div>
-            </div>
+        <div className="relative w-[1100px] h-[506px] bg-white">
+          {/* Row 1 - Top positioned elements */}
+          <div className="absolute top-[30px] left-[32px] flex items-center gap-1">
+            <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
+              碳交易
+            </span>
+            <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+          </div>
 
-            <div>
-              <div className="flex items-center gap-1 mb-4">
-                <span className="text-brand-green font-inter text-base font-semibold leading-6 tracking-[-0.16px]">
-                  碳足迹
-                </span>
-                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-              </div>
-              <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                碳盘查/碳足迹核算
-              </div>
+          <div className="absolute top-[30px] left-[280px] flex items-center gap-1">
+            <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
+              碳咨询
+            </span>
+            <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+          </div>
+
+          <div className="absolute top-[30px] left-[528px] flex items-center gap-1">
+            <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
+              碳金融
+            </span>
+            <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+          </div>
+
+          <div className="absolute top-[30px] left-[776px] flex items-center gap-1">
+            <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
+              碳信息化
+            </span>
+            <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+          </div>
+
+          {/* Content under 碳交易 */}
+          <div className="absolute top-[64px] left-[32px] w-[210px] space-y-3">
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              地方碳普惠交易
+            </div>
+            <div className="text-brand-green font-inter text-[14px] leading-5 tracking-[-0.1px] bg-[rgba(236,248,246,0.8)] rounded-[4px] px-3 py-1 w-[218px]">
+              CCER资产开发与交易
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              绿证交易
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              企业碳资产管理
             </div>
           </div>
 
-          {/* Column 2 */}
-          <div className="space-y-8">
-            <div>
-              <div className="flex items-center gap-1 mb-4">
-                <span className="text-brand-green font-inter text-base font-semibold leading-6 tracking-[-0.16px]">
-                  碳咨询
-                </span>
-                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-              </div>
-              <div className="space-y-3">
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  绿色/零碳工厂创建
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  CEAV产品碳排放核算与申报
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  碳达峰碳中和路径规划
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  ESG信息披露
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  双碳标准编生
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  双碳课题研究
-                </div>
-              </div>
+          {/* Content under 碳咨询 */}
+          <div className="absolute top-[64px] left-[280px] w-[210px] space-y-3">
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              绿色/零碳工厂创建
             </div>
-
-            <div>
-              <div className="flex items-center gap-1 mb-4">
-                <span className="text-brand-green font-inter text-base font-semibold leading-6 tracking-[-0.16px]">
-                  碳培训
-                </span>
-                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-              </div>
-              <div className="space-y-3">
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  碳排放交易员培��
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  碳排放管理员培训
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  行业专题讲座/论坛
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  其他定制化培训
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  碳达峰碳中和战略规划高级研修班
-                </div>
-              </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              CEAV产品碳排放核算与申报
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              碳达峰碳中和路径规划
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              ESG信息披露
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              双碳标准编生
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              双碳课题研究
             </div>
           </div>
 
-          {/* Column 3 */}
-          <div className="space-y-8">
-            <div>
-              <div className="flex items-center gap-1 mb-4">
-                <span className="text-brand-green font-inter text-base font-semibold leading-6 tracking-[-0.16px]">
-                  碳金融
-                </span>
-                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-              </div>
-              <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                碳金融解次方案
-              </div>
+          {/* Content under 碳金融 */}
+          <div className="absolute top-[64px] left-[528px] w-[210px]">
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              碳金融解决方案
             </div>
+          </div>
 
-            <div>
-              <div className="flex items-center gap-1 mb-4">
-                <span className="text-brand-green font-inter text-base font-semibold leading-6 tracking-[-0.16px]">
-                  零碳园区
-                </span>
-                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-              </div>
-              <div className="space-y-3">
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  零碳园区解决方案
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  其他低/零碳解决方案
-                </div>
-              </div>
+          {/* Content under 碳信息化 */}
+          <div className="absolute top-[64px] left-[776px] w-[210px] space-y-3">
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              企业碳管理平台
             </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              区域双碳大脑
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              企业碳管理平台
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              个人碳账户建设
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              绿色贸易服务平台
+            </div>
+          </div>
 
-            <div>
-              <div className="flex items-center gap-1 mb-4">
-                <span className="text-brand-green font-inter text-base font-semibold leading-6 tracking-[-0.16px]">
-                  碳信息化
-                </span>
-                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-              </div>
-              <div className="space-y-3">
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  企业碳���理平台
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  区域双碳大脑
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  企业碳管理平台
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  个人碳账户建设
-                </div>
-                <div className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  绿色贸易服务平台
-                </div>
-              </div>
+          {/* Row 2 - Bottom positioned elements */}
+          <div className="absolute top-[282px] left-[32px] flex items-center gap-1">
+            <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
+              碳足迹
+            </span>
+            <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+          </div>
+
+          <div className="absolute top-[282px] left-[280px] flex items-center gap-1">
+            <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
+              碳培训
+            </span>
+            <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+          </div>
+
+          <div className="absolute top-[282px] left-[528px] flex items-center gap-1">
+            <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
+              零碳园区
+            </span>
+            <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+          </div>
+
+          {/* Content under 碳足迹 */}
+          <div className="absolute top-[316px] left-[32px] w-[210px]">
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              碳盘查/碳足迹核算
+            </div>
+          </div>
+
+          {/* Content under 碳培训 */}
+          <div className="absolute top-[316px] left-[280px] w-[210px] space-y-3">
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              碳排放交易员培训
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              碳排放管理员培训
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              行业专题讲座/论坛
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              其他定制化培训
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              碳达峰碳中和战略规划高级研修班
+            </div>
+          </div>
+
+          {/* Content under 零碳园区 */}
+          <div className="absolute top-[316px] left-[528px] w-[210px] space-y-3">
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              零碳园区解决方案
+            </div>
+            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              其他低/零碳解决方案
             </div>
           </div>
         </div>
@@ -355,7 +352,7 @@ export function NewsDropdown() {
             </h4>
             <div className="space-y-2">
               <div className="text-[#999] font-inter text-sm">最新动态</div>
-              <div className="text-[#999] font-inter text-sm">活动��讯</div>
+              <div className="text-[#999] font-inter text-sm">活动资讯</div>
             </div>
           </div>
 
