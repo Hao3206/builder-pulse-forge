@@ -47,6 +47,9 @@ export default function Index() {
       <SuccessCases />
       <Partners />
       <Footer />
+
+      {/* 开发模式下显示API调试信息 */}
+      {import.meta.env.DEV && <ApiDebug />}
     </div>
   );
 }
