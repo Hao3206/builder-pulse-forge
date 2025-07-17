@@ -78,7 +78,7 @@ export default function BusinessServices() {
             return (
               <div
                 key={index}
-                className={`relative ${isMiddleCard ? "w-[244px]" : "w-[156px]"} h-full rounded-lg overflow-hidden group cursor-pointer`}
+                className={`relative ${isMiddleCard ? "w-[244px]" : "w-[156px]"} h-full rounded-lg overflow-hidden group cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:z-10`}
               >
                 <img
                   src={service.image}
