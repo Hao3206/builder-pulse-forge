@@ -103,7 +103,7 @@ export default function NewsResources() {
             了解浙东环交所的最新资讯
           </h2>
           <p className="text-[#666] font-inter text-lg">
-            掌握碳交易政策动态，洞察行业发展趋势
+            掌握碳交易政���动态，洞察行业发展趋势
           </p>
         </div>
 
@@ -325,16 +325,29 @@ export default function NewsResources() {
               API状态 (开发模式)
             </h4>
             <div className="text-sm space-y-1">
-              <p className="text-blue-700">
-                精选新闻: {featuredLoading ? "加载中..." : "加载完成"}
+              <p
+                className={`${featuredError ? "text-red-700" : "text-blue-700"}`}
+              >
+                精选新闻:{" "}
+                {featuredLoading
+                  ? "加载中..."
+                  : featuredError
+                    ? `错误: ${featuredError.message}`
+                    : "加载完成"}
+              </p>
+              <p className={`${newsError ? "text-red-700" : "text-blue-700"}`}>
+                新闻列表:{" "}
+                {newsLoading
+                  ? "加载中..."
+                  : newsError
+                    ? `错误: ${newsError.message}`
+                    : "加载完成"}
               </p>
               <p className="text-blue-700">
-                新闻列表: {newsLoading ? "加载中..." : "加载完成"}
+                当前显示: {displayNewsData?.articles.length || 0} 条新闻
               </p>
-              {newsData?.articles && (
-                <p className="text-blue-700">
-                  当前显示: {newsData.articles.length} 条新闻
-                </p>
+              {(featuredError || newsError) && (
+                <p className="text-orange-700">正在使用fallback数据</p>
               )}
             </div>
           </div>
