@@ -287,35 +287,36 @@ export default function NewsResources() {
           ) : (
             <div className="col-span-full text-center py-12">
               <p className="text-gray-500 text-lg">
-                {selectedCategory ? "该分���下暂无资讯" : "暂无资讯内容"}
+                {selectedCategory ? "该分类下暂无资讯" : "暂无资讯内容"}
               </p>
             </div>
           )}
         </div>
 
         {/* Pagination */}
-        {newsData?.pagination && newsData.pagination.pages > 1 && (
-          <div className="mt-12 flex justify-center">
-            <div className="flex items-center gap-2">
-              <button
-                disabled={!newsData.pagination.hasPrev}
-                className="px-4 py-2 rounded border border-gray-300 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
-              >
-                上一页
-              </button>
-              <span className="px-4 py-2 text-gray-700">
-                第 {newsData.pagination.current} 页，共{" "}
-                {newsData.pagination.pages} 页
-              </span>
-              <button
-                disabled={!newsData.pagination.hasNext}
-                className="px-4 py-2 rounded border border-gray-300 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
-              >
-                下一页
-              </button>
+        {displayNewsData?.pagination &&
+          displayNewsData.pagination.pages > 1 && (
+            <div className="mt-12 flex justify-center">
+              <div className="flex items-center gap-2">
+                <button
+                  disabled={!displayNewsData.pagination.hasPrev}
+                  className="px-4 py-2 rounded border border-gray-300 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+                >
+                  上一页
+                </button>
+                <span className="px-4 py-2 text-gray-700">
+                  第 {displayNewsData.pagination.current} 页，共{" "}
+                  {displayNewsData.pagination.pages} 页
+                </span>
+                <button
+                  disabled={!displayNewsData.pagination.hasNext}
+                  className="px-4 py-2 rounded border border-gray-300 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+                >
+                  下一页
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
         {/* API Status Display (Development Mode) */}
         {import.meta.env.DEV && (
