@@ -7,14 +7,14 @@ const carouselData = [
     image:
       "https://images.unsplash.com/photo-1497436072909-f5e4be242e9b?w=1920&h=1080&fit=crop",
     title: "万泽时代作为国内新一代创新型数字创新",
-    subtitle: "围绕企业双碳数字化转型为能源企业提供解决方案",
+    subtitle: "围绕企业双碳数字化转型为能��企业提供解决方案",
   },
   {
     id: 2,
     image:
       "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&h=1080&fit=crop",
     title: "智慧能源管理平台助力企业降本增效",
-    subtitle: "通过数字化手段实现能源监测与优��管理",
+    subtitle: "通过数字化手段实现能源监测与优化管理",
   },
   {
     id: 3,
@@ -122,7 +122,7 @@ export default function Hero() {
               className={`w-5 h-1 rounded-full transition-all duration-300 ${
                 index === currentSlide
                   ? "bg-white"
-                  : "bg-white/52 hover:bg-white/70"
+                  : "bg-white/30 hover:bg-white/50 border border-white/40"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
