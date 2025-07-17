@@ -3,14 +3,16 @@ import {
   ProductServicesDropdown,
   SolutionsDropdown,
   NewsDropdown,
-  AboutDropdown,
 } from "./DropdownMenus";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   isScrolled?: boolean;
 }
 
 export default function Header({ isScrolled = false }: HeaderProps) {
+  const navigate = useNavigate();
+
   return (
     <header className="relative w-full">
       <div
@@ -45,7 +47,19 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               </div>
 
               <NewsDropdown isScrolled={isScrolled} />
-              <AboutDropdown isScrolled={isScrolled} />
+
+              <div
+                className="flex items-center justify-center gap-3 rounded-md cursor-pointer"
+                onClick={() => navigate("/about")}
+              >
+                <span
+                  className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
+                    isScrolled ? "text-[#333]" : "text-neutral-200"
+                  }`}
+                >
+                  关于我们
+                </span>
+              </div>
             </nav>
 
             {/* Right Side Actions */}
