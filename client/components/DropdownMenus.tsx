@@ -34,7 +34,7 @@ function Dropdown({ title, isActive = false, children }: DropdownProps) {
       {/* Dropdown Content */}
       {isOpen && (
         <div className="absolute top-full left-0 pt-2 z-50">
-          <div className="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden min-w-[1100px]">
+          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-[1440px] h-[506px]">
             {children}
           </div>
         </div>
@@ -46,13 +46,13 @@ function Dropdown({ title, isActive = false, children }: DropdownProps) {
 export function ProductServicesDropdown() {
   return (
     <Dropdown title="产品服务" isActive>
-      <div className="flex">
+      <div className="flex h-full">
         {/* Left Sidebar */}
-        <div className="w-[340px] bg-brand-green-50 p-8">
-          <h3 className="text-[#333] font-inter text-lg font-bold leading-5 tracking-[-0.1px] mb-4">
+        <div className="w-[340px] h-[506px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
+          <h3 className="text-[#333] font-inter text-[18px] font-bold leading-[20px] tracking-[-0.1px] mb-4">
             产品服务
           </h3>
-          <p className="text-[#666] font-inter text-sm font-normal leading-normal tracking-[-0.1px] mb-6">
+          <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
             描述性小文字阐述文字文字描述性小文字阐.。
           </p>
           <button className="flex items-center gap-2 text-brand-green font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
@@ -62,7 +62,7 @@ export function ProductServicesDropdown() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 p-8 grid grid-cols-3 gap-8">
+        <div className="w-[1100px] h-[506px] bg-white px-8 py-[30px] grid grid-cols-3 gap-8">
           {/* Column 1 */}
           <div className="space-y-8">
             <div>
