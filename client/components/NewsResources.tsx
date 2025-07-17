@@ -25,9 +25,9 @@ export default function NewsResources() {
   const fallbackNews = [
     {
       id: "fallback-1",
-      title: "浙���环交所助力企业实现碳中和目标",
+      title: "浙东环交所助力企业实现碳中和目标",
       summary:
-        "通过专业的碳管理服务和创新的交易机制，帮助企业建立完善的碳管理体系。",
+        "通过专业的碳管理服务和���新的交易机制，帮助企业建立完善的碳管理体系。",
       content: "",
       category: "company" as const,
       author: "浙东环交所",
@@ -107,8 +107,23 @@ export default function NewsResources() {
           </p>
         </div>
 
+        {/* Network Error Warning */}
+        {(featuredError || newsError) &&
+          (isNetworkError(featuredError) || isNetworkError(newsError)) && (
+            <div className="mb-8">
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-4 rounded-full bg-yellow-400"></div>
+                  <span className="text-yellow-800 font-medium">
+                    API服务暂时不可用，正在显示示例数据
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
+
         {/* Featured News */}
-        {featuredNews && featuredNews.length > 0 && (
+        {displayFeaturedNews && displayFeaturedNews.length > 0 && (
           <div className="mb-16">
             <h3 className="text-[#333] font-inter text-2xl font-bold mb-8">
               精选资讯
@@ -288,7 +303,7 @@ export default function NewsResources() {
                 上一页
               </button>
               <span className="px-4 py-2 text-gray-700">
-                第 {newsData.pagination.current} 页，共{" "}
+                第 {newsData.pagination.current} 页，���{" "}
                 {newsData.pagination.pages} 页
               </span>
               <button
