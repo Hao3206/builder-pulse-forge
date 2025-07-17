@@ -27,7 +27,8 @@ export default function Header({ isScrolled = false }: HeaderProps) {
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/1fee28a4f9031537e9b8b95943a60af33406ebb2?width=300"
             alt="浙东环交所 Logo"
-            className="w-[150px] h-[48px]"
+            className="w-[150px] h-[48px] cursor-pointer"
+            onClick={() => navigate("/")}
           />
 
           <div className="flex items-center gap-40">
