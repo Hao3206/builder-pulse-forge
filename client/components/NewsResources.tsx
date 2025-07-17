@@ -73,14 +73,14 @@ export default function NewsResources() {
 
             {/* Tab Navigation */}
             <div className="flex justify-between items-center mb-6">
-              <div className="flex gap-15">
+              <div className="flex gap-8">
                 <div className="flex flex-col">
                   <button className="text-brand-green font-inter text-xl font-bold leading-6 tracking-[-0.2px] pb-2">
                     政策解读
                   </button>
                   <div className="w-20 h-0.5 bg-brand-green" />
                 </div>
-                <button className="text-[#333] font-inter text-xl font-bold leading-6 tracking-[-0.2px] ml-15">
+                <button className="text-[#333] font-inter text-xl font-bold leading-6 tracking-[-0.2px]">
                   通知 广告
                 </button>
               </div>
@@ -92,7 +92,7 @@ export default function NewsResources() {
 
             {/* Featured Article */}
             <div className="border-b border-[#D6D6D6] pb-5 mb-6">
-              <div className="flex justify-between items-start gap-15">
+              <div className="flex justify-between items-start gap-8">
                 <div className="flex-1">
                   <h3 className="text-brand-green font-inter text-lg font-medium leading-6 tracking-[-0.18px] mb-2">
                     {newsItems[0].title}
@@ -108,16 +108,16 @@ export default function NewsResources() {
             </div>
 
             {/* News List */}
-            <div className="space-y-4">
+            <div className="space-y-1">
               {newsItems.slice(1).map((item, index) => (
                 <div
                   key={index}
                   className="flex justify-between items-center py-4"
                 >
-                  <h4 className="text-[#333] font-inter text-lg font-medium leading-6 tracking-[-0.18px] flex-1">
+                  <h4 className="text-[#333] font-inter text-lg font-medium leading-6 tracking-[-0.18px] flex-1 pr-8">
                     {item.title}
                   </h4>
-                  <span className="text-[#999] font-inter text-sm font-medium leading-6 tracking-[-0.14px]">
+                  <span className="text-[#999] font-inter text-sm font-medium leading-6 tracking-[-0.14px] whitespace-nowrap">
                     {item.date}
                   </span>
                 </div>
@@ -142,16 +142,16 @@ export default function NewsResources() {
             </div>
 
             {/* Dynamic News List */}
-            <div className="space-y-4 mb-8">
+            <div className="space-y-1 mb-8">
               {dynamicNews.map((item, index) => (
                 <div
                   key={index}
                   className="flex justify-between items-center py-2"
                 >
-                  <h4 className="text-[#333] font-inter text-lg font-medium leading-6 tracking-[-0.18px] flex-1">
+                  <h4 className="text-[#333] font-inter text-lg font-medium leading-6 tracking-[-0.18px] flex-1 pr-8">
                     {item.title}
                   </h4>
-                  <span className="text-[#999] font-inter text-sm font-medium leading-6 tracking-[-0.14px]">
+                  <span className="text-[#999] font-inter text-sm font-medium leading-6 tracking-[-0.14px] whitespace-nowrap">
                     {item.date}
                   </span>
                 </div>
