@@ -1,4 +1,10 @@
 import { Phone, Search, ChevronDown, Globe } from "lucide-react";
+import {
+  ProductServicesDropdown,
+  SolutionsDropdown,
+  NewsDropdown,
+  AboutDropdown,
+} from "./DropdownMenus";
 
 export default function Header() {
   return (
@@ -15,19 +21,8 @@ export default function Header() {
           <div className="flex items-center gap-40">
             {/* Navigation */}
             <nav className="flex items-center gap-8">
-              <div className="flex items-center justify-center gap-1.5 rounded-md">
-                <span className="text-white font-inter text-[15px] font-medium leading-[22px]">
-                  产品服务
-                </span>
-                <ChevronDown className="w-5 h-5 text-neutral-200" />
-              </div>
-
-              <div className="flex items-center justify-center gap-3 rounded-md">
-                <span className="text-neutral-200 font-inter text-[15px] font-medium leading-[22px]">
-                  解决方案
-                </span>
-                <ChevronDown className="w-5 h-5 text-neutral-200" />
-              </div>
+              <ProductServicesDropdown />
+              <SolutionsDropdown />
 
               <div className="flex items-center justify-center gap-3 rounded-md">
                 <span className="text-neutral-200 font-inter text-[15px] font-medium leading-[22px]">
@@ -35,19 +30,8 @@ export default function Header() {
                 </span>
               </div>
 
-              <div className="flex items-center justify-center gap-3 rounded-md">
-                <span className="text-neutral-200 font-inter text-[15px] font-medium leading-[22px]">
-                  资讯中心
-                </span>
-                <ChevronDown className="w-5 h-5 text-neutral-200" />
-              </div>
-
-              <div className="flex items-center justify-center gap-1.5 rounded-md">
-                <span className="text-white font-inter text-[15px] font-medium leading-[22px]">
-                  关于我们
-                </span>
-                <ChevronDown className="w-5 h-5 text-neutral-200" />
-              </div>
+              <NewsDropdown />
+              <AboutDropdown />
             </nav>
 
             {/* Right Side Actions */}
