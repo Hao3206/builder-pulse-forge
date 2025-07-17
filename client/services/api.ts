@@ -13,7 +13,8 @@ import {
 
 // API基础配置
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.PROD ? window.location.origin : "http://localhost:8080");
 
 // HTTP客户端类
 class ApiClient {
