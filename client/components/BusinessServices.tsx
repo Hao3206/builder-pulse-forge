@@ -8,37 +8,53 @@ export default function BusinessServices() {
         "增加点文案描述增加点文案描述增加点文案描述增加点文案描述增加点文案描述增加点文案描述",
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/7bb1fe9f262a0519faa5ffb370502b8d01792d9d?width=349",
-      featured: true,
+      icon: MessageCircleMore,
     },
     {
       title: "碳交易",
+      subtitle:
+        "专业的碳交易服务，助力企业实现碳资产价值最大化，提供交易策略和市场分析。",
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/016820fd6b8a92264e45eec769581861a334348a?width=546",
+      icon: MessageCircleMore,
     },
     {
       title: "碳金融",
+      subtitle:
+        "创新的碳金融产品和服务，为企业提供绿色融资解决方案和碳资产管理。",
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/ac321a0ee51299b257411524ffab412103ab7b2c?width=1329",
+      icon: MessageCircleMore,
     },
     {
       title: "碳信息化",
+      subtitle:
+        "数字化碳管理平台，实现碳数据的智能监测、分析和报告，提升管理效率。",
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/6a64cd50e1b9fc8390c4aaf934f7576ecfbaa7f2?width=632",
+      icon: MessageCircleMore,
     },
     {
       title: "碳足迹",
+      subtitle:
+        "全面的产品碳足迹评估和认证服务，帮助企业了解和优化产品生命周期碳排放。",
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/681c8a293aa285306001bad46de4183adcf195e3?width=2104",
+      icon: MessageCircleMore,
     },
     {
       title: "碳培训",
+      subtitle: "专业的碳管理培训课程，提升企业团队的双碳管理能力和专业水平。",
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0fa5766228890ff20bfed118baf1bbc6c23711f6?width=1338",
+      icon: MessageCircleMore,
     },
     {
       title: "零碳园区",
+      subtitle: "零碳园区规划和建设解决方案，打造绿色低碳的产业园区生态系统。",
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/d900a4c1d4408745c3bae28ab6d14e3468f7d624?width=1406",
+      icon: MessageCircleMore,
     },
   ];
 
