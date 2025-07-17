@@ -126,6 +126,14 @@ export const useFeaturedNews = () => {
     queryKey: queryKeys.featuredNews(),
     queryFn: () => withErrorHandling(() => newsService.getFeaturedNews()),
     staleTime: 5 * 60 * 1000, // 5分钟
+    retry: (failureCount, error) => {
+      // 网络错误重试3次，其他错误不重试
+      if (error?.message?.includes("Failed to fetch")) {
+        return failureCount < 3;
+      }
+      return false;
+    },
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 };
 
@@ -211,7 +219,7 @@ export const usePing = () => {
   return useQuery({
     queryKey: ["ping"],
     queryFn: () => withErrorHandling(() => commonService.ping()),
-    refetchInterval: 30 * 1000, // 30秒自���刷新
+    refetchInterval: 30 * 1000, // 30秒自动刷新
     staleTime: 0, // 立即过期，确保实时性
   });
 };
