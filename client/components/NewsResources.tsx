@@ -25,7 +25,7 @@ export default function NewsResources() {
   const fallbackNews = [
     {
       id: "fallback-1",
-      title: "浙东环交所助力企业实现碳中和目标",
+      title: "浙���环交所助力企业实现碳中和目标",
       summary:
         "通过专业的碳管理服务和创新的交易机制，帮助企业建立完善的碳管理体系。",
       content: "",
@@ -80,21 +80,19 @@ export default function NewsResources() {
     { key: "announcement", label: "通知广告", color: "bg-orange-100" },
   ];
 
-  // 错误处理
-  if (featuredError || newsError) {
+  // 检查是否是网络错误
+  const isNetworkError = (error: any) => {
     return (
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-            <h3 className="text-red-800 font-semibold mb-2">加载失败</h3>
-            <p className="text-red-600">
-              {featuredError?.message || newsError?.message || "网络连接异常"}
-            </p>
-          </div>
-        </div>
-      </section>
+      error?.message?.includes("Failed to fetch") ||
+      error?.message?.includes("fetch")
     );
-  }
+  };
+
+  // 如果是严重错误且没有fallback数据，显示错误信息
+  const shouldShowError =
+    (featuredError || newsError) &&
+    !isNetworkError(featuredError) &&
+    !isNetworkError(newsError);
 
   return (
     <section className="py-20 bg-gray-50">
@@ -173,7 +171,7 @@ export default function NewsResources() {
                         </div>
                       </div>
                       <button className="flex items-center gap-1 text-brand-green font-medium text-sm hover:text-brand-green/80 transition-colors">
-                        阅读���多
+                        阅读更多
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
