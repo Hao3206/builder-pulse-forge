@@ -73,12 +73,11 @@ export default function BusinessServices() {
           {/* All Services with Consistent Hover Effects */}
           {services.map((service, index) => {
             const IconComponent = service.icon;
-            const isMiddleCard = index === 1; // 碳交易 card is wider
 
             return (
               <div
                 key={index}
-                className={`relative ${isMiddleCard ? "w-[244px]" : "w-[156px]"} h-full rounded-lg overflow-hidden group cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:z-10`}
+                className="relative w-[156px] h-full rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-125 hover:z-10"
               >
                 <img
                   src={service.image}
