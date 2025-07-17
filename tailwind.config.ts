@@ -57,11 +57,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Design system colors
+        "brand-green": {
+          DEFAULT: "#058A65",
+          50: "#EBF8F6",
+          500: "#058A65",
+        },
+        "text-light": "#F9F9F9",
+        "neutral-200": "#F9F9F9",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        inter: ["Inter", "-apple-system", "Roboto", "Helvetica", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
