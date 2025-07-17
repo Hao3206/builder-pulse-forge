@@ -5,21 +5,39 @@ import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 export default function NewsResources() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
 
-  // 使用API hooks获取数据
-  const {
-    data: featuredNews,
-    isLoading: featuredLoading,
-    error: featuredError,
-  } = useFeaturedNews();
+  // 临时禁用API调用，使用模拟数据
+  const featuredNews = [];
+  const featuredLoading = false;
+  const featuredError = null;
 
-  const {
-    data: newsData,
-    isLoading: newsLoading,
-    error: newsError,
-  } = useNews({
-    category: selectedCategory || undefined,
-    limit: 6,
-  });
+  const newsData = {
+    articles: [],
+    pagination: {
+      current: 1,
+      total: 0,
+      pages: 0,
+      hasNext: false,
+      hasPrev: false,
+    },
+  };
+  const newsLoading = false;
+  const newsError = null;
+
+  // 使用API hooks获取数据 (临时注释)
+  // const {
+  //   data: featuredNews,
+  //   isLoading: featuredLoading,
+  //   error: featuredError,
+  // } = useFeaturedNews();
+
+  // const {
+  //   data: newsData,
+  //   isLoading: newsLoading,
+  //   error: newsError,
+  // } = useNews({
+  //   category: selectedCategory || undefined,
+  //   limit: 6,
+  // });
 
   const categories = [
     { key: "", label: "全部", color: "bg-gray-100" },
