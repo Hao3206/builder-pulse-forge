@@ -14,11 +14,11 @@ export default function Header({ isScrolled = false }: HeaderProps) {
   return (
     <header className="w-full">
       <div
-        className={`flex w-full h-[88px] py-5 px-40 justify-center items-center gap-2.5 transition-all duration-300 ${
+        className={`flex w-full h-[88px] py-5 px-20 justify-start items-center gap-2.5 transition-all duration-300 ${
           isScrolled ? "border-b border-[#DCDCDC]" : "border-b border-white/21"
         }`}
       >
-        <div className="flex items-center gap-[91px] px-8">
+        <div className="flex items-center gap-[50px] px-4">
           {/* Logo */}
           <img
             src={
