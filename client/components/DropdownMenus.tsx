@@ -67,10 +67,8 @@ function Dropdown({
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full mx-auto">
-            <div className="px-40">
-              <div className="px-8">{children}</div>
-            </div>
+          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full max-w-screen-2xl mx-auto">
+            {children}
           </div>
         </div>
       )}
@@ -380,7 +378,7 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
             <div>
               <div className="flex items-center gap-1 mb-2">
                 <span className="text-brand-green font-inter text-base font-normal leading-6 tracking-[-0.16px]">
-                  政策解读
+                  政策��读
                 </span>
                 <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
               </div>
