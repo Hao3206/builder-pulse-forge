@@ -314,14 +314,17 @@ export function SolutionsDropdown({
               </div>
 
               <div>
-                <div className="flex items-center gap-1 mb-2">
-                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px]">
+                <div
+                  className="flex items-center gap-1 mb-2 cursor-pointer"
+                  onClick={() => handleNavigation("/carbon-footprint")}
+                >
+                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
                     碳核算/碳足迹解决方案
                   </span>
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案描述性文字文案文案文案文案文案文案文案文案
+                  全面的碳足迹核算与管理解决方案，助力企业实现低碳发展
                 </p>
               </div>
             </div>
