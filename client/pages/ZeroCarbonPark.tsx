@@ -26,10 +26,10 @@ export default function ZeroCarbonPark() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative w-full h-[468px] bg-[#F0F8F6]">
+      <section className="relative w-full h-[468px] bg-white">
         {/* Background with shapes */}
-        <div className="absolute inset-0 top-[88px]">
-          <div className="w-full h-[380px] bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
+        <div className="absolute inset-0">
+          <div className="w-full h-[468px] bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
           <div
             className="absolute inset-0 bg-cover bg-center mix-blend-multiply"
             style={{
