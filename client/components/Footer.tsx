@@ -161,10 +161,10 @@ export default function Footer() {
 
           {/* Bottom Section */}
           <div className="flex flex-col gap-2.5 items-end">
-            <div className="text-white/67 font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
+            <div className="text-white font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full opacity-67">
               友情链接： 生态环境部
             </div>
-            <div className="text-white/67 font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
+            <div className="text-white font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full opacity-67">
               © 2025 ningbozhedong. All Rights Reserved.
               公安网备42010602001482号 ICP备13012389号-1
             </div>
