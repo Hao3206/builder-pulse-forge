@@ -32,19 +32,17 @@ export default function NewsDropdown({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div
-        className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer"
-        onClick={() => navigate("/news-center")}
-      >
+      <div className="flex items-center justify-center gap-1.5 rounded-md">
         <span
-          className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
+          className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 cursor-pointer ${
             isScrolled ? "text-[#333]" : "text-white"
           }`}
+          onClick={() => navigate("/news-center")}
         >
           资讯中心
         </span>
         <ChevronDown
-          className={`w-5 h-5 transition-all duration-300 ${
+          className={`w-5 h-5 transition-all duration-300 cursor-pointer ${
             isScrolled ? "text-[#333]" : "text-neutral-200"
           } ${isOpen ? "rotate-180" : ""}`}
         />
