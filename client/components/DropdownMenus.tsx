@@ -16,12 +16,26 @@ function Dropdown({
   children,
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 150); // 150ms delay before closing
+  };
 
   return (
     <div
       className="relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer">
         <span
@@ -173,7 +187,7 @@ export function ProductServicesDropdown({
           {/* Content under 碳信息化 */}
           <div className="absolute top-[64px] left-[776px] w-[210px] space-y-3">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              企业碳管理平台
+              企业���管理平台
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               区域双碳大脑
@@ -306,7 +320,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决���案描述性文字文案文案文案文案文案文案文案文案
+                  解决方案描述性文字文案文案文案文案文案文案文案文案
                 </p>
               </div>
             </div>
@@ -336,7 +350,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  全面的碳足迹核算与管理解决方��，助力企业实现低碳发展
+                  全面的碳足迹核算与管理解决方案，助力企业实现低碳发展
                 </p>
               </div>
             </div>
@@ -443,7 +457,7 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
                 典型案例
               </div>
               <div className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors">
-                客���见证
+                客户见证
               </div>
             </div>
           </div>
