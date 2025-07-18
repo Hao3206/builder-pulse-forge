@@ -64,21 +64,13 @@ function Dropdown({
       {isOpen && (
         <div
           className="fixed top-[88px] left-0 z-50 w-full"
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full">
             {children}
           </div>
         </div>
-      )}
-      {/* Invisible bridge to prevent hover gap */}
-      {isOpen && (
-        <div
-          className="absolute top-full left-0 w-full h-2 z-40"
-          onMouseEnter={() => setIsOpen(true)}
-          onMouseLeave={() => setIsOpen(false)}
-        />
       )}
     </div>
   );
@@ -187,7 +179,7 @@ export function ProductServicesDropdown({
           {/* Content under 碳信息化 */}
           <div className="absolute top-[64px] left-[776px] w-[210px] space-y-3">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              企业���管理平台
+              企业碳管理平台
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               区域双碳大脑
@@ -372,7 +364,9 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
             </h4>
             <div className="space-y-2">
               <div className="text-[#999] font-inter text-sm">最新政策解读</div>
-              <div className="text-[#999] font-inter text-sm">行业政策分析</div>
+              <div className="text-[#999] font-inter text-sm">
+                行业政策分���
+              </div>
             </div>
           </div>
 
