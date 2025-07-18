@@ -85,12 +85,12 @@ export function ProductServicesDropdown({
 }: DropdownComponentProps) {
   const navigate = useNavigate();
   return (
-    <Dropdown title="产品服务" isActive isScrolled={isScrolled}>
+    <Dropdown title="产品服务" isScrolled={isScrolled}>
       <div className="flex h-[506px]">
         {/* Left Sidebar */}
         <div className="w-[340px] h-[506px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
           <h3 className="text-[#333] font-inter text-[18px] font-bold leading-[20px] tracking-[-0.1px] mb-4">
-            产品服务
+            ���品服务
           </h3>
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
             描述性小文字阐述文字文字描述性小文字阐.。
