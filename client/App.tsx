@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Solution from "./pages/Solution";
 import CarbonFootprint from "./pages/CarbonFootprint";
+import NewsCenter from "./pages/NewsCenter";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
