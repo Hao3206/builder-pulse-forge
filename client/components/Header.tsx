@@ -16,7 +16,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
   return (
     <header className="sticky top-0 w-full z-50">
       <div
-        className={`flex w-full h-[88px] px-40 justify-center items-center transition-all duration-300 ${
+        className={`flex w-full h-[88px] py-5 px-40 justify-center items-center gap-2.5 transition-all duration-300 ${
           isScrolled
             ? "bg-white border-b border-[#DCDCDC]"
             : "bg-transparent border-b border-white/21"
