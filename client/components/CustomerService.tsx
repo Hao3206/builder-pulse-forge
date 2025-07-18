@@ -37,8 +37,11 @@ export default function CustomerService() {
           </div>
 
           {/* Vertical Text */}
-          <div className="text-white text-sm font-medium leading-none writing-mode-vertical-lr text-orientation-mixed">
-            联<br />系<br />客<br />服
+          <div className="text-white text-sm font-medium leading-[16.6px] flex flex-col items-center">
+            <span>联</span>
+            <span>系</span>
+            <span>客</span>
+            <span>服</span>
           </div>
         </button>
       </div>
@@ -53,11 +56,31 @@ export default function CustomerService() {
           ></div>
 
           {/* Popup Content */}
-          <div className="fixed right-[76px] top-1/2 transform -translate-y-1/2 z-50 w-[289px]">
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-0 relative">
+          <div className="fixed right-[76px] top-1/2 transform -translate-y-1/2 z-50 w-[289px] h-[208px]">
+            <div
+              className="bg-white rounded-2xl shadow-lg border border-[#E8E8E8] p-0 relative h-full"
+              style={{
+                filter: "drop-shadow(0px 4px 6.3px rgba(0, 0, 0, 0.07))",
+              }}
+            >
               {/* Speech bubble arrow pointing right */}
-              <div className="absolute right-[-8px] top-1/2 transform -translate-y-1/2">
-                <div className="w-0 h-0 border-l-8 border-l-white border-t-4 border-t-transparent border-b-4 border-b-transparent"></div>
+              <div className="absolute right-[-7px] top-1/2 transform -translate-y-1/2">
+                <svg
+                  width="8"
+                  height="14"
+                  viewBox="0 0 8 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 1C0 0.447715 0.447715 0 1 0H7L7 14H1C0.447715 14 0 13.5523 0 13V1Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M0.5 1C0.5 0.723858 0.723858 0.5 1 0.5H6.5V13.5H1C0.723858 13.5 0.5 13.2761 0.5 13V1Z"
+                    stroke="#E8E8E8"
+                  />
+                </svg>
               </div>
 
               {/* Contact Options */}
@@ -128,7 +151,7 @@ export default function CustomerService() {
                         微信客服
                       </div>
                       <div className="text-xs text-gray-500">
-                        添加微信，快速解决您的问题
+                        ���加微信，快速解决您的问题
                       </div>
                     </div>
                   </div>
@@ -202,7 +225,7 @@ export default function CustomerService() {
                         业务咨询
                       </div>
                       <div className="text-xs text-gray-500">
-                        问题留言，��们会尽快联系您
+                        问题留言，我们会尽快联系您
                       </div>
                     </div>
                   </div>
