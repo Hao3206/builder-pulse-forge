@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Search,
   Play,
@@ -10,6 +11,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function NewsCenter() {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeCategory, setActiveCategory] = useState("本所动态");
   const [searchQuery, setSearchQuery] = useState("");
