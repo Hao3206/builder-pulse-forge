@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <footer className="bg-[#058A65] py-16 px-28">
       <div className="max-w-screen-2xl mx-auto">
@@ -74,12 +77,18 @@ export default function Footer() {
               </div>
               <div className="flex flex-col gap-3">
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
-                  <div className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px]">
+                  <div
+                    className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors"
+                    onClick={() => navigate("/solution")}
+                  >
                     能碳管理系统解决方案
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
-                  <div className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px]">
+                  <div
+                    className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors"
+                    onClick={() => navigate("/zero-carbon-park")}
+                  >
                     零碳园区解决方案
                   </div>
                 </div>
@@ -89,7 +98,10 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
-                  <div className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px]">
+                  <div
+                    className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors"
+                    onClick={() => navigate("/carbon-footprint")}
+                  >
                     碳核算解决方案
                   </div>
                 </div>
@@ -147,7 +159,7 @@ export default function Footer() {
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
                   <div className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px]">
-                    共建平台
+                    共��平台
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
