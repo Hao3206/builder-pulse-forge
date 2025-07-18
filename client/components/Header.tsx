@@ -14,12 +14,10 @@ export default function Header({ isScrolled = false }: HeaderProps) {
   const navigate = useNavigate();
 
   return (
-    <header className="sticky top-0 w-full z-50">
+    <header className="w-full">
       <div
         className={`flex w-full h-[88px] py-5 px-40 justify-center items-center gap-2.5 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white border-b border-[#DCDCDC]"
-            : "bg-transparent border-b border-white/21"
+          isScrolled ? "border-b border-[#DCDCDC]" : "border-b border-white/21"
         }`}
       >
         <div className="flex items-center gap-[91px] px-8">
