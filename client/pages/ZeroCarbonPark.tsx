@@ -16,13 +16,17 @@ export default function ZeroCarbonPark() {
 
   return (
     <div className="min-h-screen bg-white font-inter">
+      {/* Sticky Header */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        }`}
+      >
+        <Header isScrolled={isScrolled} />
+      </div>
+
       {/* Hero Section */}
       <section className="relative w-full h-[468px] bg-[#F0F8F6]">
-        {/* Page Header */}
-        <div className="flex w-full h-[88px] py-5 px-40 justify-center items-center gap-2.5 border-b border-white/21 relative">
-          <Header isScrolled={false} />
-        </div>
-
         {/* Background with shapes */}
         <div className="absolute inset-0 top-[88px]">
           <div className="w-full h-[380px] bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
@@ -107,7 +111,7 @@ export default function ZeroCarbonPark() {
                 </div>
                 <div className="flex py-1 px-[14px] justify-center items-center gap-2.5 rounded-[6px] bg-[#F2F9F7]">
                   <div className="text-[#058461] font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
-                    碳汇开发
+                    碳汇开��
                   </div>
                 </div>
               </div>
