@@ -49,7 +49,7 @@ function Dropdown({
       {/* Dropdown Content - Full Width */}
       {isOpen && (
         <div
-          className="fixed top-[88px] left-0 pt-2 z-50 w-full"
+          className="fixed top-[88px] left-0 z-50 w-full"
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
         >
