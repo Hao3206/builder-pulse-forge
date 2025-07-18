@@ -231,10 +231,10 @@ export default function NewsCenter() {
               {/* Date */}
               <div className="flex items-start">
                 <div className="px-10 py-5 text-center">
-                  <div className="text-[26px] font-bold leading-[22px] text-[#333] font-['DIN_Alternate']">
+                  <div className="text-[26px] font-bold leading-[22px] text-[#333] font-mono">
                     {article.date}
                   </div>
-                  <div className="text-base font-bold leading-[22px] text-[#999] font-['DIN_Alternate'] mt-2">
+                  <div className="text-base font-bold leading-[22px] text-[#999] font-mono mt-2">
                     {article.year}
                   </div>
                 </div>
