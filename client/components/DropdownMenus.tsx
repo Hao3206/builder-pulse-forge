@@ -354,7 +354,7 @@ export function SolutionsDropdown({
 }
 
 export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
-    return (
+  return (
     <Dropdown title="资讯中心" isScrolled={isScrolled}>
       <div className="flex h-[266px]">
         {/* Left Sidebar */}
@@ -435,7 +435,7 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
                 <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
               </div>
               <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                解决方案描述性文��文
+                解决方案描述性文字文
               </p>
             </div>
             <div className="w-[280px] h-[170px] bg-[#D9D9D9]"></div>
