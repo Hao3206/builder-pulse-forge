@@ -44,7 +44,7 @@ function Dropdown({
               ? "text-brand-green"
               : isScrolled
                 ? "text-[#333]"
-                : "text-[#333]"
+                : "text-white"
           }`}
         >
           {title}
@@ -55,7 +55,7 @@ function Dropdown({
               ? "text-brand-green"
               : isScrolled
                 ? "text-[#333]"
-                : "text-[#333]"
+                : "text-white"
           } ${isOpen ? "rotate-180" : ""}`}
         />
       </div>
@@ -150,7 +150,7 @@ export function ProductServicesDropdown({
           {/* Content under 碳咨询 */}
           <div className="absolute top-[64px] left-[280px] w-[210px] space-y-3">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              绿色/零碳工厂创建
+              绿色/��碳工厂创建
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               CEAV产品碳排放核算与申报
