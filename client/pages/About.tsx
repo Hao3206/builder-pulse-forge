@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -6,6 +6,15 @@ import Footer from "../components/Footer";
 export default function About() {
   const [currentHonor, setCurrentHonor] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const honors = [
     {
@@ -294,7 +303,7 @@ export default function About() {
                   绿色贸易工作委员会
                 </h3>
                 <p className="text-[#666] font-inter text-base font-normal leading-[26px] tracking-[-0.16px] w-full">
-                  联合外贸企业提供碳排放管理和解决方案，帮助企业实现低碳化
+                  联合外贸企业提供碳排放管理和解决方案，帮助企业���现低碳化
                 </p>
               </div>
             </div>
