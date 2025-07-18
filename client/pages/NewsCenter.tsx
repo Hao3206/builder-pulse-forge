@@ -44,13 +44,6 @@ export default function NewsCenter() {
       year: "2025",
       title: "资讯标题文字文字文案文字文字文案",
       content:
-        "正文文案���字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
-    },
-    {
-      date: "06/17",
-      year: "2025",
-      title: "资讯标题文字文字文案文字文字文案",
-      content:
         "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
     },
     {
@@ -59,6 +52,13 @@ export default function NewsCenter() {
       title: "资讯标题文字文字文案文字文字文案",
       content:
         "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+    },
+    {
+      date: "06/17",
+      year: "2025",
+      title: "资讯标题文字文字文案文字文字文案",
+      content:
+        "正文文案文���习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
     },
     {
       date: "06/17",
@@ -226,11 +226,11 @@ export default function NewsCenter() {
           {articles.map((article, index) => (
             <div
               key={index}
-              className="flex items-start gap-10 py-10 border-b border-[#E5E5E7] last:border-b-0"
+              className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10 py-10 border-b border-[#E5E5E7] last:border-b-0"
             >
               {/* Date */}
-              <div className="flex items-start">
-                <div className="px-10 py-5 text-center">
+              <div className="flex items-start w-full lg:w-auto">
+                <div className="px-4 lg:px-10 py-5 text-center">
                   <div className="text-[26px] font-bold leading-[22px] text-[#333] font-mono">
                     {article.date}
                   </div>
