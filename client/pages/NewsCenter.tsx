@@ -37,13 +37,6 @@ export default function NewsCenter() {
       year: "2025",
       title: "资讯标题文字文字文案文字文字文案",
       content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最���显示两行....",
-    },
-    {
-      date: "06/17",
-      year: "2025",
-      title: "资讯标题文字文字文案文字文字文案",
-      content:
         "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
     },
     {
@@ -59,6 +52,13 @@ export default function NewsCenter() {
       title: "资讯标题文字文字文案文字文字文案",
       content:
         "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+    },
+    {
+      date: "06/17",
+      year: "2025",
+      title: "资讯标题文字文字文案文字文字文案",
+      content:
+        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案��正文文案文最多显示两行....",
     },
     {
       date: "06/17",
@@ -201,8 +201,8 @@ export default function NewsCenter() {
             </div>
 
             {/* Search */}
-            <div className="flex items-center gap-3">
-              <div className="flex items-center border border-[#E5E5E7] rounded-full px-3 py-3 bg-white w-[400px]">
+            <div className="flex items-center gap-3 w-full lg:w-auto">
+              <div className="flex items-center border border-[#E5E5E7] rounded-full px-3 py-3 bg-white w-full lg:w-[400px]">
                 <Search className="w-4 h-4 text-[#999] mr-2" />
                 <input
                   type="text"
