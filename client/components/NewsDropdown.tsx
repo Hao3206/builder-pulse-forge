@@ -36,7 +36,7 @@ export default function NewsDropdown({
             isScrolled ? "text-[#333]" : "text-white"
           }`}
         >
-          资讯中心
+          ���讯中心
         </span>
         <ChevronDown
           className={`w-5 h-5 transition-all duration-300 ${
@@ -70,8 +70,8 @@ export default function NewsDropdown({
 
               {/* Main Content */}
               <div className="flex-1 relative">
-                {/* Left Column */}
-                <div className="absolute left-8 top-[30px]">
+                {/* First Column - 政策解读 & 新闻资讯 */}
+                <div className="absolute left-[32px] top-[30px]">
                   <div className="flex items-center gap-1 mb-2">
                     <span className="text-[#058A65] font-inter text-base font-medium leading-6 tracking-[-0.16px]">
                       政策解读
@@ -83,7 +83,7 @@ export default function NewsDropdown({
                   </p>
                 </div>
 
-                <div className="absolute left-8 bottom-[30px]">
+                <div className="absolute left-[32px] top-[144px]">
                   <div className="flex items-center gap-1 mb-2">
                     <span className="text-[#058A65] font-inter text-base font-medium leading-6 tracking-[-0.16px]">
                       新闻资讯
@@ -95,7 +95,7 @@ export default function NewsDropdown({
                   </p>
                 </div>
 
-                {/* Middle Column */}
+                {/* Second Column - 本所动态 & 知识专栏 */}
                 <div className="absolute left-[262px] top-[30px]">
                   <div className="flex items-center gap-1 mb-2">
                     <span className="text-[#058A65] font-inter text-base font-medium leading-6 tracking-[-0.16px]">
@@ -108,7 +108,7 @@ export default function NewsDropdown({
                   </p>
                 </div>
 
-                <div className="absolute left-[262px] bottom-[30px]">
+                <div className="absolute left-[262px] top-[144px]">
                   <div className="flex items-center gap-1 mb-2">
                     <span className="text-[#058A65] font-inter text-base font-medium leading-6 tracking-[-0.16px]">
                       知识专栏
@@ -120,9 +120,9 @@ export default function NewsDropdown({
                   </p>
                 </div>
 
-                {/* Right Column */}
-                <div className="absolute right-[112px] top-[30px]">
-                  <div className="flex items-center gap-1 mb-4">
+                {/* Third Column - 通知公告 & Gray Area */}
+                <div className="absolute left-[492px] top-[30px]">
+                  <div className="flex items-center gap-1 mb-2">
                     <span className="text-[#058A65] font-inter text-base font-medium leading-6 tracking-[-0.16px]">
                       通知公告
                     </span>
@@ -131,9 +131,10 @@ export default function NewsDropdown({
                   <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px] w-[180px] mb-4">
                     解决方案描述性文字文
                   </p>
-                  {/* Gray placeholder area */}
-                  <div className="w-[280px] h-[170px] bg-[#D9D9D9] rounded"></div>
                 </div>
+
+                {/* Gray placeholder area - positioned based on Figma coordinates */}
+                <div className="absolute right-[112px] top-[48px] w-[280px] h-[170px] bg-[#D9D9D9]"></div>
               </div>
             </div>
           </div>
