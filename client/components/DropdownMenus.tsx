@@ -97,7 +97,7 @@ export function ProductServicesDropdown({
             描述性小文字阐述文字文字描述性小文字阐.。
           </p>
           <button className="flex items-center gap-2 text-brand-green font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
-            更��内容
+            更多内容
             <ChevronRight className="w-5 h-5 -rotate-90" />
           </button>
         </div>
@@ -362,7 +362,7 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
         {/* Left Sidebar */}
         <div className="w-[340px] bg-[#EBF8F6] p-8">
           <h3 className="text-[#333] font-inter text-lg font-bold leading-5 tracking-[-0.1px] mb-4">
-            资讯中���
+            资讯中心
           </h3>
           <p className="text-[#666] font-inter text-sm font-normal leading-normal tracking-[-0.1px] mb-6">
             获取深度内容，了解最新动态。
