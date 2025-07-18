@@ -40,7 +40,7 @@ export default function ZeroCarbonPark() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex w-[1280px] mx-auto py-20 px-[30px] flex-col justify-center items-center">
+        <div className="relative z-10 flex w-[1280px] mx-auto py-20 px-[30px] pt-[108px] flex-col justify-center items-center">
           <div className="flex w-[640px] flex-col items-center gap-6">
             <div className="flex flex-col items-center gap-12 w-full">
               <div className="flex flex-col items-center gap-6 w-full">
@@ -111,7 +111,7 @@ export default function ZeroCarbonPark() {
                 </div>
                 <div className="flex py-1 px-[14px] justify-center items-center gap-2.5 rounded-[6px] bg-[#F2F9F7]">
                   <div className="text-[#058461] font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
-                    碳汇开��
+                    碳汇开发
                   </div>
                 </div>
               </div>
