@@ -49,7 +49,7 @@ function Dropdown({
       {/* Dropdown Content - Full Width */}
       {isOpen && (
         <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
-          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-screen max-w-[1440px]">
+          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-[1440px]">
             {children}
           </div>
         </div>
