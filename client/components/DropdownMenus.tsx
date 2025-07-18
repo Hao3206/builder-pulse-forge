@@ -102,7 +102,7 @@ export function ProductServicesDropdown({
 
         {/* Main Content */}
         <div className="relative flex-1 h-[506px] bg-white">
-          {/* Row 1 - Top positioned elements */}
+          {/* Row 1 - Top positioned elements - positions from Figma: 372px, 620px, 868px, 1116px minus 340px sidebar = 32px, 280px, 528px, 776px */}
           <div className="absolute top-[30px] left-[32px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
               碳交易
@@ -249,7 +249,7 @@ export function ProductServicesDropdown({
               零碳园区解决方案
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              其他低/零碳解决方���
+              其他低/零碳解决方案
             </div>
           </div>
         </div>
@@ -312,7 +312,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案描述性文字文案文案文案文案文案文案文案文案
+                  解决方��描述性文字文案文案文案文案文案文案文案文案
                 </p>
               </div>
             </div>
@@ -342,7 +342,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  全面的碳足迹核算与管理解决方�����，助力企业实现低碳发展
+                  全面的碳足迹核算与管理解决方���，助力企业实现低碳发展
                 </p>
               </div>
             </div>
