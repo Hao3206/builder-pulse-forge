@@ -120,7 +120,10 @@ export function SolutionsDropdown({
           </div>
 
           <div className="absolute left-[369px] top-[30px] flex items-center gap-1">
-            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px]">
+            <span
+              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
+              onClick={() => handleNavigation("/zero-carbon-park")}
+            >
               零碳园区解决方案
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
