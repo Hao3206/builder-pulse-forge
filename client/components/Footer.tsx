@@ -85,7 +85,7 @@ export default function Footer() {
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
                   <div className="text-white/70 font-inter text-base font-medium leading-6 tracking-[-0.16px]">
-                    双碳检测解���方案
+                    双碳检测解决方案
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
@@ -111,7 +111,7 @@ export default function Footer() {
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
                   <div className="text-white/70 font-inter text-base font-medium leading-6 tracking-[-0.16px]">
-                    新闻���讯
+                    新闻资讯
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
@@ -161,10 +161,10 @@ export default function Footer() {
 
           {/* Bottom Section */}
           <div className="flex flex-col gap-2.5 items-end">
-            <div className="text-white/67 font-inter text-base font-medium leading-6 tracking-[-0.16px] w-full">
+            <div className="text-white/67 font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
               友情链接： 生态环境部
             </div>
-            <div className="text-white/67 font-inter text-base font-medium leading-6 tracking-[-0.16px] w-full">
+            <div className="text-white/67 font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
               © 2025 ningbozhedong. All Rights Reserved.
               公安网备42010602001482号 ICP备13012389号-1
             </div>
