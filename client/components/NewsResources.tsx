@@ -1,9 +1,11 @@
 import { useFeaturedNews, useNews } from "../hooks/useApi";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 
 export default function NewsResources() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const navigate = useNavigate();
 
   // 使用API hooks获取数据，添加错误处理
   const {
@@ -185,7 +187,10 @@ export default function NewsResources() {
                           ))}
                         </div>
                       </div>
-                      <button className="flex items-center gap-1 text-brand-green font-medium text-sm hover:text-brand-green/80 transition-colors">
+                      <button
+                        onClick={() => navigate(`/news-detail/${article.id}`)}
+                        className="flex items-center gap-1 text-brand-green font-medium text-sm hover:text-brand-green/80 transition-colors"
+                      >
                         阅读更多
                         <ArrowRight className="w-4 h-4" />
                       </button>
@@ -277,7 +282,10 @@ export default function NewsResources() {
                     <span className="text-gray-500 text-xs">
                       {article.readTime}分钟阅读
                     </span>
-                    <button className="text-brand-green font-medium text-sm hover:text-brand-green/80 transition-colors">
+                    <button
+                      onClick={() => navigate(`/news-detail/${article.id}`)}
+                      className="text-brand-green font-medium text-sm hover:text-brand-green/80 transition-colors"
+                    >
                       查看详情
                     </button>
                   </div>
