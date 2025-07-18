@@ -35,7 +35,7 @@ export default function NewsDropdown({
       <div className="flex items-center justify-center gap-1.5 rounded-md">
         <span
           className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 cursor-pointer ${
-            isScrolled ? "text-[#333]" : "text-[#333]"
+            isScrolled ? "text-[#333]" : "text-white"
           }`}
           onClick={() => navigate("/news-center")}
         >
@@ -43,7 +43,7 @@ export default function NewsDropdown({
         </span>
         <ChevronDown
           className={`w-5 h-5 transition-all duration-300 cursor-pointer ${
-            isScrolled ? "text-[#333]" : "text-[#333]"
+            isScrolled ? "text-[#333]" : "text-white"
           } ${isOpen ? "rotate-180" : ""}`}
         />
       </div>
