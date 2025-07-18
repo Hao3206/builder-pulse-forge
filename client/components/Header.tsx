@@ -14,7 +14,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
   const navigate = useNavigate();
 
   return (
-    <header className="relative w-full">
+    <header className="sticky top-0 w-full z-50">
       <div
         className={`flex w-full h-[88px] px-40 justify-center items-center transition-all duration-300 ${
           isScrolled
