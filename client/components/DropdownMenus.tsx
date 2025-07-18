@@ -48,7 +48,10 @@ function Dropdown({
 
       {/* Dropdown Content - Full Width */}
       {isOpen && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+        <div
+          className="absolute top-full left-0 pt-2 z-50"
+          style={{ left: "-192px" }}
+        >
           <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-screen max-w-screen-xl min-w-[1200px]">
             {children}
           </div>
@@ -362,7 +365,7 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
 
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              本所动态
+              本所动��
             </h4>
             <div className="space-y-2">
               <div className="text-[#999] font-inter text-sm">最新动态</div>
