@@ -67,7 +67,7 @@ function Dropdown({
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full max-w-screen-2xl mx-auto">
+          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full max-w-[1440px] mx-auto ml-[80px]">
             {children}
           </div>
         </div>
