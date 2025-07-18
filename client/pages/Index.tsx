@@ -25,8 +25,14 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-white font-inter">
-      {/* Header */}
-      <Header isScrolled={isScrolled} />
+      {/* Sticky Header */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        }`}
+      >
+        <Header isScrolled={isScrolled} />
+      </div>
 
       {/* Hero Section */}
       <Hero />
