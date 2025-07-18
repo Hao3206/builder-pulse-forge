@@ -14,11 +14,11 @@ export default function Header({ isScrolled = false }: HeaderProps) {
   return (
     <header className="w-full">
       <div
-        className={`flex w-full h-[88px] py-5 px-40 justify-center items-center gap-2.5 transition-all duration-300 ${
+        className={`flex w-full h-[88px] py-5 px-20 justify-start items-center gap-2.5 transition-all duration-300 ${
           isScrolled ? "border-b border-[#DCDCDC]" : "border-b border-white/21"
         }`}
       >
-        <div className="flex items-center gap-[91px] px-8">
+        <div className="flex items-center gap-[50px] px-4">
           {/* Logo */}
           <img
             src={
@@ -27,11 +27,11 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                 : "https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
             }
             alt="浙东环交所 Logo"
-            className="w-[150px] h-[48px] cursor-pointer"
+            className="w-[157px] h-[50px] cursor-pointer"
             onClick={() => navigate("/")}
           />
 
-          <div className="flex items-center gap-[160px]">
+          <div className="flex items-center gap-[60px]">
             {/* Navigation */}
             <nav className="flex items-center gap-8 whitespace-nowrap">
               <ProductServicesDropdown isScrolled={isScrolled} />
@@ -64,16 +64,16 @@ export default function Header({ isScrolled = false }: HeaderProps) {
             </nav>
 
             {/* Right Side Actions */}
-            <div className="flex items-start gap-[30px]">
+            <div className="flex justify-end items-start gap-5">
               {/* Phone */}
-              <div className="flex items-center gap-[7px]">
+              <div className="w-[139px] h-[22px] relative">
                 <Phone
-                  className={`w-5 h-5 transition-colors duration-300 ${
+                  className={`w-5 h-5 absolute left-0 top-0.5 transition-colors duration-300 ${
                     isScrolled ? "text-[#333]" : "text-white"
                   }`}
                 />
                 <span
-                  className={`font-inter text-[15px] font-normal leading-[22px] transition-colors duration-300 ${
+                  className={`absolute left-[27px] top-0 w-[112px] h-[22px] font-inter text-[15px] font-normal leading-[22px] transition-colors duration-300 ${
                     isScrolled ? "text-[#333]" : "text-white"
                   }`}
                 >
@@ -82,7 +82,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               </div>
 
               {/* Language Selector */}
-              <div className="flex items-center gap-2 px-0.5">
+              <div className="flex w-[42px] px-0.5 items-center gap-2">
                 <Globe
                   className={`w-5 h-5 transition-colors duration-300 ${
                     isScrolled ? "text-[#333]" : "text-white"

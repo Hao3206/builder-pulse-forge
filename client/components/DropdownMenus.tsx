@@ -67,7 +67,7 @@ function Dropdown({
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full max-w-screen-2xl mx-auto">
+          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full">
             {children}
           </div>
         </div>
@@ -102,7 +102,7 @@ export function ProductServicesDropdown({
 
         {/* Main Content */}
         <div className="relative flex-1 h-[506px] bg-white">
-          {/* Row 1 - Top positioned elements */}
+          {/* Row 1 - Top positioned elements - positions from Figma: 372px, 620px, 868px, 1116px minus 340px sidebar = 32px, 280px, 528px, 776px */}
           <div className="absolute top-[30px] left-[32px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
               碳交易
@@ -312,7 +312,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案描述性文字文案文案文案文案文案文案文案文案
+                  解决方��描述性文字文案文案文案文案文案文案文案文案
                 </p>
               </div>
             </div>
