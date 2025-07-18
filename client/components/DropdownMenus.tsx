@@ -137,7 +137,7 @@ export function ProductServicesDropdown({
               地方碳普惠交易
             </div>
             <div className="text-brand-green font-inter text-[14px] leading-5 tracking-[-0.1px] bg-[rgba(236,248,246,0.8)] rounded-[4px] px-3 py-1 w-[218px]">
-              CCER资产开发与��易
+              CCER资产开发与交易
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               绿证交易
@@ -249,7 +249,7 @@ export function ProductServicesDropdown({
               零碳园区解决方案
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              其他���/零碳解决方案
+              其他低/零碳解决方案
             </div>
           </div>
         </div>
@@ -439,50 +439,6 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
               </p>
             </div>
             <div className="w-[280px] h-[170px] bg-[#D9D9D9]"></div>
-          </div>
-        </div>
-      </div>
-    </Dropdown>
-          <div>
-            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              政策解读
-            </h4>
-            <div className="space-y-2">
-              <div className="text-[#999] font-inter text-sm">最新政策解读</div>
-              <div className="text-[#999] font-inter text-sm">
-                行业政策分���
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              新闻资讯
-            </h4>
-            <div className="space-y-2">
-              <div className="text-[#999] font-inter text-sm">行业动态</div>
-              <div className="text-[#999] font-inter text-sm">企业新闻</div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              本所动态
-            </h4>
-            <div className="space-y-2">
-              <div className="text-[#999] font-inter text-sm">最新动态</div>
-              <div className="text-[#999] font-inter text-sm">活动资讯</div>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              通知广告
-            </h4>
-            <div className="space-y-2">
-              <div className="text-[#999] font-inter text-sm">重���通知</div>
-              <div className="text-[#999] font-inter text-sm">公告信息</div>
-            </div>
           </div>
         </div>
       </div>
