@@ -44,7 +44,7 @@ function Dropdown({
               ? "text-brand-green"
               : isScrolled
                 ? "text-[#333]"
-                : "text-white"
+                : "text-[#333]"
           }`}
         >
           {title}
@@ -55,7 +55,7 @@ function Dropdown({
               ? "text-brand-green"
               : isScrolled
                 ? "text-[#333]"
-                : "text-neutral-200"
+                : "text-[#333]"
           } ${isOpen ? "rotate-180" : ""}`}
         />
       </div>
