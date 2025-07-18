@@ -11,6 +11,7 @@ export default function NewsDropdown({
 }: NewsDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
