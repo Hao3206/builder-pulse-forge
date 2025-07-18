@@ -71,7 +71,7 @@ export default function Solution() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section - 零碳园区建设理念 */}
       <section className="w-full py-[88px] px-[112px] flex flex-col justify-center items-center gap-16 bg-[rgba(5,138,101,0.06)]">
         <div className="flex max-w-[1280px] flex-col justify-center items-center gap-3 w-full">
           <div className="flex w-[800px] flex-col justify-center items-center gap-2">
@@ -86,7 +86,7 @@ export default function Solution() {
           </div>
         </div>
         <div className="flex items-start content-start gap-8 w-full flex-wrap max-w-[1216px]">
-          {/* Feature 1 */}
+          {/* Feature 1 - 绿色低碳 */}
           <div className="flex h-[300px] min-w-[320px] py-[34px] px-8 flex-col items-start gap-5 flex-1 rounded-xl bg-white">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/46e33197f9c96c898d50fb066b9ce8b72588c437?width=96"
@@ -120,7 +120,7 @@ export default function Solution() {
             </div>
           </div>
 
-          {/* Feature 2 */}
+          {/* Feature 2 - 智慧运营 */}
           <div className="flex h-[300px] min-w-[320px] py-[34px] px-8 flex-col items-start gap-5 flex-1 rounded-xl bg-white">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/9607aca296eceee88b082d337783c0d911d6abe3?width=96"
@@ -132,7 +132,7 @@ export default function Solution() {
                 智慧运营
               </h3>
               <p className="text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                基于数字孪生技术，构建园区碳管理智慧大脑，实现精细化运���
+                基于数字孪生技术，构建园区碳管理智慧大脑，实现精细化运营
               </p>
               <div className="flex items-start gap-2.5 flex-wrap">
                 <div className="flex py-1 px-[14px] justify-center items-center gap-2.5 rounded-md bg-[#F2F9F7]">
@@ -154,7 +154,7 @@ export default function Solution() {
             </div>
           </div>
 
-          {/* Feature 3 */}
+          {/* Feature 3 - 循环经济 */}
           <div className="flex h-[300px] min-w-[320px] py-[34px] px-8 flex-col items-start gap-5 flex-1 rounded-xl bg-white">
             <div className="flex w-12 h-12 p-2 justify-center items-center rounded-lg bg-[#058460]">
               <svg
@@ -200,7 +200,7 @@ export default function Solution() {
         </div>
       </section>
 
-      {/* Path Section */}
+      {/* Path Section - 零碳园区建设路径 */}
       <section className="w-full h-[550px] relative bg-[#058A65]">
         {/* Background SVG */}
         <svg
@@ -232,7 +232,7 @@ export default function Solution() {
             <div className="flex w-[800px] flex-col justify-center items-center gap-2">
               <div className="flex flex-col items-center gap-4 w-full">
                 <h2 className="text-white text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.48px] w-full">
-                  零���园区建设路径
+                  零碳园区建设路径
                 </h2>
                 <p className="text-white/80 text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.18px] w-full">
                   科学规划、分步实施的全流程解决方案
@@ -244,79 +244,98 @@ export default function Solution() {
 
         {/* Process Steps */}
         <div className="absolute left-[112px] top-[270px] w-[1216px] flex justify-between items-center">
-          {["碳盘查诊断", "减排规划", "技术实施", "监测优化", "认证验收"].map(
-            (step, index) => (
-              <div key={index} className="flex flex-col items-center gap-4">
-                {/* Step Icon */}
-                <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.36996 14.8856L29.6173 2.82137C31.5231 1.7392 33.8674 1.78232 35.7322 2.93383L55.0328 14.8519C56.8029 15.9449 57.8804 17.8768 57.8804 19.957V43.0749C57.8804 45.0847 56.8741 46.9611 55.1999 48.073L35.8923 60.896C33.9499 62.1861 31.4358 62.2339 29.4457 61.0186L8.20537 48.0472C6.42096 46.9575 5.33252 45.0174 5.33252 42.9265V20.1032C5.33252 17.9442 6.49249 15.9517 8.36996 14.8856Z"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M13.2346 34.1641H19.0251C19.3871 34.1641 19.7208 33.9685 19.8976 33.6527L22.873 28.3395C23.2778 27.6166 24.3359 27.6714 24.6638 28.4323L30.3048 41.5195C30.6812 42.3926 31.949 42.2972 32.1904 41.3775L37.0149 22.9986C37.264 22.0495 38.5887 21.9896 38.9225 22.9124L42.7536 33.5042C42.8968 33.9002 43.2728 34.1641 43.6939 34.1641H49.9762"
-                      stroke="white"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-
-                {/* Step Title */}
-                <div className="text-white text-center font-inter text-lg font-medium leading-[26px] tracking-[-0.18px]">
-                  {step}
-                </div>
-
-                {/* Step Description */}
-                <div className="w-[151px] text-white/70 text-center font-inter text-sm font-normal leading-[22px] tracking-[-0.14px]">
-                  全面评估园区碳排放现状，识别减排潜力
-                </div>
-
-                {/* Arrow */}
-                {index < 4 && (
-                  <svg
-                    className="absolute left-[200px] top-8"
-                    width="180"
-                    height="14"
-                    viewBox="0 0 180 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1 7H179"
-                      stroke="white"
-                      strokeLinecap="round"
-                      strokeDasharray="2 2"
-                    />
-                    <path
-                      d="M90 1L94.625 6.625L90 12.375"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M102.25 2.8125L106 6.625L102.25 10.625"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                )}
+          {[
+            {
+              title: "碳盘查诊断",
+              description: "全面评估园区碳排放现状，识别减排潜力",
+            },
+            {
+              title: "减排规划",
+              description: "全面评估园区碳排放现状，识别减排潜力",
+            },
+            {
+              title: "技术实施",
+              description: "全面评估园区碳排放现状，识别减排潜力",
+            },
+            {
+              title: "监测优化",
+              description: "全面评估园区碳排放现状，识别减排潜力",
+            },
+            {
+              title: "认证验收",
+              description: "全面评估园区碳排放现状，识别减排潜力",
+            },
+          ].map((step, index) => (
+            <div key={index} className="flex flex-col items-center gap-4">
+              {/* Step Icon */}
+              <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center">
+                <svg
+                  className="w-8 h-8"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.36996 14.8856L29.6173 2.82137C31.5231 1.7392 33.8674 1.78232 35.7322 2.93383L55.0328 14.8519C56.8029 15.9449 57.8804 17.8768 57.8804 19.957V43.0749C57.8804 45.0847 56.8741 46.9611 55.1999 48.073L35.8923 60.896C33.9499 62.1861 31.4358 62.2339 29.4457 61.0186L8.20537 48.0472C6.42096 46.9575 5.33252 45.0174 5.33252 42.9265V20.1032C5.33252 17.9442 6.49249 15.9517 8.36996 14.8856Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M13.2346 34.1641H19.0251C19.3871 34.1641 19.7208 33.9685 19.8976 33.6527L22.873 28.3395C23.2778 27.6166 24.3359 27.6714 24.6638 28.4323L30.3048 41.5195C30.6812 42.3926 31.949 42.2972 32.1904 41.3775L37.0149 22.9986C37.264 22.0495 38.5887 21.9896 38.9225 22.9124L42.7536 33.5042C42.8968 33.9002 43.2728 34.1641 43.6939 34.1641H49.9762"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </div>
-            ),
-          )}
+
+              {/* Step Title */}
+              <div className="text-white text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.18px]">
+                {step.title}
+              </div>
+
+              {/* Step Description */}
+              <div className="w-[151px] text-white/70 text-center font-inter text-sm font-normal leading-[22px] tracking-[-0.14px]">
+                {step.description}
+              </div>
+
+              {/* Arrow */}
+              {index < 4 && (
+                <svg
+                  className="absolute left-[200px] top-8"
+                  width="180"
+                  height="14"
+                  viewBox="0 0 180 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 7H179"
+                    stroke="white"
+                    strokeLinecap="round"
+                    strokeDasharray="2 2"
+                  />
+                  <path
+                    d="M90 1L94.625 6.625L90 12.375"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M102.25 2.8125L106 6.625L102.25 10.625"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Core Capabilities Section */}
+      {/* Core Capabilities Section - 我们的核心能力 */}
       <section className="w-full py-16 flex flex-col justify-center items-center gap-16 bg-white">
         <div className="w-[1216px] px-8 flex flex-col justify-center items-center gap-3 mx-auto">
           <div className="flex w-[800px] flex-col justify-center items-center gap-2">
@@ -325,13 +344,13 @@ export default function Solution() {
                 我们的核心能力
               </h2>
               <p className="text-[#858C95] text-center font-inter text-base font-normal leading-6 tracking-[-0.1px] w-full">
-                ��方位支持园区低碳转型的专业服务
+                全方位支持园区低碳转型的专业服务
               </p>
             </div>
           </div>
         </div>
 
-        <div className="w-[1216px] mx-auto mt-16 space-y-16">
+        <div className="w-[1216px] mx-auto space-y-16">
           {/* Carbon Portrait & Diagnosis */}
           <div className="flex items-center gap-[118px]">
             <div className="flex w-[528px] h-[462px] justify-center items-center relative">
@@ -374,7 +393,7 @@ export default function Solution() {
                     碳画像与诊断
                   </h3>
                   <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
-                    基于全生命周期评估方法，构建园区碳画像，精准识别减排重点领域和��键环节，为低碳转型提供科学依据。
+                    基于全生命周期评估方法，构建园区碳画像，精准识别减排重点领域和关键环节，为低碳转型提供科学依据。
                   </p>
                 </div>
               </div>
@@ -439,7 +458,7 @@ export default function Solution() {
                     能源运营优化
                   </h3>
                   <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
-                    整合分布式能源、储能系统和柔性负荷，��建多能互补的智慧能源系统，降低能源成本与碳排放。
+                    整合分布式能源、储能系统和柔性负荷，构建多能互补的智慧能源系统，降低能源成本与碳排放。
                   </p>
                 </div>
               </div>
@@ -453,128 +472,7 @@ export default function Solution() {
         </div>
       </section>
 
-      {/* Additional Capabilities Sections */}
-      <section className="w-full py-16 bg-gray-50">
-        <div className="max-w-[1216px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
-                  碳画像与诊断
-                </h2>
-                <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
-                  基于全生命周期评估方法，构建园区碳画像，精准识别减排重点领域和��键环节，为低碳转型提供科学依据。通过专业的碳排放监测和数据分析，帮助园区了解当前碳足迹状况。
-                </p>
-              </div>
-              <button className="px-6 py-3 bg-[#058A65] text-white rounded-full font-inter text-[15px] font-bold hover:bg-[#047856] transition-colors">
-                咨询详情
-              </button>
-            </div>
-
-            {/* Right Visual */}
-            <div className="relative w-full h-[400px] bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-[#058A65] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-12 h-12 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                  </svg>
-                </div>
-                <h3 className="text-[#058A65] font-bold text-xl mb-2">
-                  碳排放监测
-                </h3>
-                <p className="text-gray-600">实时监测与数据分析</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full py-16 bg-white">
-        <div className="max-w-[1216px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Visual */}
-            <div className="relative w-full h-[400px] bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-[#058A65] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-12 h-12 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-[#058A65] font-bold text-xl mb-2">
-                  数字孪生平台
-                </h3>
-                <p className="text-gray-600">智能化管理与优化</p>
-              </div>
-            </div>
-
-            {/* Right Content */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
-                  数��孪生平台
-                </h2>
-                <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
-                  构建园区数字孪生体，实现碳排放实时监测、预测预警和优化调控，提升碳管理精细化水平。通过AI技术和大数据分析，为园区提供智慧化的碳管理解决方案。
-                </p>
-              </div>
-              <button className="px-6 py-3 bg-[#058A65] text-white rounded-full font-inter text-[15px] font-bold hover:bg-[#047856] transition-colors">
-                了解方案
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full py-16 bg-gray-50">
-        <div className="max-w-[1216px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
-                  能源运营优化
-                </h2>
-                <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
-                  整合分布式能源、储能系统和柔性负荷，构建多能互补的智慧能源系统，降低能源成本与碳排放。通过精细化能源管理，实现园区绿色可持续发展。
-                </p>
-              </div>
-              <button className="px-6 py-3 bg-[#058A65] text-white rounded-full font-inter text-[15px] font-bold hover:bg-[#047856] transition-colors">
-                获取方案
-              </button>
-            </div>
-
-            {/* Right Visual */}
-            <div className="relative w-full h-[400px] bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-[#058A65] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-12 h-12 text-white"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 3.7L18 12v6h-3v-4h-6v4H6v-6l6-5.3z" />
-                  </svg>
-                </div>
-                <h3 className="text-[#058A65] font-bold text-xl mb-2">
-                  智慧能源
-                </h3>
-                <p className="text-gray-600">多能互补优化管理</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
+      {/* Contact Section - 联系我们 */}
       <section className="w-full py-16 px-[112px] flex flex-col justify-center items-center bg-[rgba(5,138,101,0.05)]">
         <div className="flex flex-col justify-center items-center gap-8 w-full">
           <div className="flex w-[752px] flex-col items-center gap-4">
