@@ -27,7 +27,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                 : "https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
             }
             alt="浙东环交所 Logo"
-            className="w-[150px] h-[48px] cursor-pointer"
+            className="w-[157px] h-[50px] cursor-pointer"
             onClick={() => navigate("/")}
           />
 
