@@ -48,11 +48,8 @@ function Dropdown({
 
       {/* Dropdown Content - Full Width */}
       {isOpen && (
-        <div
-          className="absolute top-full left-0 pt-2 z-50"
-          style={{ left: "-192px" }}
-        >
-          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-screen max-w-screen-xl min-w-[1200px]">
+        <div className="fixed top-[88px] left-0 pt-2 z-50 w-full">
+          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full max-w-none">
             {children}
           </div>
         </div>
@@ -234,7 +231,7 @@ export function ProductServicesDropdown({
               零碳园区解决方案
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              其他����/零碳解决方案
+              其他���/零碳解决方案
             </div>
           </div>
         </div>
@@ -365,7 +362,7 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
 
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              本所动��
+              本所动态
             </h4>
             <div className="space-y-2">
               <div className="text-[#999] font-inter text-sm">最新动态</div>
