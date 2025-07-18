@@ -354,9 +354,9 @@ export function SolutionsDropdown({
 }
 
 export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
-  return (
+    return (
     <Dropdown title="资讯中心" isScrolled={isScrolled}>
-            <div className="flex h-[266px]">
+      <div className="flex h-[266px]">
         {/* Left Sidebar */}
         <div className="w-[340px] bg-[#EBF8F6] p-8">
           <h3 className="text-[#333] font-inter text-lg font-bold leading-5 tracking-[-0.1px] mb-4">
@@ -374,6 +374,75 @@ export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
         {/* Main Content */}
         <div className="flex-1 relative p-8">
           <div className="grid grid-cols-2 gap-x-[230px] gap-y-[114px]">
+            {/* Top Row */}
+            <div>
+              <div className="flex items-center gap-1 mb-2">
+                <span className="text-brand-green font-inter text-base font-normal leading-6 tracking-[-0.16px]">
+                  政策解读
+                </span>
+                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+              </div>
+              <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
+                解决方案描述性文字文案文
+              </p>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-1 mb-2">
+                <span className="text-brand-green font-inter text-base font-normal leading-6 tracking-[-0.16px]">
+                  本所动态
+                </span>
+                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+              </div>
+              <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
+                解决方案描述性文字文
+              </p>
+            </div>
+
+            {/* Bottom Row */}
+            <div>
+              <div className="flex items-center gap-1 mb-2">
+                <span className="text-brand-green font-inter text-base font-normal leading-6 tracking-[-0.16px]">
+                  新闻资讯
+                </span>
+                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+              </div>
+              <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
+                解决方案描述性文字文案文
+              </p>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-1 mb-2">
+                <span className="text-brand-green font-inter text-base font-normal leading-6 tracking-[-0.16px]">
+                  知识专栏
+                </span>
+                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+              </div>
+              <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
+                解决方案描述性文字文
+              </p>
+            </div>
+          </div>
+
+          {/* Right side gray area and 通知公告 */}
+          <div className="absolute top-[50px] right-[112px]">
+            <div className="mb-4">
+              <div className="flex items-center gap-1 mb-2">
+                <span className="text-brand-green font-inter text-base font-normal leading-6 tracking-[-0.16px]">
+                  通知公告
+                </span>
+                <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
+              </div>
+              <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
+                解决方案描述性文��文
+              </p>
+            </div>
+            <div className="w-[280px] h-[170px] bg-[#D9D9D9]"></div>
+          </div>
+        </div>
+      </div>
+    </Dropdown>
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
               政策解读
