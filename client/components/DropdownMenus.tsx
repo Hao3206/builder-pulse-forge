@@ -356,8 +356,24 @@ export function SolutionsDropdown({
 export function NewsDropdown({ isScrolled = false }: DropdownComponentProps) {
   return (
     <Dropdown title="资讯中心" isScrolled={isScrolled}>
-      <div className="p-8 h-[300px]">
-        <div className="grid grid-cols-4 gap-8">
+            <div className="flex h-[266px]">
+        {/* Left Sidebar */}
+        <div className="w-[340px] bg-[#EBF8F6] p-8">
+          <h3 className="text-[#333] font-inter text-lg font-bold leading-5 tracking-[-0.1px] mb-4">
+            资讯中心
+          </h3>
+          <p className="text-[#666] font-inter text-sm font-normal leading-normal tracking-[-0.1px] mb-6">
+            获取深度内容，了解最新动态。
+          </p>
+          <button className="flex items-center gap-2 text-brand-green font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
+            更多内容
+            <ChevronRight className="w-5 h-5 -rotate-90" />
+          </button>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 relative p-8">
+          <div className="grid grid-cols-2 gap-x-[230px] gap-y-[114px]">
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
               政策解读
