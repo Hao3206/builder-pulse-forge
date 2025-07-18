@@ -16,8 +16,14 @@ export default function Solution() {
 
   return (
     <div className="min-h-screen bg-white font-inter">
-      {/* Header */}
-      <Header isScrolled={isScrolled} />
+      {/* Sticky Header */}
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        }`}
+      >
+        <Header isScrolled={isScrolled} />
+      </div>
 
       {/* Hero Section */}
       <section className="relative w-full min-h-[518px]">
@@ -318,7 +324,7 @@ export default function Solution() {
                 我们的核心能力
               </h2>
               <p className="text-[#858C95] text-center font-inter text-base font-normal leading-6 tracking-[-0.1px] w-full">
-                全方位支持园区低碳转型的专业服务
+                ��方位支持园区低碳转型的专业服务
               </p>
             </div>
           </div>
