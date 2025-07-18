@@ -39,7 +39,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               <div className="flex items-center justify-center gap-1.5 rounded-md">
                 <span
                   className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
-                    isScrolled ? "text-[#333]" : "text-[#333]"
+                    isScrolled ? "text-[#333]" : "text-white"
                   }`}
                 >
                   成功案例
@@ -54,7 +54,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               >
                 <span
                   className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
-                    isScrolled ? "text-[#333]" : "text-[#333]"
+                    isScrolled ? "text-[#333]" : "text-white"
                   }`}
                 >
                   关于我们
@@ -68,12 +68,12 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               <div className="flex items-center gap-[7px]">
                 <Phone
                   className={`w-5 h-5 transition-colors duration-300 ${
-                    isScrolled ? "text-[#333]" : "text-[#333]"
+                    isScrolled ? "text-[#333]" : "text-white"
                   }`}
                 />
                 <span
                   className={`font-inter text-[15px] font-normal leading-[22px] transition-colors duration-300 ${
-                    isScrolled ? "text-[#333]" : "text-[#333]"
+                    isScrolled ? "text-[#333]" : "text-white"
                   }`}
                 >
                   0574-87310818
@@ -84,12 +84,12 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               <div className="flex items-center gap-2 px-0.5">
                 <Globe
                   className={`w-5 h-5 transition-colors duration-300 ${
-                    isScrolled ? "text-[#333]" : "text-[#333]"
+                    isScrolled ? "text-[#333]" : "text-white"
                   }`}
                 />
                 <ChevronDown
                   className={`w-3 h-3 transition-colors duration-300 ${
-                    isScrolled ? "text-[#333]" : "text-[#333]"
+                    isScrolled ? "text-[#333]" : "text-white"
                   }`}
                 />
               </div>
@@ -97,7 +97,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               {/* Search */}
               <Search
                 className={`w-5 h-5 transition-colors duration-300 ${
-                  isScrolled ? "text-[#333]" : "text-[#333]"
+                  isScrolled ? "text-[#333]" : "text-white"
                 }`}
               />
             </div>
