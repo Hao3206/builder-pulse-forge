@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Solution from "./pages/Solution";
 import CarbonFootprint from "./pages/CarbonFootprint";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => (
   <QueryProvider>
