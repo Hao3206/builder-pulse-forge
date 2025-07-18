@@ -28,6 +28,7 @@ const App = () => (
           <Route path="/solution" element={<Solution />} />
           <Route path="/carbon-footprint" element={<CarbonFootprint />} />
           <Route path="/news-center" element={<NewsCenter />} />
+          <Route path="/news-detail/:id" element={<NewsDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
