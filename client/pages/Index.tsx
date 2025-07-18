@@ -16,7 +16,7 @@ export default function Index() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 100);
+      setIsScrolled(scrollTop > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
