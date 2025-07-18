@@ -9,6 +9,7 @@ import TrainingServices from "../components/TrainingServices";
 import SuccessCases from "../components/SuccessCases";
 import Partners from "../components/Partners";
 import Footer from "../components/Footer";
+import CustomerService from "../components/CustomerService";
 
 export default function Index() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,6 +47,9 @@ export default function Index() {
       <SuccessCases />
       <Partners />
       <Footer />
+
+      {/* Customer Service Button */}
+      <CustomerService />
     </div>
   );
 }
