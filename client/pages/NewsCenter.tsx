@@ -37,7 +37,7 @@ export default function NewsCenter() {
       year: "2025",
       title: "资讯标题文字文字文案文字文字文案",
       content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最���显示两行....",
     },
     {
       date: "06/17",
@@ -58,7 +58,7 @@ export default function NewsCenter() {
       year: "2025",
       title: "资讯标题文字文字文案文字文字文案",
       content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文��案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
     },
     {
       date: "06/17",
@@ -181,8 +181,8 @@ export default function NewsCenter() {
 
       {/* Navigation Tabs & Search */}
       <div className="bg-white py-8">
-        <div className="max-w-screen-2xl mx-auto px-8">
-          <div className="flex justify-between items-center">
+        <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
             {/* Category Tabs */}
             <div className="flex items-center gap-4">
               {categories.map((category) => (
