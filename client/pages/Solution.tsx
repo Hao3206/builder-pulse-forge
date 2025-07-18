@@ -26,24 +26,25 @@ export default function Solution() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-[518px]">
-        {/* Background */}
-        <div className="absolute inset-0 bg-[#F0F8F6]">
-          {/* Gradient Overlay */}
+      <section className="relative w-full h-[468px] bg-[#F0F8F6]">
+        {/* Background Layers */}
+        <div className="absolute inset-0">
+          {/* Gradient Background */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
-          {/* Background Image */}
+          {/* Background Image with multiply blend */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat mix-blend-multiply"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
               backgroundImage:
                 "url('https://api.builder.io/api/v1/image/assets/TEMP/d3c2a75c75d2b22cd54ba87fdf99348bf0398abd?width=2880')",
+              mixBlendMode: "multiply",
             }}
           />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col justify-center items-center px-[30px] py-20 min-h-[430px]">
-          <div className="w-full max-w-[640px] flex flex-col items-center gap-6">
+        {/* Hero Content Container */}
+        <div className="relative z-10 flex flex-col justify-center items-center w-full h-full px-[30px] pt-20 pb-[92px]">
+          <div className="flex w-[640px] flex-col items-center gap-6">
             <div className="flex flex-col items-center gap-12 w-full">
               <div className="flex flex-col items-center gap-6 w-full">
                 <h1 className="text-[#F9F9F9] text-center font-inter text-[52px] font-bold leading-[60px] tracking-[-0.52px] w-full">
@@ -231,7 +232,7 @@ export default function Solution() {
             <div className="flex w-[800px] flex-col justify-center items-center gap-2">
               <div className="flex flex-col items-center gap-4 w-full">
                 <h2 className="text-white text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.48px] w-full">
-                  零碳园区建设路径
+                  零���园区建设路径
                 </h2>
                 <p className="text-white/80 text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.18px] w-full">
                   科学规划、分步实施的全流程解决方案
@@ -373,7 +374,7 @@ export default function Solution() {
                     碳画像与诊断
                   </h3>
                   <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
-                    基于全生命周期评估方法，构建园区碳画像，精准识别减排重点领域和关键环节，为低碳转型提供科学依据。
+                    基于全生命周期评估方法，构建园区碳画像，精准识别减排重点领域和��键环节，为低碳转型提供科学依据。
                   </p>
                 </div>
               </div>
@@ -519,7 +520,7 @@ export default function Solution() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h2 className="text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
-                  数字孪生平台
+                  数��孪生平台
                 </h2>
                 <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
                   构建园区数字孪生体，实现碳排放实时监测、预测预警和优化调控，提升碳管理精细化水平。通过AI技术和大数据分析，为园区提供智慧化的碳管理解决方案。
