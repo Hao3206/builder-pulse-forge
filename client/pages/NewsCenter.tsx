@@ -37,7 +37,7 @@ export default function NewsCenter() {
       year: "2025",
       title: "资讯标题文字文字文案文字文字文案",
       content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案���文文案文正文文案文文文案文正文文案文最多显示两行....",
     },
     {
       date: "06/17",
@@ -101,7 +101,7 @@ export default function NewsCenter() {
       </div>
 
       {/* Featured Article Section */}
-      <div className="bg-white py-12 px-28">
+      <div className="bg-white py-12 px-4 lg:px-28">
         <div className="max-w-screen-2xl mx-auto">
           <div className="bg-white rounded-xl border border-[#E5E5E7] shadow-sm overflow-hidden">
             <div className="flex">
