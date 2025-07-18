@@ -26,7 +26,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
             src={
               isScrolled
                 ? "https://api.builder.io/api/v1/image/assets/TEMP/1fee28a4f9031537e9b8b95943a60af33406ebb2?width=300"
-                : "https://cdn.builder.io/api/v1/image/assets%2F1a85daa80686441ea1621142c540f31a%2Fde841125dbee405597d14a803a8ecb7a?format=webp&width=800"
+                : "https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
             }
             alt="浙东环交所 Logo"
             className="w-[150px] h-[48px] cursor-pointer"
