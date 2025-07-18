@@ -63,11 +63,11 @@ function Dropdown({
       {/* Dropdown Content - Full Width */}
       {isOpen && (
         <div
-          className="fixed top-[88px] left-0 z-50 w-full"
+          className="fixed top-[88px] left-[80px] z-50 w-[calc(100vw-160px)]"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full max-w-[1440px] mx-auto ml-[80px]">
+          <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full">
             {children}
           </div>
         </div>
