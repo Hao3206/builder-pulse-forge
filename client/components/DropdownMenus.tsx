@@ -83,6 +83,7 @@ interface DropdownComponentProps {
 export function ProductServicesDropdown({
   isScrolled = false,
 }: DropdownComponentProps) {
+  const navigate = useNavigate();
   return (
     <Dropdown title="产品服务" isActive isScrolled={isScrolled}>
       <div className="flex h-[506px]">
@@ -211,7 +212,7 @@ export function ProductServicesDropdown({
           </div>
 
           <div className="absolute top-[282px] left-[528px] flex items-center gap-1">
-            <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
+            <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors">
               零碳园区
             </span>
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
@@ -245,7 +246,10 @@ export function ProductServicesDropdown({
 
           {/* Content under 零碳园区 */}
           <div className="absolute top-[316px] left-[528px] w-[210px] space-y-3">
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/zero-carbon-park")}
+            >
               零碳园区解决方案
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
@@ -279,7 +283,7 @@ export function SolutionsDropdown({
             全行业的解决方案，助力用户快速增长。
           </p>
           <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
-            更多内容
+            更多内��
             <ChevronRight className="w-5 h-5 -rotate-90" />
           </button>
         </div>
@@ -320,8 +324,11 @@ export function SolutionsDropdown({
             {/* Right Column */}
             <div className="space-y-8">
               <div>
-                <div className="flex items-center gap-1 mb-2">
-                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px]">
+                <div
+                  className="flex items-center gap-1 mb-2 cursor-pointer"
+                  onClick={() => handleNavigation("/zero-carbon-park")}
+                >
+                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
                     零碳园区解决方案
                   </span>
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
