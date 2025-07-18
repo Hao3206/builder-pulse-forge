@@ -1,18 +1,6 @@
-import { MessageCircle } from "lucide-react";
-
 export default function Footer() {
   return (
     <>
-      {/* Customer Service Widget */}
-      <div className="fixed right-6 bottom-20 z-50">
-        <div className="w-[50px] h-[140px] bg-brand-green rounded-full flex flex-col items-center justify-center">
-          <MessageCircle className="w-6 h-6 text-white mb-2" />
-          <div className="text-white text-sm font-medium writing-mode-vertical-rl text-orientation-mixed leading-tight">
-            联系客服
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <footer className="bg-brand-green py-16 px-28">
         <div className="max-w-7xl mx-auto">
