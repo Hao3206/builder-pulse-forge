@@ -64,7 +64,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
             </nav>
 
             {/* Right Side Actions */}
-            <div className="flex justify-end items-start gap-[30px]">
+            <div className="flex justify-end items-start gap-5">
               {/* Phone */}
               <div className="w-[139px] h-[22px] relative">
                 <Phone
