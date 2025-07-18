@@ -1,6 +1,5 @@
 import { Phone, Search, ChevronDown, Globe } from "lucide-react";
-import { ProductServicesDropdown } from "./DropdownMenus";
-import { SolutionsDropdown } from "./SolutionsDropdownNew";
+import { ProductServicesDropdown, SolutionsDropdown } from "./DropdownMenus";
 import NewsDropdown from "./NewsDropdown";
 import { useNavigate } from "react-router-dom";
 
