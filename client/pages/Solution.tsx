@@ -125,7 +125,7 @@ export default function Solution() {
                 智慧运营
               </h3>
               <p className="text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                基于数字孪生技术，构建园区碳管理智慧大脑，实现精细化运营
+                基于数字孪生技术，构建园区碳管理智慧大脑，实现精细化运���
               </p>
               <div className="flex items-start gap-2.5 flex-wrap">
                 <div className="flex py-1 px-[14px] justify-center items-center gap-2.5 rounded-md bg-[#F2F9F7]">
@@ -310,7 +310,7 @@ export default function Solution() {
       </section>
 
       {/* Core Capabilities Section */}
-      <section className="w-full py-16 flex-col justify-center items-center gap-16 bg-white">
+      <section className="w-full py-16 flex flex-col justify-center items-center gap-16 bg-white">
         <div className="w-[1216px] px-8 flex flex-col justify-center items-center gap-3 mx-auto">
           <div className="flex w-[800px] flex-col justify-center items-center gap-2">
             <div className="flex flex-col items-center gap-4 w-full">
@@ -432,7 +432,7 @@ export default function Solution() {
                     能源运营优化
                   </h3>
                   <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
-                    整合分布式能源、储能系统和柔性负荷，构建多能互补的智慧能源系统，降低能源成本与碳排放。
+                    整合分布式能源、储能系统和柔性负荷，��建多能互补的智慧能源系统，降低能源成本与碳排放。
                   </p>
                 </div>
               </div>
@@ -441,6 +441,127 @@ export default function Solution() {
                   获取方案
                 </span>
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Capabilities Sections */}
+      <section className="w-full py-16 bg-gray-50">
+        <div className="max-w-[1216px] mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
+                  碳画像与诊断
+                </h2>
+                <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
+                  基于全生命周期评估方法，构建园区碳画像，精准识别减排重点领域和��键环节，为低碳转型提供科学依据。通过专业的碳排放监测和数据分析，帮助园区了解当前碳足迹状况。
+                </p>
+              </div>
+              <button className="px-6 py-3 bg-[#058A65] text-white rounded-full font-inter text-[15px] font-bold hover:bg-[#047856] transition-colors">
+                咨询详情
+              </button>
+            </div>
+
+            {/* Right Visual */}
+            <div className="relative w-full h-[400px] bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-24 h-24 bg-[#058A65] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg
+                    className="w-12 h-12 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                </div>
+                <h3 className="text-[#058A65] font-bold text-xl mb-2">
+                  碳排放监测
+                </h3>
+                <p className="text-gray-600">实时监测与数据分析</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-16 bg-white">
+        <div className="max-w-[1216px] mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left Visual */}
+            <div className="relative w-full h-[400px] bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-24 h-24 bg-[#058A65] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg
+                    className="w-12 h-12 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-[#058A65] font-bold text-xl mb-2">
+                  数字孪生平台
+                </h3>
+                <p className="text-gray-600">智能化管理与优化</p>
+              </div>
+            </div>
+
+            {/* Right Content */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
+                  数字孪生平台
+                </h2>
+                <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
+                  构建园区数字孪生体，实现碳排放实时监测、预测预警和优化调控，提升碳管理精细化水平。通过AI技术和大数据分析，为园区提供智慧化的碳管理解决方案。
+                </p>
+              </div>
+              <button className="px-6 py-3 bg-[#058A65] text-white rounded-full font-inter text-[15px] font-bold hover:bg-[#047856] transition-colors">
+                了解方案
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-16 bg-gray-50">
+        <div className="max-w-[1216px] mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h2 className="text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
+                  能源运营优化
+                </h2>
+                <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
+                  整合分布式能源、储能系统和柔性负荷，构建多能互补的智慧能源系统，降低能源成本与碳排放。通过精细化能源管理，实现园区绿色可持续发展。
+                </p>
+              </div>
+              <button className="px-6 py-3 bg-[#058A65] text-white rounded-full font-inter text-[15px] font-bold hover:bg-[#047856] transition-colors">
+                获取方案
+              </button>
+            </div>
+
+            {/* Right Visual */}
+            <div className="relative w-full h-[400px] bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-24 h-24 bg-[#058A65] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg
+                    className="w-12 h-12 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 3.7L18 12v6h-3v-4h-6v4H6v-6l6-5.3z" />
+                  </svg>
+                </div>
+                <h3 className="text-[#058A65] font-bold text-xl mb-2">
+                  智慧能源
+                </h3>
+                <p className="text-gray-600">多能互补优化管理</p>
+              </div>
             </div>
           </div>
         </div>
