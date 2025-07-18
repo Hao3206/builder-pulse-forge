@@ -134,27 +134,61 @@ export default function CarbonFootprint() {
 
       {/* Policies and Regulations Section */}
       <section className="py-22 bg-white">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="flex flex-col lg:flex-row items-start gap-16">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex flex-col lg:flex-row items-start gap-20">
+            <div className="lg:w-1/2 max-w-2xl">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight">
                 政策法规
               </h2>
-              <p className="text-gray-600 mb-12">
-                政策法规文案描述文案描述文案描述文案描述文案描述
+              <p className="text-gray-600 mb-12 text-base leading-relaxed">
+                政策法��文案描述文案描述文案描述文案描述文案描述
               </p>
 
-              {/* National Policy - Active */}
-              <div className="bg-gray-50 rounded-xl p-6 mb-6 border-l-4 border-[#058A65]">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    国家政策
-                  </h3>
+              <div className="space-y-0">
+                {/* National Policy - Active */}
+                <div className="bg-[#F7F8FA] rounded-xl p-6 relative">
+                  <div className="absolute left-0 top-4 bottom-4 w-2 bg-[#058A65] rounded-full"></div>
+                  <div className="pl-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-2xl font-semibold text-gray-900">
+                        国家政策
+                      </h3>
+                      <div className="w-6 h-6">
+                        <svg
+                          width="22"
+                          height="22"
+                          viewBox="0 0 22 22"
+                          fill="none"
+                        >
+                          <path
+                            d="M11 21L11 1M11 1L5 7M11 1L17 7"
+                            stroke="#058A65"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed font-medium">
+                      《关于建立碳足迹管理体系的实施方案》提出到2027年初步建立碳足迹管理体系，到2030年体系更加完善。
+                    </p>
+                  </div>
+                </div>
+
+                {/* Local Policy */}
+                <div className="bg-white px-6 py-5 flex items-center justify-between border-l-4 border-[#DCE4E3]">
+                  <div className="flex items-center gap-6">
+                    <div className="w-2 h-12 bg-[#DCE4E3] rounded-full"></div>
+                    <h3 className="text-2xl font-semibold text-gray-900">
+                      地方政策
+                    </h3>
+                  </div>
                   <div className="w-6 h-6">
                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
                       <path
-                        d="M11 21L11 1M11 1L5 7M11 1L17 7"
-                        stroke="#666"
+                        d="M7 10L11 14L15 10"
+                        stroke="#ccc"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -162,53 +196,35 @@ export default function CarbonFootprint() {
                     </svg>
                   </div>
                 </div>
-                <p className="text-gray-600 leading-relaxed">
-                  《关于建立碳足迹管理体系的实施方案》提出到2027年初步建立碳足迹管理体系，到2030年体系更加完善。
-                </p>
-              </div>
 
-              {/* Local Policy */}
-              <div className="border-l-4 border-gray-300 pl-6 py-5 flex items-center justify-between">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  地方政策
-                </h3>
-                <div className="w-6 h-6">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <path
-                      d="M7 10L11 14L15 10"
-                      stroke="#ccc"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              {/* International Policy */}
-              <div className="border-l-4 border-gray-300 pl-6 py-5 flex items-center justify-between">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  国际政策
-                </h3>
-                <div className="w-6 h-6">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <path
-                      d="M7 10L11 14L15 10"
-                      stroke="#ccc"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                {/* International Policy */}
+                <div className="bg-white px-6 py-5 flex items-center justify-between border-l-4 border-[#DCE4E3]">
+                  <div className="flex items-center gap-6">
+                    <div className="w-2 h-12 bg-[#DCE4E3] rounded-full"></div>
+                    <h3 className="text-2xl font-semibold text-gray-900">
+                      国际政策
+                    </h3>
+                  </div>
+                  <div className="w-6 h-6">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                      <path
+                        d="M7 10L11 14L15 10"
+                        stroke="#ccc"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 flex justify-center">
               <img
                 src="https://api.builder.io/api/v1/image/assets/TEMP/7ca461c02e9998d60d4dfe570f20ad648479e9b6?width=976"
                 alt="Policy illustration"
-                className="w-full h-auto rounded-lg"
+                className="w-full max-w-lg h-auto"
               />
             </div>
           </div>
@@ -259,7 +275,7 @@ export default function CarbonFootprint() {
                   建筑行业应用
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  建筑全生命周期碳足迹评估，推动绿色建筑设��和低碳施工。
+                  建筑全生命周期碳足迹评估，推动绿色建筑设计和低碳施工。
                 </p>
               </div>
             </div>
