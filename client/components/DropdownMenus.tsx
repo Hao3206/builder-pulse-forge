@@ -48,7 +48,11 @@ function Dropdown({
 
       {/* Dropdown Content - Full Width */}
       {isOpen && (
-        <div className="fixed top-[88px] left-0 pt-2 z-50 w-full">
+        <div
+          className="fixed top-[88px] left-0 pt-2 z-50 w-full"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
           <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden w-full max-w-none">
             {children}
           </div>
