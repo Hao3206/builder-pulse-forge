@@ -50,7 +50,11 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white font-inter">
       {/* Sticky Header */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        }`}
+      >
         <Header isScrolled={isScrolled} />
       </div>
 
@@ -396,7 +400,7 @@ export default function About() {
               </div>
               <div className="flex flex-col items-start gap-2 flex-1 w-full">
                 <h3 className="text-[#333] font-inter text-[22px] font-bold leading-[30px] tracking-[-0.22px] w-full">
-                  碳盘查与碳足迹核算
+                  碳盘查与碳足迹核��
                 </h3>
                 <p className="text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
                   对企业进行全面碳排放监测，计算和核查产品碳足迹。
