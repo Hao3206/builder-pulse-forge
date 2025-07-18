@@ -46,14 +46,16 @@ export default function CarbonFootprint() {
       {/* Basic Knowledge Section */}
       <section className="py-22 bg-white">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">基础知识</h2>
-            <p className="text-gray-600">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight">
+              基础知识
+            </h2>
+            <p className="text-gray-600 text-base leading-relaxed">
               基础知识描述性文案描述性文案描述性文案描述性文案描述性文案
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-16">
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             {/* Carbon Footprint Definition */}
             <div className="flex flex-col">
               <div className="flex items-center justify-center w-12 h-12 bg-[#058A65] rounded-full mb-5">
@@ -238,7 +240,7 @@ export default function CarbonFootprint() {
                   制造业应用
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  通过产品碳足迹核算优化生产工艺，降低碳排放，提升产品国际竞争力���
+                  通过产品碳足迹核算优化生产工艺，降低碳排放，提升产品国际竞争力。
                 </p>
               </div>
             </div>
@@ -257,7 +259,7 @@ export default function CarbonFootprint() {
                   建筑行业应用
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  建筑全生命周期碳足迹评估，推动绿色建筑设计和低碳施工。
+                  建筑全生命周期碳足迹评估，推动绿色建筑设��和低碳施工。
                 </p>
               </div>
             </div>
