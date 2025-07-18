@@ -31,9 +31,9 @@ export default function Header({ isScrolled = false }: HeaderProps) {
             onClick={() => navigate("/")}
           />
 
-          <div className="flex items-center gap-40">
+          <div className="flex items-center gap-[160px]">
             {/* Navigation */}
-            <nav className="flex items-center gap-8">
+            <nav className="flex items-center gap-8 whitespace-nowrap">
               <ProductServicesDropdown isScrolled={isScrolled} />
               <SolutionsDropdown isScrolled={isScrolled} />
 
