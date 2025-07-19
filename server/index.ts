@@ -75,7 +75,7 @@ export function createServer() {
       console.error("API错误:", err);
       res.status(500).json({
         success: false,
-        error: "服务��内部错误",
+        error: "服务器内部错误",
         message:
           process.env.NODE_ENV === "development" ? err.message : "请稍后重试",
       });
