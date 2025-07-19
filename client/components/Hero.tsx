@@ -7,7 +7,7 @@ const carouselData = [
     image:
       "https://images.unsplash.com/photo-1497436072909-f5e4be242e9b?w=1920&h=1080&fit=crop",
     title: "万泽时代作为国内新一代创新型数字创新",
-    subtitle: "围绕企业双碳数字化转型为能��企业提供解决方案",
+    subtitle: "围绕企业双碳数字化转型为能耗企业提供解决方案",
   },
   {
     id: 2,
