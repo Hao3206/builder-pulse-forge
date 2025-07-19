@@ -48,6 +48,7 @@ function Dropdown({
                 ? "text-[#333]"
                 : "text-white"
           }`}
+          onClick={onTitleClick}
         >
           {title}
         </span>
@@ -143,7 +144,7 @@ export function ProductServicesDropdown({
               CCER资产开发与交易
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              绿���交易
+              绿证交易
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               企业碳资产管理
@@ -185,7 +186,7 @@ export function ProductServicesDropdown({
               className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
               onClick={() => navigate("/corporate-carbon-management")}
             >
-              企业碳管理平台
+              企业碳管理平��
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               区域双碳大脑
