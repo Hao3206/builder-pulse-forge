@@ -5,7 +5,7 @@ const carouselData = [
   {
     id: 1,
     image:
-      "https://images.unsplash.com/photo-1497436072909-f5e4be242e9b?w=1920&h=1080&fit=crop",
+      "https://cdn.builder.io/api/v1/image/assets%2F1a85daa80686441ea1621142c540f31a%2Ffc120c1da37141f4a6aea70faf7f3fb5?format=webp&width=800",
     title: "万泽时代作为国内新一代创新型数字创新",
     subtitle: "围绕企业双碳数字化转型为能耗企业提供解决方案",
   },
@@ -20,7 +20,7 @@ const carouselData = [
     id: 3,
     image:
       "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&h=1080&fit=crop",
-    title: "碳资产管理系统引领绿色发展新时代",
+    title: "碳资产管理系统引���绿色发展新时代",
     subtitle: "专业的碳排放监测与交易管理解决方案",
   },
   {
