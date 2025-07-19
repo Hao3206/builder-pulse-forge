@@ -158,7 +158,12 @@ export function ProductServicesDropdown({
 
           {/* Content under 碳咨询 */}
           <div className="absolute top-[64px] left-[280px] w-[210px] space-y-3">
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-brand-green font-inter text-[14px] leading-5 tracking-[-0.1px] bg-[rgba(236,248,246,0.8)] rounded-[4px] px-3 py-1 w-[218px] cursor-pointer hover:bg-[rgba(236,248,246,1)] transition-colors"
+              onClick={() =>
+                navigate("/product-service/green-low-carbon-factory")
+              }
+            >
               绿色/低碳工厂创建
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
