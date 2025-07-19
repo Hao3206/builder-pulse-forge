@@ -379,61 +379,109 @@ export function NewsCenterDropdown({
 
   return (
     <Dropdown title="资讯中心" isScrolled={isScrolled}>
-      <div className="p-8 h-[280px]">
-        <div className="grid grid-cols-3 gap-8">
-          <div>
-            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              政策资讯
-            </h4>
-            <div className="space-y-2">
-              <div
-                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
-                onClick={() => handleNavigation("政策解读")}
-              >
-                政策解读
-              </div>
-              <div
-                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
-                onClick={() => handleNavigation("通知公告")}
-              >
-                通知公告
-              </div>
+      <div className="flex h-[266px] shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)]">
+        {/* Left Sidebar */}
+        <div className="w-[340px] h-[266px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
+          <h3 className="text-[#333] font-inter text-[18px] font-bold leading-[20px] tracking-[-0.1px] mb-4">
+            资讯中心
+          </h3>
+          <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
+            获取深度内容，了解最新动态。
+          </p>
+          <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
+            更多内容
+            <ChevronRight className="w-5 h-5 -rotate-90" />
+          </button>
+        </div>
+
+        {/* Main Content */}
+        <div className="relative flex-1 h-[266px] bg-white">
+          {/* First Row */}
+          <div
+            className="absolute left-[32px] top-[30px] flex items-center gap-1 cursor-pointer"
+            onClick={() => handleNavigation("政策解读")}
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
+              政策解读
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
+
+          <div
+            className="absolute left-[262px] top-[30px] flex items-center gap-1 cursor-pointer"
+            onClick={() => handleNavigation("本所动态")}
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
+              本所动态
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
+
+          <div
+            className="absolute left-[492px] top-[30px] flex items-center gap-1 cursor-pointer"
+            onClick={() => handleNavigation("通知公告")}
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
+              通知公告
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
+
+          {/* First Row Descriptions */}
+          <div className="absolute left-[32px] top-[64px] w-[180px]">
+            <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
+              解决方案描述性文字文案文
             </div>
           </div>
 
-          <div>
-            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              动态资讯
-            </h4>
-            <div className="space-y-2">
-              <div
-                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
-                onClick={() => handleNavigation("本所动态")}
-              >
-                本所动态
-              </div>
-              <div
-                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
-                onClick={() => handleNavigation("新闻资讯")}
-              >
-                新闻资讯
-              </div>
+          <div className="absolute left-[262px] top-[64px] w-[180px]">
+            <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
+              解决方案描述性文字文
             </div>
           </div>
 
-          <div>
-            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              专业内容
-            </h4>
-            <div className="space-y-2">
-              <div
-                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
-                onClick={() => handleNavigation("知识专栏")}
-              >
-                知识专栏
-              </div>
+          <div className="absolute left-[492px] top-[64px] w-[180px]">
+            <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
+              解决方案描述性文字文
             </div>
           </div>
+
+          {/* Second Row */}
+          <div
+            className="absolute left-[32px] top-[144px] flex items-center gap-1 cursor-pointer"
+            onClick={() => handleNavigation("新闻资讯")}
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
+              新闻资讯
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
+
+          <div
+            className="absolute left-[262px] top-[144px] flex items-center gap-1 cursor-pointer"
+            onClick={() => handleNavigation("知识专栏")}
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
+              知识专栏
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
+
+          {/* Second Row Descriptions */}
+          <div className="absolute left-[32px] top-[178px] w-[180px]">
+            <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
+              解决方案描述性文字文案文
+            </div>
+          </div>
+
+          <div className="absolute left-[262px] top-[178px] w-[180px]">
+            <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
+              解决方案描述性文字文
+            </div>
+          </div>
+
+          {/* Gray Placeholder Area */}
+          <div className="absolute right-[32px] top-[48px] w-[280px] h-[170px] bg-[#D9D9D9]"></div>
         </div>
       </div>
     </Dropdown>
