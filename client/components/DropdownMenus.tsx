@@ -342,7 +342,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案描述性文字文案文案文案文案文案文案文案文案
+                  解决方案描述性文字文案文案文���文案文案文案文案文案
                 </p>
               </div>
 
@@ -359,6 +359,84 @@ export function SolutionsDropdown({
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
                   全面的碳足迹核算与管理解决方案，助力企业实现低碳发展
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Dropdown>
+  );
+}
+
+export function NewsCenterDropdown({
+  isScrolled = false,
+}: DropdownComponentProps) {
+  const navigate = useNavigate();
+
+  const handleNavigation = (category: string) => {
+    navigate(`/news-center?category=${encodeURIComponent(category)}`);
+  };
+
+  return (
+    <Dropdown title="资讯中心" isScrolled={isScrolled}>
+      <div className="p-8 h-[280px]">
+        <div className="grid grid-cols-3 gap-8">
+          <div>
+            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
+              政策资讯
+            </h4>
+            <div className="space-y-2">
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("政策解读")}
+              >
+                政策解读
+              </div>
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("通知公告")}
+              >
+                通知公告
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
+              动态资讯
+            </h4>
+            <div className="space-y-2">
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("本所动态")}
+              >
+                本所动态
+              </div>
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("新闻资讯")}
+              >
+                新闻资讯
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
+              专业内容
+            </h4>
+            <div className="space-y-2">
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => handleNavigation("知识专栏")}
+              >
+                知识专栏
+              </div>
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => navigate("/success-cases")}
+              >
+                成功案例
               </div>
             </div>
           </div>
