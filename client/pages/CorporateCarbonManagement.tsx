@@ -19,9 +19,9 @@ export default function CorporateCarbonManagement() {
       <Header isScrolled={isScrolled} />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[468px] bg-white pt-[88px]">
+      <section className="relative w-full h-[556px] bg-white">
         <div className="absolute inset-0">
-          <div className="w-full h-[468px] bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
+          <div className="w-full h-full bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -32,7 +32,7 @@ export default function CorporateCarbonManagement() {
           />
         </div>
 
-        <div className="relative z-10 flex items-center justify-center h-full">
+        <div className="relative z-10 flex items-center justify-center h-full pt-[88px]">
           <div className="max-w-[640px] text-center px-8">
             <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">
               企业碳管理一站式解决方案
@@ -377,7 +377,7 @@ export default function CorporateCarbonManagement() {
                   工厂应用
                 </h3>
                 <p className="text-[16px] text-[#666] tracking-[-0.1px]">
-                  工厂场景下实现能源消耗数据自动采集、生产环节碳盘查、标准化报告输出
+                  工厂场景下实现能源消耗数据自动采集、��产环节碳盘查、标准化报告输出
                 </p>
               </div>
             </div>
@@ -404,7 +404,7 @@ export default function CorporateCarbonManagement() {
               <div className="h-[200px] overflow-hidden">
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/057e0cdafd21c78f25cd903a7ae570798f3f48d0?width=560"
-                  alt="园区应用"
+                  alt="园区���用"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -573,7 +573,7 @@ export default function CorporateCarbonManagement() {
                 安全合规
               </h3>
               <p className="text-[16px] text-[#666] tracking-[-0.1px]">
-                加密存储、单点登录、审计日志
+                加密存储、单点登录���审计日志
               </p>
             </div>
           </div>
