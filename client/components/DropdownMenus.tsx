@@ -186,7 +186,7 @@ export function ProductServicesDropdown({
               className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
               onClick={() => navigate("/corporate-carbon-management")}
             >
-              企业碳管理平��
+              企业碳管理平台
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               区域双碳大脑
@@ -360,7 +360,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  全面的碳足迹核算与管理解决方案，助力企业实现低碳发展
+                  全面的碳足迹核算与管理解决方案，助力企业实���低碳发展
                 </p>
               </div>
             </div>
@@ -380,8 +380,16 @@ export function NewsCenterDropdown({
     navigate(`/news-center?category=${encodeURIComponent(category)}`);
   };
 
+  const handleTitleClick = () => {
+    navigate("/news-center");
+  };
+
   return (
-    <Dropdown title="资讯中心" isScrolled={isScrolled}>
+    <Dropdown
+      title="资讯中心"
+      isScrolled={isScrolled}
+      onTitleClick={handleTitleClick}
+    >
       <div className="flex h-[266px] shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)]">
         {/* Left Sidebar */}
         <div className="w-[340px] h-[266px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
