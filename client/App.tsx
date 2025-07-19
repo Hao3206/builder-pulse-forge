@@ -38,6 +38,8 @@ const App = () => (
           <Route path="/carbon-footprint" element={<CarbonFootprint />} />
           <Route path="/news-center" element={<NewsCenter />} />
           <Route path="/news-detail/:id" element={<NewsDetail />} />
+          <Route path="/success-cases" element={<SuccessCases />} />
+          <Route path="/success-cases/:id" element={<SuccessCaseDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
