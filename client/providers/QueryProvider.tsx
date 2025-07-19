@@ -22,7 +22,7 @@ export default function QueryProvider({ children }: QueryProviderProps) {
               Math.min(1000 * 2 ** attemptIndex, 30000),
             // 窗口聚焦时重新获取
             refetchOnWindowFocus: false,
-            // ���络重连时重新获取
+            // 网络重连时重新获取
             refetchOnReconnect: true,
           },
           mutations: {
