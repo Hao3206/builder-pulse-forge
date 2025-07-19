@@ -90,7 +90,7 @@ export function ProductServicesDropdown({
         {/* Left Sidebar */}
         <div className="w-[340px] h-[506px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
           <h3 className="text-[#333] font-inter text-[18px] font-bold leading-[20px] tracking-[-0.1px] mb-4">
-            ���品服务
+            产品服务
           </h3>
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
             描述性小文字阐述文字文字描述性小文字阐.。
@@ -151,7 +151,7 @@ export function ProductServicesDropdown({
           {/* Content under 碳咨询 */}
           <div className="absolute top-[64px] left-[280px] w-[210px] space-y-3">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              绿色/��碳工厂创建
+              绿色/低碳工厂创建
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               CEAV产品碳排放核算与申报
@@ -231,7 +231,7 @@ export function ProductServicesDropdown({
           {/* Content under 碳培训 */}
           <div className="absolute top-[316px] left-[280px] w-[210px] space-y-3">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳排��交易员培训
+              碳排放交易员培训
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               碳排放管理员培训
@@ -286,7 +286,7 @@ export function SolutionsDropdown({
             全行业的解决方案，助力用户快速增长。
           </p>
           <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
-            更多内��
+            更多内容
             <ChevronRight className="w-5 h-5 -rotate-90" />
           </button>
         </div>
@@ -302,7 +302,7 @@ export function SolutionsDropdown({
                   onClick={() => handleNavigation("/solution")}
                 >
                   <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-                    能碳管理系统(园区/工厂)解决方��
+                    能碳管理系统(园区/工厂)解决方案
                   </span>
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
@@ -319,12 +319,12 @@ export function SolutionsDropdown({
                   }
                 >
                   <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-                    企业碳管理一站式解决方案
+                    企业碳管理一站式解决方��
                   </span>
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方��描述性文字文案文案文案文案文案文案文案文案
+                  解决方案描述性文字文案文案文案文案文案文案文案文案
                 </p>
               </div>
             </div>
@@ -357,7 +357,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  全面的碳足迹核算与管理解决方���，助力企业实现低碳发展
+                  全面的碳足迹核算与管理解决方案，助力企业实现低碳发展
                 </p>
               </div>
             </div>
@@ -381,7 +381,7 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
         <div className="grid grid-cols-3 gap-8">
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              公司介绍
+              公司介��
             </h4>
             <div className="space-y-2">
               <div
