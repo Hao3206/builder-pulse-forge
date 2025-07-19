@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="flex flex-col gap-4 w-[247px]">
               <img
                 src="https://api.builder.io/api/v1/image/assets/TEMP/fa613bde97f40bc79e4c1d9f49052c56c7039e22?width=314"
-                alt="万���时代 Logo"
+                alt="万泽时代 Logo"
                 className="w-[157px] h-[50px]"
               />
 
@@ -167,7 +167,7 @@ export default function Footer() {
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
                   <div className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px]">
-                    共��平台
+                    共建平台
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
