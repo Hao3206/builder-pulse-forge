@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Solution from "./pages/Solution";
 import ZeroCarbonPark from "./pages/ZeroCarbonPark";
+import CorporateCarbonManagement from "./pages/CorporateCarbonManagement";
 import CarbonFootprint from "./pages/CarbonFootprint";
 import NewsCenter from "./pages/NewsCenter";
 import NewsDetail from "./pages/NewsDetail";
@@ -28,6 +29,10 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/solution" element={<Solution />} />
           <Route path="/zero-carbon-park" element={<ZeroCarbonPark />} />
+          <Route
+            path="/corporate-carbon-management"
+            element={<CorporateCarbonManagement />}
+          />
           <Route path="/carbon-footprint" element={<CarbonFootprint />} />
           <Route path="/news-center" element={<NewsCenter />} />
           <Route path="/news-detail/:id" element={<NewsDetail />} />
