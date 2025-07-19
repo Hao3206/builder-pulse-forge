@@ -121,7 +121,7 @@ export default function About() {
                     使命
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6">
-                    推动全球双碳目标的实现，为企业和政府提供专业的碳管理解决方案。
+                    推动全球双碳目标的实现，为企业和政府提供专业的碳管理解决方案��
                   </p>
                 </div>
 
@@ -271,7 +271,7 @@ export default function About() {
                   双碳测试评价联合实验室
                 </h3>
                 <p className="text-[#666] font-inter text-base font-normal leading-[26px] tracking-[-0.16px]">
-                  与中科院宁波材料所合作，主要进行碳中和技术成果转化、碳项目申���与技术人才培养
+                  与中科院宁波材料所合作，主要进行碳中和技术成果转化、碳项目申报与技术人才培养
                 </p>
               </div>
             </div>
@@ -316,7 +316,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-[#333] font-inter text-[32px] font-bold leading-10 tracking-[-0.64px] mb-4">
-              我们获得的荣誉与资质
+              我们��得的荣誉与资质
             </h2>
             <p className="text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.1px] max-w-3xl mx-auto">
               浙东环境能源交易所秉持创新、协作、责任的企业文化，致力于为员工、客户与社会创造共同价值
