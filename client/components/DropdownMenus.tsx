@@ -324,7 +324,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案描述性文字文案文案文案文案文案文案文案文案
+                  解决方案描述性文字文案文案文案文案文案文案文��文案
                 </p>
               </div>
             </div>
@@ -342,7 +342,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案描述性文字文案文案文���文案文案文案文案文案
+                  解决方案描述性文字文案文案文案文案文案文案文案文案
                 </p>
               </div>
 
@@ -488,10 +488,16 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
               成功案例
             </h4>
             <div className="space-y-2">
-              <div className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors">
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => navigate("/success-cases")}
+              >
                 典型案例
               </div>
-              <div className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors">
+              <div
+                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
+                onClick={() => navigate("/success-cases")}
+              >
                 客户见证
               </div>
             </div>
