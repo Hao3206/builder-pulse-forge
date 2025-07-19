@@ -89,7 +89,7 @@ class ApiClient {
 // 创建API客户端实例
 const apiClient = new ApiClient(API_BASE_URL);
 
-// 碳交易��关API服务
+// 碳交易相关API服务
 export const carbonService = {
   // 获取碳信用额度列表
   async getCarbonCredits(filters?: {
