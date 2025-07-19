@@ -1,7 +1,6 @@
 import { Phone, Search, ChevronDown, Globe } from "lucide-react";
-import { ProductServicesDropdown } from "./DropdownMenus";
+import { ProductServicesDropdown, NewsCenterDropdown } from "./DropdownMenus";
 import { SolutionsDropdown } from "./SolutionsDropdownFixed";
-import NewsDropdown from "./NewsDropdown";
 import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
