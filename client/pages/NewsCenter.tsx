@@ -26,11 +26,21 @@ export default function NewsCenter() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle URL category parameter
+  // Handle URL category parameter and scroll to news section
   useEffect(() => {
     const categoryParam = searchParams.get("category");
     if (categoryParam) {
       setActiveCategory(categoryParam);
+      // Scroll to news list section after a short delay to ensure the page has loaded
+      setTimeout(() => {
+        const newsSection = document.getElementById("news-list-section");
+        if (newsSection) {
+          newsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 100);
     }
   }, [searchParams]);
 
@@ -69,7 +79,7 @@ export default function NewsCenter() {
       year: "2025",
       title: "资讯标题文字文字文案文字文字文案",
       content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文��案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
     },
     {
       date: "06/17",
