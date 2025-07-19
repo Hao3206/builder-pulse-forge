@@ -144,7 +144,10 @@ export function SolutionsDropdown({
 
           {/* Bottom row solutions */}
           <div className="absolute left-8 top-[164px] flex items-center gap-1">
-            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px]">
+            <span
+              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
+              onClick={() => handleNavigation("/corporate-carbon-management")}
+            >
               企业碳管理一站式解决方案
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
