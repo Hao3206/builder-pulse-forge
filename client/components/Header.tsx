@@ -40,7 +40,10 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               <ProductServicesDropdown isScrolled={isScrolled} />
               <SolutionsDropdown isScrolled={isScrolled} />
 
-              <div className="flex items-center justify-center gap-1.5 rounded-md">
+              <div
+                className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer"
+                onClick={() => navigate("/success-cases")}
+              >
                 <span
                   className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
                     isScrolled ? "text-[#333]" : "text-white"
@@ -50,7 +53,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                 </span>
               </div>
 
-              <NewsDropdown isScrolled={isScrolled} />
+              <NewsCenterDropdown isScrolled={isScrolled} />
 
               <div
                 className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer"
