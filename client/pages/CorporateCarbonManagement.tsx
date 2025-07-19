@@ -19,7 +19,7 @@ export default function CorporateCarbonManagement() {
       <Header isScrolled={isScrolled} />
 
       {/* Hero Section */}
-      <section className="relative w-full h-[468px] bg-white">
+      <section className="relative w-full h-[468px] bg-white pt-[88px]">
         <div className="absolute inset-0">
           <div className="w-full h-[468px] bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
           <div
