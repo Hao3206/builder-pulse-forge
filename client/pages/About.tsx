@@ -121,7 +121,7 @@ export default function About() {
                     使命
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6">
-                    推动全球双碳目标的实现，为企业和政府提供专业的碳管理解决方案��
+                    推动全球双碳目标的实现，为企业和政府提供专业的碳管理解决方案
                   </p>
                 </div>
 
