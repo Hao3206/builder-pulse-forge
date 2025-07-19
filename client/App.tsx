@@ -14,6 +14,8 @@ import CorporateCarbonManagement from "./pages/CorporateCarbonManagement";
 import CarbonFootprint from "./pages/CarbonFootprint";
 import NewsCenter from "./pages/NewsCenter";
 import NewsDetail from "./pages/NewsDetail";
+import SuccessCases from "./pages/SuccessCases";
+import SuccessCaseDetail from "./pages/SuccessCaseDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
