@@ -164,7 +164,7 @@ export default function Solution() {
                     能耗数据分析
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                    对水、电、气等能耗进行多维度统计与对比分析，找出���耗能环节；帮助优化用能结构
+                    对水、电、气等能耗进行多维度统计与对比分析，找出高耗能环节；帮助优化用能结构
                   </p>
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function Solution() {
                 平台系统架构
               </h2>
               <p className="text-[#858C95] text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.18px] w-full">
-                系统兼容MES、ERP、PLC等主流工业系统，通过智能网关实现多能源类型数据融合，
+                系统兼容MES、ERP、PLC等主流工业系统，通过智能网关实现多能源��型数据融合，
                 打造稳定、安全、高效的数据流通链。
               </p>
             </div>
@@ -603,7 +603,7 @@ export default function Solution() {
                 案例标题文案
               </h2>
               <p className="text-[#858C95] text-center font-inter text-base font-normal leading-6 tracking-[-0.1px] w-full">
-                已成功实施的案例文案文案文案文案
+                ���成功实施的案例文案文案文案文案
               </p>
             </div>
           </div>
