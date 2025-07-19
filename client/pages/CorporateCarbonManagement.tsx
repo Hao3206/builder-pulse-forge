@@ -573,7 +573,7 @@ export default function CorporateCarbonManagement() {
                 安全合规
               </h3>
               <p className="text-[16px] text-[#666] tracking-[-0.1px]">
-                加密存储、单点登录���审计日志
+                加密存储、单点登录、审计日志
               </p>
             </div>
           </div>
