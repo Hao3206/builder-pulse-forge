@@ -30,6 +30,114 @@ export default function ProductService() {
 
   // Mock data - in real app this would come from API based on serviceId
   const serviceData = {
+    "green-low-carbon-factory": {
+      id: "green-low-carbon-factory",
+      title: "绿色/低碳工厂创建",
+      subtitle: "专业的绿色低碳工厂建设咨询服务",
+      description:
+        "为制造企业提供从绿色工厂认定到低碳工厂建设的全方位咨询服务，助力企业实现绿色转型和可持续发展。",
+      heroImage:
+        "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1920&h=1080&fit=crop",
+      category: "碳咨询",
+      features: [
+        {
+          icon: Target,
+          title: "绿色工厂认定",
+          description:
+            "协助企业申请国家级、省级绿色工厂认定，提升企业绿色制造水平",
+        },
+        {
+          icon: FileText,
+          title: "低碳工厂建设",
+          description: "制定低碳工厂建设方案，指导企业实施节能减排技术改造",
+        },
+        {
+          icon: TrendingUp,
+          title: "绿色供应链",
+          description: "建立绿色供应链管理体系，推动上下游企业共同绿色发展",
+        },
+        {
+          icon: Award,
+          title: "认证体系",
+          description: "协助企业建立ISO14001、ISO50001等环境管理体系认证",
+        },
+      ],
+      benefits: [
+        "丰富的绿色工厂认定经验，成功率高",
+        "专业的技术团队，深度了解政策要求",
+        "全程陪伴服务，从申报到认定一站式解决",
+        "后续持续支持，确保认定后的持续改进",
+        "成本效益最优，为企业节省大量时间和资源",
+      ],
+      process: [
+        {
+          step: "01",
+          title: "现状评估",
+          description: "深入企业调研，评估现有绿色制造基础和改进空间",
+        },
+        {
+          step: "02",
+          title: "方案制定",
+          description: "制定个性化的绿色工厂建设方案和实施路径",
+        },
+        {
+          step: "03",
+          title: "技术改造",
+          description: "指导企业实施节能减排技术改造和绿色化改造",
+        },
+        {
+          step: "04",
+          title: "申报认定",
+          description: "协助企业完成绿色工厂认定申报和现场验收",
+        },
+        {
+          step: "05",
+          title: "持续改进",
+          description: "提供后续技术支持，确保绿色工厂持续运营",
+        },
+      ],
+      stats: [
+        {
+          number: "80+",
+          label: "认定项目",
+        },
+        {
+          number: "95%",
+          label: "认定成功率",
+        },
+        {
+          number: "30%",
+          label: "平均节能率",
+        },
+        {
+          number: "15个",
+          label: "服务行业",
+        },
+      ],
+      caseStudies: [
+        {
+          title: "某汽车零部件制造企业绿色工���认定",
+          description: "协助完成国家级绿色工厂认定，实施智能化生产线改造",
+          result: "成功获得国家级绿色工厂认定，年节约成本约200万元",
+        },
+        {
+          title: "某纺织企业低碳工厂建设",
+          description: "指导企业建设低碳工厂，实施清洁生产技术改造",
+          result: "碳排放强度降低40%，获得省级低碳工厂示范称号",
+        },
+      ],
+      pricing: {
+        consultation: "免费初步咨询",
+        development: "方案制定：8-15万元",
+        trading: "申报服务：10-20万元",
+        management: "技术支持：年度3-5万元",
+      },
+      contact: {
+        phone: "0574-87310818",
+        email: "green@zdhjsuo.com",
+        address: "浙江省宁波市江北区",
+      },
+    },
     "ccer-asset-development": {
       id: "ccer-asset-development",
       title: "CCER资产开发与交易",
@@ -120,7 +228,7 @@ export default function ProductService() {
         {
           title: "某新能源企业风电CCER项目",
           description: "协助开发200MW风电项目CCER，年减排量约30万吨CO2",
-          result: "成功签发并交易，为企业创造额外收益约600万元",
+          result: "成功签发并交���，为企业创造额外收益约600万元",
         },
         {
           title: "某制造企业节能改造CCER项目",
