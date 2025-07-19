@@ -61,7 +61,7 @@ const mockNews: NewsArticle[] = [
 
       **专家观点**
       
-      业内专家认为，CCER市场的重启将有效激活全国碳市场的活���度，为实现双碳目标提供市场化手段。预计未来CCER交易将保持较高增长势头。
+      业内专家认为，CCER市场的重启将有效激活全国碳市场的活跃度，为实现双碳目标提供市场化手段。预��未来CCER交易将保持较高增长势头。
     `,
     category: "news",
     author: "证券日报",
@@ -92,7 +92,7 @@ const mockNews: NewsArticle[] = [
 
       **意义重大**
       
-      此次合作协议的签署，标志着产学研合作在��中和领域的深度融合，将为浙江省乃至全国培养更多碳管理专业人才。
+      此次合作协议的签署，标志着产学研合作在碳中和领域的深度融合，将为浙江省乃至全国培养更多碳管理专业人才。
 
       **未来展望**
       
@@ -233,7 +233,7 @@ export const getFeaturedNews: RequestHandler = (req, res) => {
   }
 };
 
-// 创建新��（管理员功能）
+// 创建新闻（管理员功能）
 export const createNews: RequestHandler = (req, res) => {
   try {
     const newsData: CreateNewsRequest = req.body;
@@ -296,7 +296,7 @@ export const getNewsStats: RequestHandler = (req, res) => {
     const response: ApiResponse<typeof stats> = {
       success: true,
       data: stats,
-      message: "新闻统计数据获取成���",
+      message: "新闻统计数据获取成功",
     };
 
     res.status(200).json(response);
