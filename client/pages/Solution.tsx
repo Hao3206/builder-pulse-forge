@@ -91,7 +91,7 @@ export default function Solution() {
                   </h2>
                   <div className="flex flex-col items-start gap-3 w-full">
                     <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                      能碳精益管理系统是集能源监测、碳排管控、设备运维、能效分析、
+                      能碳精益管理系统是集能源监测、碳排管控、设备运维、能效��析、
                       <br />
                       碳足迹核算为一体的综合管理平台，
                       帮助工厂实现节能降碳、数据透明、
@@ -161,10 +161,10 @@ export default function Solution() {
                 />
                 <div className="flex flex-col items-start gap-4 w-full">
                   <h3 className="text-[#333] font-inter text-[22px] font-bold leading-[30px] tracking-[-0.22px] w-[133px]">
-                    能���数据分析
+                    能耗数据分析
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                    对水、电、气等能耗进行多维度统计与对比分析，找出高耗能环节；帮助优化用能结构
+                    对水、电、气等能耗进行多维度统计与对比分析，找出���耗能环节；帮助优化用能结构
                   </p>
                 </div>
               </div>
@@ -183,7 +183,7 @@ export default function Solution() {
                     预测与预警
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                    通过模型预测未来一定周期内���能耗与碳排放趋势；设置阈值生成异常告警，及时发现峰值、泄漏等能源浪费情况
+                    通过模型预测未来一定周期内的能耗与碳排放趋势；设置阈值生成异常告警，及时发现峰值、泄漏等能源浪费情况
                   </p>
                 </div>
               </div>
@@ -560,7 +560,7 @@ export default function Solution() {
               {
                 icon: "📊",
                 title: "经验丰富",
-                description: "深耕碳交易与节能服务超10年",
+                description: "深耕碳交易与���能服务超10年",
               },
               {
                 icon: "🔔",
