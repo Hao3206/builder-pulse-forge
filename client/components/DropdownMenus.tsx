@@ -179,7 +179,10 @@ export function ProductServicesDropdown({
 
           {/* Content under 碳信息化 */}
           <div className="absolute top-[64px] left-[776px] w-[210px] space-y-3">
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/corporate-carbon-management")}
+            >
               企业碳管理平台
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
@@ -309,8 +312,13 @@ export function SolutionsDropdown({
               </div>
 
               <div>
-                <div className="flex items-center gap-1 mb-2">
-                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px]">
+                <div
+                  className="flex items-center gap-1 mb-2 cursor-pointer"
+                  onClick={() =>
+                    handleNavigation("/corporate-carbon-management")
+                  }
+                >
+                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
                     企业碳管理一站式解决方案
                   </span>
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
