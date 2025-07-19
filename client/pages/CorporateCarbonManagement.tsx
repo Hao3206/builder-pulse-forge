@@ -60,7 +60,7 @@ export default function CorporateCarbonManagement() {
               碳管理平台
             </h2>
             <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">
-              碳管理平台融合碳排放监控、产品碳足迹核算与减排路径规划，支持全流程数据采集、质量控制与报告生成，助力企业绿色转型。
+              碳管理平台融合碳排放监控、产品碳足迹核算与减排路径规划，支持��流程数据采集、质量控制与报告生成，助力企业绿色转型。
             </p>
           </div>
 
@@ -189,7 +189,7 @@ export default function CorporateCarbonManagement() {
                   />
                 </div>
                 <h3 className="text-[22px] font-bold text-[#333] mb-4 tracking-[-0.22px]">
-                  碳排放管理（组织级）
+                  碳排放管��（组织级）
                 </h3>
                 <p className="text-[16px] text-[#666] tracking-[-0.16px]">
                   Scope 1/2/3 详尽覆盖；因子管理；质量评价审核
@@ -270,7 +270,7 @@ export default function CorporateCarbonManagement() {
               </div>
               <div className="flex-1">
                 <h3 className="text-[20px] font-bold text-[#333] mb-3 tracking-[-0.1px]">
-                  减排模拟与路径规划
+                  减���模拟与路径规划
                 </h3>
                 <p className="text-[16px] text-[#666] tracking-[-0.1px]">
                   场景分析、成本–效益优化、阶段性目标
@@ -377,7 +377,7 @@ export default function CorporateCarbonManagement() {
                   工厂应用
                 </h3>
                 <p className="text-[16px] text-[#666] tracking-[-0.1px]">
-                  工厂场景下实现能源消耗数据自动采集、��产环节碳盘查、标准化报告输出
+                  工厂场景下实现能源消耗数据自动采集、生产环节碳盘查、标准化报告输出
                 </p>
               </div>
             </div>
