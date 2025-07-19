@@ -199,7 +199,7 @@ export default function Solution() {
                 />
                 <div className="flex flex-col items-start gap-4 w-full">
                   <h3 className="text-[#333] font-inter text-[22px] font-bold leading-[30px] tracking-[-0.22px] w-full">
-                    减排模拟与规划
+                    减排模���与规划
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
                     基于能源碳排放数据，模拟不同减排策略效果(如设备更新、工艺改进、能效提升等)，制定科学的技能减排路径规划
@@ -560,7 +560,7 @@ export default function Solution() {
               {
                 icon: "📊",
                 title: "经验丰富",
-                description: "深耕碳交易与���能服务超10年",
+                description: "深耕碳交易与节能服务超10年",
               },
               {
                 icon: "🔔",
