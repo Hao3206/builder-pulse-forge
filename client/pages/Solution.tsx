@@ -91,7 +91,7 @@ export default function Solution() {
                   </h2>
                   <div className="flex flex-col items-start gap-3 w-full">
                     <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                      能碳精益管理系统是集能源监测、碳排管控、设备运维、能效��析、
+                      能碳精益管理系统是集能源监测、碳排管控、设备运维、能效分析、
                       <br />
                       碳足迹核算为一体的综合管理平台，
                       帮助工厂实现节能降碳、数据透明、
@@ -176,7 +176,7 @@ export default function Solution() {
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/ec1efe7d297c441e1f1e2354f7f955f54315c38a?width=96"
                   className="w-12 h-12 rounded-[10px]"
-                  alt="预测与预警图标"
+                  alt="预测与预警图���"
                 />
                 <div className="flex flex-col items-start gap-2.5 w-full">
                   <h3 className="text-[#333] font-inter text-[22px] font-bold leading-[30px] tracking-[-0.22px] w-[133px]">
@@ -264,7 +264,7 @@ export default function Solution() {
 
           <div className="flex w-[120px] h-[146px] py-[14px] px-5 justify-center items-center gap-2.5 rounded-md bg-[#058A65] absolute left-0 top-16">
             <div className="text-white text-center font-inter text-[15px] font-bold leading-[26px] tracking-[-0.15px]">
-              业务应用平台
+              业务���用平台
             </div>
           </div>
 
