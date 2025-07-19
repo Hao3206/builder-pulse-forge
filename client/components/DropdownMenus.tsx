@@ -173,7 +173,7 @@ export function ProductServicesDropdown({
           {/* Content under 碳金融 */}
           <div className="absolute top-[64px] left-[528px] w-[210px]">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳金融解决方案
+              碳���融解决方案
             </div>
           </div>
 
@@ -319,7 +319,7 @@ export function SolutionsDropdown({
                   }
                 >
                   <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-                    企业碳管理一站式解决方��
+                    企业��管理一站式解决方��
                   </span>
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
@@ -431,12 +431,6 @@ export function NewsCenterDropdown({
                 onClick={() => handleNavigation("知识专栏")}
               >
                 知识专栏
-              </div>
-              <div
-                className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
-                onClick={() => navigate("/success-cases")}
-              >
-                成功案例
               </div>
             </div>
           </div>
