@@ -316,7 +316,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-[#333] font-inter text-[32px] font-bold leading-10 tracking-[-0.64px] mb-4">
-              我们��得的荣誉与资质
+              我们获得的荣誉与资质
             </h2>
             <p className="text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.1px] max-w-3xl mx-auto">
               浙东环境能源交易所秉持创新、协作、责任的企业文化，致力于为员工、客户与社会创造共同价值
@@ -347,7 +347,7 @@ export default function About() {
               我们的服务
             </h2>
             <p className="text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px] max-w-2xl mx-auto">
-              提供全面的碳管理服务，涵盖以下业务领域
+              提供全面的碳管理服务，涵盖以下业���领域
             </p>
           </div>
 
