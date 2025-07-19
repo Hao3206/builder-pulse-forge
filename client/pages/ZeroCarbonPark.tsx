@@ -26,39 +26,177 @@ export default function ZeroCarbonPark() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative w-full h-[468px] bg-white">
-        {/* Background with shapes */}
-        <div className="absolute inset-0">
-          <div className="w-full h-[468px] bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
-          <div
-            className="absolute inset-0 bg-cover bg-center mix-blend-multiply"
-            style={{
-              backgroundImage:
-                "url('https://api.builder.io/api/v1/image/assets/TEMP/d3c2a75c75d2b22cd54ba87fdf99348bf0398abd?width=2880')",
-            }}
-          />
+      <section className="relative w-full h-[468px] bg-[#F0F8F6]">
+        {/* Page Header */}
+        <div className="flex w-full py-5 px-40 justify-center items-center gap-2.5 border-b border-white/21">
+          <div className="flex py-0 px-8 items-center gap-[91px]">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
+              className="w-[157px] h-[50px]"
+              alt="Logo"
+            />
+            <div className="flex items-center gap-40">
+              <div className="flex items-center gap-8">
+                <div className="flex justify-center items-center gap-1.5 rounded-[5px]">
+                  <span className="text-white font-inter text-[15px] font-medium leading-[22px]">
+                    产品服务
+                  </span>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.5 8.33301L11.0893 12.7438C10.7638 13.0692 10.2362 13.0692 9.91074 12.7438L5.5 8.33301"
+                      stroke="#F9F9F9"
+                      strokeWidth="1.67"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
+                <div className="flex flex-col justify-center items-start gap-2">
+                  <div className="flex h-[22px] items-center gap-3 self-stretch rounded-[5px]">
+                    <span className="text-[#F9F9F9] font-inter text-[15px] font-medium leading-[22px]">
+                      解决方案
+                    </span>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.5 8.33301L11.0893 12.7438C10.7638 13.0692 10.2362 13.0692 9.91074 12.7438L5.5 8.33301"
+                        stroke="#F9F9F9"
+                        strokeWidth="1.67"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-center items-start gap-2">
+                  <div className="flex h-[22px] items-center gap-3 rounded-[5px]">
+                    <span className="text-[#F9F9F9] font-inter text-[15px] font-medium leading-[22px]">
+                      成功案例
+                    </span>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-center items-start gap-2">
+                  <div className="flex h-[22px] items-center gap-3 self-stretch rounded-[5px]">
+                    <span className="text-[#F9F9F9] font-inter text-[15px] font-medium leading-[22px]">
+                      资讯中心
+                    </span>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.5 8.33301L11.0893 12.7438C10.7638 13.0692 10.2362 13.0692 9.91074 12.7438L5.5 8.33301"
+                        stroke="#F9F9F9"
+                        strokeWidth="1.67"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div className="flex justify-center items-center gap-1.5 rounded-[5px]">
+                  <span className="text-white font-inter text-[15px] font-medium leading-[22px]">
+                    关于我们
+                  </span>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.5 8.33301L11.0893 12.7438C10.7638 13.0692 10.2362 13.0692 9.91074 12.7438L5.5 8.33301"
+                      stroke="#F9F9F9"
+                      strokeWidth="1.67"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex justify-end items-start gap-[30px]">
+                <div className="w-[139px] h-[22px] relative">
+                  <span className="text-white font-inter text-[15px] font-normal leading-[22px] absolute left-[27px] top-0">
+                    0574-87310818
+                  </span>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 21 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="absolute left-0 top-0.5"
+                  >
+                    <g clipPath="url(#clip0_268_1319)">
+                      <path
+                        d="M3.51595 0.954422L3.49173 0.974422C3.4827 0.98025 3.47376 0.986214 3.46491 0.992313L3.40491 1.03651C3.34715 1.0827 3.2969 1.13757 3.25595 1.19915L3.24384 1.21968L1.63228 2.83231C-0.329833 4.79442 1.92964 9.37177 6.5428 13.9828L6.87333 14.3097C11.3375 18.6655 15.6959 20.7507 17.6191 18.9013L19.3275 17.1928C20.2986 16.2686 20.3375 14.7139 19.4023 13.7313L19.2033 13.5313L19.1486 13.4823L16.5965 11.4534C15.6175 10.7092 14.2081 10.8076 13.3307 11.7113L12.6181 12.4244L12.5496 12.3813C10.8021 11.2668 9.3196 9.78349 8.20595 8.03546L8.147 7.94126L8.82439 7.17968L8.8128 7.19126C9.2633 6.75409 9.53128 6.16237 9.56273 5.53542C9.59418 4.90846 9.38676 4.2929 8.98228 3.81284L7.04228 1.37284C6.62816 0.85261 6.02545 0.516836 5.36515 0.438488C4.70485 0.360139 4.04031 0.545549 3.51595 0.954422ZM6.05384 2.15968L8.06228 4.68599C8.36964 5.10915 8.377 5.66177 8.10386 6.07862L8.06386 6.13389L6.58911 7.79284L6.81964 8.1881C8.16539 10.4983 10.0868 12.4204 12.3965 13.7671L12.817 14.0123L14.2307 12.5976L14.3002 12.5313C14.5186 12.3365 14.7998 12.2269 15.0924 12.2227C15.385 12.2184 15.6694 12.3198 15.8933 12.5081L18.3328 14.4476L18.4875 14.6018C18.7056 14.8311 18.8237 15.1376 18.8158 15.4539C18.8079 15.7703 18.6747 16.0705 18.4454 16.2886L16.7349 17.9992C15.5275 19.1602 11.5349 17.1886 7.43542 13.0897L7.267 12.9202C3.25544 8.85493 1.33542 4.91599 2.52648 3.72599L4.3212 1.92915L4.2928 1.9502C4.55469 1.74606 4.88655 1.65349 5.21629 1.69262C5.54603 1.73174 5.84701 1.89939 6.05386 2.15915L6.05384 2.15968Z"
+                        fill="white"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <div className="flex w-[42px] py-0 px-0.5 items-center gap-2">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/faf28f18a1e75151324b0be17744769ea7bb2acc?width=40"
+                    className="w-5 h-5"
+                    alt="Language"
+                  />
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/42c608dd09a41851bb23e2412698e05dfc99feb1?width=24"
+                    className="w-3 h-3"
+                    alt="Dropdown"
+                  />
+                </div>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 21 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#clip0_268_1326)">
+                    <path
+                      d="M3.97964 13.8602C3.29752 13.1816 2.75676 12.3744 2.38864 11.4854C2.02052 10.5963 1.83234 9.64314 1.83501 8.68092C1.83501 6.72479 2.59649 4.886 3.97964 3.50285C4.65816 2.82088 5.46515 2.2802 6.35395 1.91209C7.24274 1.54397 8.1957 1.35572 9.15771 1.35821C11.1151 1.35821 12.9526 2.1197 14.337 3.50285C15.019 4.18137 15.5597 4.98836 15.9278 5.87716C16.2959 6.76595 16.4842 7.71891 16.4817 8.68092C16.4843 9.64314 16.2962 10.5963 15.928 11.4854C15.5599 12.3744 15.0192 13.1816 14.337 13.8602C13.6585 14.5425 12.8513 15.0833 11.9622 15.4514C11.0732 15.8196 10.12 16.0077 9.15771 16.0049C7.20158 16.0049 5.36279 15.2434 3.97964 13.8602ZM20.2816 18.8636L15.7252 14.3071C17.1841 12.6091 17.928 10.4115 17.8004 8.17643C17.6728 5.94133 16.6837 3.84272 15.041 2.32172C13.3983 0.800712 11.2299 -0.0242368 8.99155 0.020266C6.75325 0.0647688 4.61936 0.975257 3.0384 2.56036C1.82735 3.7706 1.00247 5.31285 0.66811 6.992C0.333752 8.67114 0.504939 10.4117 1.16002 11.9936C1.81509 13.5754 2.92463 14.9274 4.34825 15.8785C5.77186 16.8296 7.4456 17.3372 9.15771 17.3368C11.2227 17.3368 13.2191 16.5957 14.7839 15.2484L19.3403 19.8048C19.4652 19.9296 19.6344 19.9997 19.811 19.9997C19.9875 19.9997 20.1568 19.9296 20.2816 19.8048C20.4064 19.68 20.4765 19.5107 20.4765 19.3342C20.4765 19.1577 20.4064 18.9884 20.2816 18.8636Z"
+                      fill="white"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 flex w-[1280px] mx-auto py-20 px-[30px] pt-[108px] flex-col justify-center items-center">
+        {/* Hero Content Container */}
+        <div className="flex w-[1280px] py-20 px-[30px] pb-[92px] flex-col justify-center items-center mx-auto">
           <div className="flex w-[640px] flex-col items-center gap-6">
-            <div className="flex flex-col items-center gap-12 w-full">
-              <div className="flex flex-col items-center gap-6 w-full">
-                <h1 className="text-[#F9F9F9] text-center font-inter text-[52px] font-bold leading-[60px] tracking-[-0.52px] w-full">
+            <div className="flex flex-col items-center gap-12 self-stretch">
+              <div className="flex flex-col items-center gap-6 self-stretch">
+                <h1 className="self-stretch text-[#F9F9F9] text-center font-inter text-[52px] font-bold leading-[60px] tracking-[-0.52px]">
                   打造零碳未来
                 </h1>
-                <p className="text-[#F9F9F9] text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.1px] w-full">
+                <p className="self-stretch text-[#F9F9F9] text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.1px]">
                   构建绿色、智能、可持续的产业园区生态系统
                 </p>
               </div>
               <div className="flex items-start gap-4">
                 <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
-                  <span className="text-white font-inter text-[15px] font-bold leading-[22px]">
+                  <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
                     了解详情
                   </span>
                 </button>
                 <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
-                  <span className="text-[#058A65] font-inter text-[15px] font-bold leading-[22px]">
+                  <span className="text-[#058A65] font-inter text-[15px] font-semibold leading-[22px]">
                     联系我们
                   </span>
                 </button>
@@ -66,18 +204,36 @@ export default function ZeroCarbonPark() {
             </div>
           </div>
         </div>
+
+        {/* Background Shapes */}
+        <div className="absolute inset-0 flex w-full h-[468px] justify-center items-center">
+          <div className="flex-1 self-stretch bg-[rgba(15,59,47,0.50)] mix-blend-multiply absolute left-0 top-0 w-full h-[468px]">
+            <div className="w-full h-[450px] bg-gradient-to-r from-[#155B75] to-[#088AB2] absolute left-0 top-0"></div>
+          </div>
+        </div>
+        <div className="absolute inset-0 flex w-full h-[468px] justify-center items-center">
+          <div
+            className="flex-1 self-stretch absolute left-0 top-0 w-full h-[468px] bg-cover bg-center bg-lightgray"
+            style={{
+              backgroundImage:
+                "url('https://api.builder.io/api/v1/image/assets/TEMP/d3c2a75c75d2b22cd54ba87fdf99348bf0398abd?width=2880')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></div>
+        </div>
       </section>
 
       {/* Features Section - 零碳园区建设理念 */}
-      <section className="w-full py-[88px] px-[112px] flex flex-col justify-center items-center gap-16 bg-[rgba(5,138,101,0.06)]">
-        <div className="flex max-w-[1280px] flex-col justify-center items-center gap-3 w-full">
+      <section className="flex w-full py-[88px] px-[112px] flex-col justify-center items-center gap-16 bg-[rgba(5,138,101,0.06)]">
+        <div className="flex max-w-[1280px] flex-col justify-center items-center gap-3 self-stretch">
           <div className="flex w-[800px] flex-col justify-center items-center gap-2">
-            <div className="flex flex-col items-center gap-4 w-full">
-              <h2 className="text-[#323539] text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.48px] w-full">
+            <div className="flex flex-col items-center gap-4 self-stretch">
+              <h2 className="self-stretch text-[#323539] text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.48px]">
                 零碳园区建设理念
               </h2>
-              <p className="text-[#858C95] text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.18px] w-full">
-                以创新技术为驱动，构建可持续发展的产业生态
+              <p className="self-stretch text-[#858C95] text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.18px]">
+                以创新技术为驱��，构建可持续发展的产业生态
               </p>
             </div>
           </div>
@@ -88,7 +244,7 @@ export default function ZeroCarbonPark() {
           <div className="flex h-[300px] min-w-[320px] py-[34px] px-8 flex-col items-start gap-5 flex-1 rounded-[12px] bg-white">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/46e33197f9c96c898d50fb066b9ce8b72588c437?width=96"
-              className="w-12 h-12 rounded-[10px]"
+              className="flex w-12 h-12 justify-center items-center flex-shrink-0 rounded-[10px]"
               alt="绿色低碳图标"
             />
             <div className="flex h-[164px] flex-col items-start gap-5 flex-shrink-0 self-stretch">
@@ -122,11 +278,11 @@ export default function ZeroCarbonPark() {
           <div className="flex h-[300px] min-w-[320px] py-[34px] px-8 flex-col items-start gap-5 flex-1 rounded-[12px] bg-white">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/9607aca296eceee88b082d337783c0d911d6abe3?width=96"
-              className="w-12 h-12 rounded-[8px]"
+              className="flex w-12 h-12 justify-center items-center flex-shrink-0 rounded-[8px]"
               alt="智慧运营图标"
             />
             <div className="flex h-[164px] flex-col items-start gap-5 flex-shrink-0 self-stretch">
-              <div className="self-stretch text-[#058A65] font-inter text-[26px] font-bold leading-[42px] tracking-[-0.26px]">
+              <div className="self-stretch text-[#058A65] font-inter text-[26px] font-semibold leading-[42px] tracking-[-0.26px]">
                 智慧运营
               </div>
               <div className="self-stretch text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px]">
@@ -145,7 +301,7 @@ export default function ZeroCarbonPark() {
                 </div>
                 <div className="flex py-1 px-[14px] justify-center items-center gap-2.5 rounded-[6px] bg-[#F2F9F7]">
                   <div className="text-[#058461] font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
-                    AI优化
+                    AI优��
                   </div>
                 </div>
               </div>
@@ -169,7 +325,7 @@ export default function ZeroCarbonPark() {
               </svg>
             </div>
             <div className="flex h-[164px] flex-col items-start gap-5 flex-shrink-0 self-stretch">
-              <div className="self-stretch text-[#058A65] font-inter text-[26px] font-bold leading-[42px] tracking-[-0.26px]">
+              <div className="self-stretch text-[#058A65] font-inter text-[26px] font-semibold leading-[42px] tracking-[-0.26px]">
                 循环经济
               </div>
               <div className="self-stretch text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px]">
@@ -200,26 +356,25 @@ export default function ZeroCarbonPark() {
       {/* 零碳园区建设路径 */}
       <section className="relative w-full h-[550px]">
         {/* Background Shape */}
-        <div className="w-full h-[550px] fill-[#058A65] absolute left-0 top-0">
-          <svg
-            width="1440"
-            height="550"
-            viewBox="0 0 1440 550"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 0H360H697.514C700.073 0 702.535 0.981491 704.393 2.74235L713.121 11.015C716.978 14.6715 723.022 14.6714 726.879 11.015L735.607 2.74235C737.465 0.98149 739.927 0 742.486 0H1080H1440V550H0V0Z"
-              fill="#058A65"
-            />
-          </svg>
-        </div>
+        <svg
+          className="w-full h-[550px] fill-[#058A65] absolute left-0 top-0"
+          width="1440"
+          height="550"
+          viewBox="0 0 1440 550"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0H360H697.514C700.073 0 702.535 0.981491 704.393 2.74235L713.121 11.015C716.978 14.6715 723.022 14.6714 726.879 11.015L735.607 2.74235C737.465 0.98149 739.927 0 742.486 0H1080H1440V550H0V0Z"
+            fill="#058A65"
+          />
+        </svg>
 
-        {/* Background Image */}
+        {/* Background Mask */}
         <div className="w-full h-[550px] flex-shrink-0 absolute left-0 top-0">
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/1c55a1792c8dc15683c883fd3a952d1983361665?width=2954"
-            className="w-[1477px] h-[831px] flex-shrink-0 aspect-[1477/831] mix-blend-mode-multiply absolute left-[-7px] top-[-129px]"
+            className="w-[1477px] h-[831px] flex-shrink-0 mix-blend-multiply absolute left-[-7px] top-[-129px]"
             alt=""
           />
         </div>
@@ -241,49 +396,84 @@ export default function ZeroCarbonPark() {
         </div>
 
         {/* Process Steps */}
-        <div className="flex items-center justify-between absolute left-[112px] top-[267px] w-[1216px]">
-          {Array.from({ length: 5 }, (_, index) => (
-            <div key={index} className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 flex-shrink-0 relative">
-                <svg
-                  width="64"
-                  height="64"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8.36996 14.8856L29.6173 2.82137C31.5231 1.7392 33.8674 1.78232 35.7322 2.93383L55.0328 14.8519C56.8029 15.9449 57.8804 17.8768 57.8804 19.957V43.0749C57.8804 45.0847 56.8741 46.9611 55.1999 48.073L35.8923 60.896C33.9499 62.1861 31.4358 62.2339 29.4457 61.0186L8.20537 48.0472C6.42096 46.9575 5.33252 45.0174 5.33252 42.9265V20.1032C5.33252 17.9442 6.49249 15.9517 8.36996 14.8856Z"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M13.2346 34.1641H19.0251C19.3871 34.1641 19.7208 33.9685 19.8976 33.6527L22.873 28.3395C23.2778 27.6166 24.3359 27.6714 24.6638 28.4323L30.3048 41.5195C30.6812 42.3926 31.949 42.2972 32.1904 41.3775L37.0149 22.9986C37.264 22.0495 38.5887 21.9896 38.9225 22.9124L42.7536 33.5042C42.8968 33.9002 43.2728 34.1641 43.6939 34.1641H49.9762"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
-              <div className="text-white text-center font-inter text-lg font-medium leading-[26px] tracking-[-0.18px] w-[90px]">
-                碳盘查诊断
-              </div>
-              <div className="w-[151px] text-white/70 text-center font-inter text-sm font-normal leading-[22px] tracking-[-0.14px]">
-                全面评估园区碳排放现状，识别减排潜力
-              </div>
+        {Array.from({ length: 5 }, (_, index) => (
+          <div
+            key={index}
+            className="absolute"
+            style={{ left: `${212 + index * 225}px`, top: "267px" }}
+          >
+            <svg
+              width="64"
+              height="64"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-16 h-16 flex-shrink-0"
+            >
+              <path
+                d="M8.36996 14.8856L29.6173 2.82137C31.5231 1.7392 33.8674 1.78232 35.7322 2.93383L55.0328 14.8519C56.8029 15.9449 57.8804 17.8768 57.8804 19.957V43.0749C57.8804 45.0847 56.8741 46.9611 55.1999 48.073L35.8923 60.896C33.9499 62.1861 31.4358 62.2339 29.4457 61.0186L8.20537 48.0472C6.42096 46.9575 5.33252 45.0174 5.33252 42.9265V20.1032C5.33252 17.9442 6.49249 15.9517 8.36996 14.8856Z"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M13.2346 34.1641H19.0251C19.3871 34.1641 19.7208 33.9685 19.8976 33.6527L22.873 28.3395C23.2778 27.6166 24.3359 27.6714 24.6638 28.4323L30.3048 41.5195C30.6812 42.3926 31.949 42.2972 32.1904 41.3775L37.0149 22.9986C37.264 22.0495 38.5887 21.9896 38.9225 22.9124L42.7536 33.5042C42.8968 33.9002 43.2728 34.1641 43.6939 34.1641H49.9762"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+            <div className="text-white text-center font-inter text-lg font-medium leading-[26px] tracking-[-0.18px] w-[90px] h-[26px] absolute left-[-13px] top-[86px]">
+              碳盘查诊断
             </div>
-          ))}
-        </div>
+            <div className="w-[151px] text-white/70 text-center font-inter text-sm font-normal leading-[22px] tracking-[-0.14px] h-11 absolute left-[-30px] top-[126px]">
+              全面评估园区碳排放现状，识别减排潜力
+            </div>
+          </div>
+        ))}
 
-        {/* Connecting arrows */}
-        <div className="absolute left-[287px] top-[292px] w-[180px] h-[14px]">
+        {/* Connecting Lines and Arrows */}
+        <svg
+          width="118"
+          height="1"
+          viewBox="0 0 120 2"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute left-[112px] top-[298px]"
+        >
+          <path
+            d="M1 1H119"
+            stroke="white"
+            strokeLinecap="round"
+            strokeDasharray="2 2"
+          />
+        </svg>
+        <svg
+          width="115"
+          height="1"
+          viewBox="0 0 117 2"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute left-[1213px] top-[298px]"
+        >
+          <path
+            d="M1 1H116"
+            stroke="white"
+            strokeLinecap="round"
+            strokeDasharray="2 2"
+          />
+        </svg>
+
+        {Array.from({ length: 4 }, (_, index) => (
           <svg
+            key={index}
             width="180"
             height="14"
             viewBox="0 0 180 14"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="absolute"
+            style={{ left: `${287 + index * 233}px`, top: "292px" }}
           >
             <path
               d="M1 7H179"
@@ -304,91 +494,7 @@ export default function ZeroCarbonPark() {
               strokeLinecap="round"
             />
           </svg>
-        </div>
-        <div className="absolute left-[520px] top-[292px] w-[180px] h-[14px]">
-          <svg
-            width="180"
-            height="14"
-            viewBox="0 0 180 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 7H179"
-              stroke="white"
-              strokeLinecap="round"
-              strokeDasharray="2 2"
-            />
-            <path
-              d="M90 1L94.625 6.625L90 12.375"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M102.25 2.8125L106 6.625L102.25 10.625"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-        <div className="absolute left-[753px] top-[292px] w-[180px] h-[14px]">
-          <svg
-            width="180"
-            height="14"
-            viewBox="0 0 180 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 7H179"
-              stroke="white"
-              strokeLinecap="round"
-              strokeDasharray="2 2"
-            />
-            <path
-              d="M90 1L94.625 6.625L90 12.375"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M102.25 2.8125L106 6.625L102.25 10.625"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-        <div className="absolute left-[978px] top-[292px] w-[180px] h-[14px]">
-          <svg
-            width="180"
-            height="14"
-            viewBox="0 0 180 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1 7H179"
-              stroke="white"
-              strokeLinecap="round"
-              strokeDasharray="2 2"
-            />
-            <path
-              d="M90 1L94.625 6.625L90 12.375"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-            <path
-              d="M102.25 2.8125L106 6.625L102.25 10.625"
-              stroke="white"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
+        ))}
       </section>
 
       {/* 我们的核心能力 */}
@@ -410,19 +516,90 @@ export default function ZeroCarbonPark() {
           {/* 碳画像与诊断 */}
           <div className="flex w-[1216px] h-[450px] pr-8 items-center gap-[118px]">
             <div className="flex w-[528px] h-[462px] justify-center items-center flex-shrink-0">
-              {/* Placeholder for image */}
-              <div className="w-[438px] h-[438px] bg-white rounded-full flex items-center justify-center">
-                <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/defff75d300cd64416ae24df91ed64864ab0feb5?width=876"
-                  className="w-[438px] h-[438px]"
-                  alt="碳画像与诊断"
-                />
+              {/* Complex Carbon Portrait Visualization */}
+              <div className="relative w-[438px] h-[438px] bg-white">
+                <div className="w-[393px] h-[382px] absolute left-4 top-[43px]">
+                  <div className="w-[382px] h-[382px] flex-shrink-0 rounded-full bg-gradient-to-b from-[rgba(226,241,238,0.82)] to-[rgba(245,250,249,0)] absolute left-[11px] top-0"></div>
+                  <div className="w-[361px] h-[90px] flex-shrink-0 rounded-full bg-[rgba(226,241,238,0.53)] absolute left-[26px] top-[259px]"></div>
+                  <div className="w-[229px] h-[58px] flex-shrink-0 fill-[rgba(5,138,101,0.13)] stroke-2 stroke-white absolute left-[89px] top-[265px]"></div>
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/6cd9ba54d9e429639dd7cd9fc8c475eef04a6163?width=574"
+                    className="w-[287px] h-[76px] flex-shrink-0 rounded-full border border-dashed border-[#058A65] absolute left-[60px] top-[260px]"
+                    alt=""
+                  />
+
+                  {/* Green arrow flows */}
+                  <div className="w-[124px] h-[89px] flex-shrink-0 fill-[rgba(155,208,193,0.79)] absolute left-[25px] top-[155px]"></div>
+                  <div className="w-[124px] h-[88px] flex-shrink-0 fill-[#69B9A3] absolute left-[233px] top-[207px]"></div>
+                  <div className="w-[124px] h-[88px] flex-shrink-0 fill-[#69B9A3] absolute left-[54px] top-[207px]"></div>
+
+                  {/* Central tower */}
+                  <div className="w-[74px] h-[172px] flex-shrink-0 fill-[#058A65] absolute left-[165px] top-[121px]"></div>
+
+                  {/* CO2 clouds */}
+                  <div className="w-16 h-16 flex-shrink-0 absolute left-[31px] top-[51px]">
+                    <div className="w-[53px] h-[38px] flex-shrink-0 fill-[#058A65] absolute left-2 top-[13px]"></div>
+                    <div className="text-white font-[ADLaM Display] text-base font-normal leading-6 tracking-[-0.16px] absolute left-[21px] top-[25px] w-7 h-6">
+                      CO₂
+                    </div>
+                  </div>
+                  <div className="w-[53px] h-[38px] flex-shrink-0 fill-[#058A65] absolute left-[104px] top-[21px]"></div>
+                  <div className="w-[53px] h-[38px] flex-shrink-0 fill-[#058A65] absolute left-[188px] top-[3px]"></div>
+                  <div className="w-[53px] h-[38px] flex-shrink-0 fill-[#058A65] absolute left-[265px] top-[35px]"></div>
+                  <div className="w-[53px] h-[38px] flex-shrink-0 fill-[#058A65] absolute left-[320px] top-[90px]"></div>
+
+                  {/* Gas labels */}
+                  <div className="text-white font-[ADLaM Display] text-base font-normal leading-6 tracking-[-0.16px] absolute left-[117px] top-[32px] w-7 h-6">
+                    CH₄
+                  </div>
+                  <div className="text-white font-[ADLaM Display] text-base font-normal leading-6 tracking-[-0.16px] absolute left-[198px] top-[14px] w-[31px] h-6">
+                    N₂O
+                  </div>
+                  <div className="text-white font-[ADLaM Display] text-base font-normal leading-6 tracking-[-0.16px] absolute left-[279px] top-[45px] w-[27px] h-6">
+                    NF₃
+                  </div>
+                  <div className="text-white font-[ADLaM Display] text-base font-normal leading-6 tracking-[-0.16px] absolute left-[334px] top-[100px] w-[23px] h-6">
+                    SF₆
+                  </div>
+
+                  {/* Dotted lines */}
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/f83526aa7ed5d421e748555b7c6599aa4e3d9ee5?width=90"
+                    className="w-[45px] h-[15px] flex-shrink-0 absolute left-[180px] top-[101px]"
+                    alt=""
+                  />
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/53cbfa33988453885f0ff78bdd723e84045d8668?width=98"
+                    className="w-[49px] h-[14px] flex-shrink-0 absolute left-[68px] top-[148px]"
+                    alt=""
+                  />
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/ea370e9b33572e25139cc2ff0ff609b04aa2f459?width=96"
+                    className="w-12 h-[14px] flex-shrink-0 absolute left-[318px] top-[190px]"
+                    alt=""
+                  />
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/ea370e9b33572e25139cc2ff0ff609b04aa2f459?width=96"
+                    className="w-12 h-[14px] flex-shrink-0 absolute left-[131px] top-[189px]"
+                    alt=""
+                  />
+
+                  {/* Data points */}
+                  <div className="w-3 h-[55px] flex-shrink-0 absolute left-0 top-[223px]">
+                    <div className="w-1 h-[52px] flex-shrink-0 bg-gradient-to-b from-[rgba(5,138,101,0.51)] to-[rgba(5,138,101,0)] absolute left-1 top-[3px]"></div>
+                    <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#058A65] absolute left-0 top-0"></div>
+                  </div>
+                  <div className="w-3 h-[55px] flex-shrink-0 absolute left-[377px] top-[251px]">
+                    <div className="w-1 h-[52px] flex-shrink-0 bg-gradient-to-b from-[rgba(5,138,101,0.51)] to-[rgba(5,138,101,0)] absolute left-1 top-[3px]"></div>
+                    <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#058A65] absolute left-0 top-0"></div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="flex w-[490px] flex-col items-start gap-10 flex-shrink-0">
               <div className="flex w-[490px] flex-col items-start gap-2">
                 <div className="flex flex-col items-start gap-4 self-stretch">
-                  <h3 className="self-stretch text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
+                  <h3 className="self-stretch text-[#272D37] font-inter text-[32px] font-semibold leading-[42px] tracking-[-0.32px]">
                     碳画像与诊断
                   </h3>
                   <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
@@ -431,7 +608,7 @@ export default function ZeroCarbonPark() {
                 </div>
               </div>
               <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
-                <span className="text-white font-inter text-[15px] font-bold leading-[22px]">
+                <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
                   咨询详情
                 </span>
               </button>
@@ -443,7 +620,7 @@ export default function ZeroCarbonPark() {
             <div className="flex w-[490px] flex-col items-start gap-10 flex-shrink-0">
               <div className="flex w-[490px] flex-col items-start gap-2">
                 <div className="flex flex-col items-start gap-4 self-stretch">
-                  <h3 className="self-stretch text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
+                  <h3 className="self-stretch text-[#272D37] font-inter text-[32px] font-semibold leading-[42px] tracking-[-0.32px]">
                     数字孪生平台
                   </h3>
                   <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
@@ -452,15 +629,116 @@ export default function ZeroCarbonPark() {
                 </div>
               </div>
               <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
-                <span className="text-white font-inter text-[15px] font-bold leading-[22px]">
+                <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
                   了解方案
                 </span>
               </button>
             </div>
-            {/* Placeholder for right image */}
+            {/* Digital Twin Visualization */}
             <div className="flex w-[528px] h-[462px] justify-center items-center flex-shrink-0">
-              <div className="w-[438px] h-[438px] bg-white rounded-full flex items-center justify-center">
-                <div className="w-[438px] h-[438px] bg-[#F5FAF9] rounded-full"></div>
+              <div className="relative w-[438px] h-[438px] bg-white">
+                <div className="w-[387px] h-[382px] flex-shrink-0 absolute left-[25px] top-[34px]">
+                  <div className="w-[382px] h-[382px] flex-shrink-0 rounded-full bg-[#F5FAF9] absolute left-0 top-0"></div>
+                  <div className="w-[260px] h-[260px] flex-shrink-0 rounded-full border-2 border-white bg-[#E2F1EE] absolute left-[58px] top-[55px]"></div>
+                  <div className="w-[314px] h-[314px] flex-shrink-0 rounded-full border border-[#058A65] border-opacity-29 absolute left-[31px] top-[28px]"></div>
+
+                  {/* Buildings/Platforms */}
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/becef982fcafd4860d2a818683505058c9414948?width=650"
+                    className="w-[325px] h-[161px] flex-shrink-0 absolute left-[29px] top-[134px]"
+                    alt=""
+                  />
+
+                  {/* 3D Platform */}
+                  <div className="w-[216px] h-[269px] flex-shrink-0 absolute left-[83px] top-[76px]">
+                    <div className="w-[223px] h-[288px] relative">
+                      <div className="absolute inset-0 bg-[#BCD3D0] filter drop-shadow-[4px_12px_8.3px_rgba(5,138,101,0.15)]"></div>
+                      <div className="w-[220px] h-[263px] bg-white stroke-[#E3EBE8] absolute left-[1px] top-[1px]"></div>
+                      <div className="w-[185px] h-[207px] bg-[#E7F0ED] absolute left-[17px] top-[28px]"></div>
+                    </div>
+                  </div>
+
+                  {/* Curved flow paths */}
+                  <div className="w-[325px] h-[145px] flex-shrink-0 absolute left-[29px] top-[150px]">
+                    <path
+                      d="M260.657 120.403C255.682 119.203 258.584 115.903 260.657 114.403L279.072 106.403L279.431 106.183C297.086 95.3688 321.792 80.236 318.703 55.9025C315.594 31.4037 295.381 20.9013 277.76 10.4026C258.066 2.40329 301.6 13.4013 319.221 41.4025C340.989 90.9014 266.877 119.401 260.657 120.403Z"
+                      fill="#63AC86"
+                    />
+                  </div>
+
+                  {/* Energy Icons */}
+                  <div className="w-[54px] h-[54px] flex-shrink-0 rounded-full bg-[#058A65] absolute left-[290px] top-[66px]"></div>
+                  <div className="w-[54px] h-[54px] flex-shrink-0 rounded-full bg-[#058A65] absolute left-[160px] top-[3px]"></div>
+                  <div className="w-[54px] h-[54px] flex-shrink-0 rounded-full bg-[#058A65] absolute left-[30px] top-[71px]"></div>
+
+                  {/* Connection points */}
+                  <div className="w-3 h-[55px] flex-shrink-0 absolute left-[375px] top-[128px]">
+                    <div className="w-1 h-[52px] flex-shrink-0 bg-gradient-to-b from-[rgba(5,138,101,0.51)] to-[rgba(5,138,101,0)] absolute left-1 top-[3px]"></div>
+                    <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#058A65] absolute left-0 top-0"></div>
+                  </div>
+                  <div className="w-3 h-[55px] flex-shrink-0 absolute left-[17px] top-[267px]">
+                    <div className="w-1 h-[52px] flex-shrink-0 bg-gradient-to-b from-[rgba(5,138,101,0.51)] to-[rgba(5,138,101,0)] absolute left-1 top-[3px]"></div>
+                    <div className="w-3 h-3 flex-shrink-0 rounded-full bg-[#058A65] absolute left-0 top-0"></div>
+                  </div>
+
+                  {/* Icons within circles */}
+                  <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 26 26"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="absolute left-[44px] top-[84px]"
+                  >
+                    <path
+                      d="M13.0001 26C14.7811 26 16.4061 24.557 17.5761 21.944C18.6421 19.539 19.2271 16.367 19.2271 13C19.2271 9.633 18.6421 6.461 17.5761 4.056C16.4061 1.443 14.7811 0 13.0001 0C11.2191 0 9.59405 1.443 8.42405 4.056C7.35805 6.461 6.77305 9.633 6.77305 13C6.77305 16.367 7.35805 19.539 8.42405 21.944C9.59405 24.557 11.2191 26 13.0001 26ZM13.0001 1.625C15.1841 1.625 17.6021 6.292 17.6021 13C17.6021 19.708 15.1711 24.375 13.0001 24.375C10.8161 24.375 8.39805 19.708 8.39805 13C8.39805 6.292 10.8161 1.625 13.0001 1.625Z"
+                      fill="white"
+                    />
+                  </svg>
+
+                  {/* Platform screen content */}
+                  <div className="w-[117px] h-[102px] flex-shrink-0 fill-white absolute left-[153px] top-[156px]"></div>
+                  <div className="w-[111px] h-[95px] flex-shrink-0 fill-[#058A65] absolute left-[148px] top-[150px]"></div>
+
+                  {/* Cloud and energy icons */}
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="absolute left-[172px] top-[7px]"
+                  >
+                    <path
+                      d="M29.9531 28.2789L25.2498 15.3544C25.1945 15.2014 25.0934 15.069 24.9602 14.9754C24.8271 14.8817 24.6683 14.8313 24.5055 14.8311H3.80612C3.67924 14.8315 3.55432 14.8623 3.44183 14.921C3.32934 14.9797 3.23258 15.0645 3.15966 15.1684C3.08674 15.2722 3.0398 15.392 3.02277 15.5178C3.00574 15.6435 3.01913 15.7715 3.0618 15.891L4.84855 20.7784L4.79377 20.8698C4.76644 20.9149 4.74347 20.9625 4.72516 21.012L2.04868 28.2798C2.00464 28.3996 1.99018 28.5283 2.00654 28.6549C2.02289 28.7815 2.06958 28.9023 2.14263 29.007C2.21569 29.1117 2.31294 29.1972 2.42613 29.2562C2.53931 29.3153 2.66508 29.3461 2.79275 29.3461C2.95502 29.3457 3.1133 29.2958 3.24639 29.2029C3.37947 29.1101 3.48101 28.9787 3.53739 28.8266L5.67012 23.0298L7.78513 28.8167C7.84062 28.9696 7.94177 29.1017 8.07487 29.1951C8.20796 29.2886 8.36657 29.3388 8.52919 29.3391H29.2089C29.336 29.339 29.4611 29.3084 29.5738 29.2498C29.6865 29.1912 29.7835 29.1063 29.8564 29.0023C29.9294 28.8984 29.9763 28.7783 29.9931 28.6524C30.0099 28.5265 29.9962 28.3984 29.9531 28.2789ZM9.08426 27.7564L4.95915 16.4149H23.9518L28.0767 27.7564H9.08426Z"
+                      fill="white"
+                    />
+                  </svg>
+
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="absolute left-[303px] top-[76px]"
+                  >
+                    <path
+                      d="M1.74995 16.6247C1.74995 18.2492 2.39526 19.8071 3.54392 20.9557C4.69258 22.1044 6.2505 22.7497 7.87495 22.7497H21C22.3199 22.7549 23.5935 22.2627 24.5668 21.3711C25.5402 20.4796 26.142 19.254 26.2524 17.9386C26.3627 16.6233 25.9735 15.3146 25.1623 14.2733C24.3511 13.232 23.1774 12.5345 21.875 12.3197V12.2497C21.8662 10.3005 21.1348 8.42383 19.8223 6.98269C18.5099 5.54156 16.7096 4.63838 14.7697 4.44787C12.8298 4.25737 10.8882 4.79307 9.32045 5.95136C7.7527 7.10965 6.67024 8.80821 6.28245 10.7185C4.98307 11.0683 3.83508 11.8364 3.01584 12.9039C2.19661 13.9714 1.75173 15.2791 1.74995 16.6247ZM24.5 17.4997C24.5 18.428 24.1312 19.3182 23.4748 19.9746C22.8184 20.631 21.9282 20.9997 21 20.9997H7.87495C6.78117 20.9904 5.73056 20.5717 4.9302 19.8261C4.12984 19.0805 3.63779 18.0622 3.55105 16.9718C3.4643 15.8815 3.78915 14.7981 4.46156 13.9354C5.13396 13.0727 6.10515 12.4931 7.1837 12.311C7.37383 12.2813 7.54889 12.1898 7.68176 12.0506C7.81463 11.9114 7.89791 11.7323 7.9187 11.541C8.10465 9.99285 8.87402 8.57393 10.07 7.57347C11.2659 6.57301 12.7984 6.06633 14.355 6.15671C15.9117 6.24709 17.3752 6.92774 18.4473 8.0599C19.5194 9.19206 20.1194 10.6905 20.125 12.2497C20.1234 12.5072 20.1059 12.7644 20.0725 13.0197C20.0562 13.1438 20.0667 13.2699 20.1033 13.3896C20.14 13.5092 20.2018 13.6197 20.2848 13.7134C20.3677 13.8071 20.4698 13.8819 20.5841 13.9328C20.6984 13.9837 20.8223 14.0095 20.9475 14.0085H21C21.9267 14.0085 22.8156 14.376 23.4717 15.0305C24.1279 15.685 24.4976 16.573 24.5 17.4997Z"
+                      fill="white"
+                    />
+                  </svg>
+
+                  {/* Data visualization elements */}
+                  <div className="w-[58px] h-[63px] flex-shrink-0 absolute left-[114px] top-[140px]">
+                    <div className="w-[58px] h-[63px] flex-shrink-0 fill-[#61AA84] stroke stroke-white absolute left-0 top-0"></div>
+                    <img
+                      src="https://api.builder.io/api/v1/image/assets/TEMP/c020e17995b5356b0865ad97a141775e699dce99?width=66"
+                      className="w-[33px] h-[33px] flex-shrink-0 absolute left-[14px] top-4"
+                      alt=""
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -468,15 +746,17 @@ export default function ZeroCarbonPark() {
           {/* 能源运营优化 */}
           <div className="flex w-[1216px] h-[450px] pr-8 items-center gap-[118px]">
             <div className="flex w-[528px] h-[462px] justify-center items-center flex-shrink-0">
-              {/* Placeholder for left image */}
-              <div className="w-[438px] h-[438px] bg-white rounded-full flex items-center justify-center">
-                <div className="w-[438px] h-[438px] bg-[#F5FAF9] rounded-full"></div>
+              {/* Energy Optimization Visualization - placeholder similar to first one */}
+              <div className="w-[438px] h-[438px] bg-[#F5FAF9] rounded-full flex items-center justify-center">
+                <div className="text-[#058A65] text-2xl font-bold">
+                  能源运营优化
+                </div>
               </div>
             </div>
             <div className="flex w-[490px] flex-col items-start gap-10 flex-shrink-0">
               <div className="flex w-[490px] flex-col items-start gap-2">
                 <div className="flex flex-col items-start gap-4 self-stretch">
-                  <h3 className="self-stretch text-[#272D37] font-inter text-[32px] font-bold leading-[42px] tracking-[-0.32px]">
+                  <h3 className="self-stretch text-[#272D37] font-inter text-[32px] font-semibold leading-[42px] tracking-[-0.32px]">
                     能源运营优化
                   </h3>
                   <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
@@ -485,7 +765,7 @@ export default function ZeroCarbonPark() {
                 </div>
               </div>
               <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
-                <span className="text-white font-inter text-[15px] font-bold leading-[22px]">
+                <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
                   获取方案
                 </span>
               </button>
@@ -525,7 +805,7 @@ export default function ZeroCarbonPark() {
               </div>
             </div>
             <button className="flex py-3 px-5 justify-center items-center gap-1.5 rounded-[6px] bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
-              <span className="text-white font-inter text-[15px] font-bold leading-[22px]">
+              <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
                 提交信息
               </span>
             </button>
