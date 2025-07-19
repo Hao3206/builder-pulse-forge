@@ -58,7 +58,7 @@ export default function CarbonFootprint() {
               基础知识
             </h2>
             <p className="text-gray-600 text-base leading-relaxed">
-              基础知识描述性文案描述性文案描述性文案描述性文案描述性文案
+              基础知识���述性文案描述性文案描述性文案描述性文案描述性文案
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export default function CarbonFootprint() {
                 碳足迹定义
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                碳足迹是指个人、组织或产品在特定时间段内直接或间接产生的温室气体排放总量，以二氧化碳当量(CO₂e)表示。
+                碳足迹是指个人、组织或产品在特定时间段内直接或间接产生的温室气体排放总量，以二氧化碳当量(CO₂e)������。
               </p>
             </div>
 
@@ -145,10 +145,10 @@ export default function CarbonFootprint() {
           <div className="flex flex-col lg:flex-row items-start gap-20">
             <div className="lg:w-1/2 max-w-2xl">
               <h2 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight">
-                政策法规
+                政策法��
               </h2>
               <p className="text-gray-600 mb-12 text-base leading-relaxed">
-                政策法��文案描述文案描述文案描述文案描述文案描述
+                政策法规文案描述文案描述文案描述文案描述文案描述
               </p>
 
               <div className="space-y-0">
@@ -209,7 +209,7 @@ export default function CarbonFootprint() {
                   <div className="flex items-center gap-6">
                     <div className="w-2 h-12 bg-[#DCE4E3] rounded-full"></div>
                     <h3 className="text-2xl font-semibold text-gray-900">
-                      国际政策
+                      ��际政策
                     </h3>
                   </div>
                   <div className="w-6 h-6">
