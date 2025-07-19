@@ -7,6 +7,7 @@ interface DropdownProps {
   isActive?: boolean;
   isScrolled?: boolean;
   children: React.ReactNode;
+  onTitleClick?: () => void;
 }
 
 function Dropdown({
@@ -283,7 +284,7 @@ export function SolutionsDropdown({
             解决方案
           </h3>
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
-            全行业的解决方案，助力用户快速增长。
+            全行���的解决方案，助力用户快速增长。
           </p>
           <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
             更多内容
@@ -337,7 +338,7 @@ export function SolutionsDropdown({
                   onClick={() => handleNavigation("/zero-carbon-park")}
                 >
                   <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-                    零碳园区解决方案
+                    零碳园区��决方案
                   </span>
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
