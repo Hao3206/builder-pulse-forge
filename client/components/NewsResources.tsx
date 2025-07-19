@@ -43,7 +43,7 @@ export default function NewsResources() {
     },
     {
       id: "fallback-2",
-      title: "CCER市场重启，碳交易迎来新发展",
+      title: "CCER市场重启，碳交易迎��新发展",
       summary:
         "全国温室气体自愿减排交易市场正式重启，为企业和个人参与碳减排提供新途径。",
       content: "",
@@ -90,7 +90,7 @@ export default function NewsResources() {
     );
   };
 
-  // 如果是严重错误且没有fallback数据，显示错误信息
+  // 如果是严重错误且没���fallback数据，������错误信息
   const shouldShowError =
     (featuredError || newsError) &&
     !isNetworkError(featuredError) &&
@@ -105,7 +105,7 @@ export default function NewsResources() {
             了解浙东环交所的最新资讯
           </h2>
           <p className="text-[#666] font-inter text-lg">
-            掌握碳交易政���动态，洞察行业发展趋势
+            掌握碳交易政策动态，洞���行业发展趋势
           </p>
         </div>
 
