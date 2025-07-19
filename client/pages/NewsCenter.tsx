@@ -12,6 +12,7 @@ import Footer from "@/components/Footer";
 
 export default function NewsCenter() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeCategory, setActiveCategory] = useState("本所动态");
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,6 +25,14 @@ export default function NewsCenter() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle URL category parameter
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam) {
+      setActiveCategory(categoryParam);
+    }
+  }, [searchParams]);
 
   const categories = [
     "政策解读",
@@ -39,7 +48,7 @@ export default function NewsCenter() {
       year: "2025",
       title: "资讯标题文字文字文案文字文字文案",
       content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文���文文案文文文案文正文文案文最多显示两行....",
+        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
     },
     {
       date: "06/17",
