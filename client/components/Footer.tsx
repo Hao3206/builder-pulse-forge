@@ -87,6 +87,14 @@ export default function Footer() {
                 <div className="flex justify-center items-center gap-1 rounded-[5px]">
                   <div
                     className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors"
+                    onClick={() => navigate("/corporate-carbon-management")}
+                  >
+                    企业碳管理一站式解决方案
+                  </div>
+                </div>
+                <div className="flex justify-center items-center gap-1 rounded-[5px]">
+                  <div
+                    className="text-white/70 font-inter text-base font-normal leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors"
                     onClick={() => navigate("/zero-carbon-park")}
                   >
                     零碳园区解决方案
