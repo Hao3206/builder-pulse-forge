@@ -42,7 +42,7 @@ export default function CarbonFootprint() {
 
         <div className="relative z-10 flex flex-col items-center justify-center px-8 py-20">
           <div className="max-w-2xl text-center">
-            <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
+            <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">
               碳核算与碳足迹专题
             </h1>
             <p className="text-lg text-white/90">推动低碳发展 · 共建绿色未来</p>
@@ -148,7 +148,7 @@ export default function CarbonFootprint() {
                 政策法��
               </h2>
               <p className="text-gray-600 mb-12 text-base leading-relaxed">
-                政策法规文案描述文案描述文案描述文案描述文案描述
+                政策法规文案描��文案描述文案描述文案描述文案描述
               </p>
 
               <div className="space-y-0">
