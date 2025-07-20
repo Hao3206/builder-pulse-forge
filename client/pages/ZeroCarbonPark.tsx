@@ -630,7 +630,7 @@ export default function ZeroCarbonPark() {
               </div>
               <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
                 <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
-                  了解方案
+                  了解��案
                 </span>
               </button>
             </div>
@@ -660,10 +660,18 @@ export default function ZeroCarbonPark() {
 
                   {/* Curved flow paths */}
                   <div className="w-[325px] h-[145px] flex-shrink-0 absolute left-[29px] top-[150px]">
-                    <path
-                      d="M260.657 120.403C255.682 119.203 258.584 115.903 260.657 114.403L279.072 106.403L279.431 106.183C297.086 95.3688 321.792 80.236 318.703 55.9025C315.594 31.4037 295.381 20.9013 277.76 10.4026C258.066 2.40329 301.6 13.4013 319.221 41.4025C340.989 90.9014 266.877 119.401 260.657 120.403Z"
-                      fill="#63AC86"
-                    />
+                    <svg
+                      width="325"
+                      height="145"
+                      viewBox="0 0 325 145"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M260.657 120.403C255.682 119.203 258.584 115.903 260.657 114.403L279.072 106.403L279.431 106.183C297.086 95.3688 321.792 80.236 318.703 55.9025C315.594 31.4037 295.381 20.9013 277.76 10.4026C258.066 2.40329 301.6 13.4013 319.221 41.4025C340.989 90.9014 266.877 119.401 260.657 120.403Z"
+                        fill="#63AC86"
+                      />
+                    </svg>
                   </div>
 
                   {/* Energy Icons */}
