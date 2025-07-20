@@ -146,10 +146,10 @@ export function ProductServicesDropdown({
               地方碳普惠交易
             </div>
             <div
-              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] rounded-[4px] px-3 py-1 w-[218px] cursor-pointer transition-colors ${
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
                 isActiveService("ccer-asset-development")
-                  ? "text-white bg-brand-green font-medium"
-                  : "text-brand-green bg-[rgba(236,248,246,0.8)] hover:bg-[rgba(236,248,246,1)]"
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
               }`}
               onClick={() =>
                 navigate("/product-service/ccer-asset-development")
@@ -168,10 +168,10 @@ export function ProductServicesDropdown({
           {/* Content under 碳咨询 */}
           <div className="absolute top-[64px] left-[280px] w-[210px] space-y-3">
             <div
-              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] rounded-[4px] px-3 py-1 w-[218px] cursor-pointer transition-colors ${
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
                 isActiveService("green-low-carbon-factory")
-                  ? "text-white bg-brand-green font-medium"
-                  : "text-brand-green bg-[rgba(236,248,246,0.8)] hover:bg-[rgba(236,248,246,1)]"
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
               }`}
               onClick={() =>
                 navigate("/product-service/green-low-carbon-factory")
@@ -383,7 +383,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  全���的碳足迹核算与管理解决方案，助力企业实现低碳发展
+                  全�����碳足迹核算与管理解决方案，助力企业实现低碳发展
                 </p>
               </div>
             </div>
