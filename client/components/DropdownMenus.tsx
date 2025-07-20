@@ -1,6 +1,6 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface DropdownProps {
   title: string;
@@ -87,6 +87,11 @@ export function ProductServicesDropdown({
   isScrolled = false,
 }: DropdownComponentProps) {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActiveService = (serviceId: string) => {
+    return location.pathname === `/product-service/${serviceId}`;
+  };
   return (
     <Dropdown title="产品服务" isScrolled={isScrolled}>
       <div className="flex h-[506px]">
@@ -141,7 +146,11 @@ export function ProductServicesDropdown({
               地方碳普惠交易
             </div>
             <div
-              className="text-brand-green font-inter text-[14px] leading-5 tracking-[-0.1px] bg-[rgba(236,248,246,0.8)] rounded-[4px] px-3 py-1 w-[218px] cursor-pointer hover:bg-[rgba(236,248,246,1)] transition-colors"
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] rounded-[4px] px-3 py-1 w-[218px] cursor-pointer transition-colors ${
+                isActiveService("ccer-asset-development")
+                  ? "text-white bg-brand-green font-medium"
+                  : "text-brand-green bg-[rgba(236,248,246,0.8)] hover:bg-[rgba(236,248,246,1)]"
+              }`}
               onClick={() =>
                 navigate("/product-service/ccer-asset-development")
               }
@@ -159,7 +168,11 @@ export function ProductServicesDropdown({
           {/* Content under 碳咨询 */}
           <div className="absolute top-[64px] left-[280px] w-[210px] space-y-3">
             <div
-              className="text-brand-green font-inter text-[14px] leading-5 tracking-[-0.1px] bg-[rgba(236,248,246,0.8)] rounded-[4px] px-3 py-1 w-[218px] cursor-pointer hover:bg-[rgba(236,248,246,1)] transition-colors"
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] rounded-[4px] px-3 py-1 w-[218px] cursor-pointer transition-colors ${
+                isActiveService("green-low-carbon-factory")
+                  ? "text-white bg-brand-green font-medium"
+                  : "text-brand-green bg-[rgba(236,248,246,0.8)] hover:bg-[rgba(236,248,246,1)]"
+              }`}
               onClick={() =>
                 navigate("/product-service/green-low-carbon-factory")
               }
@@ -179,7 +192,7 @@ export function ProductServicesDropdown({
               双碳标准编生
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              双碳课题研究
+              双���课题研究
             </div>
           </div>
 
@@ -480,7 +493,7 @@ export function NewsCenterDropdown({
 
           <div
             className="absolute left-[262px] top-[144px] flex items-center gap-1 cursor-pointer"
-            onClick={() => handleNavigation("知识专栏")}
+            onClick={() => handleNavigation("知识专��")}
           >
             <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
               知识专栏
@@ -517,7 +530,7 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
   };
 
   return (
-    <Dropdown title="关于我们" isScrolled={isScrolled}>
+    <Dropdown title="关于我���" isScrolled={isScrolled}>
       <div className="p-8 h-[300px]">
         <div className="grid grid-cols-3 gap-8">
           <div>
