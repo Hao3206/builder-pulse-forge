@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
 
 export default function About() {
   const [currentHonor, setCurrentHonor] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +17,14 @@ export default function About() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (location.hash === "#contact" && contactRef.current) {
+      setTimeout(() => {
+        contactRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location.hash]);
 
   const honors = [
     {
@@ -502,7 +513,7 @@ export default function About() {
             </div>
 
             {/* Contact Form */}
-            <div>
+            <div ref={contactRef}>
               <div className="mb-12">
                 <h2 className="text-[#333] font-inter text-[32px] font-bold leading-10 tracking-[-0.48px] mb-4">
                   联系我们

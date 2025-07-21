@@ -425,7 +425,7 @@ export default function Solution() {
                 案例标题文案
               </h2>
               <p className="text-[#858C95] text-center font-inter text-base font-normal leading-6 tracking-[-0.1px] w-full">
-                ���成功实施的案例文案文案文案文案
+                成功实施的案例文案文案文案文案
               </p>
             </div>
           </div>

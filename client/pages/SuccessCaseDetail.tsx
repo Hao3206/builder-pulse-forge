@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useRef } from "react";
 import {
   ArrowLeft,
   Calendar,
@@ -437,7 +438,10 @@ export default function SuccessCaseDetail() {
             >
               查看更多案例
             </button>
-            <button className="px-8 py-3 bg-[#058A65] text-white font-semibold rounded-md hover:bg-[#046B52] transition-colors">
+            <button
+              className="px-8 py-3 bg-[#058A65] text-white font-semibold rounded-md hover:bg-[#046B52] transition-colors"
+              onClick={() => navigate("/about#contact")}
+            >
               联系我们
             </button>
           </div>

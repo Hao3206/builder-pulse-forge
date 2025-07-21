@@ -21,7 +21,7 @@ async function setup() {
   `);
 
   try {
-    await db.exec("ALTER TABLE contact_messages ADD COLUMN status TEXT DEFAULT '未处理';");
+    await db.exec("ALTER TABLE contact_messages ADD COLUMN source TEXT;");
   } catch (e) {
     // 字段已存在时忽略
   }
@@ -33,7 +33,8 @@ async function setup() {
       contact TEXT,
       message TEXT,
       createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-      status TEXT DEFAULT '未处理'
+      status TEXT DEFAULT '未处理',
+      source TEXT
     );
   `);
 

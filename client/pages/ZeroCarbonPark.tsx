@@ -633,7 +633,28 @@ export default function ZeroCarbonPark() {
             </p>
           </div>
           <div className="flex w-[752px] justify-center items-start gap-4">
-            <div className="flex flex-col items-start gap-2 flex-1">
+            <form className="flex flex-col items-start gap-2 flex-1" onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.target as HTMLFormElement;
+              const data = {
+                name: (form.elements[0] as HTMLInputElement).value,
+                company: (form.elements[1] as HTMLInputElement).value,
+                contact: (form.elements[2] as HTMLInputElement).value,
+                message: (form.elements[3] as HTMLTextAreaElement).value,
+                source: "/zero-carbon-park",
+              };
+              const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+              });
+              if (res.ok) {
+                alert("提交成功！");
+                form.reset();
+              } else {
+                alert("提交失败，请重试");
+              }
+            }}>
               <div className="flex h-[46px] py-3 px-3 items-center gap-2 self-stretch rounded-[6px] border border-[#E5E5E7] bg-white">
                 <div className="flex items-start gap-2 flex-1">
                   <div className="flex-1 text-[#999] font-inter text-[15px] font-normal leading-[22px]">
@@ -641,8 +662,6 @@ export default function ZeroCarbonPark() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col items-start gap-2 flex-1">
               <div className="flex h-[46px] py-3 px-3 items-center gap-2 self-stretch rounded-[6px] border border-[#E5E5E7] bg-white">
                 <div className="flex items-start gap-2 flex-1">
                   <div className="flex-1 text-[#999] font-inter text-[15px] font-normal leading-[22px]">
@@ -650,12 +669,12 @@ export default function ZeroCarbonPark() {
                   </div>
                 </div>
               </div>
-            </div>
-            <button className="flex py-3 px-5 justify-center items-center gap-1.5 rounded-[6px] bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
-              <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
-                提交信息
-              </span>
-            </button>
+              <button className="flex py-3 px-5 justify-center items-center gap-1.5 rounded-[6px] bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
+                <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
+                  提交信息
+                </span>
+              </button>
+            </form>
           </div>
         </div>
       </section>
