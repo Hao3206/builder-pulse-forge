@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ProductServicesDropdown, NewsCenterDropdown } from "./DropdownMenus";
 import { SolutionsDropdown } from "./SolutionsDropdownFixed";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../hooks/useLanguage";
 
 interface HeaderProps {
   isScrolled?: boolean;
@@ -9,9 +10,9 @@ interface HeaderProps {
 
 export default function Header({ isScrolled = false }: HeaderProps) {
   const navigate = useNavigate();
+  const { language, setLanguage, t } = useLanguage();
   const [searchOpen, setSearchOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState("中文");
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (e: React.FormEvent) => {
@@ -23,10 +24,9 @@ export default function Header({ isScrolled = false }: HeaderProps) {
     }
   };
 
-  const handleLanguageChange = (lang: string) => {
-    setCurrentLanguage(lang);
+  const handleLanguageChange = (lang: "zh" | "en") => {
+    setLanguage(lang);
     setLanguageOpen(false);
-    // 这里可以添加实际的语言切换逻辑
   };
 
   return (
@@ -66,7 +66,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   }`}
                   onClick={() => navigate("/success-cases")}
                 >
-                  成功案例
+                  {t("nav.cases")}
                 </span>
 
                 <NewsCenterDropdown isScrolled={isScrolled} />
@@ -77,7 +77,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   }`}
                   onClick={() => navigate("/about")}
                 >
-                  关于我们
+                  {t("nav.about")}
                 </span>
               </nav>
 
@@ -90,7 +90,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                       isScrolled ? "text-[#333]" : "text-white"
                     }`}
                   >
-                    0574-87310818
+                    {t("common.phone")}
                   </span>
                   <svg
                     width="20"
@@ -134,18 +134,22 @@ export default function Header({ isScrolled = false }: HeaderProps) {
 
                   {/* Language Dropdown */}
                   {languageOpen && (
-                    <div className="absolute top-full right-0 mt-2 w-24 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                    <div className="absolute top-full right-0 mt-2 w-28 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                       <button
-                        className="w-full px-4 py-2 text-left hover:bg-gray-100 text-sm"
-                        onClick={() => handleLanguageChange("中文")}
+                        className={`w-full px-4 py-2 text-left hover:bg-gray-100 text-sm transition-colors ${
+                          language === "zh" ? "bg-gray-100 font-medium" : ""
+                        }`}
+                        onClick={() => handleLanguageChange("zh")}
                       >
-                        中文
+                        {t("common.language.zh")}
                       </button>
                       <button
-                        className="w-full px-4 py-2 text-left hover:bg-gray-100 text-sm"
-                        onClick={() => handleLanguageChange("English")}
+                        className={`w-full px-4 py-2 text-left hover:bg-gray-100 text-sm transition-colors ${
+                          language === "en" ? "bg-gray-100 font-medium" : ""
+                        }`}
+                        onClick={() => handleLanguageChange("en")}
                       >
-                        English
+                        {t("common.language.en")}
                       </button>
                     </div>
                   )}
@@ -191,7 +195,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="搜索资讯内容..."
+                  placeholder={t("search.placeholder")}
                   className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#058A65] focus:border-transparent outline-none"
                   autoFocus
                 />
@@ -199,14 +203,14 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   type="submit"
                   className="px-4 py-2 bg-[#058A65] text-white rounded-lg hover:bg-[#046B52] transition-colors"
                 >
-                  搜索
+                  {t("search.button")}
                 </button>
                 <button
                   type="button"
                   onClick={() => setSearchOpen(false)}
                   className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
                 >
-                  取消
+                  {t("search.cancel")}
                 </button>
               </div>
             </form>
