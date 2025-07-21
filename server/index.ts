@@ -16,6 +16,21 @@ import {
   getNewsStats,
 } from "./routes/news";
 import {
+  adminLogin,
+  verifyAdminToken,
+  getAdminProfile,
+  adminLogout,
+} from "./routes/admin";
+import {
+  getAdminNews,
+  createAdminNews,
+  updateAdminNews,
+  deleteAdminNews,
+  batchDeleteNews,
+  batchUpdateNewsStatus,
+  getAdminNewsById,
+} from "./routes/news-admin";
+import {
   getSolutions,
   getSolutionById,
   getCaseStudies,
@@ -63,6 +78,24 @@ export function createServer() {
   app.get("/api/solutions/:id", getSolutionById);
   app.get("/api/solutions/cases", getCaseStudies);
   app.get("/api/solutions/cases/:id", getCaseStudyById);
+
+  // 管理员认证API
+  app.post("/api/admin/login", adminLogin);
+  app.post("/api/admin/logout", verifyAdminToken, adminLogout);
+  app.get("/api/admin/profile", verifyAdminToken, getAdminProfile);
+
+  // 管理员新闻管理API
+  app.get("/api/admin/news", verifyAdminToken, getAdminNews);
+  app.get("/api/admin/news/:id", verifyAdminToken, getAdminNewsById);
+  app.post("/api/admin/news", verifyAdminToken, createAdminNews);
+  app.put("/api/admin/news/:id", verifyAdminToken, updateAdminNews);
+  app.delete("/api/admin/news/:id", verifyAdminToken, deleteAdminNews);
+  app.post("/api/admin/news/batch-delete", verifyAdminToken, batchDeleteNews);
+  app.post(
+    "/api/admin/news/batch-update",
+    verifyAdminToken,
+    batchUpdateNewsStatus,
+  );
 
   // 错误处理中间件
   app.use(
