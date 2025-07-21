@@ -36,15 +36,20 @@ if [ -d "dist" ]; then
     echo -e "${GREEN}✓ 备份完成: backups/backup_$timestamp.tar.gz${NC}"
 fi
 
-# 安装依赖
-echo -e "${BLUE}安装生产依赖...${NC}"
-npm ci --only=production --silent
+# 安装所有依赖（构建需要开发依赖）
+echo -e "${BLUE}安装所有依赖...${NC}"
+npm ci --silent
 echo -e "${GREEN}✓ 依赖安装完成${NC}"
 
 # 构建项目
 echo -e "${BLUE}构建项目...${NC}"
 npm run build
 echo -e "${GREEN}✓ 项目构建完成${NC}"
+
+# 清理开发依赖（可选，节省空间）
+echo -e "${BLUE}清理开发依赖...${NC}"
+npm prune --production --silent
+echo -e "${GREEN}✓ 开发依赖清理完成${NC}"
 
 # 检查构建文件
 if [ ! -f "dist/server/production.mjs" ]; then
