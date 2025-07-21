@@ -97,6 +97,7 @@ export function ProductServicesDropdown({
 }: DropdownComponentProps) {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
 
   const isActiveService = (serviceId: string) => {
     return location.pathname === `/product-service/${serviceId}`;
@@ -228,7 +229,7 @@ export function ProductServicesDropdown({
               企业碳管理平台
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              个人碳账���建设
+              个人碳账户建设
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               绿色贸易服务平台
@@ -257,7 +258,7 @@ export function ProductServicesDropdown({
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
           </div>
 
-          {/* Content under 碳足迹 */}
+          {/* Content under 碳足��� */}
           <div className="absolute top-[316px] left-[32px] w-[210px]">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               碳盘查/碳足迹核算
@@ -319,7 +320,7 @@ export function SolutionsDropdown({
             解决方案
           </h3>
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
-            全行业的解决��案，助��用户快速增长。
+            全行业的解决方案，助��用户快速增长。
           </p>
           <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
             更多内容
@@ -378,7 +379,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案描述性文字文案文案文案文案文案文案文案文案
+                  解决方案���述性文字文案文案文案文案文案文案文案文案
                 </p>
               </div>
 
