@@ -87,6 +87,7 @@ interface DropdownComponentProps {
 
 export function ProductServicesDropdown({
   isScrolled = false,
+  isActive = false,
 }: DropdownComponentProps) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -97,7 +98,12 @@ export function ProductServicesDropdown({
   };
 
   return (
-    <Dropdown title="产品服务" isScrolled={isScrolled} onTitleClick={() => {}}>
+    <Dropdown
+      title={t("nav.products")}
+      isScrolled={isScrolled}
+      isActive={isActive}
+      onTitleClick={() => {}}
+    >
       <div className="flex h-[506px]">
         {/* Left Sidebar */}
         <div className="w-[340px] h-[506px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
@@ -222,7 +228,7 @@ export function ProductServicesDropdown({
               企业碳管理平台
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              个人碳账户建设
+              个人碳账��建设
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               绿色贸易服务平台
