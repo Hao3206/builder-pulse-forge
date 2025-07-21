@@ -69,7 +69,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
 
             <div className="flex items-center gap-[160px] relative">
               {/* Navigation - 按照Figma间距：gap-32px */}
-              <nav className="flex items-center gap-[32px] relative">
+              <nav className="flex items-center gap-[32px] relative flex-shrink-0">
                 <ProductServicesDropdown
                   isScrolled={isScrolled}
                   isActive={
