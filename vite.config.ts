@@ -28,8 +28,14 @@ function expressPlugin(): Plugin {
     configureServer(server) {
       const app = createServer();
 
-      // Only handle API routes, let Vite handle everything else
-      server.middlewares.use("/api", app);
+      // Handle API routes with proper path matching
+      server.middlewares.use((req, res, next) => {
+        if (req.url?.startsWith("/api")) {
+          app(req, res, next);
+        } else {
+          next();
+        }
+      });
     },
   };
 }
