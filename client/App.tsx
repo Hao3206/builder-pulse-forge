@@ -29,13 +29,14 @@ import AdminNewsList from "./pages/AdminNewsList";
 import AdminNewsEditor from "./pages/AdminNewsEditor";
 
 const App = () => (
-  <QueryProvider>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
+  <LanguageProvider>
+    <QueryProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/solution" element={<Solution />} />
