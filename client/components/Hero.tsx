@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const carouselData = [
   {
     id: 1,
-    image: "/banner-3.png",
+    image: "/banner-3.jpg",
     title: "绿色工厂从这里开始",
     subtitle: "打造零碳、智能、透明的能碳管理系统",
   },
@@ -17,13 +17,13 @@ const carouselData = [
   },
   {
     id: 3,
-    image: "/banner-1.png",
+    image: "/banner-1.jpg",
     title: "碳资产管理系统引领绿色发展新时代",
     subtitle: "专业的碳排放监测与交易管理解决方案",
   },
   {
     id: 4,
-    image: "/banner-4.png",
+    image: "/banner-4.jpg",
     title: "构建零碳园区生态系统",
     subtitle: "打造可持续发展的智慧园区管理平台",
   },
