@@ -39,7 +39,7 @@ function Dropdown({
     >
       <div className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer">
         <span
-          className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
+          className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 whitespace-nowrap ${
             isActive
               ? "text-brand-green"
               : isScrolled
