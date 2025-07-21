@@ -20,6 +20,13 @@ import ProductService from "./pages/ProductService";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
+// 管理后台页面
+import AdminLogin from "./pages/AdminLogin";
+import AdminLayout from "./components/AdminLayout";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminNewsList from "./pages/AdminNewsList";
+import AdminNewsEditor from "./pages/AdminNewsEditor";
+
 const App = () => (
   <QueryProvider>
     <TooltipProvider>
