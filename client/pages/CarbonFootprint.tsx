@@ -2,8 +2,29 @@ import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+const policies = [
+  {
+    id: "national",
+    title: "国家政策",
+    content:
+      "《关于建立碳足迹管理体系的实施方案》提出到2027年初步建立碳足迹管理体系，到2030年体系更加完善。",
+  },
+  {
+    id: "local",
+    title: "地方政策",
+    content: "各地方政府积极响应国家号召，陆续出台相关配套政策，推动区域内企业开展碳核算与碳减排工作。",
+  },
+  {
+    id: "international",
+    title: "国际政策",
+    content:
+      "随着全球气候变化问题日益严峻，国际社会对碳排放的关注度持续提升，CBAM（碳边境调节机制）等政策对出口企业产生深远影响。",
+  },
+];
+
 export default function CarbonFootprint() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activePolicy, setActivePolicy] = useState("national");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +61,7 @@ export default function CarbonFootprint() {
           }}
         ></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center px-8 py-20">
+        <div className="relative z-10 flex flex-col items-center justify-center px-8 pt-32 pb-16">
           <div className="max-w-2xl text-center">
             <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">
               碳核算与碳足迹专题
@@ -51,14 +72,14 @@ export default function CarbonFootprint() {
       </section>
 
       {/* Basic Knowledge Section */}
-      <section className="py-22 bg-white">
+      <section className="py-32 bg-white">
         <div className="max-w-6xl mx-auto px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight">
               基础知识
             </h2>
             <p className="text-gray-600 text-base leading-relaxed">
-              基础知识���述性文案描述性文案描述性文案描述性文案描述性文案
+              基础知识述性文案描述性文案描述性文案描述性文案描述性文案
             </p>
           </div>
 
@@ -83,7 +104,7 @@ export default function CarbonFootprint() {
                 碳足迹定义
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                碳足迹是指个人、组织或产品在特定时间段内直接或间接产生的温室气体排放总量，以二氧化碳当量(CO₂e)������。
+                碳足迹是指个人、组织或产品在特定时间段内直接或间接产生的温室气体排放总量，以二氧化碳当量(CO₂e)。
               </p>
             </div>
 
@@ -140,90 +161,73 @@ export default function CarbonFootprint() {
       </section>
 
       {/* Policies and Regulations Section */}
-      <section className="py-22 bg-white">
+      <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex flex-col lg:flex-row items-start gap-20">
             <div className="lg:w-1/2 max-w-2xl">
               <h2 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight">
-                政策法��
+                政策法规
               </h2>
               <p className="text-gray-600 mb-12 text-base leading-relaxed">
-                政策法规文案描��文案描述文案描述文案描述文案描述
+                政策法规文案描述文案描述文案描述文案描述文案描述
               </p>
 
-              <div className="space-y-0">
-                {/* National Policy - Active */}
-                <div className="bg-[#F7F8FA] rounded-xl p-6 relative">
-                  <div className="absolute left-0 top-4 bottom-4 w-2 bg-[#058A65] rounded-full"></div>
-                  <div className="pl-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-2xl font-semibold text-gray-900">
-                        国家政策
-                      </h3>
-                      <div className="w-6 h-6">
-                        <svg
-                          width="22"
-                          height="22"
-                          viewBox="0 0 22 22"
-                          fill="none"
-                        >
-                          <path
-                            d="M11 21L11 1M11 1L5 7M11 1L17 7"
-                            stroke="#058A65"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+              <div className="space-y-0 rounded-xl overflow-hidden">
+                {policies.map((policy) => {
+                  const isActive = activePolicy === policy.id;
+                  return (
+                    <div
+                      key={policy.id}
+                      className={`cursor-pointer transition-all duration-300 ${
+                        isActive ? "bg-[#F7F8FA]" : "bg-white"
+                      }`}
+                      onClick={() => setActivePolicy(policy.id)}
+                    >
+                      <div
+                        className={`p-6 relative ${
+                          isActive
+                            ? ""
+                            : "border-l-4 border-transparent"
+                        }`}
+                      >
+                        {isActive && (
+                          <div className="absolute left-0 top-0 bottom-0 w-2 bg-[#058A65] rounded-full"></div>
+                        )}
+                        <div className={`pl-4`}>
+                          <div className="flex items-center justify-between">
+                            <h3 className="text-2xl font-semibold text-gray-900">
+                              {policy.title}
+                            </h3>
+                            <div className="w-6 h-6">
+                              <svg
+                                width="22"
+                                height="22"
+                                viewBox="0 0 22 22"
+                                fill="none"
+                                className={`transform transition-transform duration-300 ${
+                                  isActive ? "rotate-180" : ""
+                                }`}
+                              >
+                                <path
+                                  d="M7 14L11 10L15 14"
+                                  stroke={isActive ? "#058A65" : "#ccc"}
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                          {isActive && (
+                            <p className="text-gray-700 leading-relaxed font-medium mt-4">
+                              {policy.content}
+                            </p>
+                          )}
+                        </div>
                       </div>
                     </div>
-                    <p className="text-gray-700 leading-relaxed font-medium">
-                      《关于建立碳足迹管理体系的实施方案》提出到2027年初步建立碳足迹管理体系，到2030年体系更加完善。
-                    </p>
-                  </div>
-                </div>
-
-                {/* Local Policy */}
-                <div className="bg-white px-6 py-5 flex items-center justify-between border-l-4 border-[#DCE4E3]">
-                  <div className="flex items-center gap-6">
-                    <div className="w-2 h-12 bg-[#DCE4E3] rounded-full"></div>
-                    <h3 className="text-2xl font-semibold text-gray-900">
-                      地方政策
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                      <path
-                        d="M7 10L11 14L15 10"
-                        stroke="#ccc"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-
-                {/* International Policy */}
-                <div className="bg-white px-6 py-5 flex items-center justify-between border-l-4 border-[#DCE4E3]">
-                  <div className="flex items-center gap-6">
-                    <div className="w-2 h-12 bg-[#DCE4E3] rounded-full"></div>
-                    <h3 className="text-2xl font-semibold text-gray-900">
-                      ��际政策
-                    </h3>
-                  </div>
-                  <div className="w-6 h-6">
-                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                      <path
-                        d="M7 10L11 14L15 10"
-                        stroke="#ccc"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -239,7 +243,7 @@ export default function CarbonFootprint() {
       </section>
 
       {/* Application Scenarios Section */}
-      <section className="py-22 bg-white">
+      <section className="py-32 bg-white">
         <div className="max-w-6xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">应用场景</h2>
@@ -310,7 +314,7 @@ export default function CarbonFootprint() {
       </section>
 
       {/* Contact Us Section */}
-      <section className="py-22 bg-[#F2F9F7]">
+      <section className="py-32 bg-[#F2F9F7]">
         <div className="max-w-3xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">联系我们</h2>

@@ -347,7 +347,7 @@ export default function About() {
               我们的服务
             </h2>
             <p className="text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px] max-w-2xl mx-auto">
-              提供全面的碳管理服务，涵盖以下业���领域
+              提供全面的碳管理服务，涵盖以下业务领域
             </p>
           </div>
 

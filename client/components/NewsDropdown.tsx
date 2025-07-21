@@ -82,7 +82,7 @@ export default function NewsDropdown({
                     <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
                   </div>
                   <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px] w-[180px]">
-                    解决方案描述性文字文案文
+                    深入解读国家及地方碳达峰碳中和相关政策法规，为企业提供政策指引
                   </p>
                 </div>
 
@@ -94,7 +94,7 @@ export default function NewsDropdown({
                     <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
                   </div>
                   <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px] w-[180px]">
-                    解决方案描述性文字文案文
+                    汇集国内外碳市场最新动态，掌握行业发展趋势
                   </p>
                 </div>
 
@@ -107,7 +107,7 @@ export default function NewsDropdown({
                     <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
                   </div>
                   <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px] w-[180px]">
-                    解决方案描述性文字文
+                    及时发布本所重要活动、业务进展及重大事项信息
                   </p>
                 </div>
 
@@ -119,7 +119,7 @@ export default function NewsDropdown({
                     <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
                   </div>
                   <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px] w-[180px]">
-                    解决方案描述性文字文
+                    分享碳市场专业知识，普及碳交易相关概念
                   </p>
                 </div>
 
@@ -132,7 +132,7 @@ export default function NewsDropdown({
                     <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
                   </div>
                   <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px] w-[180px] mb-4">
-                    解决方案描述性文字文
+                    发布本所各类通知公告，确保信息及时传达
                   </p>
                 </div>
 

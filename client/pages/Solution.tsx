@@ -78,7 +78,7 @@ export default function Solution() {
       <section className="w-full h-[560px] py-[100px] px-[112px] flex flex-col justify-center items-center gap-16 bg-white">
         <div className="flex h-[520px] items-center gap-12 w-full">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/ad33659c33381eac40061641b81f19d65a13ad9f?width=1040"
+            src="/system-interface.png"
             className="w-[520px] h-[560px] rounded-[20px] border-2 border-[#E5E5E7] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]"
             alt="系统界面展示"
           />
@@ -103,11 +103,11 @@ export default function Solution() {
               </div>
             </div>
           </div>
-          <img
+          {/* <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/0e424b9275c5b7045d9db2a849a30d1ab0838de4?width=840"
             className="w-[420px] h-[420px] absolute right-[50px] top-[50px]"
             alt="系统功能图示"
-          />
+          /> */}
         </div>
       </section>
 
@@ -199,7 +199,7 @@ export default function Solution() {
                 />
                 <div className="flex flex-col items-start gap-4 w-full">
                   <h3 className="text-[#333] font-inter text-[22px] font-bold leading-[30px] tracking-[-0.22px] w-full">
-                    减排模���与规划
+                    减排模拟与规划
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
                     基于能源碳排放数据，模拟不同减排策略效果(如设备更新、工艺改进、能效提升等)，制定科学的技能减排路径规划
@@ -231,204 +231,26 @@ export default function Solution() {
       </section>
 
       {/* System Architecture Section */}
-      <section className="w-full h-[840px] bg-white relative">
-        <div className="flex w-[1216px] max-w-[1280px] flex-col justify-center items-center gap-3 absolute left-[112px] top-[88px] h-[108px]">
+      <section className="w-full h-auto bg-white relative py-[88px]">
+        <div className="flex max-w-[1280px] flex-col justify-center items-center gap-3 mx-auto px-[112px]">
           <div className="flex w-[800px] flex-col justify-center items-center gap-2">
             <div className="flex flex-col items-center gap-4 w-full">
               <h2 className="text-[#333] text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.48px] w-full">
                 平台系统架构
               </h2>
               <p className="text-[#858C95] text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.18px] w-full">
-                系统兼容MES、ERP、PLC等主流工业系统，通过智能网关实现多能源��型数据融合，
+                系统兼容MES、ERP、PLC等主流工业系统，通过智能网关实现多能源型数据融合，
                 打造稳定、安全、高效的数据流通链。
               </p>
             </div>
           </div>
         </div>
-
-        {/* Architecture Diagram */}
-        <div className="w-[1210px] h-[466px] absolute left-[115px] top-[286px]">
-          {/* Safety System Column */}
-          <div className="flex w-[50px] h-[466px] py-2.5 flex-col justify-center items-center gap-2.5 rounded-md bg-[rgba(217,237,232,0.63)] absolute right-0 top-0">
-            <div className="text-[#058A65] text-center font-inter text-base font-bold leading-[26px] tracking-[-0.16px] w-full">
-              安<br />全<br />保<br />障<br />体<br />系
-            </div>
-          </div>
-
-          {/* Layer Labels */}
-          <div className="flex w-[120px] py-[14px] px-5 justify-center items-center gap-2.5 rounded-md bg-[#058A65] absolute left-0 top-0 h-[54px]">
-            <div className="text-white text-center font-inter text-[15px] font-bold leading-[26px] tracking-[-0.15px]">
-              SaaS展示层
-            </div>
-          </div>
-
-          <div className="flex w-[120px] h-[146px] py-[14px] px-5 justify-center items-center gap-2.5 rounded-md bg-[#058A65] absolute left-0 top-16">
-            <div className="text-white text-center font-inter text-[15px] font-bold leading-[26px] tracking-[-0.15px]">
-              业务���用平台
-            </div>
-          </div>
-
-          <div className="flex w-[120px] h-[86px] py-[14px] px-5 justify-center items-center gap-2.5 rounded-md bg-[#058A65] absolute left-0 top-[220px]">
-            <div className="text-white text-center font-inter text-[15px] font-bold leading-[26px] tracking-[-0.15px]">
-              数据与模型层
-            </div>
-          </div>
-
-          <div className="flex w-[120px] h-[86px] py-[14px] px-5 justify-center items-center gap-2.5 rounded-md bg-[#058A65] absolute left-0 top-[316px]">
-            <div className="text-white text-center font-inter text-[15px] font-bold leading-[26px] tracking-[-0.15px]">
-              loT基础设置
-            </div>
-          </div>
-
-          <div className="flex w-[120px] py-[14px] px-5 justify-center items-center gap-2.5 rounded-md bg-[#058A65] absolute left-0 top-[412px] h-[54px]">
-            <div className="text-white text-center font-inter text-[15px] font-bold leading-[26px] tracking-[-0.15px]">
-              数据采集
-            </div>
-          </div>
-
-          {/* Application Types Row */}
-          <div className="flex items-center gap-2.5 absolute left-[130px] top-0 w-[958px] h-[54px]">
-            {[
-              { icon: "🏭", text: "工业企业" },
-              { icon: "🏢", text: "产业园区" },
-              { icon: "🏪", text: "商业建筑" },
-              { icon: "🏛️", text: "政府机构" },
-              { icon: "🏫", text: "学校/医疗" },
-              { icon: "👥", text: "设备供应商" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="flex w-[148px] py-[14px] px-[50px] justify-center items-center gap-2.5 rounded-md bg-[#5BAE97]"
-              >
-                <span className="text-lg">{item.icon}</span>
-                <div className="text-white text-center font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
-                  {item.text}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Platform Layer */}
-          <div className="flex w-[958px] py-[14px] px-2.5 justify-center items-center gap-2.5 rounded-t-md bg-[rgba(5,138,101,0.15)] absolute left-[130px] top-16 h-[54px]">
-            <div className="text-[#058A65] text-center font-inter text-base font-bold leading-[26px] tracking-[-0.16px]">
-              能碳管理平台
-            </div>
-          </div>
-
-          {/* Background for sections */}
-          <div className="w-[958px] h-[92px] rounded-md bg-[#F7F8FA] absolute left-[130px] top-[118px]"></div>
-          <div className="w-[958px] h-[86px] rounded-md bg-[#F7F8FA] absolute left-[130px] top-[220px]"></div>
-          <div className="w-[958px] h-[86px] rounded-md bg-[#F7F8FA] absolute left-[130px] top-[316px]"></div>
-
-          {/* Function modules */}
-          <div className="flex items-center gap-3 absolute left-[144px] top-[139px] w-[929px]">
-            {[
-              "全能源数据采集",
-              "能源数据分析",
-              "预测与预警",
-              "减排模拟与规划",
-              "决策支持与报告",
-              "碳排放核算与盘查",
-              "设备运维管理",
-            ].map((text, index) => (
-              <div
-                key={index}
-                className="flex w-[122px] h-[50px] py-4 px-2.5 justify-center items-center gap-1.5 rounded-md bg-white"
-              >
-                <div className="text-[#333] text-center font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
-                  {text}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Data model layer */}
-          <div className="flex items-center gap-3 absolute left-[144px] top-[242px] w-[922px]">
-            {[
-              "AI算法引擎",
-              "大数据分析引擎",
-              "数字孪生引擎",
-              "超级API",
-              "物模型管理",
-              "物联网IoT平台(采集、计算、存储)",
-            ].map((text, index) => (
-              <div
-                key={index}
-                className={`flex py-2 px-2.5 justify-center items-center gap-2.5 rounded-md bg-white ${index === 5 ? "w-[256px]" : "w-[121px]"}`}
-              >
-                <div className="text-[#333] text-center font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
-                  {text}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Infrastructure layer */}
-          <div className="flex items-center gap-3 absolute left-[144px] top-[338px] w-[921px]">
-            {[
-              "工业网关",
-              "工业A一体机",
-              "各类传感器",
-              "智能开关",
-              "MES/ERP/其他系统",
-            ].map((text, index) => (
-              <div
-                key={index}
-                className={`flex py-2 px-2.5 justify-center items-center gap-2.5 rounded-md bg-white ${index === 4 ? "w-[225px]" : "w-[162px]"}`}
-              >
-                <div className="text-[#333] text-center font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
-                  {text}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Data collection devices */}
-          <div className="flex items-center gap-0 absolute left-[130px] top-[412px] w-[958px] h-[54px]">
-            {[
-              { icon: "❄️", text: "冷/热量表" },
-              { icon: "⚡", text: "电表" },
-              { icon: "💧", text: "水表" },
-              { icon: "🔥", text: "气表" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="flex w-[232px] py-[14px] px-[50px] justify-center items-center gap-2.5 rounded-md bg-[#EAF9F6]"
-              >
-                <span className="text-lg">{item.icon}</span>
-                <div className="text-[#333] text-center font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
-                  {item.text}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Operations column */}
-          <div className="w-[52px] h-[465px] rounded-md border border-[#54BCA1] absolute right-[52px] top-0.5"></div>
-          <div className="w-[52px] h-[54px] rounded-t-md bg-[#D9EDE8] absolute right-[52px] top-0.5"></div>
-
-          <div className="text-[#058A65] text-center font-inter text-sm font-bold leading-[26px] tracking-[-0.14px] absolute right-[39px] top-[15px] w-7">
-            运维
-          </div>
-
-          <div className="flex w-[26px] flex-col items-start gap-[22px] absolute right-[65px] top-[67px] h-[384px]">
-            {[
-              "灵活\n配置",
-              "账号\n管理",
-              "权限\n管理",
-              "统一\n监控",
-              "统一\n日志",
-              "统一\n告警",
-              "任务\n管理",
-            ].map((text, index) => (
-              <div
-                key={index}
-                className="text-[#058A65] text-center font-inter text-xs font-normal leading-[18px] tracking-[-0.12px] w-full"
-              >
-                {text}
-              </div>
-            ))}
-          </div>
+        <div className="mt-16 flex justify-center">
+          <img
+            src="/system-architecture.png"
+            alt="平台系统架构"
+            className="max-w-full h-auto"
+          />
         </div>
       </section>
 

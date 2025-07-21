@@ -1,100 +1,60 @@
-import { useFeaturedNews, useNews } from "../hooks/useApi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 
+interface NewsArticle {
+  id: string;
+  title: string;
+  imageUrl: string;
+  content: string;
+  category: string;
+  createdAt: string;
+  author: string;
+  featured: boolean;
+}
+
 export default function NewsResources() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("全部");
+  const [articles, setArticles] = useState<NewsArticle[]>([]);
+  const [featuredArticles, setFeaturedArticles] = useState<NewsArticle[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  // 使用API hooks获取数据，添加错误处理
-  const {
-    data: featuredNews,
-    isLoading: featuredLoading,
-    error: featuredError,
-  } = useFeaturedNews();
-
-  const {
-    data: newsData,
-    isLoading: newsLoading,
-    error: newsError,
-  } = useNews({
-    category: selectedCategory || undefined,
-    limit: 6,
-  });
-
-  // 提供fallback数据
-  const fallbackNews = [
-    {
-      id: "fallback-1",
-      title: "浙东环交所助力企业实现碳中和目标",
-      summary:
-        "通过专业的碳管理服务和创新的交易机制，帮助企业建立完善的碳管理体系。",
-      content: "",
-      category: "company" as const,
-      author: "浙东环交所",
-      publishedAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      featured: true,
-      image:
-        "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=400&fit=crop",
-      tags: ["碳中和", "碳管理", "企业服务"],
-      readTime: 3,
-    },
-    {
-      id: "fallback-2",
-      title: "CCER市场重启，碳交易迎��新发展",
-      summary:
-        "全国温室气体自愿减排交易市场正式重启，为企业和个人参与碳减排提供新途径。",
-      content: "",
-      category: "news" as const,
-      author: "行业观察",
-      publishedAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      featured: true,
-      image:
-        "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop",
-      tags: ["CCER", "碳交易", "市场"],
-      readTime: 4,
-    },
-  ];
-
-  const fallbackData = {
-    articles: fallbackNews,
-    pagination: {
-      current: 1,
-      total: fallbackNews.length,
-      pages: 1,
-      hasNext: false,
-      hasPrev: false,
-    },
-  };
-
-  // 如果API失败，使用fallback数据
-  const displayFeaturedNews = featuredError ? fallbackNews : featuredNews || [];
-  const displayNewsData = newsError ? fallbackData : newsData || fallbackData;
+  useEffect(() => {
+    const fetchNews = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch("/api/news");
+        const result = await response.json();
+        if (result.success && Array.isArray(result.data)) {
+          setArticles(result.data);
+          // Manually filter featured articles
+          setFeaturedArticles(
+            result.data.filter((a: any) => a.featured).slice(0, 2)
+          );
+        }
+      } catch (error) {
+        console.error("Failed to fetch news:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchNews();
+  }, []);
 
   const categories = [
-    { key: "", label: "全部", color: "bg-gray-100" },
-    { key: "policy", label: "政策解读", color: "bg-blue-100" },
-    { key: "news", label: "新闻资讯", color: "bg-green-100" },
-    { key: "company", label: "本所动态", color: "bg-purple-100" },
-    { key: "announcement", label: "通知广告", color: "bg-orange-100" },
+    { key: "全部", label: "全部", color: "bg-gray-100" },
+    { key: "政策解读", label: "政策解读", color: "bg-blue-100" },
+    { key: "新闻资讯", label: "新闻资讯", color: "bg-green-100" },
+    { key: "本所动态", label: "本所动态", color: "bg-purple-100" },
+    { key: "通知公告", label: "通知公告", color: "bg-orange-100" },
+    { key: "知识专栏", label: "知识专栏", color: "bg-yellow-100" },
   ];
 
-  // 检查是否是网络错误
-  const isNetworkError = (error: any) => {
-    return (
-      error?.message?.includes("Failed to fetch") ||
-      error?.message?.includes("fetch")
-    );
-  };
-
-  // 如果是严重错误且没���fallback数据，������错误信息
-  const shouldShowError =
-    (featuredError || newsError) &&
-    !isNetworkError(featuredError) &&
-    !isNetworkError(newsError);
+  const filteredArticles =
+    selectedCategory === "全部"
+      ? articles
+      : articles.filter((article) => article.category === selectedCategory);
 
   return (
     <section className="py-20 bg-gray-50">
@@ -105,41 +65,27 @@ export default function NewsResources() {
             了解浙东环交所的最新资讯
           </h2>
           <p className="text-[#666] font-inter text-lg">
-            掌握碳交易政策动态，洞���行业发展趋势
+            掌握碳交易政策动态，洞悉行业发展趋势
           </p>
         </div>
 
-        {/* Network Error Warning */}
-        {(featuredError || newsError) &&
-          (isNetworkError(featuredError) || isNetworkError(newsError)) && (
-            <div className="mb-8">
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 rounded-full bg-yellow-400"></div>
-                  <span className="text-yellow-800 font-medium">
-                    API服务暂时不可用，正在显示示例数据
-                  </span>
-                </div>
-              </div>
-            </div>
-          )}
-
         {/* Featured News */}
-        {displayFeaturedNews && displayFeaturedNews.length > 0 && (
+        {featuredArticles.length > 0 && (
           <div className="mb-16">
             <h3 className="text-[#333] font-inter text-2xl font-bold mb-8">
               精选资讯
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {displayFeaturedNews.slice(0, 2).map((article) => (
+              {featuredArticles.map((article) => (
                 <div
                   key={article.id}
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  onClick={() => navigate(`/news-detail/${article.id}`)}
                 >
-                  {article.image && (
+                  {article.imageUrl && (
                     <div className="aspect-video overflow-hidden">
                       <img
-                        src={article.image}
+                        src={article.imageUrl}
                         alt={article.title}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
@@ -149,52 +95,28 @@ export default function NewsResources() {
                     <div className="flex items-center gap-4 mb-3">
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          categories.find((cat) => cat.key === article.category)
-                            ?.color || "bg-gray-100"
+                          categories.find(
+                            (cat) => cat.key === article.category
+                          )?.color || "bg-gray-100"
                         }`}
                       >
-                        {categories.find((cat) => cat.key === article.category)
-                          ?.label || "其他"}
+                        {categories.find(
+                          (cat) => cat.key === article.category
+                        )?.label || "其他"}
                       </span>
                       <div className="flex items-center gap-1 text-gray-500 text-sm">
                         <Calendar className="w-4 h-4" />
-                        {new Date(article.publishedAt).toLocaleDateString(
-                          "zh-CN",
+                        {new Date(article.createdAt).toLocaleDateString(
+                          "zh-CN"
                         )}
-                      </div>
-                      <div className="flex items-center gap-1 text-gray-500 text-sm">
-                        <Clock className="w-4 h-4" />
-                        {article.readTime}分钟阅读
                       </div>
                     </div>
                     <h4 className="text-[#333] font-inter text-xl font-bold leading-tight mb-3 line-clamp-2">
                       {article.title}
                     </h4>
                     <p className="text-[#666] font-inter text-base leading-relaxed mb-4 line-clamp-3">
-                      {article.summary}
+                      {article.content.substring(0, 100)}...
                     </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Tag className="w-4 h-4 text-gray-400" />
-                        <div className="flex gap-2">
-                          {article.tags.slice(0, 3).map((tag, index) => (
-                            <span
-                              key={index}
-                              className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <button
-                        onClick={() => navigate(`/news-detail/${article.id}`)}
-                        className="flex items-center gap-1 text-brand-green font-medium text-sm hover:text-brand-green/80 transition-colors"
-                      >
-                        阅读更多
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
-                    </div>
                   </div>
                 </div>
               ))}
@@ -223,8 +145,7 @@ export default function NewsResources() {
 
         {/* News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {newsLoading ? (
-            // Loading skeleton
+          {isLoading ? (
             Array.from({ length: 6 }).map((_, index) => (
               <div
                 key={index}
@@ -232,24 +153,24 @@ export default function NewsResources() {
               >
                 <div className="aspect-video bg-gray-200"></div>
                 <div className="p-6">
-                  <div className="h-4 bg-gray-200 rounded mb-3"></div>
+                  <div className="h-4 bg-gray-200 rounded mb-3 w-1/4"></div>
                   <div className="h-6 bg-gray-200 rounded mb-3"></div>
                   <div className="h-4 bg-gray-200 rounded mb-2"></div>
                   <div className="h-4 bg-gray-200 rounded w-3/4"></div>
                 </div>
               </div>
             ))
-          ) : displayNewsData?.articles &&
-            displayNewsData.articles.length > 0 ? (
-            displayNewsData.articles.map((article) => (
+          ) : filteredArticles.length > 0 ? (
+            filteredArticles.slice(0, 6).map((article) => (
               <div
                 key={article.id}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                onClick={() => navigate(`/news-detail/${article.id}`)}
               >
-                {article.image && (
+                {article.imageUrl && (
                   <div className="aspect-video overflow-hidden">
                     <img
-                      src={article.image}
+                      src={article.imageUrl}
                       alt={article.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
@@ -259,36 +180,31 @@ export default function NewsResources() {
                   <div className="flex items-center gap-3 mb-3">
                     <span
                       className={`px-2 py-1 rounded text-xs font-medium ${
-                        categories.find((cat) => cat.key === article.category)
-                          ?.color || "bg-gray-100"
+                        categories.find(
+                          (cat) => cat.key === article.category
+                        )?.color || "bg-gray-100"
                       }`}
                     >
-                      {categories.find((cat) => cat.key === article.category)
-                        ?.label || "其他"}
+                      {categories.find(
+                        (cat) => cat.key === article.category
+                      )?.label || "其他"}
                     </span>
                     <span className="text-gray-500 text-xs">
-                      {new Date(article.publishedAt).toLocaleDateString(
-                        "zh-CN",
-                      )}
+                      {new Date(article.createdAt).toLocaleDateString("zh-CN")}
                     </span>
                   </div>
                   <h4 className="text-[#333] font-inter text-lg font-semibold leading-tight mb-3 line-clamp-2">
                     {article.title}
                   </h4>
                   <p className="text-[#666] font-inter text-sm leading-relaxed mb-4 line-clamp-3">
-                    {article.summary}
+                    {article.content.substring(0, 100)}...
                   </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-500 text-xs">
-                      {article.readTime}分钟阅读
-                    </span>
-                    <button
-                      onClick={() => navigate(`/news-detail/${article.id}`)}
-                      className="text-brand-green font-medium text-sm hover:text-brand-green/80 transition-colors"
-                    >
-                      查看详情
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => navigate(`/news-detail/${article.id}`)}
+                    className="text-brand-green font-medium text-sm hover:text-brand-green/80 transition-colors"
+                  >
+                    查看详情
+                  </button>
                 </div>
               </div>
             ))
@@ -300,66 +216,6 @@ export default function NewsResources() {
             </div>
           )}
         </div>
-
-        {/* Pagination */}
-        {displayNewsData?.pagination &&
-          displayNewsData.pagination.pages > 1 && (
-            <div className="mt-12 flex justify-center">
-              <div className="flex items-center gap-2">
-                <button
-                  disabled={!displayNewsData.pagination.hasPrev}
-                  className="px-4 py-2 rounded border border-gray-300 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
-                >
-                  上一页
-                </button>
-                <span className="px-4 py-2 text-gray-700">
-                  第 {displayNewsData.pagination.current} 页，共{" "}
-                  {displayNewsData.pagination.pages} 页
-                </span>
-                <button
-                  disabled={!displayNewsData.pagination.hasNext}
-                  className="px-4 py-2 rounded border border-gray-300 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
-                >
-                  下一页
-                </button>
-              </div>
-            </div>
-          )}
-
-        {/* API Status Display (Development Mode) */}
-        {import.meta.env.DEV && (
-          <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <h4 className="text-blue-800 font-semibold mb-2">
-              API状态 (开发模式)
-            </h4>
-            <div className="text-sm space-y-1">
-              <p
-                className={`${featuredError ? "text-red-700" : "text-blue-700"}`}
-              >
-                精选新闻:{" "}
-                {featuredLoading
-                  ? "加载中..."
-                  : featuredError
-                    ? `错误: ${featuredError.message}`
-                    : "加载完成"}
-              </p>
-              <p className={`${newsError ? "text-red-700" : "text-blue-700"}`}>
-                新闻列表:{" "}
-                {newsLoading
-                  ? "加载中..."
-                  : newsError
-                    ? `错误: ${newsError.message}`
-                    : "加载完成"}
-              </p>
-              <p className="text-blue-700">
-                当前显示: {displayNewsData?.articles.length || 0} 条新闻
-              </p>
-              {(featuredError || newsError) && (
-                <p className="text-orange-700">正在使用fallback数据</p>
-              )}
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

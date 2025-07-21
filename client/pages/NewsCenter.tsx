@@ -9,13 +9,36 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
+
+// Define the type for a single news article from the API
+interface ApiNewsArticle {
+  id: string;
+  title: string;
+  imageUrl: string;
+  content: string;
+  category: string;
+  createdAt: string;
+  author: string;
+}
+
+// Define the type for the article format used by the component
+interface ComponentArticle {
+  id: string;
+  date: string;
+  year: string;
+  title: string;
+  content: string;
+  category: string;
+}
 
 export default function NewsCenter() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("本所动态");
+  const [activeCategory, setActiveCategory] = useState("全部");
   const [searchQuery, setSearchQuery] = useState("");
+  const [articles, setArticles] = useState<ComponentArticle[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +46,35 @@ export default function NewsCenter() {
     };
 
     window.addEventListener("scroll", handleScroll);
+
+    const fetchNews = async () => {
+      try {
+        const response = await fetch("/api/news");
+        const result = await response.json();
+        if (result.success && Array.isArray(result.data)) {
+          // Transform API data to the format the component expects
+          const formattedArticles = result.data.map((apiArticle: ApiNewsArticle) => {
+            const d = new Date(apiArticle.createdAt);
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return {
+              id: apiArticle.id,
+              date: `${month}/${day}`,
+              year: String(d.getFullYear()),
+              title: apiArticle.title,
+              content: apiArticle.content,
+              category: apiArticle.category,
+            };
+          });
+          setArticles(formattedArticles);
+        }
+      } catch (error) {
+        console.error("Failed to fetch news:", error);
+      }
+    };
+
+    fetchNews();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -45,49 +97,36 @@ export default function NewsCenter() {
   }, [searchParams]);
 
   const categories = [
-    "政策解读",
-    "本所动态",
-    "通知公告",
-    "新闻资讯",
-    "知识专栏",
-  ];
-
-  const articles = [
     {
-      date: "06/17",
-      year: "2025",
-      title: "资讯标题文字文字文案文字文字文案",
-      content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+      id: "全部",
+      name: "全部",
+      description: "浏览所有类别的文章，了解最新资讯动态"
     },
     {
-      date: "06/17",
-      year: "2025",
-      title: "资讯标题文字文字文案文字文字文案",
-      content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+      id: "政策解读",
+      name: "政策解读",
+      description: "深入解读国家及地方碳达峰碳中和相关政策法规，为企业提供政策指引"
     },
     {
-      date: "06/17",
-      year: "2025",
-      title: "资讯标题文字文字文案文字文字文案",
-      content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+      id: "本所动态",
+      name: "本所动态",
+      description: "及时发布本所重要活动、业务进展及重大事项信息"
     },
     {
-      date: "06/17",
-      year: "2025",
-      title: "资讯标题文字文字文案文字文字文案",
-      content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+      id: "通知公告",
+      name: "通知公告",
+      description: "发布本所各类通知公告，确保信息及时传达"
     },
     {
-      date: "06/17",
-      year: "2025",
-      title: "资讯标题文字文字文案文字文字文案",
-      content:
-        "正文文案文字习近平主席在第75届联合国大会一案正文文案文正文文案文正文文案文正文文案文正文文案文，文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文文文案文正文文案文最多显示两行....",
+      id: "新闻资讯",
+      name: "新闻资讯",
+      description: "汇集国内外碳市场最新动态，掌握行业发展趋势"
     },
+    {
+      id: "知识专栏",
+      name: "知识专栏",
+      description: "分享碳市场专业知识，普及碳交易相关概念"
+    }
   ];
 
   return (
@@ -203,39 +242,51 @@ export default function NewsCenter() {
       {/* Navigation Tabs & Search */}
       <div id="news-list-section" className="bg-white py-8">
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
-            {/* Category Tabs */}
-            <div className="flex items-center gap-4">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-3 py-2 rounded-full text-sm font-medium tracking-[-0.1px] transition-colors ${
-                    activeCategory === category
-                      ? "bg-[#058A65]/10 text-[#058A65]"
-                      : "bg-[#F8F9FB] text-[#333] hover:bg-[#058A65]/5"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+          <div className="flex flex-col gap-6">
+            {/* Category Description */}
+            <div className="text-center">
+              <h2 className="text-[#333] text-xl font-bold mb-2">
+                {categories.find(cat => cat.id === activeCategory)?.name || "全部资讯"}
+              </h2>
+              <p className="text-[#666] text-base">
+                {categories.find(cat => cat.id === activeCategory)?.description || "浏览所有类别的文章，了解最新资讯动态"}
+              </p>
             </div>
 
-            {/* Search */}
-            <div className="flex items-center gap-3 w-full lg:w-auto">
-              <div className="flex items-center border border-[#E5E5E7] rounded-full px-3 py-3 bg-white w-full lg:w-[400px]">
-                <Search className="w-4 h-4 text-[#999] mr-2" />
-                <input
-                  type="text"
-                  placeholder="输入您想要查询的内容"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="flex-1 text-sm text-[#999] tracking-[-0.1px] outline-none"
-                />
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+              {/* Category Tabs */}
+              <div className="flex items-center gap-4 flex-wrap">
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setActiveCategory(category.id)}
+                    className={`px-3 py-2 rounded-full text-sm font-medium tracking-[-0.1px] transition-colors ${
+                      activeCategory === category.id
+                        ? "bg-[#058A65]/10 text-[#058A65]"
+                        : "bg-[#F8F9FB] text-[#333] hover:bg-[#058A65]/5"
+                    }`}
+                  >
+                    {category.name}
+                  </button>
+                ))}
               </div>
-              <button className="px-5 py-3 bg-white border border-[#058A65] text-[#058A65] text-sm font-semibold rounded-md hover:bg-[#058A65]/5 transition-colors">
-                搜索
-              </button>
+
+              {/* Search */}
+              <div className="flex items-center gap-3 w-full lg:w-auto">
+                <div className="flex items-center border border-[#E5E5E7] rounded-full px-3 py-3 bg-white w-full lg:w-[400px]">
+                  <Search className="w-4 h-4 text-[#999] mr-2" />
+                  <input
+                    type="text"
+                    placeholder="输入您想要查询的内容"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="flex-1 text-sm text-[#999] tracking-[-0.1px] outline-none"
+                  />
+                </div>
+                <button className="px-5 py-3 bg-white border border-[#058A65] text-[#058A65] text-sm font-semibold rounded-md hover:bg-[#058A65]/5 transition-colors">
+                  搜索
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -244,9 +295,11 @@ export default function NewsCenter() {
       {/* Articles List */}
       <div className="bg-white pb-12">
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-28">
-          {articles.map((article, index) => (
+          {articles
+            .filter((article) => activeCategory === "全部" || article.category === activeCategory)
+            .map((article) => (
             <div
-              key={index}
+              key={article.id}
               className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10 py-10 border-b border-[#E5E5E7] last:border-b-0"
             >
               {/* Date */}
@@ -273,13 +326,13 @@ export default function NewsCenter() {
                   </p>
                 </div>
 
-                <button
-                  onClick={() => navigate(`/news-detail/${index + 1}`)}
+                <Link
+                  to={`/news-detail/${article.id}`}
                   className="flex items-center gap-2 text-[#058A65] text-sm font-semibold hover:text-[#046B52] transition-colors"
                 >
                   查看详情
                   <ChevronDown className="w-5 h-5 -rotate-90" />
-                </button>
+                </Link>
               </div>
             </div>
           ))}

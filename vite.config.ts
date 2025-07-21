@@ -7,7 +7,7 @@ import { createServer } from "./server";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8080,
+    port: 8081,
   },
   build: {
     outDir: "dist/spa",
@@ -31,7 +31,7 @@ function expressPlugin(): Plugin {
       // Handle API routes with proper path matching
       server.middlewares.use((req, res, next) => {
         if (req.url?.startsWith("/api")) {
-          app(req, res, next);
+          app(req as any, res as any, next);
         } else {
           next();
         }

@@ -10,7 +10,7 @@ export default function CustomerService() {
   return (
     <>
       {/* Vertical Customer Service Button */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50">
+      <div className="fixed right-6 top-3/4 transform -translate-y-1/2 z-50">
         <button
           onClick={togglePopup}
           className="bg-[#058A65] hover:bg-[#046B52] transition-colors duration-300 rounded-full w-[50px] h-[140px] flex flex-col items-center justify-start text-white shadow-lg relative"

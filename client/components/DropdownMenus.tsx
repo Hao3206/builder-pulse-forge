@@ -43,11 +43,11 @@ function Dropdown({
       <div className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer">
         <span
           className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 whitespace-nowrap ${
-            isActive
+            isActive && isScrolled
               ? "text-[#058A65]"
               : isScrolled
-                ? "text-[#333]"
-                : "text-white"
+              ? "text-[#333]"
+              : "text-white"
           }`}
           onClick={onTitleClick}
         >
@@ -55,11 +55,11 @@ function Dropdown({
         </span>
         <ChevronDown
           className={`w-5 h-5 transition-all duration-300 ${
-            isActive
+            isActive && isScrolled
               ? "text-[#058A65]"
               : isScrolled
-                ? "text-[#333]"
-                : "text-white"
+              ? "text-[#333]"
+              : "text-white"
           } ${isOpen ? "rotate-180" : ""}`}
         />
       </div>
@@ -168,7 +168,7 @@ export function ProductServicesDropdown({
               CCER资产开发与交易
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              绿证交��
+              绿证交易
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               企业碳资产管理
@@ -202,14 +202,14 @@ export function ProductServicesDropdown({
               双碳标准编生
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              双���课题研究
+              双碳课题研究
             </div>
           </div>
 
           {/* Content under 碳金融 */}
           <div className="absolute top-[64px] left-[528px] w-[210px]">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳���融解决方案
+              碳金融解决方案
             </div>
           </div>
 
@@ -228,7 +228,7 @@ export function ProductServicesDropdown({
               企业碳管理平台
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              个人碳账��建设
+              个人碳账户建设
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               绿色贸易服务平台
@@ -360,7 +360,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案描述性文字文案文案文案文案文案文案文��文案
+                  111解决方案描述性文字文案文案文案文案文案文案文��文案
                 </p>
               </div>
             </div>
@@ -477,19 +477,19 @@ export function NewsCenterDropdown({
           {/* First Row Descriptions */}
           <div className="absolute left-[32px] top-[64px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              解决方案描述性文字文案文
+              深入解读国家及地方碳达峰碳中和相关政策法规，为企业提供政策指引
             </div>
           </div>
 
           <div className="absolute left-[262px] top-[64px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              解决方案描述性文字文
+              及时发布本所重要活动、业务进展及重大事项信息
             </div>
           </div>
 
           <div className="absolute left-[492px] top-[64px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              解决方案描述性文字文
+              发布本所各类通知公告，确保信息及时传达
             </div>
           </div>
 
@@ -506,7 +506,7 @@ export function NewsCenterDropdown({
 
           <div
             className="absolute left-[262px] top-[144px] flex items-center gap-1 cursor-pointer"
-            onClick={() => handleNavigation("知识专��")}
+            onClick={() => handleNavigation("知识专栏")}
           >
             <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
               知识专栏
@@ -517,13 +517,13 @@ export function NewsCenterDropdown({
           {/* Second Row Descriptions */}
           <div className="absolute left-[32px] top-[178px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              解决方案描述性文字文案文
+              汇集国内外碳市场最新动态，掌握行业发展趋势
             </div>
           </div>
 
           <div className="absolute left-[262px] top-[178px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              解决方案描述性文字文
+              分享碳市场专业知识，普及碳交易相关概念
             </div>
           </div>
 
@@ -548,7 +548,7 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
         <div className="grid grid-cols-3 gap-8">
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              公司介��
+              公司介绍
             </h4>
             <div className="space-y-2">
               <div
@@ -574,7 +574,7 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
 
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              成功案��
+              成功案例
             </h4>
             <div className="space-y-2">
               <div

@@ -8,28 +8,14 @@ import {
   createCarbonFootprint,
   getCarbonFootprintStats,
 } from "./routes/carbon";
-import {
-  getNews,
-  getNewsById,
-  getFeaturedNews,
-  createNews,
-  getNewsStats,
-} from "./routes/news";
+import newsRoutes from "./routes/news";
 import {
   adminLogin,
   verifyAdminToken,
   getAdminProfile,
   adminLogout,
 } from "./routes/admin";
-import {
-  getAdminNews,
-  createAdminNews,
-  updateAdminNews,
-  deleteAdminNews,
-  batchDeleteNews,
-  batchUpdateNewsStatus,
-  getAdminNewsById,
-} from "./routes/news-admin";
+import newsAdminRoutes from "./routes/news-admin";
 import {
   getSolutions,
   getSolutionById,
@@ -37,6 +23,7 @@ import {
   getCaseStudyById,
   getSolutionsStats,
 } from "./routes/solutions";
+import "./database"; // Import to initialize
 
 export function createServer() {
   const app = express();
@@ -45,6 +32,10 @@ export function createServer() {
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
+
+  // Mount the routers
+  app.use("/api/admin", newsAdminRoutes);
+  app.use("/api/news", newsRoutes);
 
   // Health check
   app.get("/api/ping", (_req, res) => {
@@ -65,12 +56,7 @@ export function createServer() {
   app.get("/api/carbon/footprint/:userId", getCarbonFootprint);
   app.post("/api/carbon/footprint/:userId", createCarbonFootprint);
 
-  // 新闻资讯API
-  app.get("/api/news", getNews);
-  app.get("/api/news/featured", getFeaturedNews);
-  app.get("/api/news/stats", getNewsStats);
-  app.get("/api/news/:id", getNewsById);
-  app.post("/api/news", createNews);
+  // 新闻资讯API is now handled by newsRoutes
 
   // 解决方案API
   app.get("/api/solutions", getSolutions);
@@ -84,18 +70,7 @@ export function createServer() {
   app.post("/api/admin/logout", verifyAdminToken, adminLogout);
   app.get("/api/admin/profile", verifyAdminToken, getAdminProfile);
 
-  // 管理员新闻管理API
-  app.get("/api/admin/news", verifyAdminToken, getAdminNews);
-  app.get("/api/admin/news/:id", verifyAdminToken, getAdminNewsById);
-  app.post("/api/admin/news", verifyAdminToken, createAdminNews);
-  app.put("/api/admin/news/:id", verifyAdminToken, updateAdminNews);
-  app.delete("/api/admin/news/:id", verifyAdminToken, deleteAdminNews);
-  app.post("/api/admin/news/batch-delete", verifyAdminToken, batchDeleteNews);
-  app.post(
-    "/api/admin/news/batch-update",
-    verifyAdminToken,
-    batchUpdateNewsStatus,
-  );
+  // 管理员新闻管理API is now handled by newsAdminRoutes
 
   // 错误处理中间件
   app.use(

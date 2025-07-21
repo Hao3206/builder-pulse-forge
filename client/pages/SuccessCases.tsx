@@ -170,7 +170,7 @@ export default function SuccessCases() {
         {/* Content */}
         <div className="relative z-10 text-center text-white mt-[88px]">
           <h1 className="text-[44px] font-bold leading-[60px] tracking-[-0.88px] mb-6">
-            成功��例
+            成功案例
           </h1>
           <p className="text-lg leading-[26px] tracking-[-0.1px] text-white/80">
             见证万泽时代在双碳领域的专业实力与卓越成果

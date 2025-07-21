@@ -4,10 +4,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const carouselData = [
   {
     id: 1,
-    image:
-      "https://cdn.builder.io/api/v1/image/assets%2F1a85daa80686441ea1621142c540f31a%2Ffc120c1da37141f4a6aea70faf7f3fb5?format=webp&width=800",
-    title: "万泽时代作为国内新一代创新型数字创新",
-    subtitle: "围绕企业双碳数字化转型为能耗企业提供解决方案",
+    image: "/banner-3.png",
+    title: "绿色工厂从这里开始",
+    subtitle: "打造零碳、智能、透明的能碳管理系统",
   },
   {
     id: 2,
@@ -18,15 +17,13 @@ const carouselData = [
   },
   {
     id: 3,
-    image:
-      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1920&h=1080&fit=crop",
-    title: "碳资产管理系统引���绿色发展新时代",
+    image: "/banner-1.png",
+    title: "碳资产管理系统引领绿色发展新时代",
     subtitle: "专业的碳排放监测与交易管理解决方案",
   },
   {
     id: 4,
-    image:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1920&h=1080&fit=crop",
+    image: "/banner-4.png",
     title: "构建零碳园区生态系统",
     subtitle: "打造可持续发展的智慧园区管理平台",
   },
@@ -63,7 +60,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full h-[810px] overflow-hidden"
+      className="relative w-full h-[950px] overflow-hidden"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -85,23 +82,6 @@ export default function Hero() {
           </div>
         ))}
       </div>
-
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-200"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="absolute right-8 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-200"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="w-6 h-6 text-white" />
-      </button>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">

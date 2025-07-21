@@ -4,95 +4,86 @@ import { Share, MessageCircle, Repeat, Twitter, Facebook } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+// Define the structure for a content block
+interface ContentBlock {
+  type: "text" | "image";
+  content?: string;
+  src?: string;
+  alt?: string;
+}
+
+// Define the structure for the article data fetched from the API
+interface ApiArticle {
+  id: string;
+  title: string;
+  content: string;
+  category: string;
+  author: string; // Assuming 'author' is the source
+  createdAt: string;
+  imageUrl: string; // The main image for the article
+}
+
 export default function NewsDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(true); // Always show white header on detail page
+  const [article, setArticle] = useState<any>(null); // State to hold the final article data for rendering
+  const [contentBlocks, setContentBlocks] = useState<ContentBlock[]>([]);
+  const [recommendedNews, setRecommendedNews] = useState<ApiArticle[]>([]);
+
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+    window.addEventListener("scroll", () => setIsScrolled(window.scrollY > 0));
+
+    const fetchArticleAndRecommended = async () => {
+      if (!id) return;
+      try {
+        // Fetch the main article
+        const articleResponse = await fetch(`/api/news/${id}`);
+        const articleResult = await articleResponse.json();
+
+        if (articleResult.success) {
+          const apiData: ApiArticle = articleResult.data;
+          setArticle({
+            id: apiData.id,
+            title: apiData.title,
+            category: apiData.category,
+            publishDate: new Date(apiData.createdAt).toLocaleDateString(),
+            viewCount: "N/A", // View count is not available from API
+            source: apiData.author,
+          });
+
+          // Create content blocks
+          const blocks: ContentBlock[] = [];
+          if (apiData.imageUrl) {
+            blocks.push({ type: "image", src: apiData.imageUrl, alt: "新闻配图" });
+          }
+          if (apiData.content) {
+            apiData.content.split('\n').filter(p => p.trim() !== '').forEach(paragraph => {
+              blocks.push({ type: "text", content: paragraph });
+            });
+          }
+          setContentBlocks(blocks);
+        }
+
+        // Fetch all news for the "recommended" section
+        const allNewsResponse = await fetch('/api/news');
+        const allNewsResult = await allNewsResponse.json();
+        if(allNewsResult.success && Array.isArray(allNewsResult.data)) {
+            // Filter out the current article and take the latest 5
+            const recommended = allNewsResult.data
+                .filter((a: ApiArticle) => a.id !== id)
+                .slice(0, 5);
+            setRecommendedNews(recommended);
+        }
+
+      } catch (error) {
+        console.error("Failed to fetch article:", error);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Mock article data - in real app this would come from API
-  const article = {
-    id: id || "1",
-    title: "资讯标题文字文字文案文字文字文案文字文字文案",
-    category: "本所动态",
-    publishDate: "2025-12-11",
-    viewCount: "232442",
-    content: [
-      {
-        type: "text",
-        content:
-          "5月14日下午，中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。",
-      },
-      {
-        type: "text",
-        content:
-          "中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流公司，总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流，公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。。",
-      },
-      {
-        type: "image",
-        src: "https://api.builder.io/api/v1/image/assets/TEMP/acdcdb8863a3b14cb384b8669a61d9aed43c4284?width=1680",
-        alt: "新闻配图",
-      },
-      {
-        type: "text",
-        content:
-          "中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。",
-      },
-      {
-        type: "image",
-        src: "https://api.builder.io/api/v1/image/assets/TEMP/7ada8ed203b1d7682c454d72999f64dd1b6b2edc?width=1680",
-        alt: "新闻配图",
-      },
-      {
-        type: "text",
-        content:
-          "中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。中国信科集团武汉网锐检测科技有限公司总经理张世海等一行人到访湖北碳交中心进行调研，湖北碳交中心党委副书记、总经理何昌福参加座谈交流。",
-      },
-    ],
-    source: "国家发改委",
-  };
-
-  // Mock recommended news
-  const recommendedNews = [
-    {
-      id: "1",
-      title: "新闻标题文字文字文字文字文字",
-      date: "2024-12-23",
-    },
-    {
-      id: "2",
-      title: "新闻标题文字文字文字文字文字",
-      date: "2024-10-23",
-    },
-    {
-      id: "3",
-      title: "新闻标题文字文字文字文字文字",
-      date: "2024-11-23",
-    },
-    {
-      id: "4",
-      title: "新闻标题文字文字文字文字文字",
-      date: "2024-11-23",
-    },
-    {
-      id: "5",
-      title: "新闻标题文字文字文字文字文字",
-      date: "2024-11-23",
-    },
-    {
-      id: "6",
-      title: "新闻标题文字文字文字文字文字",
-      date: "2024-11-23",
-    },
-  ];
+    fetchArticleAndRecommended();
+  }, [id]);
 
   const handleShare = (platform: string) => {
     const url = window.location.href;
@@ -125,6 +116,14 @@ export default function NewsDetail() {
       window.open(shareUrl, "_blank", "width=600,height=400");
     }
   };
+  
+  if (!article) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -139,7 +138,7 @@ export default function NewsDetail() {
         <div className="max-w-screen-xl mx-auto px-8 py-6">
           {/* Breadcrumb */}
           <div className="text-sm text-[#666] mb-4">
-            当前位置：首页-节能减排降碳-正文
+            当前位置：首页-新闻中心-正文
           </div>
 
           {/* Article Title and Meta */}
@@ -157,8 +156,7 @@ export default function NewsDetail() {
 
             {/* Meta Info */}
             <div className="text-sm text-[#999] tracking-[-0.1px]">
-              发布时间：{article.publishDate}{" "}
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 浏览量：
+              发布时间：{article.publishDate} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 浏览量：
               {article.viewCount}
             </div>
           </div>
@@ -166,11 +164,11 @@ export default function NewsDetail() {
 
         {/* Article Content */}
         <div className="max-w-screen-xl mx-auto px-8 pb-16">
-          <div className="flex gap-12">
+          <div className="flex flex-col lg:flex-row gap-12">
             {/* Main Content */}
             <div className="flex-1">
               <div className="space-y-6">
-                {article.content.map((block, index) => (
+                {contentBlocks.map((block, index) => (
                   <div key={index}>
                     {block.type === "text" && (
                       <p className="text-base leading-6 tracking-[-0.1px] text-[#666]">
@@ -181,7 +179,7 @@ export default function NewsDetail() {
                       <img
                         src={block.src}
                         alt={block.alt}
-                        className="w-full h-[328px] object-cover rounded-lg"
+                        className="w-full h-auto object-cover rounded-lg"
                       />
                     )}
                   </div>
@@ -196,121 +194,43 @@ export default function NewsDetail() {
                 </span>
               </div>
 
-              {/* Share Section */}
-              <div className="mt-8 flex justify-between items-center">
-                {/* Share Poster Button */}
-                <button className="flex items-center gap-2 px-5 py-2 bg-[#058A65] text-white text-sm rounded-full hover:bg-[#046B52] transition-colors">
-                  <Share className="w-[18px] h-[18px]" />
-                  分享海报
-                </button>
-
-                {/* Social Share */}
-                <div className="flex items-center gap-5">
-                  <span className="text-sm text-[#666]">分享：</span>
-                  <div className="flex items-center gap-2">
-                    {/* WeChat */}
-                    <button
-                      onClick={() => handleShare("wechat")}
-                      className="w-[30px] h-[30px] rounded-full border border-[#F4F4F4] bg-white flex items-center justify-center hover:bg-gray-50 transition-colors"
-                    >
-                      <MessageCircle className="w-[18px] h-[18px] text-[#333]" />
-                    </button>
-
-                    {/* Facebook */}
-                    <button
-                      onClick={() => handleShare("facebook")}
-                      className="w-[30px] h-[30px] rounded-full border border-[#F4F4F4] bg-white flex items-center justify-center hover:bg-gray-50 transition-colors"
-                    >
-                      <Facebook className="w-[14px] h-[14px] text-[#333]" />
-                    </button>
-
-                    {/* Twitter */}
-                    <button
-                      onClick={() => handleShare("twitter")}
-                      className="w-[30px] h-[30px] rounded-full border border-[#F4F4F4] bg-white flex items-center justify-center hover:bg-gray-50 transition-colors"
-                    >
-                      <Twitter className="w-[13px] h-[13px] text-[#333]" />
-                    </button>
-
-                    {/* Weibo */}
-                    <button
-                      onClick={() => handleShare("weibo")}
-                      className="w-[30px] h-[30px] rounded-full border border-[#F4F4F4] bg-white flex items-center justify-center hover:bg-gray-50 transition-colors"
-                    >
-                      <Repeat className="w-[16px] h-[16px] text-[#333]" />
-                    </button>
-
-                    {/* QQ */}
-                    <button
-                      onClick={() => handleShare("qq")}
-                      className="w-[30px] h-[30px] rounded-full border border-[#F4F4F4] bg-white flex items-center justify-center hover:bg-gray-50 transition-colors"
-                    >
-                      <span className="text-[14px] font-bold text-[#333]">
-                        Q
-                      </span>
-                    </button>
-
-                    {/* QQ Zone */}
-                    <button
-                      onClick={() => handleShare("qzone")}
-                      className="w-[30px] h-[30px] rounded-full border border-[#F4F4F4] bg-white flex items-center justify-center hover:bg-gray-50 transition-colors"
-                    >
-                      <span className="text-[14px] font-bold text-[#333]">
-                        Z
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Previous/Next Navigation */}
-              <div className="mt-12 pt-8 border-t border-[#E5E5E7] space-y-4">
-                <div className="text-base text-[#333] tracking-[-0.1px]">
-                  上一篇：资讯标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字
-                </div>
-                <div className="text-base text-[#333] tracking-[-0.1px]">
-                  下一篇：资讯标题文字标题文字标题文字标题文字标题文字标题文字标题文字标题文字
-                </div>
-              </div>
+              {/* Share Section and Navigation would go here */}
             </div>
-
+            
             {/* Sidebar */}
-            <div className="w-[328px] flex-shrink-0">
+            <div className="w-full lg:w-[328px] flex-shrink-0">
               <div className="p-6 border border-[#EAEBF0] rounded-lg bg-white shadow-sm">
-                {/* Section Title */}
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-1 h-5 bg-[#058A65]"></div>
-                  <h3 className="text-lg font-semibold tracking-[-0.1px] text-[#272D37]">
-                    推荐新闻
-                  </h3>
-                </div>
-
-                {/* Recommended News List */}
-                <div className="space-y-0">
-                  {recommendedNews.map((news, index) => (
-                    <div
-                      key={news.id}
-                      className={`py-4 ${
-                        index < recommendedNews.length - 1
-                          ? "border-b border-[#D7D7D7]"
-                          : ""
-                      }`}
-                    >
-                      <button
-                        onClick={() => navigate(`/news-detail/${news.id}`)}
-                        className="w-full text-left space-y-1.5 hover:opacity-80 transition-opacity"
-                      >
-                        <h4 className="text-[15px] font-medium leading-[22px] text-[#333]">
-                          {news.title}
-                        </h4>
-                        <p className="text-[13px] leading-[22px] text-[#666]">
-                          {news.date}
-                        </p>
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                 <div className="flex items-center gap-3 mb-6">
+                   <div className="w-1 h-5 bg-[#058A65]"></div>
+                   <h3 className="text-lg font-semibold tracking-[-0.1px] text-[#272D37]">
+                     推荐新闻
+                   </h3>
+                 </div>
+                 <div className="space-y-0">
+                   {recommendedNews.map((news, index) => (
+                     <div
+                       key={news.id}
+                       className={`py-4 ${
+                         index < recommendedNews.length - 1
+                           ? "border-b border-[#D7D7D7]"
+                           : ""
+                       }`}
+                     >
+                       <button
+                         onClick={() => navigate(`/news-detail/${news.id}`)}
+                         className="w-full text-left space-y-1.5 hover:opacity-80 transition-opacity"
+                       >
+                         <h4 className="text-[15px] font-medium leading-[22px] text-[#333]">
+                           {news.title}
+                         </h4>
+                         <p className="text-[13px] leading-[22px] text-[#666]">
+                           {new Date(news.createdAt).toLocaleDateString()}
+                         </p>
+                       </button>
+                     </div>
+                   ))}
+                 </div>
+               </div>
             </div>
           </div>
         </div>
