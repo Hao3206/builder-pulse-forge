@@ -68,24 +68,47 @@ export default function Header({ isScrolled = false }: HeaderProps) {
             <div className="flex items-center gap-[160px] relative">
               {/* Navigation - 按照Figma间距：gap-32px */}
               <nav className="flex items-center gap-[32px] relative">
-                <ProductServicesDropdown isScrolled={isScrolled} />
+                <ProductServicesDropdown
+                  isScrolled={isScrolled}
+                  isActive={
+                    isActivePath("/product-service") ||
+                    isActivePath("/solution") ||
+                    isActivePath("/zero-carbon-park") ||
+                    isActivePath("/corporate-carbon-management") ||
+                    isActivePath("/carbon-footprint")
+                  }
+                />
 
-                <SolutionsDropdown isScrolled={isScrolled} />
+                <SolutionsDropdown
+                  isScrolled={isScrolled}
+                  isActive={isActivePath("/solution")}
+                />
 
                 <span
                   className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 ${
-                    isScrolled ? "text-[#333]" : "text-white"
+                    isActivePath("/success-cases")
+                      ? "text-[#058A65]"
+                      : isScrolled
+                        ? "text-[#333]"
+                        : "text-white"
                   }`}
                   onClick={() => navigate("/success-cases")}
                 >
                   {t("nav.cases")}
                 </span>
 
-                <NewsCenterDropdown isScrolled={isScrolled} />
+                <NewsCenterDropdown
+                  isScrolled={isScrolled}
+                  isActive={isActivePath("/news-center")}
+                />
 
                 <span
                   className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 ${
-                    isScrolled ? "text-[#333]" : "text-white"
+                    isActivePath("/about")
+                      ? "text-[#058A65]"
+                      : isScrolled
+                        ? "text-[#333]"
+                        : "text-white"
                   }`}
                   onClick={() => navigate("/about")}
                 >
