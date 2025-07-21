@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { ProductServicesDropdown, NewsCenterDropdown } from "./DropdownMenus";
+import {
+  ProductServicesDropdown,
+  NewsCenterDropdown,
+  AboutDropdown,
+} from "./DropdownMenus";
 import { SolutionsDropdown } from "./SolutionsDropdownFixed";
 import { useNavigate } from "react-router-dom";
 
