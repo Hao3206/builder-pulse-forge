@@ -54,7 +54,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               : "border-b border-white/20"
           }`}
         >
-          <div className="flex px-[32px] items-center gap-[91px] relative">
+          <div className="flex px-[32px] items-center gap-[91px] relative min-w-0 flex-shrink-0">
             {/* Logo - 按照Figma尺寸：157px x 50px */}
             <img
               src={
