@@ -42,7 +42,7 @@ function Dropdown({
     >
       <div className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer">
         <span
-          className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
+          className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 whitespace-nowrap ${
             isActive
               ? "text-[#058A65]"
               : isScrolled
@@ -279,7 +279,7 @@ export function ProductServicesDropdown({
               其他定制化培训
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳达峰碳中和战略规划高���研修班
+              碳达峰碳中和战略规划高级研修班
             </div>
           </div>
 
