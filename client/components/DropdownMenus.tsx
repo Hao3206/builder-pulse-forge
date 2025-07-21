@@ -43,15 +43,11 @@ function Dropdown({
       <div className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer">
         <span
           className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
-            title === "产品服务"
-              ? isScrolled
-                ? "text-[#058A65]"
+            isActive
+              ? "text-[#058A65]"
+              : isScrolled
+                ? "text-[#333]"
                 : "text-white"
-              : isActive
-                ? "text-brand-green"
-                : isScrolled
-                  ? "text-[#333]"
-                  : "text-white"
           }`}
           onClick={onTitleClick}
         >
@@ -59,15 +55,11 @@ function Dropdown({
         </span>
         <ChevronDown
           className={`w-5 h-5 transition-all duration-300 ${
-            title === "产品服务"
-              ? isScrolled
-                ? "text-[#058A65]"
+            isActive
+              ? "text-[#058A65]"
+              : isScrolled
+                ? "text-[#333]"
                 : "text-white"
-              : isActive
-                ? "text-brand-green"
-                : isScrolled
-                  ? "text-[#333]"
-                  : "text-white"
           } ${isOpen ? "rotate-180" : ""}`}
         />
       </div>
