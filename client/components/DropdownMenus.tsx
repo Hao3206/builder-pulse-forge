@@ -90,6 +90,7 @@ function Dropdown({
 
 interface DropdownComponentProps {
   isScrolled?: boolean;
+  isActive?: boolean;
 }
 
 export function ProductServicesDropdown({
@@ -572,7 +573,7 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
 
           <div>
             <h4 className="text-brand-green font-inter text-base font-semibold mb-4">
-              成功案例
+              成功案��
             </h4>
             <div className="space-y-2">
               <div
@@ -605,7 +606,7 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
                 className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
                 onClick={() => handleNavigation("/about")}
               >
-                地址信息
+                地��信息
               </div>
             </div>
           </div>
