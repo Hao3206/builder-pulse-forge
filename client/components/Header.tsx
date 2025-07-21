@@ -36,7 +36,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
           isScrolled ? "bg-white shadow-sm" : "bg-transparent"
         }`}
       >
-        {/* ��照Figma设计：width:1440px, padding:20px 160px, height:88px */}
+        {/* 按照Figma设计：width:1440px, padding:20px 160px, height:88px */}
         <div
           className={`flex w-full h-[88px] py-[20px] px-[160px] justify-center items-center gap-[10px] transition-all duration-300 ${
             isScrolled
@@ -45,15 +45,11 @@ export default function Header({ isScrolled = false }: HeaderProps) {
           }`}
         >
           <div className="flex px-[32px] items-center gap-[91px] relative">
-            {/* Logo - 按照Figma尺寸：150px x 48px */}
+            {/* Logo - 按照Figma尺寸：157px x 50px */}
             <img
-              src={
-                isScrolled
-                  ? "https://api.builder.io/api/v1/image/assets/TEMP/1fee28a4f9031537e9b8b95943a60af33406ebb2?width=300"
-                  : "https://api.builder.io/api/v1/image/assets/TEMP/logo-white.png?width=300"
-              }
+              src="https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
               alt="浙东环交所 Logo"
-              className="w-[150px] h-[48px] cursor-pointer relative"
+              className="w-[157px] h-[50px] cursor-pointer relative"
               onClick={() => navigate("/")}
             />
 
@@ -124,32 +120,16 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                     className="flex w-[42px] px-[2px] items-center gap-[8px] relative cursor-pointer"
                     onClick={() => setLanguageOpen(!languageOpen)}
                   >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <img
+                      src="https://api.builder.io/api/v1/image/assets/TEMP/faf28f18a1e75151324b0be17744769ea7bb2acc?width=40"
                       className="w-5 h-5 relative"
-                    >
-                      <path
-                        d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM8 14V6l6 4-6 4z"
-                        fill={isScrolled ? "#333333" : "white"}
-                      />
-                    </svg>
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      alt="中英文"
+                    />
+                    <img
+                      src="https://api.builder.io/api/v1/image/assets/TEMP/42c608dd09a41851bb23e2412698e05dfc99feb1?width=24"
                       className="w-3 h-3 relative"
-                    >
-                      <path
-                        d="M6 8L2 4h8L6 8z"
-                        fill={isScrolled ? "#333333" : "white"}
-                      />
-                    </svg>
+                      alt="箭头下"
+                    />
                   </div>
 
                   {/* Language Dropdown */}
