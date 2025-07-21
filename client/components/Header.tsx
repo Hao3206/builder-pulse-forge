@@ -79,31 +79,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
 
                 <NewsCenterDropdown isScrolled={isScrolled} />
 
-                <div className="flex justify-center items-center gap-[6px] rounded-[5px] relative">
-                  <span
-                    className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 ${
-                      isScrolled ? "text-[#333]" : "text-[#333]"
-                    }`}
-                    onClick={() => navigate("/about")}
-                  >
-                    关于我们
-                  </span>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 relative"
-                  >
-                    <path
-                      d="M15 8.33333L10.5893 12.7441C10.2638 13.0695 9.73618 13.0695 9.41074 12.7441L5 8.33333"
-                      stroke="#333333"
-                      strokeWidth="1.67"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
+                <AboutDropdown isScrolled={isScrolled} />
               </nav>
 
               {/* Right Side Actions - 按照Figma间距：gap-30px */}
