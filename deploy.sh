@@ -46,13 +46,13 @@ echo -e "${BLUE}构建项目...${NC}"
 npm run build
 echo -e "${GREEN}✓ 项目构建完成${NC}"
 
-# 清理开发依赖（可选，节省空间）
+# 清理开发依赖（可选，节��空间）
 echo -e "${BLUE}清理开发依赖...${NC}"
 npm prune --production --silent
 echo -e "${GREEN}✓ 开发依赖清理完成${NC}"
 
 # 检查构建文件
-if [ ! -f "dist/server/production.mjs" ]; then
+if [ ! -f "dist/server/node-build.mjs" ]; then
     echo -e "${RED}错误: 服务器构建文件不存在${NC}"
     exit 1
 fi
@@ -88,7 +88,7 @@ echo -e "${BLUE}配置开机自启动...${NC}"
 pm2 startup | grep -E "sudo env PATH" | bash 2>/dev/null || echo "开机自启动已配置或需要手动配置"
 
 # 显示状态
-echo -e "${BLUE}检查服务状态...${NC}"
+echo -e "${BLUE}检���服务状态...${NC}"
 pm2 status
 
 # 测试健康检查
