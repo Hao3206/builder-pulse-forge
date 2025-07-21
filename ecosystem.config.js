@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "zdhjsuo-web",
-      script: "./dist/server/production.mjs",
+      script: "./dist/server/node-build.mjs",
       instances: "max", // 根据 CPU 核心数自动扩展
       exec_mode: "cluster",
       watch: false,
