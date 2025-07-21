@@ -279,7 +279,7 @@ export function ProductServicesDropdown({
               其他定制化培训
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳达峰碳中和战略规划高级研修班
+              碳达峰碳中和战略规划高���研修班
             </div>
           </div>
 
@@ -406,8 +406,10 @@ export function SolutionsDropdown({
 
 export function NewsCenterDropdown({
   isScrolled = false,
+  isActive = false,
 }: DropdownComponentProps) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleNavigation = (category: string) => {
     navigate(`/news-center?category=${encodeURIComponent(category)}`);
@@ -419,8 +421,9 @@ export function NewsCenterDropdown({
 
   return (
     <Dropdown
-      title="资讯中心"
+      title={t("nav.news")}
       isScrolled={isScrolled}
+      isActive={isActive}
       onTitleClick={handleTitleClick}
     >
       <div className="flex h-[266px] shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)]">
