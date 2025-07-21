@@ -1,9 +1,5 @@
 import { useState } from "react";
-import {
-  ProductServicesDropdown,
-  NewsCenterDropdown,
-  AboutDropdown,
-} from "./DropdownMenus";
+import { ProductServicesDropdown, NewsCenterDropdown } from "./DropdownMenus";
 import { SolutionsDropdown } from "./SolutionsDropdownFixed";
 import { useNavigate } from "react-router-dom";
 
@@ -40,7 +36,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
           isScrolled ? "bg-white shadow-sm" : "bg-transparent"
         }`}
       >
-        {/* 按照Figma设计：width:1440px, padding:20px 160px, height:88px */}
+        {/* ��照Figma设计：width:1440px, padding:20px 160px, height:88px */}
         <div
           className={`flex w-full h-[88px] py-[20px] px-[160px] justify-center items-center gap-[10px] transition-all duration-300 ${
             isScrolled
@@ -51,7 +47,11 @@ export default function Header({ isScrolled = false }: HeaderProps) {
           <div className="flex px-[32px] items-center gap-[91px] relative">
             {/* Logo - 按照Figma尺寸：150px x 48px */}
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/1fee28a4f9031537e9b8b95943a60af33406ebb2?width=300"
+              src={
+                isScrolled
+                  ? "https://api.builder.io/api/v1/image/assets/TEMP/1fee28a4f9031537e9b8b95943a60af33406ebb2?width=300"
+                  : "https://api.builder.io/api/v1/image/assets/TEMP/logo-white.png?width=300"
+              }
               alt="浙东环交所 Logo"
               className="w-[150px] h-[48px] cursor-pointer relative"
               onClick={() => navigate("/")}
@@ -64,29 +64,36 @@ export default function Header({ isScrolled = false }: HeaderProps) {
 
                 <SolutionsDropdown isScrolled={isScrolled} />
 
-                <div className="flex flex-col justify-center items-start gap-[8px] relative">
-                  <div className="flex h-[22px] items-center gap-[12px] rounded-[5px] relative">
-                    <span
-                      className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 ${
-                        isScrolled ? "text-[#333]" : "text-[#333]"
-                      }`}
-                      onClick={() => navigate("/success-cases")}
-                    >
-                      成功案例
-                    </span>
-                  </div>
-                </div>
+                <span
+                  className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 ${
+                    isScrolled ? "text-[#333]" : "text-white"
+                  }`}
+                  onClick={() => navigate("/success-cases")}
+                >
+                  成功案例
+                </span>
 
                 <NewsCenterDropdown isScrolled={isScrolled} />
 
-                <AboutDropdown isScrolled={isScrolled} />
+                <span
+                  className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 ${
+                    isScrolled ? "text-[#333]" : "text-white"
+                  }`}
+                  onClick={() => navigate("/about")}
+                >
+                  关于我们
+                </span>
               </nav>
 
               {/* Right Side Actions - 按照Figma间距：gap-30px */}
               <div className="flex justify-end items-start gap-[30px] relative">
                 {/* Phone - 按照Figma尺寸：139px x 22px */}
                 <div className="w-[139px] h-[22px] relative">
-                  <span className="absolute left-[27px] top-0 w-[112px] h-[22px] font-inter text-[15px] font-normal leading-[22px] text-[#333]">
+                  <span
+                    className={`absolute left-[27px] top-0 w-[112px] h-[22px] font-inter text-[15px] font-normal leading-[22px] transition-colors duration-300 ${
+                      isScrolled ? "text-[#333]" : "text-white"
+                    }`}
+                  >
                     0574-87310818
                   </span>
                   <svg
@@ -100,7 +107,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                     <g clipPath="url(#clip0_77_830)">
                       <path
                         d="M3.01595 0.954743L2.99173 0.974743C2.9827 0.98057 2.97376 0.986534 2.96491 0.992633L2.90491 1.03683C2.84715 1.08302 2.7969 1.13789 2.75595 1.19947L2.74384 1.22L1.13228 2.83263C-0.829833 4.79474 1.42964 9.37209 6.0428 13.9832L6.37333 14.31C10.8375 18.6658 15.1959 20.7511 17.1191 18.9016L18.8275 17.1932C19.7986 16.2689 19.8375 14.7142 18.9023 13.7316L18.7033 13.5316L18.6486 13.4826L16.0965 11.4537C15.1175 10.7095 13.7081 10.8079 12.8307 11.7116L12.1181 12.4247L12.0496 12.3816C10.3021 11.2671 8.8196 9.78381 7.70595 8.03578L7.647 7.94158L8.32439 7.18L8.3128 7.19158C8.7633 6.75441 9.03128 6.16269 9.06273 5.53574C9.09418 4.90878 8.88676 4.29322 8.48228 3.81316L6.54228 1.37316C6.12816 0.852931 5.52545 0.517156 4.86515 0.438808C4.20485 0.36046 3.54031 0.545869 3.01595 0.954743ZM5.55384 2.16L7.56228 4.68631C7.86964 5.10947 7.877 5.66209 7.60386 6.07894L7.56386 6.13422L6.08911 7.79316L6.31964 8.18842C7.66539 10.4986 9.58677 12.4207 11.8965 13.7674L12.317 14.0127L13.7307 12.5979L13.8002 12.5316C14.0186 12.3368 14.2998 12.2273 14.5924 12.223C14.885 12.2187 15.1694 12.3201 15.3933 12.5084L17.8328 14.4479L17.9875 14.6021C18.2056 14.8314 18.3237 15.1379 18.3158 15.4543C18.3079 15.7706 18.1747 16.0709 17.9454 16.289L16.2349 17.9995C15.0275 19.1605 11.0349 17.189 6.93542 13.09L6.767 12.9205C2.75544 8.85525 0.835421 4.91631 2.02648 3.72631L3.8212 1.92947L3.7928 1.95052C4.05469 1.74638 4.38655 1.65381 4.71629 1.69294C5.04603 1.73206 5.34701 1.89971 5.55386 2.15947L5.55384 2.16Z"
-                        fill="#333333"
+                        fill={isScrolled ? "#333333" : "white"}
                       />
                     </g>
                     <defs>
@@ -117,16 +124,32 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                     className="flex w-[42px] px-[2px] items-center gap-[8px] relative cursor-pointer"
                     onClick={() => setLanguageOpen(!languageOpen)}
                   >
-                    <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/d3cfa606738b243eb56eb325e07c0b7205ba5cb2?width=40"
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                       className="w-5 h-5 relative"
-                      alt="中英文"
-                    />
-                    <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/69f3d127b3a44734813c1ba36ca84781ce0dbb06?width=24"
+                    >
+                      <path
+                        d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zM8 14V6l6 4-6 4z"
+                        fill={isScrolled ? "#333333" : "white"}
+                      />
+                    </svg>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                       className="w-3 h-3 relative"
-                      alt="箭头下"
-                    />
+                    >
+                      <path
+                        d="M6 8L2 4h8L6 8z"
+                        fill={isScrolled ? "#333333" : "white"}
+                      />
+                    </svg>
                   </div>
 
                   {/* Language Dropdown */}
@@ -162,7 +185,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                     <g clipPath="url(#clip0_77_837)">
                       <path
                         d="M3.47964 13.8605C2.79752 13.1819 2.25676 12.3747 1.88864 11.4856C1.52052 10.5966 1.33234 9.64342 1.33501 8.6812C1.33501 6.72507 2.09649 4.88628 3.47964 3.50313C4.15816 2.82116 4.96515 2.28049 5.85395 1.91237C6.74274 1.54425 7.6957 1.356 8.65771 1.3585C10.6151 1.3585 12.4526 2.11998 13.837 3.50313C14.519 4.18165 15.0597 4.98864 15.4278 5.87744C15.7959 6.76623 15.9842 7.71919 15.9817 8.6812C15.9843 9.64342 15.7962 10.5966 15.428 11.4856C15.0599 12.3747 14.5192 13.1819 13.837 13.8605C13.1585 14.5428 12.3513 15.0836 11.4622 15.4517C10.5732 15.8198 9.61995 16.008 8.65771 16.0052C6.70158 16.0052 4.86279 15.2437 3.47964 13.8605ZM19.7816 18.8638L15.2252 14.3074C16.6841 12.6094 17.428 10.4118 17.3004 8.17672C17.1728 5.94161 16.1837 3.843 14.541 2.322C12.8983 0.800994 10.7299 -0.0239545 8.49155 0.0205483C6.25325 0.0650511 4.11936 0.975539 2.5384 2.56064C1.32735 3.77088 0.502469 5.31313 0.16811 6.99228C-0.166248 8.67142 0.00493942 10.412 0.660017 11.9938C1.31509 13.5757 2.42463 14.9277 3.84825 15.8788C5.27186 16.8299 6.9456 17.3374 8.65771 17.3371C10.7227 17.3371 12.7191 16.596 14.2839 15.2487L18.8403 19.8051C18.9652 19.9299 19.1344 20 19.311 20C19.4875 20 19.6568 19.9299 19.7816 19.8051C19.9064 19.6803 19.9765 19.511 19.9765 19.3345C19.9765 19.1579 19.9064 18.9887 19.7816 18.8638Z"
-                        fill="#333333"
+                        fill={isScrolled ? "#333333" : "white"}
                       />
                     </g>
                     <defs>
