@@ -1,6 +1,7 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "../hooks/useLanguage";
 
 interface DropdownProps {
   title: string;
@@ -41,7 +42,7 @@ function Dropdown({
         <span
           className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 whitespace-nowrap ${
             isActive
-              ? "text-brand-green"
+              ? "text-[#058A65]"
               : isScrolled
                 ? "text-[#333]"
                 : "text-white"
@@ -52,7 +53,7 @@ function Dropdown({
         <ChevronDown
           className={`w-5 h-5 transition-all duration-300 ${
             isActive
-              ? "text-brand-green"
+              ? "text-[#058A65]"
               : isScrolled
                 ? "text-[#333]"
                 : "text-white"
@@ -78,19 +79,26 @@ function Dropdown({
 
 interface DropdownComponentProps {
   isScrolled?: boolean;
+  isActive?: boolean;
 }
 
 export function SolutionsDropdown({
   isScrolled = false,
+  isActive = false,
 }: DropdownComponentProps) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleNavigation = (path: string) => {
     navigate(path);
   };
 
   return (
-    <Dropdown title="解决方案" isScrolled={isScrolled}>
+    <Dropdown
+      title={t("nav.solutions")}
+      isScrolled={isScrolled}
+      isActive={isActive}
+    >
       <div className="flex h-[308px]">
         {/* Left Sidebar */}
         <div className="w-[340px] bg-[#EBF8F6] px-[30px] flex flex-col justify-center">
@@ -172,7 +180,7 @@ export function SolutionsDropdown({
 
           <div className="absolute left-[369px] top-[198px] w-[210px]">
             <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              解决方案描述性文字文案文案文案文案文案文案文案文案
+              解决方案描述性文字��案文案文案文案文案文案文案文案
             </p>
           </div>
 
