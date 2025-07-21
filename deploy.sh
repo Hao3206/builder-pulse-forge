@@ -46,7 +46,7 @@ echo -e "${BLUE}构建项目...${NC}"
 npm run build
 echo -e "${GREEN}✓ 项目构建完成${NC}"
 
-# 清理开发依赖（可选，节��空间）
+# 清理开发依赖（可选，节省空间）
 echo -e "${BLUE}清理开发依赖...${NC}"
 npm prune --production --silent
 echo -e "${GREEN}✓ 开发依赖清理完成${NC}"
@@ -78,7 +78,7 @@ pm2 delete zdhjsuo-web 2>/dev/null || echo "没有找到已注册的进程"
 
 # 启动新进程
 echo -e "${BLUE}启动生产服务器...${NC}"
-pm2 start ecosystem.config.js --env production
+pm2 start ecosystem.config.cjs --env production
 
 # 保存 PM2 配置
 pm2 save
@@ -88,7 +88,7 @@ echo -e "${BLUE}配置开机自启动...${NC}"
 pm2 startup | grep -E "sudo env PATH" | bash 2>/dev/null || echo "开机自启动已配置或需要手动配置"
 
 # 显示状态
-echo -e "${BLUE}检���服务状态...${NC}"
+echo -e "${BLUE}检查服务状态...${NC}"
 pm2 status
 
 # 测试健康检查
