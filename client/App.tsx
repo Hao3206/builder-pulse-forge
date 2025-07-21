@@ -37,40 +37,41 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/solution" element={<Solution />} />
-          <Route path="/zero-carbon-park" element={<ZeroCarbonPark />} />
-          <Route
-            path="/corporate-carbon-management"
-            element={<CorporateCarbonManagement />}
-          />
-          <Route path="/carbon-footprint" element={<CarbonFootprint />} />
-          <Route path="/news-center" element={<NewsCenter />} />
-          <Route path="/news-detail/:id" element={<NewsDetail />} />
-          <Route path="/success-cases" element={<SuccessCases />} />
-          <Route path="/success-cases/:id" element={<SuccessCaseDetail />} />
-          <Route
-            path="/product-service/:serviceId"
-            element={<ProductService />}
-          />
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/solution" element={<Solution />} />
+            <Route path="/zero-carbon-park" element={<ZeroCarbonPark />} />
+            <Route
+              path="/corporate-carbon-management"
+              element={<CorporateCarbonManagement />}
+            />
+            <Route path="/carbon-footprint" element={<CarbonFootprint />} />
+            <Route path="/news-center" element={<NewsCenter />} />
+            <Route path="/news-detail/:id" element={<NewsDetail />} />
+            <Route path="/success-cases" element={<SuccessCases />} />
+            <Route path="/success-cases/:id" element={<SuccessCaseDetail />} />
+            <Route
+              path="/product-service/:serviceId"
+              element={<ProductService />}
+            />
 
-          {/* 管理后台路由 */}
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="news" element={<AdminNewsList />} />
-            <Route path="news/create" element={<AdminNewsEditor />} />
-            <Route path="news/edit/:id" element={<AdminNewsEditor />} />
-          </Route>
+            {/* 管理后台路由 */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="news" element={<AdminNewsList />} />
+              <Route path="news/create" element={<AdminNewsEditor />} />
+              <Route path="news/edit/:id" element={<AdminNewsEditor />} />
+            </Route>
 
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryProvider>
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryProvider>
+  </LanguageProvider>
 );
 
 createRoot(document.getElementById("root")!).render(<App />);
