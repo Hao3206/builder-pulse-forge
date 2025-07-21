@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="flex flex-col gap-4 w-full lg:w-[247px]">
               <img
                 src="https://api.builder.io/api/v1/image/assets/TEMP/fa613bde97f40bc79e4c1d9f49052c56c7039e22?width=314"
-                alt="万泽时代 Logo"
+                alt="浙东 Logo"
                 className="w-[120px] h-[38px] lg:w-[157px] lg:h-[50px]"
               />
 

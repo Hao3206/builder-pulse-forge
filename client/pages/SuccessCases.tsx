@@ -173,7 +173,7 @@ export default function SuccessCases() {
             成功案例
           </h1>
           <p className="text-lg leading-[26px] tracking-[-0.1px] text-white/80">
-            见证万泽时代在双碳领域的专业实力与卓越成果
+            见证浙东能源环交所在双碳领域的专业实力与卓越成果
           </p>
         </div>
       </div>
