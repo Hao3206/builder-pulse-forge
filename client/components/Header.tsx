@@ -10,10 +10,18 @@ interface HeaderProps {
 
 export default function Header({ isScrolled = false }: HeaderProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { language, setLanguage, t } = useLanguage();
   const [searchOpen, setSearchOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Helper function to check if current path matches navigation item
+  const isActivePath = (path: string) => {
+    if (path === "/" && location.pathname === "/") return true;
+    if (path !== "/" && location.pathname.startsWith(path)) return true;
+    return false;
+  };
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
