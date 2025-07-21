@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ProductServicesDropdown, NewsCenterDropdown } from "./DropdownMenus";
 import { SolutionsDropdown } from "./SolutionsDropdownFixed";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "../hooks/useLanguage";
 
 interface HeaderProps {
