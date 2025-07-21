@@ -24,4 +24,4 @@ else
 fi
 
 echo "🚀 现在可以继续使用 PM2 启动服务"
-echo "运行: pm2 start ecosystem.config.js --env production"
+echo "运行: pm2 start ecosystem.config.cjs --env production"
