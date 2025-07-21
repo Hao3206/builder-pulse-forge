@@ -43,7 +43,9 @@ function Dropdown({
         <span
           className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 ${
             title === "产品服务"
-              ? "text-[#058A65]"
+              ? isScrolled
+                ? "text-[#058A65]"
+                : "text-white"
               : isActive
                 ? "text-brand-green"
                 : isScrolled
@@ -57,7 +59,9 @@ function Dropdown({
         <ChevronDown
           className={`w-5 h-5 transition-all duration-300 ${
             title === "产品服务"
-              ? "text-[#058A65]"
+              ? isScrolled
+                ? "text-[#058A65]"
+                : "text-white"
               : isActive
                 ? "text-brand-green"
                 : isScrolled
@@ -314,7 +318,7 @@ export function SolutionsDropdown({
             解决方案
           </h3>
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
-            全行业的解决方案，助力用户快速增长。
+            全行业的解决方案，助��用户快速增长。
           </p>
           <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
             更多内容
