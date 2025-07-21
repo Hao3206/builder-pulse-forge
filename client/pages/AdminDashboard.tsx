@@ -8,6 +8,7 @@ import {
   Eye,
   BarChart3,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface NewsStats {
   total: number;
@@ -28,9 +29,12 @@ interface DashboardCard {
 export default function AdminDashboard() {
   const [newsStats, setNewsStats] = useState<NewsStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const [recentMessages, setRecentMessages] = useState<any[]>([]);
 
   useEffect(() => {
     fetchDashboardData();
+    fetchRecentMessages();
   }, []);
 
   const fetchDashboardData = async () => {
@@ -50,6 +54,26 @@ export default function AdminDashboard() {
       console.error("获取仪表板数据失败:", error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchRecentMessages = async () => {
+    try {
+      const token = localStorage.getItem("admin_token");
+      const response = await fetch("/api/contact", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        if (result.success && Array.isArray(result.data)) {
+          setRecentMessages(result.data.slice(0, 5));
+        }
+      }
+    } catch (error) {
+      console.error("获取最近留言失败:", error);
     }
   };
 
@@ -275,6 +299,43 @@ export default function AdminDashboard() {
           >
             <Users className="w-5 h-5 mr-2" />
             查看网站
+          </button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        {/* 留言管理 */}
+        <div className="bg-white p-6 rounded-lg shadow flex flex-col items-center w-full">
+          <h2 className="text-xl font-bold mb-4">最新留言</h2>
+          {recentMessages.length === 0 ? (
+            <div className="text-gray-400">暂无留言</div>
+          ) : (
+            <table className="w-full text-sm mb-4">
+              <thead>
+                <tr className="text-left text-gray-500">
+                  <th className="p-1">姓名</th>
+                  <th className="p-1">联系方式</th>
+                  <th className="p-1">留言内容</th>
+                  <th className="p-1">时间</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentMessages.map((msg) => (
+                  <tr key={msg.id} className="border-t">
+                    <td className="p-1">{msg.name}</td>
+                    <td className="p-1">{msg.contact}</td>
+                    <td className="p-1 max-w-[180px] truncate">{msg.message}</td>
+                    <td className="p-1 whitespace-nowrap">{new Date(msg.createdAt).toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+          <button
+            className="px-4 py-1 bg-[#058A65] text-white rounded hover:bg-[#046B52]"
+            onClick={() => navigate("/admin/contact-messages")}
+          >
+            查看全部留言
           </button>
         </div>
       </div>

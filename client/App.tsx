@@ -27,6 +27,7 @@ import AdminLayout from "./components/AdminLayout";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminNewsList from "./pages/AdminNewsList";
 import AdminNewsEditor from "./pages/AdminNewsEditor";
+import AdminContactMessages from "./pages/AdminContactMessages";
 
 const App = () => (
   <LanguageProvider>
@@ -57,6 +58,7 @@ const App = () => (
 
             {/* 管理后台路由 */}
             <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/contact-messages" element={<AdminContactMessages />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
               <Route path="dashboard" element={<AdminDashboard />} />

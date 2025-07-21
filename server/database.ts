@@ -20,6 +20,23 @@ async function setup() {
     );
   `);
 
+  try {
+    await db.exec("ALTER TABLE contact_messages ADD COLUMN status TEXT DEFAULT '未处理';");
+  } catch (e) {
+    // 字段已存在时忽略
+  }
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS contact_messages (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT,
+      company TEXT,
+      contact TEXT,
+      message TEXT,
+      createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+      status TEXT DEFAULT '未处理'
+    );
+  `);
+
   // For testing, let's add some mock data if the table is empty
   const count = await db.get("SELECT COUNT(*) as count FROM news");
   if (count.count === 0) {

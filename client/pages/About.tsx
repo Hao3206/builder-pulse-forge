@@ -512,7 +512,27 @@ export default function About() {
                 </p>
               </div>
 
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const data = {
+                  name: (form.elements[0] as HTMLInputElement).value,
+                  company: (form.elements[1] as HTMLInputElement).value,
+                  contact: (form.elements[2] as HTMLInputElement).value,
+                  message: (form.elements[3] as HTMLTextAreaElement).value,
+                };
+                const res = await fetch("/api/contact", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(data),
+                });
+                if (res.ok) {
+                  alert("提交成功！");
+                  form.reset();
+                } else {
+                  alert("提交失败，请重试");
+                }
+              }}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <input
                     type="text"

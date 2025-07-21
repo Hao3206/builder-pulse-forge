@@ -23,6 +23,7 @@ import {
   getCaseStudyById,
   getSolutionsStats,
 } from "./routes/solutions";
+import contactRoutes from "./routes/contact";
 import "./database"; // Import to initialize
 
 export function createServer() {
@@ -36,6 +37,7 @@ export function createServer() {
   // Mount the routers
   app.use("/api/admin", newsAdminRoutes);
   app.use("/api/news", newsRoutes);
+  app.use("/api/contact", contactRoutes);
 
   // Health check
   app.get("/api/ping", (_req, res) => {
