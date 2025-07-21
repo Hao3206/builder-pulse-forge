@@ -87,7 +87,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                 />
 
                 <span
-                  className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 ${
+                  className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 whitespace-nowrap ${
                     isActivePath("/success-cases")
                       ? "text-[#058A65]"
                       : isScrolled
