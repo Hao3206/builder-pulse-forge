@@ -92,8 +92,35 @@ export function ProductServicesDropdown({
   const isActiveService = (serviceId: string) => {
     return location.pathname === `/product-service/${serviceId}`;
   };
+
+  // 产品服务按钮 - 匹配Figma设计的绿色样式
   return (
-    <Dropdown title="产品服务" isScrolled={isScrolled}>
+    <div className="relative group">
+      <div className="flex justify-center items-center gap-[6px] rounded-[5px] relative cursor-pointer">
+        <span className="text-[#058A65] font-inter text-[15px] font-medium leading-[22px]">
+          产品服务
+        </span>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-5 h-5 relative transition-transform group-hover:rotate-180"
+        >
+          <path
+            d="M15 11.6667L10.5893 7.25593C10.2638 6.93049 9.73618 6.93049 9.41074 7.25593L5 11.6667"
+            stroke="#058A65"
+            strokeWidth="1.67"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+
+      {/* Dropdown Content */}
+      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-[1120px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 mt-2 z-50">
+        <div className="bg-white shadow-[0px_13px_11.7px_rgba(0,0,0,0.11)] overflow-hidden">
+          <div className="flex h-[506px]">
       <div className="flex h-[506px]">
         {/* Left Sidebar */}
         <div className="w-[340px] h-[506px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
