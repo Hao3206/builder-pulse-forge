@@ -58,33 +58,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               <nav className="flex items-center gap-[32px] relative">
                 <ProductServicesDropdown isScrolled={isScrolled} />
 
-                <div className="flex flex-col justify-center items-start gap-[8px] relative">
-                  <div className="flex h-[22px] items-center gap-[12px] self-stretch rounded-[5px] relative">
-                    <span
-                      className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 ${
-                        isScrolled ? "text-[#333]" : "text-[#333]"
-                      }`}
-                      onClick={() => navigate("/solution")}
-                    >
-                      解决方案
-                    </span>
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5 relative"
-                    >
-                      <path
-                        d="M5 8.33333L9.41074 12.7441C9.73618 13.0695 10.2638 13.0695 10.5893 12.7441L15 8.33333"
-                        stroke="#333333"
-                        strokeWidth="1.67"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
+                <SolutionsDropdown isScrolled={isScrolled} />
 
                 <div className="flex flex-col justify-center items-start gap-[8px] relative">
                   <div className="flex h-[22px] items-center gap-[12px] rounded-[5px] relative">
