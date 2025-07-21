@@ -55,7 +55,11 @@ export default function Header({ isScrolled = false }: HeaderProps) {
           <div className="flex px-[32px] items-center gap-[91px] relative">
             {/* Logo - 按照Figma尺寸：157px x 50px */}
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
+              src={
+                isScrolled
+                  ? "https://api.builder.io/api/v1/image/assets/TEMP/1fee28a4f9031537e9b8b95943a60af33406ebb2?width=300"
+                  : "https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
+              }
               alt="浙东环交所 Logo"
               className="w-[157px] h-[50px] cursor-pointer relative"
               onClick={() => navigate("/")}
