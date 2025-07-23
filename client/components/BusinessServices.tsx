@@ -69,7 +69,7 @@ export default function BusinessServices() {
         </div>
 
         {/* Services Grid */}
-        <div className="flex gap-6 h-[446px] relative">
+        <div className="flex flex-col md:flex-row gap-6 md:h-[446px] relative">
           {/* All Services with Consistent Hover Effects */}
           {services.map((service, index) => {
             const IconComponent = service.icon;
@@ -77,7 +77,8 @@ export default function BusinessServices() {
             return (
               <div
                 key={index}
-                className="relative w-[156px] h-full rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-125 hover:z-10"
+                className="relative w-full md:w-[156px] h-[80px] md:h-full rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-105 md:hover:scale-125 hover:z-10 group"
+                style={{ transition: 'height 0.3s' }}
               >
                 <img
                   src={service.image}
@@ -113,6 +114,17 @@ export default function BusinessServices() {
             );
           })}
         </div>
+        <style>{`
+          @media (max-width: 767px) {
+            .group {
+              height: 80px !important;
+              transition: height 0.3s;
+            }
+            .group:hover, .group:focus-within {
+              height: 260px !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );

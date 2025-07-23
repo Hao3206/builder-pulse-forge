@@ -71,9 +71,9 @@ export default function Solutions() {
         </div>
 
         {/* Content Layout */}
-        <div className="flex gap-16 items-start">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
           {/* Left Side - Services List */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 w-full md:w-auto">
             <div className="space-y-8">
               {/* Service Items */}
               <div className="space-y-6">
@@ -81,7 +81,7 @@ export default function Solutions() {
                   <button
                     key={item.id}
                     onClick={() => handleItemClick(item)}
-                    className={`group flex items-center gap-4 px-6 py-3 rounded-full font-semibold text-xl transition-all duration-300 ${
+                    className={`group flex items-center gap-4 px-6 py-3 rounded-full font-semibold text-xl transition-all duration-300 w-full md:w-auto justify-between md:justify-start ${
                       activeItem.id === item.id
                         ? "bg-brand-green text-white"
                         : "text-[#333] hover:bg-white/50 hover:text-brand-green"
@@ -110,7 +110,7 @@ export default function Solutions() {
           </div>
 
           {/* Right Side - Content Card */}
-          <div className="flex-1 bg-white/70 rounded-lg p-10 max-w-4xl transition-all duration-500">
+          <div className="w-full md:flex-1 bg-white/70 rounded-lg p-6 md:p-10 max-w-full md:max-w-4xl transition-all duration-500 mt-6 md:mt-0">
             {/* Green accent line and Title in one row */}
             <div className="flex items-center mb-6">
               <div className="w-1 h-7 bg-brand-green mr-3" />

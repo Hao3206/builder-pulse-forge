@@ -78,7 +78,6 @@ export default function Hero() {
               alt={`Slide ${index + 1}`}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/40" />
           </div>
         ))}
       </div>
