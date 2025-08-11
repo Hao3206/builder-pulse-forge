@@ -43,7 +43,10 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/solution" element={<Solution />} />
             <Route path="/zero-carbon-park" element={<ZeroCarbonPark />} />
-            <Route path="/zero-carbon-factory" element={<ZeroCarbonFactory />} />
+            <Route
+              path="/zero-carbon-factory"
+              element={<ZeroCarbonFactory />}
+            />
             <Route
               path="/corporate-carbon-management"
               element={<CorporateCarbonManagement />}
@@ -60,7 +63,10 @@ const App = () => (
 
             {/* 管理后台路由 */}
             <Route path="/admin/login" element={<AdminLogin />} />
-            <Route path="/admin/contact-messages" element={<AdminContactMessages />} />
+            <Route
+              path="/admin/contact-messages"
+              element={<AdminContactMessages />}
+            />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
               <Route path="dashboard" element={<AdminDashboard />} />

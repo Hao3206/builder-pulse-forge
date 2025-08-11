@@ -46,8 +46,8 @@ function Dropdown({
             isActive && isScrolled
               ? "text-[#058A65]"
               : isScrolled
-              ? "text-[#333]"
-              : "text-white"
+                ? "text-[#333]"
+                : "text-white"
           }`}
           onClick={onTitleClick}
         >
@@ -58,8 +58,8 @@ function Dropdown({
             isActive && isScrolled
               ? "text-[#058A65]"
               : isScrolled
-              ? "text-[#333]"
-              : "text-white"
+                ? "text-[#333]"
+                : "text-white"
           } ${isOpen ? "rotate-180" : ""}`}
         />
       </div>

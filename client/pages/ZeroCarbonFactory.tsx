@@ -194,35 +194,41 @@ export default function ZeroCarbonFactory() {
               {
                 step: "1",
                 title: "现状调研",
-                description: "深入了解工厂现有能源结构、碳排放基线、生产工艺等基础情况"
+                description:
+                  "深入了解工厂现有能源结构、碳排放基线、生产工艺等基础情况",
               },
               {
-                step: "2", 
+                step: "2",
                 title: "目标制定",
-                description: "设定分阶段减碳目标，制定零碳工厂建设时间表和里程碑"
+                description:
+                  "设定分阶段减碳目标，制定零碳工厂建设时间表和里程碑",
               },
               {
                 step: "3",
                 title: "技术改造",
-                description: "实施节能技术改造、清洁能源替代、工艺流程优化等措施"
+                description:
+                  "实施节能技术改造、清洁能源替代、工艺流程优化等措施",
               },
               {
                 step: "4",
                 title: "系统建设",
-                description: "部署智能化能碳管理系统，实现数据采集、分析和优化"
+                description: "部署智能化能碳管理系统，实现数据采集、分析和优化",
               },
               {
                 step: "5",
                 title: "运营管理",
-                description: "建立完善的碳管理制度，培训专业团队，持续优化运营"
+                description: "建立完善的碳管理制度，培训专业团队，持续优化运营",
               },
               {
                 step: "6",
                 title: "认证验收",
-                description: "申请零碳工厂认证，通过第三方验证，获得权威认可"
-              }
+                description: "申请零碳工厂认证，通过第三方验证，获得权威认可",
+              },
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-lg p-8 shadow-sm relative">
+              <div
+                key={index}
+                className="bg-white rounded-lg p-8 shadow-sm relative"
+              >
                 <div className="absolute top-4 right-4 bg-[#058A65] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                   {item.step}
                 </div>
@@ -255,8 +261,17 @@ export default function ZeroCarbonFactory() {
               <div>
                 <div className="w-12 h-12 mb-6">
                   <div className="bg-[#F5FAFF] p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 3V21H21V3H3ZM19 19H5V5H19V19ZM17 7H7V9H17V7ZM17 11H7V13H17V11ZM17 15H7V17H17V15Z" fill="#058A65"/>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3 3V21H21V3H3ZM19 19H5V5H19V19ZM17 7H7V9H17V7ZM17 11H7V13H17V11ZM17 15H7V17H17V15Z"
+                        fill="#058A65"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -273,8 +288,17 @@ export default function ZeroCarbonFactory() {
               <div>
                 <div className="w-12 h-12 mb-6">
                   <div className="bg-[#F5FAFF] p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM7 10H17V12H7V10ZM7 14H14V16H7V14Z" fill="#058A65"/>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM7 10H17V12H7V10ZM7 14H14V16H7V14Z"
+                        fill="#058A65"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -291,8 +315,17 @@ export default function ZeroCarbonFactory() {
               <div>
                 <div className="w-12 h-12 mb-6">
                   <div className="bg-[#F5FAFF] p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 2L13.09 8.26L19 9L14.18 13.27L15.18 19L12 16.77L8.82 19L9.82 13.27L5 9L10.91 8.26L12 2Z" fill="#058A65"/>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 2L13.09 8.26L19 9L14.18 13.27L15.18 19L12 16.77L8.82 19L9.82 13.27L5 9L10.91 8.26L12 2Z"
+                        fill="#058A65"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -309,8 +342,17 @@ export default function ZeroCarbonFactory() {
               <div>
                 <div className="w-12 h-12 mb-6">
                   <div className="bg-[#F5FAFF] p-3 rounded-lg w-12 h-12 flex items-center justify-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20Z" fill="#058A65"/>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20Z"
+                        fill="#058A65"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -341,8 +383,17 @@ export default function ZeroCarbonFactory() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-lg p-8 h-[200px] flex flex-col justify-center items-center text-center">
               <div className="w-12 h-12 mb-4 flex items-center justify-center">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 2C8.27 2 2 8.27 2 16C2 23.73 8.27 30 16 30C23.73 30 30 23.73 30 16C30 8.27 23.73 2 16 2ZM16 28C9.38 28 4 22.62 4 16C4 9.38 9.38 4 16 4C22.62 4 28 9.38 28 16C28 22.62 22.62 28 16 28ZM15 8H17V16H15V8ZM15 18H17V20H15V18Z" fill="#058A65"/>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 2C8.27 2 2 8.27 2 16C2 23.73 8.27 30 16 30C23.73 30 30 23.73 30 16C30 8.27 23.73 2 16 2ZM16 28C9.38 28 4 22.62 4 16C4 9.38 9.38 4 16 4C22.62 4 28 9.38 28 16C28 22.62 22.62 28 16 28ZM15 8H17V16H15V8ZM15 18H17V20H15V18Z"
+                    fill="#058A65"
+                  />
                 </svg>
               </div>
               <h3 className="text-[18px] font-bold text-[#333] mb-2 tracking-[-0.18px]">
@@ -355,8 +406,17 @@ export default function ZeroCarbonFactory() {
 
             <div className="bg-white rounded-lg p-8 h-[200px] flex flex-col justify-center items-center text-center">
               <div className="w-12 h-12 mb-4 flex items-center justify-center">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M28 8H4C2.9 8 2 8.9 2 10V22C2 23.1 2.9 24 4 24H28C29.1 24 30 23.1 30 22V10C30 8.9 29.1 8 28 8ZM28 22H4V10H28V22ZM6 12H10V20H6V12ZM12 14H16V20H12V14ZM18 16H22V20H18V16Z" fill="#058A65"/>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M28 8H4C2.9 8 2 8.9 2 10V22C2 23.1 2.9 24 4 24H28C29.1 24 30 23.1 30 22V10C30 8.9 29.1 8 28 8ZM28 22H4V10H28V22ZM6 12H10V20H6V12ZM12 14H16V20H12V14ZM18 16H22V20H18V16Z"
+                    fill="#058A65"
+                  />
                 </svg>
               </div>
               <h3 className="text-[18px] font-bold text-[#333] mb-2 tracking-[-0.18px]">
@@ -369,8 +429,17 @@ export default function ZeroCarbonFactory() {
 
             <div className="bg-white rounded-lg p-8 h-[200px] flex flex-col justify-center items-center text-center">
               <div className="w-12 h-12 mb-4 flex items-center justify-center">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 2L20.09 10.26L30 12L22 20.74L24.18 30L16 25.5L7.82 30L10 20.74L2 12L11.91 10.26L16 2Z" fill="#058A65"/>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 2L20.09 10.26L30 12L22 20.74L24.18 30L16 25.5L7.82 30L10 20.74L2 12L11.91 10.26L16 2Z"
+                    fill="#058A65"
+                  />
                 </svg>
               </div>
               <h3 className="text-[18px] font-bold text-[#333] mb-2 tracking-[-0.18px]">
@@ -383,8 +452,17 @@ export default function ZeroCarbonFactory() {
 
             <div className="bg-white rounded-lg p-8 h-[200px] flex flex-col justify-center items-center text-center">
               <div className="w-12 h-12 mb-4 flex items-center justify-center">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 3C10.5 3 6 7.5 6 13C6 18.5 10.5 23 16 23C21.5 23 26 18.5 26 13C26 7.5 21.5 3 16 3ZM14 18L9 13L10.41 11.59L14 15.17L21.59 7.58L23 9L14 18Z" fill="#058A65"/>
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 3C10.5 3 6 7.5 6 13C6 18.5 10.5 23 16 23C21.5 23 26 18.5 26 13C26 7.5 21.5 3 16 3ZM14 18L9 13L10.41 11.59L14 15.17L21.59 7.58L23 9L14 18Z"
+                    fill="#058A65"
+                  />
                 </svg>
               </div>
               <h3 className="text-[18px] font-bold text-[#333] mb-2 tracking-[-0.18px]">
