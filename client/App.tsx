@@ -11,6 +11,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Solution from "./pages/Solution";
 import ZeroCarbonPark from "./pages/ZeroCarbonPark";
+import ZeroCarbonFactory from "./pages/ZeroCarbonFactory";
 import CorporateCarbonManagement from "./pages/CorporateCarbonManagement";
 import CarbonFootprint from "./pages/CarbonFootprint";
 import NewsCenter from "./pages/NewsCenter";
