@@ -64,7 +64,7 @@ export default function Footer() {
                   </div>
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
                     <div className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px]">
-                      地方碳普惠交易
+                      地方���普惠交易
                     </div>
                   </div>
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
@@ -105,6 +105,14 @@ export default function Footer() {
                       onClick={() => navigate("/zero-carbon-park")}
                     >
                       零碳园区解决方案
+                    </div>
+                  </div>
+                  <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
+                    <div
+                      className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors"
+                      onClick={() => navigate("/zero-carbon-factory")}
+                    >
+                      零碳工厂解决方案
                     </div>
                   </div>
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
