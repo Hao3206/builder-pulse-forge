@@ -291,6 +291,12 @@ export function ProductServicesDropdown({
             >
               零碳园区解决方案
             </div>
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/zero-carbon-factory")}
+            >
+              零碳工厂解决方案
+            </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               其他低/零碳解决方案
             </div>
