@@ -117,6 +117,10 @@ const translations: Translations = {
     zh: "零碳园区",
     en: "Zero Carbon Park",
   },
+  "products.zero.carbon.factory": {
+    zh: "零碳工厂",
+    en: "Zero Carbon Factory",
+  },
 
   // Product Services Details
   "products.local.carbon.trading": {
