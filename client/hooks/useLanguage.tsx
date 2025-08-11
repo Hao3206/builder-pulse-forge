@@ -251,6 +251,10 @@ const translations: Translations = {
     zh: "零碳园区解决方案",
     en: "Zero Carbon Park Solutions",
   },
+  "solutions.zero.carbon.factory": {
+    zh: "零碳工厂解决方案",
+    en: "Zero Carbon Factory Solutions",
+  },
   "solutions.carbon.footprint": {
     zh: "碳核算/碳足迹解决方案",
     en: "Carbon Accounting/Footprint Solutions",
