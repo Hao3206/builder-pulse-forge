@@ -137,7 +137,7 @@ export function SolutionsDropdown({
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
           </div>
 
-          <div className="absolute left-[584px] top-[30px] flex items-center gap-1">
+          <div className="absolute left-[650px] top-[30px] flex items-center gap-1">
             <span
               className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
               onClick={() => handleNavigation("/zero-carbon-factory")}
@@ -160,7 +160,7 @@ export function SolutionsDropdown({
             </p>
           </div>
 
-          <div className="absolute left-[584px] top-[64px] w-[210px]">
+          <div className="absolute left-[650px] top-[64px] w-[210px]">
             <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               智慧驱动零碳制造，打造绿色工厂转型一站式解决方案
             </p>
@@ -172,7 +172,7 @@ export function SolutionsDropdown({
               className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
               onClick={() => handleNavigation("/corporate-carbon-management")}
             >
-              企业碳管���一站式解决方案
+              企业碳管理一站式解决方案
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
           </div>
@@ -200,15 +200,15 @@ export function SolutionsDropdown({
             </p>
           </div>
 
-          {/* Right side images/icons */}
-          <div className="absolute right-[292px] top-[21px] w-[90px] h-[90px] bg-[#D9D9D9]"></div>
+          {/* Right side images/icons - both in second row */}
           <div className="absolute right-[292px] top-[159px] w-[90px] h-[90px] bg-[#D9D9D9]"></div>
+          <div className="absolute right-[400px] top-[159px] w-[90px] h-[90px] bg-[#D9D9D9]"></div>
 
-          {/* Image labels */}
-          <div className="absolute right-[310px] top-[114px] text-[#666] font-inter text-[14px] font-medium leading-6 tracking-[-0.14px]">
+          {/* Image labels - both in second row, separated */}
+          <div className="absolute right-[310px] top-[252px] text-[#666] font-inter text-[14px] font-medium leading-6 tracking-[-0.14px]">
             甬城低碳
           </div>
-          <div className="absolute right-[290px] top-[257px] text-[#666] font-inter text-[14px] font-medium leading-6 tracking-[-0.14px]">
+          <div className="absolute right-[395px] top-[252px] text-[#666] font-inter text-[14px] font-medium leading-6 tracking-[-0.14px]">
             个人碳足迹计算
           </div>
         </div>

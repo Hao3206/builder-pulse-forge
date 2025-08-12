@@ -152,7 +152,10 @@ export function ProductServicesDropdown({
 
           {/* Content under 碳交易 */}
           <div className="absolute top-[64px] left-[32px] w-[210px] space-y-3">
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/local-carbon-trading")}
+            >
               地方碳普惠交易
             </div>
             <div
@@ -167,10 +170,16 @@ export function ProductServicesDropdown({
             >
               CCER资产开发与交易
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/green-certificate-trading")}
+            >
               绿证交易
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/enterprise-carbon-asset-management")}
+            >
               企业碳资产管理
             </div>
           </div>
@@ -189,26 +198,44 @@ export function ProductServicesDropdown({
             >
               绿色/低碳工厂创建
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/ceav-carbon-accounting")}
+            >
               CEAV产品碳排放核算与申报
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/carbon-neutrality-planning")}
+            >
               碳达峰碳中和路径规划
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/esg-disclosure")}
+            >
               ESG信息披露
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              双碳标准编生
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/carbon-standard-development")}
+            >
+              双碳标准编制
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/carbon-research")}
+            >
               双碳课题研究
             </div>
           </div>
 
           {/* Content under 碳金融 */}
           <div className="absolute top-[64px] left-[528px] w-[210px]">
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              onClick={() => navigate("/carbon-finance-solution")}
+            >
               碳金融解决方案
             </div>
           </div>
