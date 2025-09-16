@@ -42,7 +42,7 @@ export default function ProductService() {
       features: [
         { icon: Target, title: "组织碳盘查", description: "按ISO 14064与GHG Protocol进行组织层面温室气体核算" },
         { icon: FileText, title: "产品碳足迹", description: "依据ISO 14067/PAS 2050开展LCA核算与分摊" },
-        { icon: TrendingUp, title: "第三方验证支持", description: "穿行测试资料、抽样与证据留痕，配合验证机构" },
+        { icon: TrendingUp, title: "第三方验证支持", description: "穿行测试资料、抽样与证��留痕，配合验证机构" },
         { icon: Award, title: "披露与系统对接", description: "生成披露文本与报表，支持系统化接入与留痕管理" },
       ],
       benefits: [
@@ -119,7 +119,7 @@ export default function ProductService() {
       process: [
         {
           step: "01",
-          title: "���状评估",
+          title: "现状评估",
           description: "深入企业调研，评估现有绿色制造基础和改进空间",
         },
         {
@@ -164,11 +164,11 @@ export default function ProductService() {
       caseStudies: [
         {
           title: "某汽车零部件制造企业绿色工���认定",
-          description: "协助���成国家级绿色工厂认定，实施智能化生产线改造",
+          description: "协助完成国家级绿色工厂认定，实施智能化生产线改造",
           result: "成功获得国家级绿色工厂认定，年节约成本约200万元",
         },
         {
-          title: "某纺织企业低碳工厂建设",
+          title: "某��织企业低碳工厂建设",
           description: "指导企业建设低碳工厂，实施清洁生产技术改造",
           result: "碳排放强度降低40%，获得省级低碳工厂示范称号",
         },
@@ -230,7 +230,7 @@ export default function ProductService() {
         {
           step: "01",
           title: "项目调研",
-          description: "深入了解客户��求，分析项目开发潜力",
+          description: "深入了解客户需求，分析项目开发潜力",
         },
         {
           step: "02",
@@ -275,7 +275,7 @@ export default function ProductService() {
         {
           title: "某新能源企业风电CCER项目",
           description: "协助开发200MW风电项目CCER，年减排量约30万吨CO2",
-          result: "成功签发并交���，为企业创造额外收益约600���元",
+          result: "成功签发并交���，为企业创造额外收益约600万元",
         },
         {
           title: "某制造企业节能改造CCER项目",
@@ -329,7 +329,7 @@ export default function ProductService() {
         { number: "95%+", label: "满意度" },
       ],
       caseStudies: [
-        { title: "制造业交易团队训练营", description: "从零到一构建��易体系", result: "建立交易与风控流程" },
+        { title: "制造业交易团队训练营", description: "从零到一构建交易体系", result: "建立交易与风控流程" },
       ],
       pricing: {
         consultation: "免费咨询",
@@ -381,7 +381,7 @@ export default function ProductService() {
     "industry-seminars-forums": {
       id: "industry-seminars-forums",
       title: "行业专题讲座/论坛",
-      subtitle: "链接政策、技术与产业实践，构建行业交流平台",
+      subtitle: "链接政策、技术与产业实践，构建行业交流平��",
       description:
         "围绕制造业低碳转型、产品碳足迹、绿电与碳金融等主题举办讲座/论坛/工作坊。",
       heroImage:
@@ -422,9 +422,9 @@ export default function ProductService() {
         "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
       category: "碳培训",
       features: [
-        { icon: Users, title: "画像���目标", description: "定位受众画像与成效目标" },
+        { icon: Users, title: "画像与目标", description: "定位受众画像与成效目标" },
         { icon: FileText, title: "大纲与内容", description: "定制课程大纲与案例库" },
-        { icon: Target, title: "授课与辅导", description: "授课+实操+辅导一体化" },
+        { icon: Target, title: "授��与辅导", description: "授课+实操+辅导一体化" },
         { icon: Award, title: "评估与认证", description: "成效评估与结业认证" },
       ],
       benefits: ["紧贴场景", "高度定制", "工具输出", "落地导向"],
@@ -443,7 +443,7 @@ export default function ProductService() {
       caseStudies: [
         { title: "头部制造企业定制班", description: "跨部门联合定制", result: "产出工具包与路线图" },
       ],
-      pricing: { consultation: "免费咨询", development: "按需��制：面议", trading: "团体价：按人数", management: "后续辅导：支持" },
+      pricing: { consultation: "免费咨询", development: "按需定制：面议", trading: "团体价：按人数", management: "后续辅导：支持" },
       contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
     },
     "advanced-carbon-training": {
@@ -477,6 +477,108 @@ export default function ProductService() {
         { title: "集团总部高层研修", description: "定制高阶班", result: "形成集团年度双碳路线" },
       ],
       pricing: { consultation: "免费咨询", development: "线下/线上：面议", trading: "团体价：按人数", management: "校友社群：支持" },
+      contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
+    },
+    "regional-carbon-brain": {
+      id: "regional-carbon-brain",
+      title: "区域双碳大脑",
+      subtitle: "区域端碳数据汇聚、分析与决策支持平台",
+      description:
+        "面向政府与园区的双碳管理平台，汇聚能耗与排放数据，支持达峰路线、绿电消纳、项目评估与绩效考核。",
+      heroImage:
+        "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1920&h=1080&fit=crop",
+      category: "碳信息化",
+      features: [
+        { icon: Users, title: "多源数据汇聚", description: "接入能耗、排放、气象与企业报送数据" },
+        { icon: TrendingUp, title: "监测与研判", description: "区域碳强度、产业结构与趋势研判" },
+        { icon: Target, title: "路径与投策", description: "达峰路线、项目评估与ROI分析" },
+        { icon: Award, title: "考核与绩效", description: "目标分解、绩效看板与督导闭环" },
+      ],
+      benefits: ["统一数据底座", "辅助科学决策", "跨部门协同", "绩效闭环"],
+      process: [
+        { step: "01", title: "调研评估", description: "现状评估与方案设计" },
+        { step: "02", title: "平台建设", description: "数据接入与功能实现" },
+        { step: "03", title: "应用推广", description: "专题应用与示范推广" },
+        { step: "04", title: "运营维护", description: "运维与优化提升" },
+      ],
+      stats: [
+        { number: "10+", label: "试点区域" },
+        { number: "50+", label: "数据接口" },
+        { number: "7x24", label: "稳定运行" },
+        { number: ">99.9%", label: "可用性" },
+      ],
+      caseStudies: [
+        { title: "某省级区域双碳平台", description: "实现跨部门数据打��", result: "支撑年度考核与路径滚动更新" },
+      ],
+      pricing: { consultation: "免费咨询", development: "项目制：面议", trading: "接口扩展：协商", management: "运维服务：年度" },
+      contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
+    },
+    "personal-carbon-account": {
+      id: "personal-carbon-account",
+      title: "个人碳账户建设",
+      subtitle: "个人端碳行为量化、激励与绿色生活生态",
+      description:
+        "以行为数据为基础，构建个人碳账户体系，支持个人碳足迹、绿色消费与积分激励。",
+      heroImage:
+        "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1920&h=1080&fit=crop",
+      category: "碳信息化",
+      features: [
+        { icon: Users, title: "账户体系", description: "个人唯一ID、账户与积分体系" },
+        { icon: FileText, title: "数据采集", description: "出行、用电、消费等行为数据接入" },
+        { icon: TrendingUp, title: "核算与减排", description: "个人碳足迹核算与减排评估" },
+        { icon: Award, title: "激励与生态", description: "积分兑换、公益与消费联动" },
+      ],
+      benefits: ["提升公众参与", "促进绿色消费", "沉淀数据资产", "生态合作"],
+      process: [
+        { step: "01", title: "方案设计", description: "场景与规则设计" },
+        { step: "02", title: "平台建设", description: "小程序/APP与服务端" },
+        { step: "03", title: "生态接入", description: "商户与公益合作" },
+        { step: "04", title: "运营增长", description: "活动与增长机制" },
+      ],
+      stats: [
+        { number: "100万+", label: "覆盖用户" },
+        { number: "50+", label: "生态伙伴" },
+        { number: "10+", label: "典型场景" },
+        { number: ">99.9%", label: "稳定性" },
+      ],
+      caseStudies: [
+        { title: "市级个人碳账户", description: "公交出行与绿色消费积分", result: "月活提升200%" },
+      ],
+      pricing: { consultation: "免费咨询", development: "平台建设：面议", trading: "生态合作：协商", management: "运营服务：可选" },
+      contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
+    },
+    "green-trade-platform": {
+      id: "green-trade-platform",
+      title: "绿色贸易服务平台",
+      subtitle: "出口合规���低碳认证与供应链协同的一站式平台",
+      description:
+        "面向外贸企业，提供碳足迹、ESG披露、CBAM合规、低碳认证与供应链协同，打通绿色贸易全链路。",
+      heroImage:
+        "https://images.unsplash.com/photo-1586521995568-39f60f91db4a?w=1920&h=1080&fit=crop",
+      category: "碳信息化",
+      features: [
+        { icon: FileText, title: "合规与认证", description: "CBAM/ESG与低碳认证对接" },
+        { icon: Users, title: "供应链协同", description: "供应商数据采集与协同" },
+        { icon: TrendingUp, title: "可视化看板", description: "贸易碳强度、交付与合规进度" },
+        { icon: Award, title: "客户与品牌", description: "低碳标签与市场传播" },
+      ],
+      benefits: ["降低合规成本", "提升履约效率", "增强品牌力", "拓展海外市场"],
+      process: [
+        { step: "01", title: "诊断与导入", description: "现状评估与数据导入" },
+        { step: "02", title: "对接与配置", description: "对接认证/关务系统" },
+        { step: "03", title: "实施与协同", description: "供应链协同与看板上线" },
+        { step: "04", title: "优化与迭代", description: "合规升级与市场��展" },
+      ],
+      stats: [
+        { number: "500+", label: "出口SKU" },
+        { number: "30+", label: "目的国/地区" },
+        { number: "80%", label: "效率提升" },
+        { number: "50%", label: "成本下降" },
+      ],
+      caseStudies: [
+        { title: "外贸企业绿色转型", description: "CBAM与ESG一体化", result: "准入风险显著降低" },
+      ],
+      pricing: { consultation: "免费咨询", development: "平台建设：面议", trading: "接口与认证：协商", management: "运维服务：年度" },
       contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
     },
   };
