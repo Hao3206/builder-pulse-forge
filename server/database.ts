@@ -13,10 +13,24 @@ async function setup() {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
       content TEXT NOT NULL,
+      rich_content TEXT,
       imageUrl TEXT,
       author TEXT,
       category TEXT,
-      createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
+      createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+      wechat_media_id TEXT,
+      wechat_synced_at DATETIME
+    );
+  `);
+
+  // 创建微信公众号配置表
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS wechat_config (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      appId TEXT NOT NULL,
+      appSecret TEXT NOT NULL,
+      accessToken TEXT,
+      expiresAt INTEGER
     );
   `);
 

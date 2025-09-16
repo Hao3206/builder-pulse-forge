@@ -24,32 +24,32 @@ const serviceItems = [
   {
     title: "碳普惠项目开发",
     description: "协助企业和个人开发符合地方标准的碳普惠项目，包括节能改造、清洁能源、绿色出行等",
-    icon: "🌱",
+    icon: "01",
   },
   {
     title: "碳积分体系建设",
     description: "设计科学合理的碳积分计算方法和兑换机制，建立完整的碳普惠积分体系",
-    icon: "📊",
+    icon: "02",
   },
   {
     title: "交易平台搭建",
     description: "提供碳普惠交易平台的技术支持和运营服务，确保交易的安全性和透明度",
-    icon: "🔄",
+    icon: "03",
   },
   {
     title: "政策咨询服务",
     description: "提供地方碳普惠政策解读和咨询服务，帮助企业了解政策要求和参与方式",
-    icon: "📋",
+    icon: "04",
   },
   {
     title: "碳资产认证",
     description: "协助完成碳普惠项目的认证和核证工作，确保项目的真实性和减排效果",
-    icon: "✅",
+    icon: "05",
   },
   {
     title: "市场推广支持",
     description: "提供碳普惠项目的市场推广和宣传支持，扩大项目影响力和参与度",
-    icon: "📢",
+    icon: "06",
   },
 ];
 
@@ -177,7 +177,9 @@ export default function LocalCarbonTrading() {
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
+                <div className="w-12 h-12 bg-[#058A65] rounded-full flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-lg">{service.icon}</span>
+                </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {service.title}
                 </h3>

@@ -24,32 +24,32 @@ const serviceItems = [
   {
     title: "碳资产盘查",
     description: "全面梳理企业现有的碳资产，建立碳资产清单，评估资产价值和潜力",
-    icon: "📋",
+    icon: "01",
   },
   {
     title: "资产价值评估",
     description: "运用专业方法评估碳资产的市场价值，为企业提供资产定价参考",
-    icon: "💰",
+    icon: "02",
   },
   {
     title: "投资组合优化",
     description: "根据企业需求和市场情况，优化碳资产投资组合，实现价值最大化",
-    icon: "📊",
+    icon: "03",
   },
   {
     title: "交易策略制定",
     description: "制定科学的碳资产交易策略，把握市场机会，实现资产增值",
-    icon: "🎯",
+    icon: "04",
   },
   {
     title: "风险管理",
     description: "建立碳资产风险管理体系，识别和防范各类风险，保障资产安全",
-    icon: "🛡️",
+    icon: "05",
   },
   {
     title: "合规管理",
     description: "确保碳资产管理活动符合相关法规要求，建立合规管理体系",
-    icon: "✅",
+    icon: "06",
   },
 ];
 
@@ -201,7 +201,9 @@ export default function EnterpriseCarbonAssetManagement() {
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
+                <div className="w-12 h-12 bg-[#058A65] rounded-full flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-lg">{service.icon}</span>
+                </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {service.title}
                 </h3>

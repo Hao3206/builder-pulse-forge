@@ -74,9 +74,19 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   isScrolled={isScrolled}
                   isActive={
                     isActivePath("/product-service") ||
+                    isActivePath("/local-carbon-trading") ||
+                    isActivePath("/green-certificate-trading") ||
+                    isActivePath("/enterprise-carbon-asset-management") ||
+                    isActivePath("/ceav-carbon-accounting") ||
+                    isActivePath("/carbon-neutrality-planning") ||
+                    isActivePath("/esg-disclosure") ||
+                    isActivePath("/carbon-standard-development") ||
+                    isActivePath("/carbon-research") ||
+                    isActivePath("/carbon-finance-solution") ||
+                    isActivePath("/corporate-carbon-management") ||
                     isActivePath("/solution") ||
                     isActivePath("/zero-carbon-park") ||
-                    isActivePath("/corporate-carbon-management") ||
+                    isActivePath("/zero-carbon-factory") ||
                     isActivePath("/carbon-footprint")
                   }
                 />
@@ -157,30 +167,11 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                     className="flex w-[42px] px-[2px] items-center gap-[8px] relative cursor-pointer"
                     onClick={() => setLanguageOpen(!languageOpen)}
                   >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <img
+                      src="/language-icon.svg"
+                      alt="Language"
                       className="w-5 h-5 relative"
-                    >
-                      <circle
-                        cx="10"
-                        cy="10"
-                        r="8"
-                        fill={isScrolled ? "#333" : "white"}
-                      />
-                      <text
-                        x="10"
-                        y="14"
-                        textAnchor="middle"
-                        fontSize="8"
-                        fill={isScrolled ? "white" : "#333"}
-                      >
-                        文
-                      </text>
-                    </svg>
+                    />
                     <svg
                       width="12"
                       height="12"
@@ -299,30 +290,11 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                 className="flex items-center gap-1 cursor-pointer"
                 onClick={() => setLanguageOpen(!languageOpen)}
               >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                <img
+                  src="/language-icon.svg"
+                  alt="Language"
                   className="w-5 h-5"
-                >
-                  <circle
-                    cx="10"
-                    cy="10"
-                    r="8"
-                    fill={isScrolled ? "#333" : "white"}
-                  />
-                  <text
-                    x="10"
-                    y="14"
-                    textAnchor="middle"
-                    fontSize="8"
-                    fill={isScrolled ? "white" : "#333"}
-                  >
-                    文
-                  </text>
-                </svg>
+                />
               </div>
               {languageOpen && (
                 <div className="absolute top-full right-0 mt-2 w-28 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
@@ -373,9 +345,19 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                 <button
                   className={`text-left py-3 px-4 rounded-lg transition-colors ${
                     isActivePath("/product-service") ||
+                    isActivePath("/local-carbon-trading") ||
+                    isActivePath("/green-certificate-trading") ||
+                    isActivePath("/enterprise-carbon-asset-management") ||
+                    isActivePath("/ceav-carbon-accounting") ||
+                    isActivePath("/carbon-neutrality-planning") ||
+                    isActivePath("/esg-disclosure") ||
+                    isActivePath("/carbon-standard-development") ||
+                    isActivePath("/carbon-research") ||
+                    isActivePath("/carbon-finance-solution") ||
+                    isActivePath("/corporate-carbon-management") ||
                     isActivePath("/solution") ||
                     isActivePath("/zero-carbon-park") ||
-                    isActivePath("/corporate-carbon-management") ||
+                    isActivePath("/zero-carbon-factory") ||
                     isActivePath("/carbon-footprint")
                       ? "text-[#058A65] bg-green-50"
                       : "text-[#333] hover:bg-gray-50"

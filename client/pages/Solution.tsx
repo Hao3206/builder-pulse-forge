@@ -380,19 +380,19 @@ export default function Solution() {
           <div className="flex items-start gap-8 w-full">
             {[
               {
-                icon: "📊",
+                icon: "01",
                 title: "经验丰富",
                 description: "深耕碳交易与节能服务超10年",
               },
               {
-                icon: "🔔",
-                title: "经验丰富",
-                description: "深耕碳交易与节能服务超10年",
+                icon: "02",
+                title: "专业团队",
+                description: "拥有专业的碳管理和节能服务团队",
               },
               {
-                icon: "💬",
-                title: "经验丰富",
-                description: "深耕碳交易与节能服务超10年",
+                icon: "03",
+                title: "服务完善",
+                description: "提供全方位的碳管理和节能解决方案",
               },
             ].map((item, index) => (
               <div
@@ -400,7 +400,7 @@ export default function Solution() {
                 className="flex py-8 px-8 flex-col items-center gap-4 flex-1 rounded-md border border-[#EAEBF0] bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]"
               >
                 <div className="flex p-2 justify-center items-center rounded-[30px] bg-[#058A65]">
-                  <span className="text-2xl">{item.icon}</span>
+                  <span className="text-white font-bold text-lg">{item.icon}</span>
                 </div>
                 <div className="flex flex-col items-start gap-4 w-full">
                   <h3 className="text-[#333] text-center font-inter text-[22px] font-bold leading-[30px] tracking-[-0.22px] w-full">

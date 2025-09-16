@@ -136,8 +136,14 @@ export default function NewsDropdown({
                   </p>
                 </div>
 
-                {/* Gray placeholder area - positioned based on Figma coordinates */}
-                <div className="absolute right-[112px] top-[48px] w-[280px] h-[170px] bg-[#D9D9D9]"></div>
+                {/* News Image Area */}
+                <div className="absolute right-[112px] top-[48px] w-[280px] h-[170px]">
+                  <img 
+                    src="/news-featured-image.jpg" 
+                    alt="资讯中心" 
+                    className="w-full h-full object-cover rounded-lg" 
+                  />
+                </div>
               </div>
             </div>
           </div>

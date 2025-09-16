@@ -38,6 +38,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminNewsList from "./pages/AdminNewsList";
 import AdminNewsEditor from "./pages/AdminNewsEditor";
 import AdminContactMessages from "./pages/AdminContactMessages";
+import AdminWechatConfig from "./pages/AdminWechatConfig";
+import AdminWechatSync from "./pages/AdminWechatSync";
 
 const App = () => (
   <LanguageProvider>
@@ -91,6 +93,8 @@ const App = () => (
               <Route path="news" element={<AdminNewsList />} />
               <Route path="news/create" element={<AdminNewsEditor />} />
               <Route path="news/edit/:id" element={<AdminNewsEditor />} />
+              <Route path="wechat-config" element={<AdminWechatConfig />} />
+              <Route path="wechat-sync" element={<AdminWechatSync />} />
             </Route>
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

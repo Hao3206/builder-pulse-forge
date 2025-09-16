@@ -24,32 +24,32 @@ const serviceItems = [
   {
     title: "碳资产评估",
     description: "对企业碳资产进行全面评估，确定资产价值和融资潜力",
-    icon: "💰",
+    icon: "01",
   },
   {
     title: "融资方案设计",
     description: "根据企业需求设计个性化的碳金融融资方案",
-    icon: "📊",
+    icon: "02",
   },
   {
     title: "风险控制",
     description: "建立完善的风险控制体系，保障融资安全",
-    icon: "🛡️",
+    icon: "03",
   },
   {
     title: "合规管理",
     description: "确保碳金融业务符合相关法规和标准要求",
-    icon: "✅",
+    icon: "04",
   },
   {
     title: "市场对接",
     description: "连接企业与金融机构，促进碳金融产品交易",
-    icon: "🤝",
+    icon: "05",
   },
   {
     title: "持续服务",
     description: "提供碳金融全生命周期服务，支持企业长期发展",
-    icon: "🔄",
+    icon: "06",
   },
 ];
 
@@ -210,7 +210,9 @@ export default function CarbonFinanceSolution() {
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
+                <div className="w-12 h-12 bg-[#058A65] rounded-full flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-lg">{service.icon}</span>
+                </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {service.title}
                 </h3>

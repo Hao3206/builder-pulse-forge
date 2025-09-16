@@ -24,6 +24,8 @@ import {
   getSolutionsStats,
 } from "./routes/solutions";
 import contactRoutes from "./routes/contact";
+import wechatRoutes from "./routes/wechat";
+import uploadRoutes from "./routes/upload";
 import "./database"; // Import to initialize
 
 export function createServer() {
@@ -38,6 +40,8 @@ export function createServer() {
   app.use("/api/admin", newsAdminRoutes);
   app.use("/api/news", newsRoutes);
   app.use("/api/contact", contactRoutes);
+  app.use("/api/wechat", wechatRoutes);
+  app.use("/api/upload", uploadRoutes);
 
   // Health check
   app.get("/api/ping", (_req, res) => {

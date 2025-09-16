@@ -24,32 +24,32 @@ const serviceItems = [
   {
     title: "绿证项目开发",
     description: "协助企业开发符合标准的绿证项目，包括项目设计、申报、审核等全流程服务",
-    icon: "🌿",
+    icon: "01",
   },
   {
     title: "绿证认证核证",
     description: "提供绿证项目的第三方认证和核证服务，确保项目的真实性和合规性",
-    icon: "✅",
+    icon: "02",
   },
   {
     title: "交易平台服务",
     description: "提供绿证交易平台的技术支持和运营服务，确保交易的安全性和透明度",
-    icon: "🔄",
+    icon: "03",
   },
   {
     title: "政策咨询服务",
     description: "提供绿证交易政策解读和咨询服务，帮助企业了解政策要求和参与方式",
-    icon: "📋",
+    icon: "04",
   },
   {
     title: "市场分析报告",
     description: "提供绿证市场分析报告和价格趋势预测，帮助企业制定交易策略",
-    icon: "📊",
+    icon: "05",
   },
   {
     title: "合规管理服务",
     description: "协助企业建立绿证交易合规管理体系，确保交易活动的合规性",
-    icon: "🛡️",
+    icon: "06",
   },
 ];
 
@@ -200,7 +200,9 @@ export default function GreenCertificateTrading() {
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
+                <div className="w-12 h-12 bg-[#058A65] rounded-full flex items-center justify-center mb-4">
+                  <span className="text-white font-bold text-lg">{service.icon}</span>
+                </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {service.title}
                 </h3>

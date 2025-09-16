@@ -169,8 +169,7 @@ export default function NewsCenter() {
               <div
                 className="w-full lg:w-[505px] h-[330px] bg-cover bg-center relative flex items-end justify-center pb-4"
                 style={{
-                  backgroundImage:
-                    "url('https://api.builder.io/api/v1/image/assets/TEMP/373835713d1e8499bfad12a64de0aefda4bb2407?width=1010')",
+                  backgroundImage: "url('/news-featured-image.jpg')",
                 }}
               >
                 {/* Progress Dots */}
