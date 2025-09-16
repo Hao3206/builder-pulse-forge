@@ -282,16 +282,34 @@ export function ProductServicesDropdown({
               >
               {t("products.enterprise.platform")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActiveService("regional-carbon-brain")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/product-service/regional-carbon-brain")}
+            >
               {t("products.regional.brain")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              {t("products.enterprise.platform")}
-            </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActiveService("personal-carbon-account")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/product-service/personal-carbon-account")}
+            >
               {t("products.personal.account")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActiveService("green-trade-platform")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/product-service/green-trade-platform")}
+            >
               {t("products.green.trade.platform")}
             </div>
           </div>
