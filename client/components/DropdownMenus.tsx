@@ -334,19 +334,54 @@ export function ProductServicesDropdown({
 
           {/* Content under 碳培训 */}
           <div className="absolute top-[316px] left-[280px] w-[210px] space-y-3">
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActiveService("carbon-trader-training")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/product-service/carbon-trader-training")}
+            >
               {t("products.trader.training")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActiveService("carbon-admin-training")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/product-service/carbon-admin-training")}
+            >
               {t("products.manager.training")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActiveService("industry-seminars-forums")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/product-service/industry-seminars-forums")}
+            >
               {t("products.industry.seminar")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActiveService("custom-training")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/product-service/custom-training")}
+            >
               {t("products.custom.training")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActiveService("advanced-carbon-training")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/product-service/advanced-carbon-training")}
+            >
               {t("products.advanced.training")}
             </div>
           </div>
