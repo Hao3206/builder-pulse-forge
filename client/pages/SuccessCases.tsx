@@ -30,7 +30,6 @@ export default function SuccessCases() {
     "培训/研修",
   ];
 
-
   const filteredCases =
     activeCategory === "全部案例"
       ? successCases

@@ -36,8 +36,7 @@ export default function ProductService() {
       subtitle: "组织与产品双维核算，合规披露与验证支持",
       description:
         "提供组织碳盘查（ISO 14064）与产品碳足迹（ISO 14067/PAS 2050）一体化服务，覆盖边界界定、数据采集、核算分摊、第三方验证与披露。",
-      heroImage:
-        "/banner-1.jpg",
+      heroImage: "/banner-1.jpg",
       category: "碳咨询",
       features: [
         {

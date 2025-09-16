@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  ArrowLeft,
-  Calendar,
-  MapPin,
-  Target,
-  Users,
-} from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, Target, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { successCases, SuccessCase } from "@/data/successCases";
@@ -61,7 +55,11 @@ export default function SuccessCaseDetail() {
 
       {/* Hero Section */}
       <div className="relative h-[500px] overflow-hidden">
-        <img src={heroImage} alt={caseData.title} className="w-full h-full object-cover" />
+        <img
+          src={heroImage}
+          alt={caseData.title}
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black/50" />
 
         {/* Back Button */}
@@ -104,7 +102,9 @@ export default function SuccessCaseDetail() {
               <MapPin className="w-6 h-6 text-[#058A65]" />
               <div>
                 <div className="text-sm text-[#666]">项目地点</div>
-                <div className="font-semibold text-[#333]">{caseData.location}</div>
+                <div className="font-semibold text-[#333]">
+                  {caseData.location}
+                </div>
               </div>
             </div>
             {caseData.client && (
@@ -112,7 +112,9 @@ export default function SuccessCaseDetail() {
                 <Users className="w-6 h-6 text-[#058A65]" />
                 <div>
                   <div className="text-sm text-[#666]">客户</div>
-                  <div className="font-semibold text-[#333]">{caseData.client}</div>
+                  <div className="font-semibold text-[#333]">
+                    {caseData.client}
+                  </div>
                 </div>
               </div>
             )}
@@ -121,7 +123,9 @@ export default function SuccessCaseDetail() {
                 <Target className="w-6 h-6 text-[#058A65]" />
                 <div>
                   <div className="text-sm text-[#666]">项目周期</div>
-                  <div className="font-semibold text-[#333]">{caseData.duration}</div>
+                  <div className="font-semibold text-[#333]">
+                    {caseData.duration}
+                  </div>
                 </div>
               </div>
             )}
@@ -130,43 +134,63 @@ export default function SuccessCaseDetail() {
       </div>
 
       {/* Results Section */}
-      {caseData.results && (() => {
-        const items = [
-          { value: caseData.results.carbonReduction, label: "碳排放减少" },
-          { value: caseData.results.energySaving, label: "能源节约" },
-          { value: caseData.results.costSaving, label: "成本节约" },
-        ] as { value: string; label: string }[];
-        if (caseData.results.renewableEnergy) {
-          items.push({ value: caseData.results.renewableEnergy, label: "清洁能源占比" });
-        }
-        const gridCols = items.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4";
-        return (
-          <div className="bg-[#F8F9FB] py-16">
-            <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
-              <div className="text-center mb-12">
-                <h2 className="text-[32px] font-bold text-[#333] mb-4">项目成果</h2>
-                <p className="text-lg text-[#666]">通过专业的解决方案，实现了显著的改善效果</p>
-              </div>
-              <div className={`grid grid-cols-1 md:grid-cols-2 ${gridCols} gap-8 justify-items-center`}>
-                {items.map((it, idx) => (
-                  <div key={idx} className="text-center bg-white p-8 rounded-xl w-full">
-                    <div className="text-[48px] font-bold text-[#058A65] mb-2">{it.value}</div>
-                    <div className="text-[#666] font-medium">{it.label}</div>
-                  </div>
-                ))}
+      {caseData.results &&
+        (() => {
+          const items = [
+            { value: caseData.results.carbonReduction, label: "碳排放减少" },
+            { value: caseData.results.energySaving, label: "能源节约" },
+            { value: caseData.results.costSaving, label: "成本节约" },
+          ] as { value: string; label: string }[];
+          if (caseData.results.renewableEnergy) {
+            items.push({
+              value: caseData.results.renewableEnergy,
+              label: "清洁能源占比",
+            });
+          }
+          const gridCols =
+            items.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4";
+          return (
+            <div className="bg-[#F8F9FB] py-16">
+              <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
+                <div className="text-center mb-12">
+                  <h2 className="text-[32px] font-bold text-[#333] mb-4">
+                    项目成果
+                  </h2>
+                  <p className="text-lg text-[#666]">
+                    通过专业的解决方案，实现了显著的改善效果
+                  </p>
+                </div>
+                <div
+                  className={`grid grid-cols-1 md:grid-cols-2 ${gridCols} gap-8 justify-items-center`}
+                >
+                  {items.map((it, idx) => (
+                    <div
+                      key={idx}
+                      className="text-center bg-white p-8 rounded-xl w-full"
+                    >
+                      <div className="text-[48px] font-bold text-[#058A65] mb-2">
+                        {it.value}
+                      </div>
+                      <div className="text-[#666] font-medium">{it.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })()}
+          );
+        })()}
 
       {/* Project Scale */}
       {caseData.projectScale && (
         <div className="bg-white py-16">
           <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-[32px] font-bold text-[#333] mb-4">项目规模</h2>
-              <p className="text-lg text-[#666] max-w-3xl mx-auto">{caseData.projectScale}</p>
+              <h2 className="text-[32px] font-bold text-[#333] mb-4">
+                项目规模
+              </h2>
+              <p className="text-lg text-[#666] max-w-3xl mx-auto">
+                {caseData.projectScale}
+              </p>
             </div>
           </div>
         </div>
@@ -179,14 +203,20 @@ export default function SuccessCaseDetail() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
               {caseData.challenges?.length ? (
                 <div>
-                  <h2 className="text-[32px] font-bold text-[#333] mb-8">面临挑战</h2>
+                  <h2 className="text-[32px] font-bold text-[#333] mb-8">
+                    面临挑战
+                  </h2>
                   <div className="space-y-6">
                     {caseData.challenges.map((challenge, index) => (
                       <div key={index} className="flex items-start gap-4">
                         <div className="w-6 h-6 bg-[#FF6B6B] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                          <span className="text-white text-sm font-bold">{index + 1}</span>
+                          <span className="text-white text-sm font-bold">
+                            {index + 1}
+                          </span>
                         </div>
-                        <p className="text-[#666] leading-relaxed">{challenge}</p>
+                        <p className="text-[#666] leading-relaxed">
+                          {challenge}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -197,10 +227,15 @@ export default function SuccessCaseDetail() {
 
               {caseData.solutions?.length ? (
                 <div>
-                  <h2 className="text-[32px] font-bold text-[#333] mb-8">解决方案</h2>
+                  <h2 className="text-[32px] font-bold text-[#333] mb-8">
+                    解决方案
+                  </h2>
                   <div className="grid grid-cols-1 gap-6">
                     {caseData.solutions.map((solution, index) => (
-                      <div key={index} className="bg-white p-6 rounded-xl border border-[#E5E5E7]">
+                      <div
+                        key={index}
+                        className="bg-white p-6 rounded-xl border border-[#E5E5E7]"
+                      >
                         <div className="flex items-start gap-4">
                           <img
                             src={solution.image}
@@ -208,8 +243,12 @@ export default function SuccessCaseDetail() {
                             className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
                           />
                           <div className="flex-1">
-                            <h3 className="text-lg font-bold text-[#333] mb-2">{solution.title}</h3>
-                            <p className="text-[#666] text-sm leading-relaxed">{solution.description}</p>
+                            <h3 className="text-lg font-bold text-[#333] mb-2">
+                              {solution.title}
+                            </h3>
+                            <p className="text-[#666] text-sm leading-relaxed">
+                              {solution.description}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -229,8 +268,12 @@ export default function SuccessCaseDetail() {
         <div className="bg-white py-16">
           <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-[32px] font-bold text-[#333] mb-4">项目时间线</h2>
-              <p className="text-lg text-[#666]">从项目启动到成功实施的全过程</p>
+              <h2 className="text-[32px] font-bold text-[#333] mb-4">
+                项目时间线
+              </h2>
+              <p className="text-lg text-[#666]">
+                从项目启动到成功实施的全过程
+              </p>
             </div>
 
             <div className="relative">
@@ -242,11 +285,19 @@ export default function SuccessCaseDetail() {
                     key={index}
                     className={`flex items-center gap-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
                   >
-                    <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
+                    <div
+                      className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}
+                    >
                       <div className="bg-white p-6 rounded-xl border border-[#E5E5E7] inline-block max-w-md">
-                        <h3 className="text-lg font-bold text-[#333] mb-2">{phase.phase}</h3>
-                        <div className="text-[#058A65] font-medium mb-3">{phase.period}</div>
-                        <p className="text-[#666] text-sm">{phase.description}</p>
+                        <h3 className="text-lg font-bold text-[#333] mb-2">
+                          {phase.phase}
+                        </h3>
+                        <div className="text-[#058A65] font-medium mb-3">
+                          {phase.period}
+                        </div>
+                        <p className="text-[#666] text-sm">
+                          {phase.description}
+                        </p>
                       </div>
                     </div>
 
@@ -268,13 +319,19 @@ export default function SuccessCaseDetail() {
         <div className="bg-[#058A65] py-16">
           <div className="max-w-screen-2xl mx-auto px-4 lg:px-8 text-center">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-[32px] font-bold text-white mb-8">客户评价</h2>
+              <h2 className="text-[32px] font-bold text-white mb-8">
+                客户评价
+              </h2>
               <blockquote className="text-xl leading-relaxed text-white/90 mb-8">
                 "{caseData.testimonial.content}"
               </blockquote>
               <div className="text-white">
-                <div className="font-bold text-lg">{caseData.testimonial.author}</div>
-                <div className="text-white/70">{caseData.testimonial.position}</div>
+                <div className="font-bold text-lg">
+                  {caseData.testimonial.author}
+                </div>
+                <div className="text-white/70">
+                  {caseData.testimonial.position}
+                </div>
               </div>
             </div>
           </div>
@@ -286,13 +343,18 @@ export default function SuccessCaseDetail() {
         <div className="bg-white py-16">
           <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-[32px] font-bold text-[#333] mb-4">项目图片</h2>
+              <h2 className="text-[32px] font-bold text-[#333] mb-4">
+                项目图片
+              </h2>
               <p className="text-lg text-[#666]">记录项目实施过程的精彩瞬间</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {caseData.images.map((image, index) => (
-                <div key={index} className="aspect-square overflow-hidden rounded-xl">
+                <div
+                  key={index}
+                  className="aspect-square overflow-hidden rounded-xl"
+                >
                   <img
                     src={image}
                     alt={`项目图片 ${index + 1}`}
@@ -308,7 +370,9 @@ export default function SuccessCaseDetail() {
       {/* CTA Section */}
       <div className="bg-[#F8F9FB] py-16">
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-8 text-center">
-          <h2 className="text-[32px] font-bold text-[#333] mb-4">想了解更多案例详情？</h2>
+          <h2 className="text-[32px] font-bold text-[#333] mb-4">
+            想了解更多案例详情？
+          </h2>
           <p className="text-lg text-[#666] mb-8 max-w-2xl mx-auto">
             我们有更多成功案例等您了解，欢迎联系我们获取详细的项目资料和解决方案
           </p>

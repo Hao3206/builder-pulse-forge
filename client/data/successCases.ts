@@ -5,9 +5,21 @@ export type CaseResults = {
   renewableEnergy?: string;
 };
 
-export type CaseSolution = { title: string; description: string; image: string };
-export type CaseTimeline = { phase: string; period: string; description: string };
-export type CaseTestimonial = { content: string; author: string; position: string };
+export type CaseSolution = {
+  title: string;
+  description: string;
+  image: string;
+};
+export type CaseTimeline = {
+  phase: string;
+  period: string;
+  description: string;
+};
+export type CaseTestimonial = {
+  content: string;
+  author: string;
+  position: string;
+};
 
 export type SuccessCase = {
   id: number;
@@ -140,7 +152,8 @@ export const successCases: SuccessCase[] = [
     location: "江苏苏州",
     client: "某大型制造企业集团",
     duration: "12个月",
-    projectScale: "两大生产基地，年产能超100万件设备，覆盖冲压/焊接/涂装/总装等核心工序",
+    projectScale:
+      "两大生产基地，年产能超100万件设备，覆盖冲压/焊接/涂装/总装等核心工序",
     challenges: [
       "多工厂多系统数据割裂，缺乏统一数据口径与证据留痕",
       "排放因子来源分散，结果一致性与可审计性不足",
@@ -185,10 +198,26 @@ export const successCases: SuccessCase[] = [
       },
     ],
     timeline: [
-      { phase: "诊断与立项", period: "2024.01-2024.02", description: "完成差距诊断、路线规划与预算评审" },
-      { phase: "数据治理与平台建设", period: "2024.03-2024.06", description: "制定口径标准，搭建数据采集与核算平台" },
-      { phase: "工艺改造与绿电接入", period: "2024.07-2024.10", description: "实施节能改造与绿电采购，联调平台与报表" },
-      { phase: "验证与运营", period: "2024.11-至今", description: "第三方验证通过，进入持续运营与优化阶段" },
+      {
+        phase: "诊断与立项",
+        period: "2024.01-2024.02",
+        description: "完成差距诊断、路线规划与预算评审",
+      },
+      {
+        phase: "数据治理与平台建设",
+        period: "2024.03-2024.06",
+        description: "制定口径标准，搭建数据采集与核算平台",
+      },
+      {
+        phase: "工艺改造与绿电接入",
+        period: "2024.07-2024.10",
+        description: "实施节能改造与绿电采购，联调平台与报表",
+      },
+      {
+        phase: "验证与运营",
+        period: "2024.11-至今",
+        description: "第三方验证通过，进入持续运营与优化阶段",
+      },
     ],
     testimonial: {
       content:
@@ -224,7 +253,8 @@ export const successCases: SuccessCase[] = [
     location: "上海",
     client: "国内头部消费品牌",
     duration: "10个月",
-    projectScale: "覆盖3大产品线、12个SKU，年产量超500万件，涉及包装、原料、装配与物流环节",
+    projectScale:
+      "覆盖3大产品线、12个SKU，年产量超500万件，涉及包装、原料、装配与物流环节",
     challenges: [
       "SKU多、供应链长，活动��据采集口径不一致",
       "上游原料排放因子来源复杂，区域/年份差异影响结果稳定性",
@@ -276,10 +306,26 @@ export const successCases: SuccessCase[] = [
       },
     ],
     timeline: [
-      { phase: "项目启动与边界定义", period: "2024.01-2024.02", description: "确定功能单位、系统边界与关键排放阶段" },
-      { phase: "数据采集与因子确认", period: "2024.03-2024.05", description: "采集活动数据、评估因子来源并开展DQI评估" },
-      { phase: "核算与不确定性分析", period: "2024.06-2024.07", description: "完成核算建模与敏感性分析，提���减排策略" },
-      { phase: "披露与验证", period: "2024.08-2024.10", description: "输出CFP/EPD报告并通过第三方验证" },
+      {
+        phase: "项目启动与边界定义",
+        period: "2024.01-2024.02",
+        description: "确定功能单位、系统边界与关键排放阶段",
+      },
+      {
+        phase: "数据采集与因子确认",
+        period: "2024.03-2024.05",
+        description: "采集活动数据、评估因子来源并开展DQI评估",
+      },
+      {
+        phase: "核算与不确定性分析",
+        period: "2024.06-2024.07",
+        description: "完成核算建模与敏感性分析，提���减排策略",
+      },
+      {
+        phase: "披露与验证",
+        period: "2024.08-2024.10",
+        description: "输出CFP/EPD报告并通过第三方验证",
+      },
     ],
     testimonial: {
       content:
@@ -315,7 +361,8 @@ export const successCases: SuccessCase[] = [
     location: "北京",
     client: "国内领先商业银行",
     duration: "8个月",
-    projectScale: "总部与两家分行试点，覆盖董事会/风险/合规/人资/运营等8个条线，50+披露指标",
+    projectScale:
+      "总部与两家分行试点，覆盖董事会/风险/合规/人资/运营等8个条线，50+披露指标",
     challenges: [
       "ESG指标口径不统一，跨条线数据口径与口径更新机制缺失",
       "披露框架与国际标准（如TCFD/ISSB/GRI）映射不清，治理与风险披露不足",
@@ -360,10 +407,26 @@ export const successCases: SuccessCase[] = [
       },
     ],
     timeline: [
-      { phase: "现状评估与规划", period: "2024.01-2024.02", description: "完成披露差距评估、路线图与预算评审" },
-      { phase: "框架与指标库建设", period: "2024.03-2024.04", description: "搭建指标库与映射关系，明确责任与流程" },
-      { phase: "数据治理与留痕", period: "2024.05-2024.06", description: "建立数据血缘、证据留痕与核验机制" },
-      { phase: "披露稿撰写与审阅", period: "2024.07-2024.08", description: "输出披露文本、完成内外部审阅与修订" },
+      {
+        phase: "现状评估与规划",
+        period: "2024.01-2024.02",
+        description: "完成披露差距评估、路线图与预算评审",
+      },
+      {
+        phase: "框架与指标库建设",
+        period: "2024.03-2024.04",
+        description: "搭建指标库与映射关系，明确责任与流程",
+      },
+      {
+        phase: "数据治理与留痕",
+        period: "2024.05-2024.06",
+        description: "建立数据血缘、证据留痕与核验机制",
+      },
+      {
+        phase: "披露稿撰写与审阅",
+        period: "2024.07-2024.08",
+        description: "输出披露文本、完成内外部审阅与修订",
+      },
     ],
     testimonial: {
       content:
@@ -470,10 +533,26 @@ export const successCases: SuccessCase[] = [
       },
     ],
     timeline: [
-      { phase: "核算与诊断", period: "2023.12-2024.01", description: "组织边界与排放核算、抵消需求测算" },
-      { phase: "资产采购与核销", period: "2024.02-2024.03", description: "撮合碳减排量资产采购，完成核销登记" },
-      { phase: "证书签发与披露", period: "2024.04", description: "签发碳中和证书，完善披露材料与档案" },
-      { phase: "评价支持与授牌", period: "2024.05-2024.06", description: "配合省���“零碳”公共机构评价验收并获评二星级" },
+      {
+        phase: "核算与诊断",
+        period: "2023.12-2024.01",
+        description: "组织边界与排放核算、抵消需求测算",
+      },
+      {
+        phase: "资产采购与核销",
+        period: "2024.02-2024.03",
+        description: "撮合碳减排量资产采购，完成核销登记",
+      },
+      {
+        phase: "证书签发与披露",
+        period: "2024.04",
+        description: "签发碳中和证书，完善披露材料与档案",
+      },
+      {
+        phase: "评价支持与授牌",
+        period: "2024.05-2024.06",
+        description: "配合省���“零碳”公共机构评价验收并获评二星级",
+      },
     ],
     testimonial: {
       content:
@@ -554,10 +633,26 @@ export const successCases: SuccessCase[] = [
       },
     ],
     timeline: [
-      { phase: "立项与边界定义", period: "2024.05", description: "确定系统边界与排放口径，拟定数据采集方案" },
-      { phase: "数据采集与核算", period: "2024.05-2024.06", description: "采集施工活动数据并完成核算建模" },
-      { phase: "CCER采购与注销", period: "2024.06", description: "撮合采购并完成注销登记，准备证书与凭证" },
-      { phase: "碳减排贷款落地", period: "2024.07", description: "对接银行完成贷款审批与发放" },
+      {
+        phase: "立项与边界定义",
+        period: "2024.05",
+        description: "确定系统边界与排放口径，拟定数据采集方案",
+      },
+      {
+        phase: "数据采集与核算",
+        period: "2024.05-2024.06",
+        description: "采集施工活动数据并完成核算建模",
+      },
+      {
+        phase: "CCER采购与注销",
+        period: "2024.06",
+        description: "撮合采购并完成注销登记，准备证书与凭证",
+      },
+      {
+        phase: "碳减排贷款落地",
+        period: "2024.07",
+        description: "对接银行完成贷款审批与发放",
+      },
     ],
     testimonial: {
       content:
@@ -630,10 +725,26 @@ export const successCases: SuccessCase[] = [
       },
     ],
     timeline: [
-      { phase: "筹备与招生", period: "2024.08", description: "完成课程设计、讲师安排与报名审核" },
-      { phase: "课程实施", period: "2024.09-上旬", description: "专题授课与案例研讨，穿插实操环节" },
-      { phase: "现场教学", period: "2024.09-中旬", description: "走进东方日升新能源参观与教学" },
-      { phase: "结业与认证", period: "2024.09-下旬", description: "结业考核、证书发放与学时登记" },
+      {
+        phase: "筹备与招生",
+        period: "2024.08",
+        description: "完成课程设计、讲师安排与报名审核",
+      },
+      {
+        phase: "课程实施",
+        period: "2024.09-上旬",
+        description: "专题授课与案例研讨，穿插实操环节",
+      },
+      {
+        phase: "现场教学",
+        period: "2024.09-中旬",
+        description: "走进东方日升新能源参观与教学",
+      },
+      {
+        phase: "结业与认证",
+        period: "2024.09-下旬",
+        description: "结业考核、证书发放与学时登记",
+      },
     ],
     testimonial: {
       content:
