@@ -99,7 +99,7 @@ export const successCases: SuccessCase[] = [
       {
         phase: "基础设施建设",
         period: "2023年9月 - 2024年3月",
-        description: "部署智���电网、监测设备和清洁能源设施",
+        description: "部署智能电网、监测设备和清洁能源设施",
       },
       {
         phase: "系统集成测试",
@@ -130,7 +130,7 @@ export const successCases: SuccessCase[] = [
     category: "企业碳管理",
     title: "大型制造企业碳中和管理平台建设",
     description:
-      "���某大型制造企业搭建完整的碳排放监测、核算与管理平台，实现数据统一口径、可审计与降本增效，支撑集团碳中和路线落地。",
+      "为某大型制造企业搭建完整的碳排放监测、核算与管理平台，实现数据统一口径、可审计与降本增效，支撑集团碳中和路线落地。",
     image:
       "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop",
     heroImage:
@@ -319,7 +319,7 @@ export const successCases: SuccessCase[] = [
     challenges: [
       "ESG指标口径不统一，跨条线数据口径与口径更新机制缺失",
       "披露框架与国际标准（如TCFD/ISSB/GRI）映射不清，治理与风险披露不足",
-      "证据留痕薄弱，第三方核验准备成本高、效率低",
+      "证据留痕薄弱，第三方核验准备成本高、效��低",
       "内部流程未形成年度闭环，披露与经营管理脱节",
     ],
     solutions: [
@@ -333,7 +333,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "ESG数��治理与留痕机制",
         description:
-          "建立数据血缘、证据留痕与抽样核验流程，形成自证材料包，提升可审计��与复用效率。",
+          "建立数据血缘、证据留痕与抽样核验流程，形成自证材料包，提升可审计性与复用效率。",
         image:
           "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
       },
@@ -422,7 +422,7 @@ export const successCases: SuccessCase[] = [
     category: "碳交易",
     title: "助力宁波两家机构获评省级“零碳”公共机构",
     description:
-      "浙东环境能源交��所为宁波市海曙区机关事务管理局与鄞州区社会治理中心提供碳交易与碳中和服务，通过核销林业碳汇与CCER抵消2022年度排放，获评二星级省级“零碳”公共机构。",
+      "浙东环境能源交易所为宁波市海曙区机关事务管理局与鄞州区社会治理中心提供碳交易与碳中和服务，通过核销林业碳汇与CCER抵消2022年度排放，获评二星级省级“零碳”公共机构。",
     image:
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
     heroImage:
@@ -431,7 +431,7 @@ export const successCases: SuccessCase[] = [
     date: "2024-06",
     location: "浙江宁波",
     client: "宁波市海曙区机关事务管理局、宁波市鄞州区社会治理中心",
-    duration: "6个月",
+    duration: "6��月",
     projectScale:
       "两家公共机构获评省级二星级“零碳”公共机构；核销与抵消2022年度排放共计995.02吨CO₂e（825.86吨+169.16吨）",
     challenges: [
@@ -443,7 +443,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "组织边界与排放核算",
         description:
-          "确定公共机构组织边界与排放范围，完成2022年度温室气体排放清单��台账核验。",
+          "确定公共机构组织边界与排放范围，完成2022年度温室气体排放清单与台账核验。",
         image:
           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       },
@@ -506,7 +506,7 @@ export const successCases: SuccessCase[] = [
     tags: ["光伏", "施工碳中和", "CCER", "碳金融"],
     date: "2024-07",
     location: "浙江宁波",
-    client: "宁波佳豪密封管业有限公司",
+    client: "宁波佳豪密封管业有���公司",
     duration: "3个月",
     projectScale:
       "1.6MWp分布式光伏发电项目；覆盖施工阶段燃料燃烧、电力使用与交通运输排放核算，并实现等量CCER注销抵消",
@@ -532,7 +532,7 @@ export const successCases: SuccessCase[] = [
           "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=800&h=600&fit=crop",
       },
       {
-        title: "CCER采购与注销实现施工碳中和",
+        title: "CCER采购与注销实现施��碳中和",
         description:
           "撮合采购并注销等量合规CCER，抵消施工阶段核算排放，出具《碳中和证书》与凭证清单。",
         image:
@@ -563,7 +563,7 @@ export const successCases: SuccessCase[] = [
       content:
         "在交易所团队支持下，我们的光伏项目施工阶段实现了碳中和并获得了碳减排贷款，流程规范、落地高效。",
       author: "企业负责人",
-      position: "宁波佳豪密封管业有限公司项目负责人",
+      position: "宁波���豪密封管业有限公司项目负责人",
     },
     images: [
       "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
@@ -573,6 +573,82 @@ export const successCases: SuccessCase[] = [
     ],
     results: {
       carbonReduction: "100%（施工阶段）",
+      energySaving: "—",
+      costSaving: "—",
+    },
+  },
+  {
+    id: 9,
+    category: "培训/研修",
+    title: "“宁波市碳排放、碳管理专技人才高级研修班”顺利举办",
+    description:
+      "由宁波市人力资源和社会保障局主办，浙东环境能源交易所联合浙大宁波理工学院组织，80余名学员参加的高级研修班顺利举办，聚焦双碳战略、碳资产交易、信息披露与实务核查。",
+    image:
+      "https://images.unsplash.com/photo-1516528387618-afa90b13e000?w=800&h=600&fit=crop",
+    heroImage:
+      "https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?w=1920&h=1080&fit=crop",
+    tags: ["培训", "研修班", "人才培养", "双碳"],
+    date: "2024-09",
+    location: "��江宁波",
+    client: "宁波市人力资源和社会保障局、浙大宁波理工学院",
+    duration: "3天",
+    projectScale:
+      "80+名学员、6位专家授课，含现场教学（东方日升新能源股份有限公司），结业获得高级研修班证书，学时计入继续教育系统",
+    challenges: [
+      "学员行业覆盖广，知识背景差异大，需系统化课程设计",
+      "理论与实务需打通，强调口径一致与可落地",
+      "需兼顾政策前沿、核算披露实务与产业案例",
+    ],
+    solutions: [
+      {
+        title: "体系化课程设计（战略-核算-披露-交易）",
+        description:
+          "设置双碳战略与实现路径、能源结构与工业降碳、碳资产交易与路径规划、信息披露评价体系、碳关税与应对策略、核算与核查实践等模块。",
+        image:
+          "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=800&h=600&fit=crop",
+      },
+      {
+        title: "专家授课与专题分享",
+        description:
+          "邀请张雅静、胡长兴、江鑫、杨永亮、刘世峰、林露萍等专家进行主题授课与案例解析。",
+        image:
+          "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
+      },
+      {
+        title: "现场教学：东方日升新能源",
+        description:
+          "组织学员赴东方日升新能源开展现场教学，理解光伏制造产业链与零碳实践。",
+        image:
+          "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
+      },
+      {
+        title: "结业认证与学时登记",
+        description:
+          "完成学习考核，颁发高级研修班证书，学时计入宁波市继续教育学习登记管理系统。",
+        image:
+          "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=800&h=600&fit=crop",
+      },
+    ],
+    timeline: [
+      { phase: "筹备与招生", period: "2024.08", description: "完成课程设计、讲师安排与报名审核" },
+      { phase: "课程实施", period: "2024.09-上旬", description: "专题授课与案例研讨，穿插实操环节" },
+      { phase: "现场教学", period: "2024.09-中旬", description: "走进东方日升新能源参观与教学" },
+      { phase: "结业与认证", period: "2024.09-下旬", description: "结业考核、证书发放与学时登记" },
+    ],
+    testimonial: {
+      content:
+        "课程体系完整、案例实用、讲师权威，对于理解双碳政策���企业落地实践帮助很大。",
+      author: "学员代表",
+      position: "企业碳管理负责人",
+    },
+    images: [
+      "https://images.unsplash.com/photo-1516528387618-afa90b13e000?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
+    ],
+    results: {
+      carbonReduction: "—",
       energySaving: "—",
       costSaving: "—",
     },
