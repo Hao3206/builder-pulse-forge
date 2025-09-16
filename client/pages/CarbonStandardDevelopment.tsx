@@ -56,7 +56,7 @@ export default function CarbonStandardDevelopment() {
     "标准草案与征求意见稿",
     "试点验证评估报告",
     "发布文本与应用指南",
-    "宣贯培训材料与题库",
+    "宣贯培训材料与题��",
   ];
 
   const faqs = [
@@ -136,7 +136,7 @@ export default function CarbonStandardDevelopment() {
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">平台能力与工具</h2>
-            <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">从治理到工具到证据库，沉淀标准化资产与流程。"</p>
+            <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">从治理到工具到证据库，沉淀标准化资产与流程。</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {modules.map((m, i) => (
@@ -169,11 +169,11 @@ export default function CarbonStandardDevelopment() {
         <div className="max-w-[1280px] mx-auto px-8 text-white">
           <div className="text-center mb-16">
             <h2 className="text-[32px] font-bold mb-4 tracking-[-0.64px]">成果产出</h2>
-            <p className="text-[16px] text白/80 max-w-[800px] mx-auto tracking-[-0.1px]">标准文本与方法学、应用指南与培训材料一体化交付。</p>
+            <p className="text-[16px] text-white/80 max-w-[800px] mx-auto tracking-[-0.1px]">标准文本与方法学、应用指南与培训材料一体化交付。</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {deliverables.map((d, i) => (
-              <div key={i} className="bg白 rounded-lg p-6 text-[#333] text-center font-semibold shadow-sm">{d}</div>
+              <div key={i} className="bg-white rounded-lg p-6 text-[#333] text-center font-semibold shadow-sm">{d}</div>
             ))}
           </div>
         </div>
