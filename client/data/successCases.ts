@@ -64,12 +64,12 @@ export const successCases: SuccessCase[] = [
       {
         title: "智慧能源管理系统",
         description:
-          "部署覆盖全园区的智能电网和能源监测系统，实现能源使用的实��监控和优化调度。",
+          "部署覆盖全园区的智能电网和能源监测系统，实现能源使用的实时监控和优化调度。",
         image:
           "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
       },
       {
-        title: "碳排放监测平台",
+        title: "碳排放��测平台",
         description:
           "建立统一的碳排放数据采集、分析和报告平台，为园区和企业提供精准的碳排放数据。",
         image:
@@ -128,9 +128,9 @@ export const successCases: SuccessCase[] = [
   {
     id: 2,
     category: "企业碳管理",
-    title: "大���制造企业碳中和管理平台建设",
+    title: "大型制造企业碳中和管理平台建设",
     description:
-      "为某大型制造企业搭建完整的碳排放监测、核算与管理平台，实现数据统一口径、可审计与降本增效，支撑集团碳中和路线落地。",
+      "为某大型制造企业搭建完整的碳排放监测、核算与管理平台，实现数据统一口径、可审��与降本增效，支撑集团碳中和路线落地。",
     image:
       "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop",
     heroImage:
@@ -151,12 +151,12 @@ export const successCases: SuccessCase[] = [
       {
         title: "统一碳数据治理与口径体系",
         description:
-          "构建集团级数据标准与口径手册，建立证据留痕机制与抽样核验流程，保障可��计性。",
+          "构建集团级数据标准与口径手册，建立证据留痕机制与抽样核验流程，保障可审计性。",
         image:
           "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
       },
       {
-        title: "碳核算与排放监测一体化平台",
+        title: "碳核算与排放监��一体化平台",
         description:
           "打通ERP/MES/能管/计量等系统，自动采集活动数据与计量数据，按ISO 14064/GB标准完成组织层面核算。",
         image:
@@ -179,7 +179,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "CCER 项目识别与收益管理",
         description:
-          "识别余热利用与光伏发电等减排项目的CCER开发��力，评估减排量与收益路径。",
+          "识别余热利用与光伏发电等减排项目的CCER开发潜力，评估减排量与收益路径。",
         image:
           "https://images.unsplash.com/photo-1581090463529-c2653f5f36b9?w=800&h=600&fit=crop",
       },
@@ -212,18 +212,92 @@ export const successCases: SuccessCase[] = [
   {
     id: 3,
     category: "碳足迹核算",
-    title: "消费品行业产品碳足迹评估项目",
+    title: "消费品行业产品碳足���评估项目",
     description:
-      "为知名消费品牌建立完整的产品生命周期碳足迹评估体系，提升品牌ESG价值。",
+      "为知名消费品牌建立完整的产品生命周期碳足迹评估体系，明确功能单位与系统边界，形成可审计的核算与披露材料，支持ESG价值提升与海外合规。",
     image:
       "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
-    tags: ["生命周期评估", "消费品", "ESG提升"],
+    heroImage:
+      "https://images.unsplash.com/photo-1562158070-74b1b9b4d7d9?w=1920&h=1080&fit=crop",
+    tags: ["生命周期评估", "消费品", "ISO 14067", "ESG提升"],
     date: "2024-10",
     location: "上海",
+    client: "国内头部消费品牌",
+    duration: "10个月",
+    projectScale: "覆盖3大产品线、12个SKU，年产量超500万件，涉及包装、原料、装配与物流环节",
+    challenges: [
+      "SKU多、供应链长，活动数据采集口径不一致",
+      "上游原料排放因子来源复杂，区域/年份差异影响结果稳定性",
+      "海外披露要求差异较大，EPD/CFP验证资料准备难度高",
+      "包装与物流阶段排放占比高，改进路径需兼顾成本与交付",
+    ],
+    solutions: [
+      {
+        title: "依据 ISO 14067 的LCA核算体系",
+        description:
+          "明确功能单位与系统边界（从摇篮到大门/到坟墓），构建数据质量评价与不确定性分析模型，确保结果可比与可验证。",
+        image:
+          "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=800&h=600&fit=crop",
+      },
+      {
+        title: "供应链数据打通与证据留痕",
+        description:
+          "对接供应商原料数据、能管与计量系统，建立留痕与抽样核验流程，统一口径并形成审计链路。",
+        image:
+          "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+      },
+      {
+        title: "包装轻量化与再生材料替代",
+        description:
+          "优化包装结构与材质，用再生塑料/纸替代部分原生材料，保持强度与体验的同时降低单位产品碳排。",
+        image:
+          "https://images.unsplash.com/photo-1520975922203-bd7b00e3d8f8?w=800&h=600&fit=crop",
+      },
+      {
+        title: "制造能效提升与绿电接入",
+        description:
+          "实施设备节能改造与工艺参数优化，引入绿电直购与光伏消纳，降低范围2排放强度。",
+        image:
+          "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+      },
+      {
+        title: "物流优化与低碳运输",
+        description:
+          "通过仓网优化与装载率提升，优先选择铁路/水运与新能源车辆，降低范围3物流排放。",
+        image:
+          "https://images.unsplash.com/photo-1542010589005-d1eacc3918f3?w=800&h=600&fit=crop",
+      },
+      {
+        title: "海外披露与第三方验证",
+        description:
+          "按客户市场要求输出CFP报告与EPD，穿行测试资料并配合第三方验证机构完成核查。",
+        image:
+          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
+      },
+    ],
+    timeline: [
+      { phase: "项目启动与边界定义", period: "2024.01-2024.02", description: "确定功能单位、系统边界与关键排放阶段" },
+      { phase: "数据采集与因子确认", period: "2024.03-2024.05", description: "采集活动数据、评估因子来源并开展DQI评估" },
+      { phase: "核算与不确定性分析", period: "2024.06-2024.07", description: "完成核算建模与敏感性分析，提出减排策略" },
+      { phase: "披露与验证", period: "2024.08-2024.10", description: "输出CFP/EPD报告并通过第三方验证" },
+    ],
+    testimonial: {
+      content:
+        "项目帮助我们建立了系统化的产品碳足迹核算能力，披露效率与数据说服力显著提升，为国际市场ESG沟通提供了坚实支撑。",
+      author: "陈总",
+      position: "品牌可持续发展负责人",
+    },
+    images: [
+      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1520975922203-bd7b00e3d8f8?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1542010589005-d1eacc3918f3?w=800&h=600&fit=crop",
+    ],
     results: {
       carbonReduction: "30%",
-      energySaving: "28%",
-      costSaving: "20%",
+      energySaving: "18%",
+      costSaving: "12%",
+      renewableEnergy: "35%",
     },
   },
   {
@@ -246,7 +320,7 @@ export const successCases: SuccessCase[] = [
   {
     id: 5,
     category: "碳交易",
-    title: "工业园区碳资产开���与交易项目",
+    title: "工业园区碳资产开发与交易项目",
     description:
       "帮助工业园区开发碳减排项目，成功完成碳信用交易，实现经济效益与环境效益双赢。",
     image:
