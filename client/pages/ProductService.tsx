@@ -119,7 +119,7 @@ export default function ProductService() {
       process: [
         {
           step: "01",
-          title: "现状评估",
+          title: "���状评估",
           description: "深入企业调研，评估现有绿色制造基础和改进空间",
         },
         {
@@ -164,7 +164,7 @@ export default function ProductService() {
       caseStudies: [
         {
           title: "某汽车零部件制造企业绿色工���认定",
-          description: "协助完成国家级绿色工厂认定，实施智能化生产线改造",
+          description: "协助���成国家级绿色工厂认定，实施智能化生产线改造",
           result: "成功获得国家级绿色工厂认定，年节约成本约200万元",
         },
         {
@@ -230,7 +230,7 @@ export default function ProductService() {
         {
           step: "01",
           title: "项目调研",
-          description: "深入了解客户需求，分析项目开发潜力",
+          description: "深入了解客户��求，分析项目开发潜力",
         },
         {
           step: "02",
@@ -275,7 +275,7 @@ export default function ProductService() {
         {
           title: "某新能源企业风电CCER项目",
           description: "协助开发200MW风电项目CCER，年减排量约30万吨CO2",
-          result: "成功签发并交���，为企业创造额外收益约600万元",
+          result: "成功签发并交���，为企业创造额外收益约600���元",
         },
         {
           title: "某制造企业节能改造CCER项目",
@@ -294,6 +294,190 @@ export default function ProductService() {
         email: "service@zdhjsuo.com",
         address: "浙江省宁波市江北区",
       },
+    },
+    "carbon-trader-training": {
+      id: "carbon-trader-training",
+      title: "碳排放交易员培训",
+      subtitle: "市场规则+交易实战+风控合规，一课掌握核心能力",
+      description:
+        "覆盖配额交易、CCER与国际自愿市场机制，结合模拟盘与案例推演，掌握下单、对冲、风控的全流程能力。",
+      heroImage:
+        "https://images.unsplash.com/photo-1569025690938-a00729c9e8f8?w=1920&h=1080&fit=crop",
+      category: "碳培训",
+      features: [
+        { icon: Target, title: "市场规则精讲", description: "配额分配、履约与交易机制详解" },
+        { icon: FileText, title: "产品全景", description: "配额/CCER/绿证等产品与制度" },
+        { icon: TrendingUp, title: "交易实战", description: "做市、波段、套保与跨品种套利演练" },
+        { icon: Award, title: "风控与合规", description: "指标体系、流程规范与风控框架" },
+      ],
+      benefits: [
+        "理论+实操双轨，快速上手",
+        "模拟盘演练，巩固策略",
+        "讲师一对一答疑",
+        "结业证书与资料包",
+      ],
+      process: [
+        { step: "01", title: "概论与规则", description: "市场体系与履约机制" },
+        { step: "02", title: "产品与制度", description: "配额/CCER/绿证详解" },
+        { step: "03", title: "策略与实操", description: "下单、套保与风控演练" },
+        { step: "04", title: "测评与结业", description: "综合测评与答疑" },
+      ],
+      stats: [
+        { number: "1000+", label: "培训学员" },
+        { number: "4+", label: "核心模块" },
+        { number: "2-3天", label: "典型时长" },
+        { number: "95%+", label: "满意度" },
+      ],
+      caseStudies: [
+        { title: "制造业交易团队训练营", description: "从零到一构建��易体系", result: "建立交易与风控流程" },
+      ],
+      pricing: {
+        consultation: "免费咨询",
+        development: "线下/线上：面议",
+        trading: "团体价：按人数",
+        management: "内训定制：支持",
+      },
+      contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
+    },
+    "carbon-admin-training": {
+      id: "carbon-admin-training",
+      title: "碳排放管理员培训",
+      subtitle: "从台账到履约到披露，打造企业碳管理骨干能力",
+      description:
+        "系统掌握碳盘查台账、配额履约、报告披露与系统化管理，适配企业碳管理岗位能力模型。",
+      heroImage:
+        "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1920&h=1080&fit=crop",
+      category: "碳培训",
+      features: [
+        { icon: FileText, title: "台账与口径", description: "活动数据采集、因子管理与台账规范" },
+        { icon: Target, title: "履约与披露", description: "年度履约、核查与信息披露流程" },
+        { icon: TrendingUp, title: "系统化管理", description: "平台操作、报表与留痕" },
+        { icon: Award, title: "内控与审计", description: "职责分工、流程内控与配合审计" },
+      ],
+      benefits: ["模板工具包", "岗位胜任力提升", "讲师答疑", "证书与评估"],
+      process: [
+        { step: "01", title: "基础与政策", description: "碳管理基础与最新政策" },
+        { step: "02", title: "数据与口径", description: "采集模板与口径统一" },
+        { step: "03", title: "履约与披露", description: "核查对接与披露撰写" },
+        { step: "04", title: "系统与内控", description: "系统操作与流程内控" },
+      ],
+      stats: [
+        { number: "800+", label: "培训学员" },
+        { number: "4+", label: "核心模块" },
+        { number: "2天", label: "典型时长" },
+        { number: "90%+", label: "通过率" },
+      ],
+      caseStudies: [
+        { title: "大型装备企业内训", description: "多部门联合培训", result: "建立年度台账与履约流程" },
+      ],
+      pricing: {
+        consultation: "免费咨询",
+        development: "线下/线上：面议",
+        trading: "团体价：按人数",
+        management: "内训定制：支持",
+      },
+      contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
+    },
+    "industry-seminars-forums": {
+      id: "industry-seminars-forums",
+      title: "行业专题讲座/论坛",
+      subtitle: "链接政策、技术与产业实践，构建行业交流平台",
+      description:
+        "围绕制造业低碳转型、产品碳足迹、绿电与碳金融等主题举办讲座/论坛/工作坊。",
+      heroImage:
+        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&h=1080&fit=crop",
+      category: "碳培训",
+      features: [
+        { icon: Target, title: "主题演讲", description: "政策解读与技术分享" },
+        { icon: Users, title: "圆桌论坛", description: "多方对话与案例交流" },
+        { icon: FileText, title: "工作坊", description: "小班研讨与情景演练" },
+        { icon: Award, title: "闭门交流", description: "企业/行业专场对接" },
+      ],
+      benefits: ["专家资源对接", "资料沉淀", "合作拓展", "品牌传播"],
+      process: [
+        { step: "01", title: "主题与嘉宾", description: "确定议题与嘉宾阵容" },
+        { step: "02", title: "议程与报名", description: "发布议程与报名渠道" },
+        { step: "03", title: "执行与互动", description: "现场组织与互动交流" },
+        { step: "04", title: "沉淀与跟进", description: "纪要与合作建议书" },
+      ],
+      stats: [
+        { number: "50+", label: "活动场次" },
+        { number: "1000+", label: "参会人次" },
+        { number: "10+", label: "合作机构" },
+        { number: "8+", label: "主题方向" },
+      ],
+      caseStudies: [
+        { title: "园区双碳论坛", description: "政策与实践闭环分享", result: "促成多项合作意向" },
+      ],
+      pricing: { consultation: "免费咨询", development: "共办/赞助：面议", trading: "参会：免费/报名", management: "定制专场：支持" },
+      contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
+    },
+    "custom-training": {
+      id: "custom-training",
+      title: "其他定制化培训",
+      subtitle: "围绕企业诉求定制内容、时长与形式，聚焦实操与落地",
+      description:
+        "覆盖普及型、条线提升、管理层工作坊与项目制辅导，按需定制，效果导向。",
+      heroImage:
+        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
+      category: "碳培训",
+      features: [
+        { icon: Users, title: "画像���目标", description: "定位受众画像与成效目标" },
+        { icon: FileText, title: "大纲与内容", description: "定制课程大纲与案例库" },
+        { icon: Target, title: "授课与辅导", description: "授课+实操+辅导一体化" },
+        { icon: Award, title: "评估与认证", description: "成效评估与结业认证" },
+      ],
+      benefits: ["紧贴场景", "高度定制", "工具输出", "落地导向"],
+      process: [
+        { step: "01", title: "需求洞察", description: "访谈与问卷" },
+        { step: "02", title: "方案制定", description: "定制大纲与排期" },
+        { step: "03", title: "实施交付", description: "授课+实操+辅导" },
+        { step: "04", title: "评估认证", description: "测评与证书" },
+      ],
+      stats: [
+        { number: "100+", label: "企业服务" },
+        { number: "4类", label: "典型场景" },
+        { number: "1-3天", label: "时长范围" },
+        { number: "98%", label: "满意度" },
+      ],
+      caseStudies: [
+        { title: "头部制造企业定制班", description: "跨部门联合定制", result: "产出工具包与路线图" },
+      ],
+      pricing: { consultation: "免费咨询", development: "按需��制：面议", trading: "团体价：按人数", management: "后续辅导：支持" },
+      contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
+    },
+    "advanced-carbon-training": {
+      id: "advanced-carbon-training",
+      title: "碳达峰碳中和战略规划高级研修班",
+      subtitle: "战略-核算-路径-投策一体化，打造落地型双碳能力体系",
+      description:
+        "面向管理层与核心骨干的高级课程，系统覆盖战略、核算、路径、绿电、碳金融与治理体系。",
+      heroImage:
+        "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1920&h=1080&fit=crop",
+      category: "碳培训",
+      features: [
+        { icon: Target, title: "双碳战略", description: "国家与地方战略、行业趋势" },
+        { icon: FileText, title: "核算与披露", description: "组织/产品核算与披露体系" },
+        { icon: TrendingUp, title: "路径与绿电", description: "达峰/中和路径与绿电策略" },
+        { icon: Award, title: "投策与治理", description: "MACC、ROI与治理绩效" },
+      ],
+      benefits: ["高阶体系化", "实战案例库", "工具包输出", "专家社群"],
+      process: [
+        { step: "01", title: "战略与核算", description: "战略框架与方法学" },
+        { step: "02", title: "路径与市场", description: "路径路线与绿电/碳市场" },
+        { step: "03", title: "投策与治理", description: "MACC与治理落地" },
+      ],
+      stats: [
+        { number: "3天", label: "典型时长" },
+        { number: "6+", label: "核心模块" },
+        { number: "500+", label: "校友网络" },
+        { number: "95%+", label: "满意度" },
+      ],
+      caseStudies: [
+        { title: "集团总部高层研修", description: "定制高阶班", result: "形成集团年度双碳路线" },
+      ],
+      pricing: { consultation: "免费咨询", development: "线下/线上：面议", trading: "团体价：按人数", management: "校友社群：支持" },
+      contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
     },
   };
 
