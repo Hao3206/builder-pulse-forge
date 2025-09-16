@@ -30,6 +30,53 @@ export default function ProductService() {
 
   // Mock data - in real app this would come from API based on serviceId
   const serviceData = {
+    "carbon-footprint-accounting": {
+      id: "carbon-footprint-accounting",
+      title: "碳盘查/碳足迹核算",
+      subtitle: "组织与产品双维核算，合规披露与验证支持",
+      description:
+        "提供组织碳盘查（ISO 14064）与产品碳足迹（ISO 14067/PAS 2050）一体化服务，覆盖边界界定、数据采集、核算分摊、第三方验证与披露。",
+      heroImage:
+        "https://images.unsplash.com/photo-1463062511209-f6e52b984e8a?w=1920&h=1080&fit=crop",
+      category: "碳咨询",
+      features: [
+        { icon: Target, title: "组织碳盘查", description: "按ISO 14064与GHG Protocol进行组织层面温室气体核算" },
+        { icon: FileText, title: "产品碳足迹", description: "依据ISO 14067/PAS 2050开展LCA核算与分摊" },
+        { icon: TrendingUp, title: "第三方验证支持", description: "穿行测试资料、抽样与证据留痕，配合验证机构" },
+        { icon: Award, title: "披露与系统对接", description: "生成披露文本与报表，支持系统化接入与留痕管理" },
+      ],
+      benefits: [
+        "方法学与行业经验兼备，保证口径一致与结果可靠",
+        "平台化采数与留痕，缩短实施周期，提升可审计性",
+        "覆盖组织/产品/供应链，满足客户与监管披露需求",
+        "可输出改进建议与路线，为后续减排与投策奠基",
+      ],
+      process: [
+        { step: "01", title: "需求与诊断", description: "沟通诉求与边界，完成差距诊断与计划" },
+        { step: "02", title: "边界与口径", description: "明确组织/产品边界、功能单位与排放范围" },
+        { step: "03", title: "采数与核算", description: "采集活动数据与因子，完成核算/分摊/不确定性分析" },
+        { step: "04", title: "验证与披露", description: "准备验证资料，输出报告与披露文本" },
+        { step: "05", title: "持续改进", description: "识别减排机会，形成年度滚动改进方案" },
+      ],
+      stats: [
+        { number: "120+", label: "服务项目" },
+        { number: "30+", label: "细分行业" },
+        { number: "2-6周", label: "典型周期" },
+        { number: "95%+", label: "验证通过率" },
+      ],
+      caseStudies: [
+        { title: "消费电子产品碳足迹", description: "完成多SKU产品碳足迹核算与海外披露模��输出", result: "获得客户认可并中标供应链名录" },
+        { title: "装备制造组织盘查", description: "组织层面温室气体核算与管理制度落地", result: "建立年度核算与内审机制，形成改进清单" },
+      ],
+      pricing: {
+        consultation: "免费初步咨询",
+        development: "组织/产品核算：5-20万元",
+        trading: "第三方验证：按机构报价",
+        management: "年度维护与更新：3-5万元",
+      },
+      contact: { phone: "0574-87310818", email: "service@zdhjsuo.com", address: "浙江省宁波市江北区" },
+    },
+
     "green-low-carbon-factory": {
       id: "green-low-carbon-factory",
       title: "绿色/低碳工厂创建",
@@ -44,7 +91,7 @@ export default function ProductService() {
           icon: Target,
           title: "绿色工厂认定",
           description:
-            "协助企业申请国家级、省级绿色工厂认定，提升企业绿色制造水平",
+            "协助企业申请国家级、省级绿色工���认定，提升企业绿色制造水平",
         },
         {
           icon: FileText,
