@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ChevronDown, Search } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { successCases } from "@/data/successCases";
 
 export default function SuccessCases() {
   const navigate = useNavigate();
@@ -28,110 +29,6 @@ export default function SuccessCases() {
     "碳交易",
   ];
 
-  const successCases = [
-    {
-      id: 1,
-      category: "零碳园区",
-      title: "某国际生态园区零碳转型示范项目",
-      description:
-        "通过综合能源管理系统和智慧碳管理平台，该园区实现了碳排放减少60%，成为行业标杆案例。",
-      image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
-      tags: ["园区管理", "减排60%", "智慧监控"],
-      date: "2024-12",
-      location: "浙江宁波",
-      results: {
-        carbonReduction: "60%",
-        energySaving: "45%",
-        costSaving: "30%",
-      },
-    },
-    {
-      id: 2,
-      category: "企业碳管理",
-      title: "大型制造企业碳中和管理平台建设",
-      description:
-        "为某大型制造企业搭建完整的碳排放监测、核算和管理体系，助力企业实现碳中和目标。",
-      image:
-        "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop",
-      tags: ["制造业", "碳中和", "数字化管理"],
-      date: "2024-11",
-      location: "江苏苏州",
-      results: {
-        carbonReduction: "45%",
-        energySaving: "35%",
-        costSaving: "25%",
-      },
-    },
-    {
-      id: 3,
-      category: "碳足迹核算",
-      title: "消费品行业产品碳足迹评估项目",
-      description:
-        "为知名消费品牌建立完整的产品生命周期碳足迹评估体系，提升品牌ESG价值。",
-      image:
-        "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
-      tags: ["生命周期评估", "消费品", "ESG提升"],
-      date: "2024-10",
-      location: "上海",
-      results: {
-        carbonReduction: "30%",
-        energySaving: "28%",
-        costSaving: "20%",
-      },
-    },
-    {
-      id: 4,
-      category: "ESG报告",
-      title: "金融机构ESG信息披露体系构建",
-      description:
-        "协助大型银行建立符合国际标准的ESG信息披露体系，提升可持续发展治理水平。",
-      image:
-        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
-      tags: ["金融业", "信息披露", "国际标准"],
-      date: "2024-09",
-      location: "北京",
-      results: {
-        carbonReduction: "25%",
-        energySaving: "22%",
-        costSaving: "15%",
-      },
-    },
-    {
-      id: 5,
-      category: "碳交易",
-      title: "工业园区碳资产开发与交易项目",
-      description:
-        "帮助工业园区开发碳减排项目，成功完成碳信用交易，实现经济效益与环境效益双赢。",
-      image:
-        "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=600&fit=crop",
-      tags: ["碳资产", "碳交易", "经济效益"],
-      date: "2024-08",
-      location: "广东深圳",
-      results: {
-        carbonReduction: "55%",
-        energySaving: "40%",
-        costSaving: "35%",
-      },
-    },
-    {
-      id: 6,
-      category: "零碳园区",
-      title: "高科技产业园零碳智慧化改造",
-      description:
-        "运用数字孪生技术为高科技产业园打造智慧能源管理系统，实现园区运营零碳化。",
-      image:
-        "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&h=600&fit=crop",
-      tags: ["数字孪生", "智慧能源", "零碳运营"],
-      date: "2024-07",
-      location: "深圳",
-      results: {
-        carbonReduction: "65%",
-        energySaving: "50%",
-        costSaving: "40%",
-      },
-    },
-  ];
 
   const filteredCases =
     activeCategory === "全部案例"
