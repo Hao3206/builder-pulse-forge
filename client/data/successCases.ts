@@ -64,7 +64,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "智慧能源管理系统",
         description:
-          "部署覆盖全园区的智能电网和能源监测系统，实现能源使用的实时监控和优化调度。",
+          "部署覆盖全园区的智能电网和能源监测系统，实现能源使用的实��监控和优化调度。",
         image:
           "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
       },
@@ -128,18 +128,85 @@ export const successCases: SuccessCase[] = [
   {
     id: 2,
     category: "企业碳管理",
-    title: "大型制造企业碳中和管理平台建设",
+    title: "大���制造企业碳中和管理平台建设",
     description:
-      "为某大型制造企业搭建完整的碳排放监测、核算和管理体系，助力企业实现碳中和目标。",
+      "为某大型制造企业搭建完整的碳排放监测、核算与管理平台，实现数据统一口径、可审计与降本增效，支撑集团碳中和路线落地。",
     image:
       "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop",
+    heroImage:
+      "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=1920&h=1080&fit=crop",
     tags: ["制造业", "碳中和", "数字化管理"],
     date: "2024-11",
     location: "江苏苏州",
+    client: "某大型制造企业集团",
+    duration: "12个月",
+    projectScale: "两大生产基地，年产能超100万件设备，覆盖冲压/焊接/涂装/总装等核心工序",
+    challenges: [
+      "多工厂多系统数据割裂，缺乏统一数据口径与证据留痕",
+      "排放因子来源分散，结果一致性与可审计性不足",
+      "生产过程高能耗与余热未利用，能效提升空间大",
+      "绿电比例低，峰谷电价波动导致用能成本偏高",
+    ],
+    solutions: [
+      {
+        title: "统一碳数据治理与口径体系",
+        description:
+          "构建集团级数据标准与口径手册，建立证据留痕机制与抽样核验流程，保障可��计性。",
+        image:
+          "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+      },
+      {
+        title: "碳核算与排放监测一体化平台",
+        description:
+          "打通ERP/MES/能管/计量等系统，自动采集活动数据与计量数据，按ISO 14064/GB标准完成组织层面核算。",
+        image:
+          "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=800&h=600&fit=crop",
+      },
+      {
+        title: "工艺节能改造与余热回收",
+        description:
+          "针对涂装与加热工序实施换热回收与变频改造，优化工艺参数，显著降低单位产品能耗。",
+        image:
+          "https://images.unsplash.com/photo-1481330744575-8fe8a3d0f6df?w=800&h=600&fit=crop",
+      },
+      {
+        title: "绿电采购与用能优化",
+        description:
+          "引入绿电直购与自建分布式光伏，提高可再生能源占比；结合峰谷电价策略优化生产排程。",
+        image:
+          "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+      },
+      {
+        title: "CCER 项目识别与收益管理",
+        description:
+          "识别余热利用与光伏发电等减排项目的CCER开发��力，评估减排量与收益路径。",
+        image:
+          "https://images.unsplash.com/photo-1581090463529-c2653f5f36b9?w=800&h=600&fit=crop",
+      },
+    ],
+    timeline: [
+      { phase: "诊断与立项", period: "2024.01-2024.02", description: "完成差距诊断、路线规划与预算评审" },
+      { phase: "数据治理与平台建设", period: "2024.03-2024.06", description: "制定口径标准，搭建数据采集与核算平台" },
+      { phase: "工艺改造与绿电接入", period: "2024.07-2024.10", description: "实施节能改造与绿电采购，联调平台与报表" },
+      { phase: "验证与运营", period: "2024.11-至今", description: "第三方验证通过，进入持续运营与优化阶段" },
+    ],
+    testimonial: {
+      content:
+        "项目让我们的碳数据实现了可追溯、可审计，工艺改造与绿电策略也带来了显著降本效果，为集团碳中和目标奠定了坚实基础。",
+      author: "王总",
+      position: "制造集团信息化负责人",
+    },
+    images: [
+      "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1481330744575-8fe8a3d0f6df?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+    ],
     results: {
       carbonReduction: "45%",
       energySaving: "35%",
       costSaving: "25%",
+      renewableEnergy: "40%",
     },
   },
   {
@@ -179,7 +246,7 @@ export const successCases: SuccessCase[] = [
   {
     id: 5,
     category: "碳交易",
-    title: "工业园区碳资产开发与交易项目",
+    title: "工业园区碳资产开���与交易项目",
     description:
       "帮助工业园区开发碳减排项目，成功完成碳信用交易，实现经济效益与环境效益双赢。",
     image:
