@@ -110,7 +110,7 @@ sudo nano /etc/nginx/sites-available/zdhjsuo.com
 # 启用站点
 sudo ln -s /etc/nginx/sites-available/zdhjsuo.com /etc/nginx/sites-enabled/
 
-# 删除���认站点 (可选)
+# 删除认站点 (可选)
 sudo rm /etc/nginx/sites-enabled/default
 
 # 测试配置
@@ -192,7 +192,7 @@ git pull
 ./deploy.sh
 ```
 
-### 回滚版���
+### 回滚版本
 
 ```bash
 # 查看备份

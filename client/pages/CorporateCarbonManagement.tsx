@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ContactSection from "../components/ContactSection";
 
 export default function CorporateCarbonManagement() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,9 +42,9 @@ export default function CorporateCarbonManagement() {
               融合监测、核算、报告与合规对接，助力"双碳"目标
             </p>
             <div className="flex gap-4 justify-center">
-              <button className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm">
+              <a href="#contact" className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm inline-block">
                 立即咨询
-              </button>
+              </a>
               <button className="bg-white text-[#058A65] px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm">
                 获取方案
               </button>
@@ -812,6 +813,7 @@ export default function CorporateCarbonManagement() {
         </div>
       </section>
 
+      <ContactSection />
       <Footer />
     </div>
   );

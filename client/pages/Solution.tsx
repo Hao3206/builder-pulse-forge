@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ContactSection from "../components/ContactSection";
 
 export default function Solution() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -176,7 +177,7 @@ export default function Solution() {
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/ec1efe7d297c441e1f1e2354f7f955f54315c38a?width=96"
                   className="w-12 h-12 rounded-[10px]"
-                  alt="预测与预警图���"
+                  alt="预测与预警图"
                 />
                 <div className="flex flex-col items-start gap-2.5 w-full">
                   <h3 className="text-[#333] font-inter text-[22px] font-bold leading-[30px] tracking-[-0.22px] w-[133px]">
@@ -496,17 +497,18 @@ export default function Solution() {
                     联系我们
                   </span>
                 </button>
-                <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
+                <a href="#contact" className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
                   <span className="text-white text-center font-inter text-[15px] font-bold leading-[22px]">
                     立即预约
                   </span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <ContactSection />
       <Footer />
     </div>
   );

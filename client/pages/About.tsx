@@ -490,7 +490,7 @@ export default function About() {
                     公司地址
                   </h4>
                   <p className="text-[#666] font-inter text-sm font-medium leading-5 tracking-[-0.1px]">
-                    地址文案文案文案文案
+                    浙江省宁波市鄞州区汇海路26号环领未来大楼
                   </p>
                 </div>
                 <div className="flex-1">
@@ -498,7 +498,7 @@ export default function About() {
                     电话
                   </h4>
                   <p className="text-[#666] font-inter text-sm font-medium leading-5 tracking-[-0.1px]">
-                    021-888888888
+                    18606624246
                   </p>
                 </div>
                 <div className="flex-1">
@@ -506,7 +506,7 @@ export default function About() {
                     邮箱
                   </h4>
                   <p className="text-[#666] font-inter text-sm font-medium leading-5 tracking-[-0.1px]">
-                    wewfewf@163.com
+                    zdhjs2021@163.com
                   </p>
                 </div>
               </div>

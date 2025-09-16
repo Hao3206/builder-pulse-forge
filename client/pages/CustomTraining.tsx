@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ContactSection from "../components/ContactSection";
 
 export default function CustomTraining() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,6 +63,7 @@ export default function CustomTraining() {
         </div>
       </section>
 
+      <ContactSection />
       <Footer />
     </div>
   );

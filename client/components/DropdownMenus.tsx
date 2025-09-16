@@ -338,7 +338,7 @@ export function ProductServicesDropdown({
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
           </div>
 
-          {/* Content under 碳足��� */}
+          {/* Content under 碳足迹 */}
           <div className="absolute top-[316px] left-[32px] w-[210px]">
             <div
               className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
@@ -492,12 +492,12 @@ export function SolutionsDropdown({
                   }
                 >
                   <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-                    企业��管理一站式解决方��
+                    企业碳管理一站式解决方案
                   </span>
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  111解决方案描述性文字文案文案文案文案文案文案文��文案
+                  为企业提供全方位的碳管理服务，包括碳盘查、碳核算、碳交易等一站式解决方案
                 </p>
               </div>
             </div>
@@ -515,7 +515,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  解决方案���述性文字文案文案文案文案文案文案文案文案
+                  为园区提供零碳转型整体解决方案，包括能源管理、碳监测、减排技术等
                 </p>
               </div>
 
@@ -530,7 +530,7 @@ export function SolutionsDropdown({
                   <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
                 </div>
                 <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  全�����碳足迹核算与管理解决方案，助力企业实现低碳发展
+                  碳足迹核算与管理解决方案，助力企业实现低碳发展
                 </p>
               </div>
             </div>
@@ -686,7 +686,7 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
   };
 
   return (
-    <Dropdown title="关于我���" isScrolled={isScrolled}>
+    <Dropdown title="关于我们" isScrolled={isScrolled}>
       <div className="p-8 h-[300px]">
         <div className="grid grid-cols-3 gap-8">
           <div>

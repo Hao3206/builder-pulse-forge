@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactSection from "@/components/ContactSection";
 
 export default function ProductService() {
   const { serviceId } = useParams();
@@ -118,9 +119,9 @@ export default function ProductService() {
         management: "年度维护与更新：3-5万元",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
 
@@ -138,7 +139,7 @@ export default function ProductService() {
           icon: Target,
           title: "绿色工厂认定",
           description:
-            "协助企业申请国家级、省级绿色工���认定，提升企业绿色制造水平",
+            "协助企业申请国家级、省级绿色工厂认定，提升企业绿色制造水平",
         },
         {
           icon: FileText,
@@ -210,7 +211,7 @@ export default function ProductService() {
       ],
       caseStudies: [
         {
-          title: "某汽车零部件制造企业绿色工���认定",
+          title: "某汽车零部件制造企业绿色工厂认定",
           description: "协助完成国家级绿色工厂认定，实施智能化生产线改造",
           result: "成功获得国家级绿色工厂认定，年节约成本约200万元",
         },
@@ -227,9 +228,9 @@ export default function ProductService() {
         management: "技术支持：年度3-5万元",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "green@zdhjsuo.com",
-        address: "浙江省宁波市���北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市江北区",
       },
     },
     "ccer-asset-development": {
@@ -258,7 +259,7 @@ export default function ProductService() {
           icon: TrendingUp,
           title: "交易服务",
           description:
-            "协助企业进行CCER交易，包括买���对接、价格谈判、交易执行等",
+            "协助企业进行CCER交易，包括买卖对接、价格谈判、交易执行等",
         },
         {
           icon: Award,
@@ -297,7 +298,7 @@ export default function ProductService() {
         {
           step: "05",
           title: "签发交易",
-          description: "���助完成CCER签发，提供交易服务",
+          description: "帮助完成CCER签发，提供交易服务",
         },
       ],
       stats: [
@@ -322,7 +323,7 @@ export default function ProductService() {
         {
           title: "某新能源企业风电CCER项目",
           description: "协助开发200MW风电项目CCER，年减排量约30万吨CO2",
-          result: "成功签发并交���，为企业创造额外收益约600万元",
+          result: "成功签发并交易，为企业创造额外收益约600万元",
         },
         {
           title: "某制造企业节能改造CCER项目",
@@ -337,9 +338,9 @@ export default function ProductService() {
         management: "资产管理费：年度1-2%",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
     "carbon-trader-training": {
@@ -409,9 +410,9 @@ export default function ProductService() {
         management: "内训定制：支持",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
     "carbon-admin-training": {
@@ -476,9 +477,9 @@ export default function ProductService() {
         management: "内训定制：支持",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
     "industry-seminars-forums": {
@@ -523,9 +524,9 @@ export default function ProductService() {
         management: "定制专场：支持",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
     "custom-training": {
@@ -582,9 +583,9 @@ export default function ProductService() {
         management: "后续辅导：支持",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
     "advanced-carbon-training": {
@@ -648,9 +649,9 @@ export default function ProductService() {
         management: "校友社群：支持",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
     "regional-carbon-brain": {
@@ -711,9 +712,9 @@ export default function ProductService() {
         management: "运维服务：年度",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
     "personal-carbon-account": {
@@ -774,15 +775,15 @@ export default function ProductService() {
         management: "运营服务：可选",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
     "green-trade-platform": {
       id: "green-trade-platform",
       title: "绿色贸易服务平台",
-      subtitle: "出口合规���低碳认证与供应链协同的一站式平台",
+      subtitle: "出口合规低碳认证与供应链协同的一站式平台",
       description:
         "面向外贸企业，提供碳足迹、ESG披露、CBAM合规、低碳认证与供应链协同，打通绿色贸易全链路。",
       heroImage:
@@ -825,7 +826,7 @@ export default function ProductService() {
       ],
       caseStudies: [
         {
-          title: "外贸企业绿色转���",
+          title: "外贸企业绿色转型",
           description: "CBAM与ESG一体化",
           result: "准入风险显著降低",
         },
@@ -837,9 +838,9 @@ export default function ProductService() {
         management: "运维服务：年度",
       },
       contact: {
-        phone: "0574-87310818",
-        email: "service@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        phone: "18606624246",
+        email: "zdhjs2021@163.com",
+        address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
   };
@@ -896,9 +897,9 @@ export default function ProductService() {
             <p className="text-xl leading-[30px] text-white/90 max-w-2xl mx-auto mb-8">
               {service.description}
             </p>
-            <button className="px-8 py-3 bg-[#058A65] text-white font-semibold rounded-md hover:bg-[#046B52] transition-colors">
+            <a href="#contact" className="px-8 py-3 bg-[#058A65] text-white font-semibold rounded-md hover:bg-[#046B52] transition-colors inline-block">
               立即咨询
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -1065,7 +1066,7 @@ export default function ProductService() {
           <div className="text-center mb-12">
             <h2 className="text-[32px] font-bold text-[#333] mb-4">服务价格</h2>
             <p className="text-lg text-[#666]">
-              透明的收费标准，灵活的���作模式
+              透明的收费标准，灵活的合作模式
             </p>
           </div>
 
@@ -1130,9 +1131,9 @@ export default function ProductService() {
             </div>
           </div>
           <div className="mt-8 flex items-center justify-center gap-4">
-            <button className="px-8 py-3 bg-white text-[#058A65] font-semibold rounded-md hover:bg-gray-100 transition-colors">
+            <a href="#contact" className="px-8 py-3 bg-white text-[#058A65] font-semibold rounded-md hover:bg-gray-100 transition-colors inline-block">
               立即咨询
-            </button>
+            </a>
             <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-[#058A65] transition-colors">
               下载资料
             </button>
@@ -1141,85 +1142,9 @@ export default function ProductService() {
       </div>
 
       {/* Contact Section */}
-      <div className="bg-white py-16">
-        <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-[32px] font-bold text-[#333] mb-4">联系我们</h2>
-            <p className="text-lg text-[#666]">
-              多种联系方式，选择最适合您的沟通渠道
-            </p>
-          </div>
+      
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#058A65] rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-[#333] mb-2">电话咨询</h3>
-              <p className="text-[#666]">{service.contact.phone}</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#058A65] rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-[#333] mb-2">邮件联系</h3>
-              <p className="text-[#666]">{service.contact.email}</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-[#058A65] rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-bold text-[#333] mb-2">地址</h3>
-              <p className="text-[#666]">{service.contact.address}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <ContactSection />
       {/* Footer */}
       <Footer />
     </div>

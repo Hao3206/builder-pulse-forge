@@ -22,7 +22,7 @@ export default function ESGDisclosure() {
     "GRI 通用与专题标准",
     "ISSB/IFRS S1、S2",
     "CSRD/ESRS（欧盟）",
-    "TCFD 气候相关信息披���",
+    "TCFD 气候相关信息披露",
     "SASB 行业标准（并入ISSB）",
     "HKEX ESG 披露指引",
   ];

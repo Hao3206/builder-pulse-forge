@@ -39,7 +39,7 @@ export default function CarbonStandardDevelopment() {
     { title: "条款起草工具", desc: "术语库、条款模板与交叉引用校核。" },
     { title: "意见征集与处理", desc: "线上征集、议题归并、处置闭环与记录。" },
     { title: "证据与案例库", desc: "试点案例、实测数据与验证材料留痕。" },
-    { title: "版本与追溯管理", desc: "版本对比、变更���录与可视化红线。" },
+    { title: "版本与追溯管理", desc: "版本对比、变更记录与可视化红线。" },
     { title: "宣贯与培训支持", desc: "教材课件、考试题库与认证管理。" },
   ];
 

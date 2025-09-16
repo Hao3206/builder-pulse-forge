@@ -381,7 +381,7 @@ export default function SuccessCaseDetail() {
               onClick={() => navigate("/success-cases")}
               className="px-8 py-3 border border-[#058A65] text-[#058A65] font-semibold rounded-md hover:bg-[#058A65]/5 transition-colors"
             >
-              查���更多案例
+              查看更多案例
             </button>
             <button
               className="px-8 py-3 bg-[#058A65] text-white font-semibold rounded-md hover:bg-[#046B52] transition-colors"

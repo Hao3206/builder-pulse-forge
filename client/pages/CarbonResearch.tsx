@@ -80,7 +80,7 @@ export default function CarbonResearch() {
 
       <section className="py-[88px] bg-white">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="text-center mb-16"><h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">为什么要���展课题研究</h2><p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">面向政策、技术、市场与数据四个维度，形成系统性解决思路。</p></div>
+          <div className="text-center mb-16"><h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">为什么要开展课题研究</h2><p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">面向政策、技术、市场与数据四个维度，形成系统性解决思路。</p></div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">{reasons.map((r, i) => (<div key={i} className="bg-white border border-[#EAEBF0] rounded-lg p-8"><h3 className="text-[20px] font-bold text-[#333] mb-3 tracking-[-0.2px]">{r.title}</h3><p className="text-[15px] text-[#666] tracking-[-0.1px]">{r.desc}</p></div>))}</div>
         </div>
       </section>

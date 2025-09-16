@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ContactSection from "../components/ContactSection";
 
 export default function ZeroCarbonPark() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -128,7 +129,7 @@ export default function ZeroCarbonPark() {
               <div className="flex justify-end items-start gap-[30px]">
                 <div className="w-[139px] h-[22px] relative">
                   <span className="text-white font-inter text-[15px] font-normal leading-[22px] absolute left-[27px] top-0">
-                    0574-87310818
+                    18606624246
                   </span>
                   <svg
                     width="20"
@@ -679,6 +680,7 @@ export default function ZeroCarbonPark() {
         </div>
       </section>
 
+      <ContactSection />
       <Footer />
     </div>
   );

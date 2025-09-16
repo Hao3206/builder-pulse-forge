@@ -20,7 +20,7 @@ export default function CarbonAdminTraining() {
   const outline = [
     { step: "1", title: "基础与政策", desc: "碳管理基础知识与最新政策解读。" },
     { step: "2", title: "数据与口径", desc: "活动数据采集与排放因子管理。" },
-    { step: "3", title: "履���与披露", desc: "配额履约、审定核查与信息披露。" },
+    { step: "3", title: "履约与披露", desc: "配额履约、审定核查与信息披露。" },
     { step: "4", title: "系统与内控", desc: "系统操作、流程内控与审计配合。" },
   ];
 

@@ -54,7 +54,7 @@ export const successCases: SuccessCase[] = [
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
     tags: ["园区管理", "减排60%", "智慧监控"],
     date: "2024-12",
-    location: "浙江宁波",
+    location: "华东地区",
     results: {
       carbonReduction: "60%",
       energySaving: "45%",
@@ -67,7 +67,7 @@ export const successCases: SuccessCase[] = [
     duration: "18个月",
     projectScale: "占地500公顷，入驻企业150家",
     challenges: [
-      "园区内企业众多，能源消���类型复杂多样",
+      "园区内企业众多，能源消耗类型复杂多样",
       "缺乏统一的碳排放监测和管理系统",
       "传统能源结构导致碳排放量居高不下",
       "各企业间缺乏有效的节能减排协同机制",
@@ -105,8 +105,8 @@ export const successCases: SuccessCase[] = [
     timeline: [
       {
         phase: "项目启动",
-        period: "2023年6月 - 2023年8月",
-        description: "完成项目调研���方案设计和合同签署",
+        period: "2023年6个月 - 2023年8月",
+        description: "完成项目调研方案设计和合同签署",
       },
       {
         phase: "基础设施建设",
@@ -115,7 +115,7 @@ export const successCases: SuccessCase[] = [
       },
       {
         phase: "系统集成测试",
-        period: "2024年4月 - 2024年6月",
+        period: "2024年4月 - 2024年6个月",
         description: "完成各系统集成、测试和优化调试",
       },
       {
@@ -127,7 +127,7 @@ export const successCases: SuccessCase[] = [
     testimonial: {
       content:
         "浙东能源环交所为我们提供了全方位的零碳转型解决方案，不仅实现了显著的减排效果，还为园区带来了可观的经济效益。他们的专业团队和先进技术让我们对未来的可持续发展充满信心。",
-      author: "李总",
+      author: "项目负责人",
       position: "园区管理委员会主任",
     },
     images: [
@@ -149,7 +149,7 @@ export const successCases: SuccessCase[] = [
       "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=1920&h=1080&fit=crop",
     tags: ["制造业", "碳中和", "数字化管理"],
     date: "2024-11",
-    location: "江苏苏州",
+    location: "华东地区",
     client: "某大型制造企业集团",
     duration: "12个月",
     projectScale:
@@ -222,7 +222,7 @@ export const successCases: SuccessCase[] = [
     testimonial: {
       content:
         "项目让我们的碳数据实现了可追溯、可审计，工艺改造与绿电策略也带来了显著降本效果，为集团碳中和目标奠定了坚实基础。",
-      author: "王总",
+      author: "项目负责人",
       position: "制造集团信息化负责人",
     },
     images: [
@@ -250,7 +250,7 @@ export const successCases: SuccessCase[] = [
       "https://images.unsplash.com/photo-1562158070-74b1b9b4d7d9?w=1920&h=1080&fit=crop",
     tags: ["生命周期评估", "消费品", "ISO 14067", "ESG提升"],
     date: "2024-10",
-    location: "上海",
+    location: "华东地区",
     client: "国内头部消费品牌",
     duration: "10个月",
     projectScale:
@@ -319,7 +319,7 @@ export const successCases: SuccessCase[] = [
       {
         phase: "核算与不确定性分析",
         period: "2024.06-2024.07",
-        description: "完成核算建模与敏感性分析，提���减排策略",
+        description: "完成核算建模与敏感性分析，提出减排策略",
       },
       {
         phase: "披露与验证",
@@ -330,7 +330,7 @@ export const successCases: SuccessCase[] = [
     testimonial: {
       content:
         "项目帮助我们建立了系统化的产品碳足迹核算能力，披露效率与数据说服力显著提升，为国际市场ESG沟通提供了坚实支撑。",
-      author: "陈总",
+      author: "项目负责人",
       position: "品牌可持续发展负责人",
     },
     images: [
@@ -358,7 +358,7 @@ export const successCases: SuccessCase[] = [
       "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1920&h=1080&fit=crop",
     tags: ["金融业", "信息披露", "国际标准", "数据治理"],
     date: "2024-09",
-    location: "北京",
+    location: "华北地区",
     client: "国内领先商业银行",
     duration: "8个月",
     projectScale:
@@ -387,7 +387,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "气候相关风险与机会披露（TCFD）",
         description:
-          "识别气候物理/转型风险，建立情景分析与压力测试，完善治理、战略、风险管理与指标目���披露。",
+          "识别气候物理/转型风险，建立情景分析与压力测试，完善治理、战略、风险管理与指标披露。",
         image:
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&h=600&fit=crop",
       },
@@ -431,7 +431,7 @@ export const successCases: SuccessCase[] = [
     testimonial: {
       content:
         "通过本次项目，我们实现了披露框架的系统化升级与数据治理的规范化，内外部审阅效率大幅提升，投资者沟通更具说服力。",
-      author: "刘总",
+      author: "项目负责人",
       position: "银行ESG与投资者关系负责人",
     },
     images: [
@@ -456,7 +456,7 @@ export const successCases: SuccessCase[] = [
       "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=600&fit=crop",
     tags: ["碳资产", "碳交易", "经济效益"],
     date: "2024-08",
-    location: "广东深圳",
+    location: "华南地区",
     results: {
       carbonReduction: "55%",
       energySaving: "40%",
@@ -473,7 +473,7 @@ export const successCases: SuccessCase[] = [
       "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&h=600&fit=crop",
     tags: ["数字孪生", "智慧能源", "零碳运营"],
     date: "2024-07",
-    location: "深圳",
+    location: "华南地区",
     results: {
       carbonReduction: "65%",
       energySaving: "50%",
@@ -483,17 +483,17 @@ export const successCases: SuccessCase[] = [
   {
     id: 7,
     category: "碳交易",
-    title: "助力宁波两家机构获评省级“零碳”公共机构",
+    title: "助力两家机构获评省级\"零碳\"公共机构",
     description:
-      "浙东环境能源交易所为宁波市海曙区机关事务管理局与鄞州区社会治理中心提供碳交易与碳中和服务，通过核销林业碳汇与CCER抵消2022年度排放，获评二星级省级“零碳”公共机构。",
+      "浙东环境能源交易所为两家公共机构提供碳交易与碳中和服务，通过核销林业碳汇与CCER抵消2022年度排放，获评二星级省级\"零碳\"公共机构。",
     image:
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
     heroImage:
       "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&h=1080&fit=crop",
     tags: ["碳中和", "碳交易", "公共机构", "零碳"],
     date: "2024-06",
-    location: "浙江宁波",
-    client: "宁波市海曙区机关事务管理局、宁波市鄞州区社会治理中心",
+    location: "华东地区",
+    client: "两家公共机构",
     duration: "6��月",
     projectScale:
       "两家公共机构获评省级二星级“零碳”公共机构；核销与抵消2022年度排放共计995.02吨CO₂e（825.86吨+169.16吨）",
@@ -513,7 +513,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "碳资产采购与核销（林业碳汇/CCER）",
         description:
-          "撮合“章水镇林业碳汇项目”等合规自愿减排量资产采购与核销，形成可追溯凭据与交易记录。",
+          "撮合“某林业碳汇项目”等合规自愿减排量资产采购与核销，形成可追溯凭据与交易记录。",
         image:
           "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop",
       },
@@ -551,14 +551,14 @@ export const successCases: SuccessCase[] = [
       {
         phase: "评价支持与授牌",
         period: "2024.05-2024.06",
-        description: "配合省���“零碳”公共机构评价验收并获评二星级",
+        description: "配合省“零碳”公共机构评价验收并获评二星级",
       },
     ],
     testimonial: {
       content:
         "在交易所专业团队支持下，我们顺利完成年度碳中和并通过省级‘零碳’公共机构评价，材料规范、过程合规、社会影响良好。",
       author: "项目负责人",
-      position: "宁波市相关公共机构代表",
+      position: "相关公共机构代表",
     },
     images: [
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
@@ -567,7 +567,7 @@ export const successCases: SuccessCase[] = [
       "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
     ],
     results: {
-      carbonReduction: "100%（共995.02吨CO₂e）",
+      carbonReduction: "100%",
       energySaving: "—",
       costSaving: "—",
     },
@@ -577,15 +577,15 @@ export const successCases: SuccessCase[] = [
     category: "碳交易",
     title: "助力光伏项目施工实现碳中和并获碳减排贷款",
     description:
-      "与兴业银行宁波分行合作，助力宁波佳豪密封管业有限公司1.6MWp分布式光伏发电项目施工阶段实现碳中和，并获得碳减排贷款。",
+      "与银行合作，助力某制造企业1.6MWp分布式光伏发电项目施工阶段实现碳中和，并获得碳减排贷款。",
     image:
       "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
     heroImage:
       "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=1920&h=1080&fit=crop",
     tags: ["光伏", "施工碳中和", "CCER", "碳金融"],
     date: "2024-07",
-    location: "浙江宁波",
-    client: "宁波佳豪密封管业有���公司",
+    location: "华东地区",
+    client: "某制造企业",
     duration: "3个月",
     projectScale:
       "1.6MWp分布式光伏发电项目；覆盖施工阶段燃料燃烧、电力使用与交通运输排放核算，并实现等量CCER注销抵消",
@@ -658,7 +658,7 @@ export const successCases: SuccessCase[] = [
       content:
         "在交易所团队支持下，我们的光伏项目施工阶段实现了碳中和并获得了碳减排贷款，流程规范、落地高效。",
       author: "企业负责人",
-      position: "宁波���豪密封管业有限公司项目负责人",
+      position: "宁波某有限公司项目负责人",
     },
     images: [
       "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
@@ -667,7 +667,7 @@ export const successCases: SuccessCase[] = [
       "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&h=600&fit=crop",
     ],
     results: {
-      carbonReduction: "100%（施工阶段）",
+      carbonReduction: "100%",
       energySaving: "—",
       costSaving: "—",
     },
@@ -675,20 +675,20 @@ export const successCases: SuccessCase[] = [
   {
     id: 9,
     category: "培训/研修",
-    title: "“宁波市碳排放、碳管理专技人才高级研修班”顺利举办",
+    title: "\"碳排放、碳管理专技人才高级研修班\"顺利举办",
     description:
-      "由宁波市人力资源和社会保障局主办，浙东环境能源交易所联合浙大宁波理工学院组织，80余名学员参加的高级研修班顺利举办，聚焦双碳战略、碳资产交易、信息披露与实务核查。",
+      "由人力资源和社会保障局主办，浙东环境能源交易所联合高等院校组织，80余名学员参加的高级研修班顺利举办，聚焦双碳战略、碳资产交易、信息披露与实务核查。",
     image:
       "https://images.unsplash.com/photo-1516528387618-afa90b13e000?w=800&h=600&fit=crop",
     heroImage:
       "https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?w=1920&h=1080&fit=crop",
     tags: ["培训", "研修班", "人才培养", "双碳"],
     date: "2024-09",
-    location: "��江宁波",
-    client: "宁波市人力资源和社会保障局、浙大宁波理工学院",
+    location: "浙江宁波",
+    client: "人力资源和社会保障局、高等院校",
     duration: "3天",
     projectScale:
-      "80+名学员、6位专家授课，含现场教学（东方日升新能源股份有限公司），结业获得高级研修班证书，学时计入继续教育系统",
+      "80+名学员、6位专家授课，含现场教学（某新能源企业），结业获得高级研修班证书，学时计入继续教育系统",
     challenges: [
       "学员行业覆盖广，知识背景差异大，需系统化课程设计",
       "理论与实务需打通，强调口径一致与可落地",
@@ -705,7 +705,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "专家授课与专题分享",
         description:
-          "邀请张雅静、胡长兴、江鑫、杨永亮、刘世峰、林露萍等专家进行主题授课与案例解析。",
+          "邀请多位行业专家进行主题授课与案例解析。",
         image:
           "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
       },
@@ -719,7 +719,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "结业认证与学时登记",
         description:
-          "完成学习考核，颁发高级研修班证书，学时计入宁波市继续教育学习登记管理系统。",
+          "完成学习考核，颁发高级研修班证书，学时计入继续教育学习登记管理系统。",
         image:
           "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=800&h=600&fit=crop",
       },
@@ -738,7 +738,7 @@ export const successCases: SuccessCase[] = [
       {
         phase: "现场教学",
         period: "2024.09-中旬",
-        description: "走进东方日升新能源参观与教学",
+        description: "走进某新能源企业参观与教学",
       },
       {
         phase: "结业与认证",
@@ -748,7 +748,7 @@ export const successCases: SuccessCase[] = [
     ],
     testimonial: {
       content:
-        "课程体系完整、案例实用、讲师权威，对于理解双碳政策���企业落地实践帮助很大。",
+        "课程体系完整、案例实用、讲师权威，对于理解双碳政策企业落地实践帮助很大。",
       author: "学员代表",
       position: "企业碳管理负责人",
     },

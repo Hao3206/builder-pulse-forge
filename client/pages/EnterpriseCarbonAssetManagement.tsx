@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ContactSection from "../components/ContactSection";
 
 const assetTypes = [
   {
@@ -292,9 +293,9 @@ export default function EnterpriseCarbonAssetManagement() {
             助力实现碳达峰碳中和战略目标
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-[#058A65] font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors">
+            <a href="#contact" className="bg-white text-[#058A65] font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors inline-block">
               立即咨询
-            </button>
+            </a>
             <button className="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-[#058A65] transition-colors">
               了解更多
             </button>
@@ -302,6 +303,7 @@ export default function EnterpriseCarbonAssetManagement() {
         </div>
       </section>
 
+      <ContactSection />
       <Footer />
     </div>
   );

@@ -66,8 +66,8 @@ const translations: Translations = {
 
   // Common
   "common.phone": {
-    zh: "0574-87310818",
-    en: "0574-87310818",
+    zh: "18606624246",
+    en: "18606624246",
   },
   "common.language.zh": {
     zh: "中文",
@@ -422,8 +422,8 @@ const translations: Translations = {
 
   // Footer content
   "footer.address.info": {
-    zh: "浙江省宁波市高新区聚贤街道汇海路26号环领未来大楼1号5-1室",
-    en: "Room 5-1, Building 1, Huanling Future Building, No. 26 Huihai Road, Juxian Street, High-tech Zone, Ningbo, Zhejiang Province",
+    zh: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
+    en: "No. 26 Huihai Road, Yinzhou District, Ningbo, Zhejiang Province, Huanling Future Building",
   },
   "footer.follow.subscription": {
     zh: "关注订阅号",

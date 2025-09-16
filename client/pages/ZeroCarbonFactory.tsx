@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
+import ContactSection from "../components/ContactSection";
 export default function ZeroCarbonFactory() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -600,51 +600,7 @@ export default function ZeroCarbonFactory() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="py-[88px] bg-[#F2F9F7]">
-        <div className="max-w-[840px] mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">
-              联系我们
-            </h2>
-            <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">
-              专业顾问为您提供零碳工厂建设咨询服务，量身定制绿色转型方案
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input
-                type="text"
-                placeholder="您的姓名"
-                className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm"
-              />
-              <input
-                type="text"
-                placeholder="您的联系方式"
-                className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm"
-              />
-            </div>
-
-            <select className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] text-[#999] shadow-sm">
-              <option>您的公司</option>
-            </select>
-
-            <textarea
-              placeholder="您的留言内容"
-              rows={5}
-              className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm resize-none"
-            />
-
-            <div className="text-center">
-              <button className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm">
-                立即咨询
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <ContactSection />
       <Footer />
     </div>
   );

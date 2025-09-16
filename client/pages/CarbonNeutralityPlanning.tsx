@@ -22,7 +22,7 @@ export default function CarbonNeutralityPlanning() {
     { step: "1", title: "基线盘查", desc: "开展组织边界设定与基准年核算，识别主要排放源。" },
     { step: "2", title: "目标设定", desc: "制定碳达峰与碳中和目标，参考SBTi等科学目标框架。" },
     { step: "3", title: "情景与路径设计", desc: "构建多情景（保守/稳健/领先）与技术路线图。" },
-    { step: "4", title: "节能与工艺优化", desc: "实施节能改造、余热利用、过程优化与精益管理���" },
+    { step: "4", title: "节能与工艺优化", desc: "实施节能改造、余热利用、过程优化与精益管理" },
     { step: "5", title: "清洁能源替代", desc: "推进绿电采购、自建分布式与电气化改造。" },
     { step: "6", title: "负排放与抵消", desc: "布局CCUS与高质量碳汇/信用抵消，实现残余中和。" },
   ];
