@@ -12,7 +12,8 @@ const policies = [
   {
     id: "local",
     title: "地方政策",
-    content: "各地方政府积���响应国家号召，陆续出台相关配套政策，推动区域内企业开展碳核算与碳减排工作。",
+    content:
+      "各地方政府积���响应国家号召，陆续出台相关配套政策，推动区域内企业开展碳核算与碳减排工作。",
   },
   {
     id: "international",
@@ -185,9 +186,7 @@ export default function CarbonFootprint() {
                     >
                       <div
                         className={`p-6 relative ${
-                          isActive
-                            ? ""
-                            : "border-l-4 border-transparent"
+                          isActive ? "" : "border-l-4 border-transparent"
                         }`}
                       >
                         {isActive && (
@@ -319,33 +318,35 @@ export default function CarbonFootprint() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">联系我们</h2>
             <p className="text-gray-600">
-            如果您有任何问题或疑问，请与我们联系我们将尽最大努力尽快回复您。
-
-</p>
+              如果您有任何问题或疑问，请与我们联系我们将尽最大努力尽快回复您。
+            </p>
           </div>
 
-          <form className="space-y-6" onSubmit={async (e) => {
-  e.preventDefault();
-  const form = e.target as HTMLFormElement;
-  const data = {
-    name: (form.elements[0] as HTMLInputElement).value,
-    company: (form.elements[1] as HTMLInputElement).value,
-    contact: (form.elements[2] as HTMLInputElement).value,
-    message: (form.elements[3] as HTMLTextAreaElement).value,
-    source: "/carbon-footprint",
-  };
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  if (res.ok) {
-    alert("提交成功！");
-    form.reset();
-  } else {
-    alert("提交失败，请重试");
-  }
-}}>
+          <form
+            className="space-y-6"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.target as HTMLFormElement;
+              const data = {
+                name: (form.elements[0] as HTMLInputElement).value,
+                company: (form.elements[1] as HTMLInputElement).value,
+                contact: (form.elements[2] as HTMLInputElement).value,
+                message: (form.elements[3] as HTMLTextAreaElement).value,
+                source: "/carbon-footprint",
+              };
+              const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+              });
+              if (res.ok) {
+                alert("提交成功！");
+                form.reset();
+              } else {
+                alert("提交失败，请重试");
+              }
+            }}
+          >
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <input

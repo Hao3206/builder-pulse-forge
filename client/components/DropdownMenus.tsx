@@ -266,20 +266,20 @@ export function ProductServicesDropdown({
 
           {/* Content under 碳金融 */}
           <div className="absolute top-[64px] left-[528px] w-[210px]">
-              <div
-                className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/carbon-finance-solution") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
-                onClick={() => navigate("/carbon-finance-solution")}
-              >
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/carbon-finance-solution") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
+              onClick={() => navigate("/carbon-finance-solution")}
+            >
               {t("products.carbon.finance.solutions")}
             </div>
           </div>
 
           {/* Content under 碳信息化 */}
           <div className="absolute top-[64px] left-[776px] w-[210px] space-y-3">
-              <div
-                className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/corporate-carbon-management") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
-                onClick={() => navigate("/corporate-carbon-management")}
-              >
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/corporate-carbon-management") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
+              onClick={() => navigate("/corporate-carbon-management")}
+            >
               {t("products.enterprise.platform")}
             </div>
             <div
@@ -298,7 +298,9 @@ export function ProductServicesDropdown({
                   ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
                   : "text-[#999] hover:text-brand-green"
               }`}
-              onClick={() => navigate("/product-service/personal-carbon-account")}
+              onClick={() =>
+                navigate("/product-service/personal-carbon-account")
+              }
             >
               {t("products.personal.account")}
             </div>
@@ -344,7 +346,9 @@ export function ProductServicesDropdown({
                   ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
                   : "text-[#999] hover:text-brand-green"
               }`}
-              onClick={() => navigate("/product-service/carbon-footprint-accounting")}
+              onClick={() =>
+                navigate("/product-service/carbon-footprint-accounting")
+              }
             >
               {t("products.carbon.accounting")}
             </div>
@@ -358,7 +362,9 @@ export function ProductServicesDropdown({
                   ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
                   : "text-[#999] hover:text-brand-green"
               }`}
-              onClick={() => navigate("/product-service/carbon-trader-training")}
+              onClick={() =>
+                navigate("/product-service/carbon-trader-training")
+              }
             >
               {t("products.trader.training")}
             </div>
@@ -378,7 +384,9 @@ export function ProductServicesDropdown({
                   ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
                   : "text-[#999] hover:text-brand-green"
               }`}
-              onClick={() => navigate("/product-service/industry-seminars-forums")}
+              onClick={() =>
+                navigate("/product-service/industry-seminars-forums")
+              }
             >
               {t("products.industry.seminar")}
             </div>
@@ -398,7 +406,9 @@ export function ProductServicesDropdown({
                   ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
                   : "text-[#999] hover:text-brand-green"
               }`}
-              onClick={() => navigate("/product-service/advanced-carbon-training")}
+              onClick={() =>
+                navigate("/product-service/advanced-carbon-training")
+              }
             >
               {t("products.advanced.training")}
             </div>
@@ -406,10 +416,10 @@ export function ProductServicesDropdown({
 
           {/* Content under 零碳园区 */}
           <div className="absolute top-[316px] left-[528px] w-[210px] space-y-3">
-              <div
-                className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/zero-carbon-park") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
-                onClick={() => navigate("/zero-carbon-park")}
-              >
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/zero-carbon-park") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
+              onClick={() => navigate("/zero-carbon-park")}
+            >
               {t("products.zero.carbon.solutions")}
             </div>
             <div
@@ -656,10 +666,10 @@ export function NewsCenterDropdown({
 
           {/* News Image Area */}
           <div className="absolute right-[32px] top-[48px] w-[280px] h-[170px]">
-            <img 
-              src="/news-featured-image.jpg" 
-              alt="资讯中心" 
-              className="w-full h-full object-cover rounded-lg" 
+            <img
+              src="/news-featured-image.jpg"
+              alt="资讯中心"
+              className="w-full h-full object-cover rounded-lg"
             />
           </div>
         </div>
