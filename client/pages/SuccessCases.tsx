@@ -27,6 +27,7 @@ export default function SuccessCases() {
     "碳足迹核算",
     "ESG报告",
     "碳交易",
+    "培训/研修",
   ];
 
 
