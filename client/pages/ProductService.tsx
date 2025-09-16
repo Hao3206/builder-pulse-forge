@@ -37,7 +37,7 @@ export default function ProductService() {
       description:
         "提供组织碳盘查（ISO 14064）与产品碳足迹（ISO 14067/PAS 2050）一体化服务，覆盖边界界定、数据采集、核算分摊、第三方验证与披露。",
       heroImage:
-        "https://images.unsplash.com/photo-1463062511209-f6e52b984e8a?w=1920&h=1080&fit=crop",
+        "/banner-1.jpg",
       category: "碳咨询",
       features: [
         {
@@ -230,7 +230,7 @@ export default function ProductService() {
       contact: {
         phone: "0574-87310818",
         email: "green@zdhjsuo.com",
-        address: "浙江省宁波市江北区",
+        address: "浙江省宁波市���北区",
       },
     },
     "ccer-asset-development": {
@@ -264,7 +264,7 @@ export default function ProductService() {
         {
           icon: Award,
           title: "资产管理",
-          description: "建立完善的碳资产管理体系，优化资产配置，实现价值最大化",
+          description: "建立完善的碳资产管理体��，优化资产配置，实现价值最大化",
         },
       ],
       benefits: [
@@ -455,7 +455,7 @@ export default function ProductService() {
         },
         { step: "02", title: "数据与口径", description: "采集模板与口径统一" },
         { step: "03", title: "履约与披露", description: "核查对接与披露撰写" },
-        { step: "04", title: "系统与内控", description: "系统操作与流程内控" },
+        { step: "04", title: "系统与内��", description: "系统操作与流程内控" },
       ],
       stats: [
         { number: "800+", label: "培训学员" },
@@ -513,7 +513,7 @@ export default function ProductService() {
       caseStudies: [
         {
           title: "园区双碳论坛",
-          description: "政策与实践闭环分享",
+          description: "政��与实践闭环分享",
           result: "促成多项合作意向",
         },
       ],
@@ -619,7 +619,7 @@ export default function ProductService() {
           description: "MACC、ROI与治理绩效",
         },
       ],
-      benefits: ["高阶体系化", "实战案例库", "工具包输出", "专家社群"],
+      benefits: ["高阶体��化", "实战案例库", "工具包输出", "专家社群"],
       process: [
         { step: "01", title: "战略与核算", description: "战略框架与方法学" },
         {
@@ -826,7 +826,7 @@ export default function ProductService() {
       ],
       caseStudies: [
         {
-          title: "外贸企业绿色转型",
+          title: "外贸企业绿色转���",
           description: "CBAM与ESG一体化",
           result: "准入风险显著降低",
         },
@@ -1066,7 +1066,7 @@ export default function ProductService() {
           <div className="text-center mb-12">
             <h2 className="text-[32px] font-bold text-[#333] mb-4">服务价格</h2>
             <p className="text-lg text-[#666]">
-              透明的收费标准，灵活的合作模式
+              透明的收费标准，灵活的���作模式
             </p>
           </div>
 
