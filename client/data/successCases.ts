@@ -340,7 +340,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "气候相关风险与机会披露（TCFD）",
         description:
-          "识别气候物理/转型风险，建立情景分析与压力测试，完善治理、战略、风险管理与指标目标披露。",
+          "识别气候物理/转型风险，建立情景分析与压力测试，完善治理、战略、风险管理与指标目���披露。",
         image:
           "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&h=600&fit=crop",
       },
@@ -415,6 +415,82 @@ export const successCases: SuccessCase[] = [
       carbonReduction: "65%",
       energySaving: "50%",
       costSaving: "40%",
+    },
+  },
+  {
+    id: 7,
+    category: "碳交易",
+    title: "助力宁波两家机构获评省级“零碳”公共机构",
+    description:
+      "浙东环境能源交易所为宁波市海曙区机关事务管理局与鄞州区社会治理中心提供碳交易与碳中和服务，通过核销林业碳汇与CCER抵消2022年度排放，获评二星级省级“零碳”公共机构。",
+    image:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
+    heroImage:
+      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&h=1080&fit=crop",
+    tags: ["碳中和", "碳交易", "公共机构", "零碳"],
+    date: "2024-06",
+    location: "浙江宁波",
+    client: "宁波市海曙区机关事务管理局、宁波市鄞州区社会治理中心",
+    duration: "6个月",
+    projectScale:
+      "两家公共机构获评省级二星级“零碳”公共机构；核销与抵消2022年度排放共计995.02吨CO₂e（825.86吨+169.16吨）",
+    challenges: [
+      "缺乏统一核算口径与留痕，需形成可审计的碳中和证据链",
+      "抵消来源需合规、真实可追溯（林业碳汇、CCER）",
+      "需同步满足省级“零碳”公共机构评价标准的佐证要求",
+    ],
+    solutions: [
+      {
+        title: "组织边界与排放核算",
+        description:
+          "确定公共机构组织边界与排放范围，完成2022年度温室气体排放清单与台账核验。",
+        image:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      },
+      {
+        title: "碳资产采购与核销（林业碳汇/CCER）",
+        description:
+          "撮合“章水镇林业碳汇项目”等合规自愿减排量资产采购与核销，形成可追溯凭据与交易记录。",
+        image:
+          "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop",
+      },
+      {
+        title: "碳中和证书签发与披露材料",
+        description:
+          "为两家机构签发《碳中和证书》，输出核算方法、抵消路径、凭证清单等披露材料。",
+        image:
+          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
+      },
+      {
+        title: "“零碳”公共机构评价支持",
+        description:
+          "依据省级评价细则准备审查材料，配合现场核查与专家评审，完成等级评价与授牌。",
+        image:
+          "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+      },
+    ],
+    timeline: [
+      { phase: "核算与诊断", period: "2023.12-2024.01", description: "组织边界与排放核算、抵消需求测算" },
+      { phase: "资产采购与核销", period: "2024.02-2024.03", description: "撮合碳减排量资产采购，完成核销登记" },
+      { phase: "证书签发与披露", period: "2024.04", description: "签发碳中和证书，完善披露材料与档案" },
+      { phase: "评价支持与授牌", period: "2024.05-2024.06", description: "配合省���“零碳”公共机构评价验收并获评二星级" },
+    ],
+    testimonial: {
+      content:
+        "在交易所专业团队支持下，我们顺利完成年度碳中和并通过省级‘零碳’公共机构评价，材料规范、过程合规、社会影响良好。",
+      author: "项目负责人",
+      position: "宁波市相关公共机构代表",
+    },
+    images: [
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+    ],
+    results: {
+      carbonReduction: "100%（共995.02吨CO₂e）",
+      energySaving: "—",
+      costSaving: "—",
     },
   },
 ];
