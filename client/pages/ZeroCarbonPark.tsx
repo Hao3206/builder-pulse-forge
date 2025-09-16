@@ -302,7 +302,7 @@ export default function ZeroCarbonPark() {
                 </div>
                 <div className="flex py-1 px-[14px] justify-center items-center gap-2.5 rounded-[6px] bg-[#F2F9F7]">
                   <div className="text-[#058461] font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
-                    AI优��
+                    AI优化
                   </div>
                 </div>
               </div>

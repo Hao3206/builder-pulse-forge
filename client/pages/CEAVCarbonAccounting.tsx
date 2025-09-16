@@ -158,7 +158,7 @@ export default function CEAVCarbonAccounting() {
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="text-center mb-12">
             <h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">遵循的方法学与标准</h2>
-            <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">严格对标国际��国内通行标准，确保结果权威可靠。</p>
+            <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">严格对标国际国内通行标准，确保结果权威可靠。</p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             {standards.map((s, i) => (
@@ -234,7 +234,7 @@ export default function CEAVCarbonAccounting() {
         <div className="max-w-[840px] mx-auto px-8">
           <div className="text-center mb-12">
             <h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">联系我们</h2>
-            <p className="text-[16px] text-[#858C95] tracking-[-0.1px]">获取专属顾问与产品演示，了解��适合您的核算申报路径。</p>
+            <p className="text-[16px] text-[#858C95] tracking-[-0.1px]">获取专属顾问与产品演示，了解最适合您的核算申报路径。</p>
           </div>
           <div className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

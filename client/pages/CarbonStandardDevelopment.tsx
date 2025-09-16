@@ -56,7 +56,7 @@ export default function CarbonStandardDevelopment() {
     "标准草案与征求意见稿",
     "试点验证评估报告",
     "发布文本与应用指南",
-    "宣贯培训材料与题��",
+    "宣贯培训材料与题库",
   ];
 
   const faqs = [

@@ -456,7 +456,7 @@ export function SolutionsDropdown({
             解决方案
           </h3>
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
-            全行业的解决方案，助��用户快速增长。
+            全行业的解决方案，助力用户快速增长。
           </p>
           <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
             更多内容
@@ -750,7 +750,7 @@ export function AboutDropdown({ isScrolled = false }: DropdownComponentProps) {
                 className="text-[#999] font-inter text-sm cursor-pointer hover:text-brand-green transition-colors"
                 onClick={() => handleNavigation("/about")}
               >
-                地��信息
+                地区信息
               </div>
             </div>
           </div>

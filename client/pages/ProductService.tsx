@@ -53,7 +53,7 @@ export default function ProductService() {
         {
           icon: TrendingUp,
           title: "第三方验证支持",
-          description: "穿行测试资料、抽样与证��留痕，配合验证机构",
+          description: "穿行测试资料、抽样与证据留痕，配合验证机构",
         },
         {
           icon: Award,
@@ -103,7 +103,7 @@ export default function ProductService() {
       caseStudies: [
         {
           title: "消费电子产品碳足迹",
-          description: "完成多SKU产品碳足迹核算与海外披露模��输出",
+          description: "完成多SKU产品碳足迹核算与海外披露模型输出",
           result: "获得客户认可并中标供应链名录",
         },
         {
@@ -216,7 +216,7 @@ export default function ProductService() {
           result: "成功获得国家级绿色工厂认定，年节约成本约200万元",
         },
         {
-          title: "某��织企业低碳工厂建设",
+          title: "某纺织企业低碳工厂建设",
           description: "指导企业建设低碳工厂，实施清洁生产技术改造",
           result: "碳排放强度降低40%，获得省级低碳工厂示范称号",
         },
@@ -264,7 +264,7 @@ export default function ProductService() {
         {
           icon: Award,
           title: "资产管理",
-          description: "建立完善的碳资产管理体��，优化资产配置，实现价值最大化",
+          description: "建立完善的碳资产管理体系，优化资产配置，实现价值最大化",
         },
       ],
       benefits: [
@@ -361,7 +361,7 @@ export default function ProductService() {
         {
           icon: FileText,
           title: "产品全景",
-          description: "配额/CCER/绿证等产品与制度",
+          description: "配额/CCER/绿证据等产品与制度",
         },
         {
           icon: TrendingUp,
@@ -378,11 +378,11 @@ export default function ProductService() {
         "理论+实操双轨，快速上手",
         "模拟盘演练，巩固策略",
         "讲师一对一答疑",
-        "结业证书与资料包",
+        "结业证据书与资料包",
       ],
       process: [
         { step: "01", title: "概论与规则", description: "市场体系与履约机制" },
-        { step: "02", title: "产品与制度", description: "配额/CCER/绿证详解" },
+        { step: "02", title: "产品与制度", description: "配额/CCER/绿证据详解" },
         {
           step: "03",
           title: "策略与实操",
@@ -446,7 +446,7 @@ export default function ProductService() {
           description: "职责分工、流程内控与配合审计",
         },
       ],
-      benefits: ["模板工具包", "岗位胜任力提升", "讲师答疑", "证书与评估"],
+      benefits: ["模板工具包", "岗位胜任力提升", "讲师答疑", "证据书与评估"],
       process: [
         {
           step: "01",
@@ -455,7 +455,7 @@ export default function ProductService() {
         },
         { step: "02", title: "数据与口径", description: "采集模板与口径统一" },
         { step: "03", title: "履约与披露", description: "核查对接与披露撰写" },
-        { step: "04", title: "系统与内��", description: "系统操作与流程内控" },
+        { step: "04", title: "系统与内控", description: "系统操作与流程内控" },
       ],
       stats: [
         { number: "800+", label: "培训学员" },
@@ -485,7 +485,7 @@ export default function ProductService() {
     "industry-seminars-forums": {
       id: "industry-seminars-forums",
       title: "行业专题讲座/论坛",
-      subtitle: "链接政策、技术与产业实践，构建行业交流平��",
+      subtitle: "链接政策、技术与产业实践，构建行业交流平台",
       description:
         "围绕制造业低碳转型、产品碳足迹、绿电与碳金融等主题举办讲座/论坛/工作坊。",
       heroImage:
@@ -513,7 +513,7 @@ export default function ProductService() {
       caseStudies: [
         {
           title: "园区双碳论坛",
-          description: "政��与实践闭环分享",
+          description: "政治与实践闭环分享",
           result: "促成多项合作意向",
         },
       ],
@@ -551,7 +551,7 @@ export default function ProductService() {
         },
         {
           icon: Target,
-          title: "授��与辅导",
+          title: "授课与辅导",
           description: "授课+实操+辅导一体化",
         },
         { icon: Award, title: "评估与认证", description: "成效评估与结业认证" },
@@ -561,7 +561,7 @@ export default function ProductService() {
         { step: "01", title: "需求洞察", description: "访谈与问卷" },
         { step: "02", title: "方案制定", description: "定制大纲与排期" },
         { step: "03", title: "实施交付", description: "授课+实操+辅导" },
-        { step: "04", title: "评估认证", description: "测评与证书" },
+        { step: "04", title: "评估认证", description: "测评与证据书" },
       ],
       stats: [
         { number: "100+", label: "企业服务" },
@@ -619,7 +619,7 @@ export default function ProductService() {
           description: "MACC、ROI与治理绩效",
         },
       ],
-      benefits: ["高阶体��化", "实战案例库", "工具包输出", "专家社群"],
+      benefits: ["高阶体系化", "实战案例库", "工具包输出", "专家社群"],
       process: [
         { step: "01", title: "战略与核算", description: "战略框架与方法学" },
         {
@@ -701,7 +701,7 @@ export default function ProductService() {
       caseStudies: [
         {
           title: "某省级区域双碳平台",
-          description: "实现跨部门数据打��",
+          description: "实现跨部门数据打通",
           result: "支撑年度考核与路径滚动更新",
         },
       ],
@@ -816,7 +816,7 @@ export default function ProductService() {
           title: "实施与协同",
           description: "供应链协同与看板上线",
         },
-        { step: "04", title: "优化与迭代", description: "合规升级与市场��展" },
+        { step: "04", title: "优化与迭代", description: "合规升级与市场发展" },
       ],
       stats: [
         { number: "500+", label: "出口SKU" },

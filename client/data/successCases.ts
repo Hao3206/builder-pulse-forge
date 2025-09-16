@@ -256,7 +256,7 @@ export const successCases: SuccessCase[] = [
     projectScale:
       "覆盖3大产品线、12个SKU，年产量超500万件，涉及包装、原料、装配与物流环节",
     challenges: [
-      "SKU多、供应链长，活动��据采集口径不一致",
+      "SKU多、供应链长，活动数据采集口径不一致",
       "上游原料排放因子来源复杂，区域/年份差异影响结果稳定性",
       "海外披露要求差异较大，EPD/CFP验证资料准备难度高",
       "包装与物流阶段排放占比高，改进路径需兼顾成本与交付",
@@ -351,7 +351,7 @@ export const successCases: SuccessCase[] = [
     category: "ESG报告",
     title: "金融机构ESG信息披露体系构建",
     description:
-      "协助大型商业银行建立与国际标准对齐的ESG信息披露体系，覆盖治理、环境与社会三大维度的指标框架、数据治理、流程与内外部披露，实现合规、可审计��价值沟通。",
+      "协助大型商业银行建立与国际标准对齐的ESG信息披露体系，覆盖治理、环境与社会三大维度的指标框架、数据治理、流程与内外部披露，实现合规、可审计价值沟通。",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
     heroImage:
@@ -366,7 +366,7 @@ export const successCases: SuccessCase[] = [
     challenges: [
       "ESG指标口径不统一，跨条线数据口径与口径更新机制缺失",
       "披露框架与国际标准（如TCFD/ISSB/GRI）映射不清，治理与风险披露不足",
-      "证据留痕薄弱，第三方核验准备成本高、效��低",
+      "证据留痕薄弱，第三方核验准备成本高、效率低",
       "内部流程未形成年度闭环，披露与经营管理脱节",
     ],
     solutions: [
@@ -378,7 +378,7 @@ export const successCases: SuccessCase[] = [
           "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
       },
       {
-        title: "ESG数��治理与留痕机制",
+        title: "ESG数据治理与留痕机制",
         description:
           "建立数据血缘、证据留痕与抽样核验流程，形成自证材料包，提升可审计性与复用效率。",
         image:
@@ -494,7 +494,7 @@ export const successCases: SuccessCase[] = [
     date: "2024-06",
     location: "华东地区",
     client: "两家公共机构",
-    duration: "6��月",
+    duration: "6月",
     projectScale:
       "两家公共机构获评省级二星级“零碳”公共机构；核销与抵消2022年度排放共计995.02吨CO₂e（825.86吨+169.16吨）",
     challenges: [
@@ -611,7 +611,7 @@ export const successCases: SuccessCase[] = [
           "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=800&h=600&fit=crop",
       },
       {
-        title: "CCER采购与注销实现施��碳中和",
+        title: "CCER采购与注销实现施工碳中和",
         description:
           "撮合采购并注销等量合规CCER，抵消施工阶段核算排放，出具《碳中和证书》与凭证清单。",
         image:
