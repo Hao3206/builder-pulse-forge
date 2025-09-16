@@ -23,6 +23,11 @@ import ESGDisclosure from "./pages/ESGDisclosure";
 import CarbonStandardDevelopment from "./pages/CarbonStandardDevelopment";
 import CarbonResearch from "./pages/CarbonResearch";
 import CarbonFinanceSolution from "./pages/CarbonFinanceSolution";
+import AdvancedCarbonTraining from "./pages/AdvancedCarbonTraining";
+import CarbonTraderTraining from "./pages/CarbonTraderTraining";
+import CarbonAdminTraining from "./pages/CarbonAdminTraining";
+import IndustrySeminarsForums from "./pages/IndustrySeminarsForums";
+import CustomTraining from "./pages/CustomTraining";
 import NewsCenter from "./pages/NewsCenter";
 import NewsDetail from "./pages/NewsDetail";
 import SuccessCases from "./pages/SuccessCases";
@@ -72,6 +77,11 @@ const App = () => (
             <Route path="/carbon-standard-development" element={<CarbonStandardDevelopment />} />
             <Route path="/carbon-research" element={<CarbonResearch />} />
             <Route path="/carbon-finance-solution" element={<CarbonFinanceSolution />} />
+            <Route path="/advanced-carbon-training" element={<AdvancedCarbonTraining />} />
+            <Route path="/carbon-trader-training" element={<CarbonTraderTraining />} />
+            <Route path="/carbon-admin-training" element={<CarbonAdminTraining />} />
+            <Route path="/industry-seminars-forums" element={<IndustrySeminarsForums />} />
+            <Route path="/custom-training" element={<CustomTraining />} />
             <Route path="/news-center" element={<NewsCenter />} />
             <Route path="/news-detail/:id" element={<NewsDetail />} />
             <Route path="/success-cases" element={<SuccessCases />} />
