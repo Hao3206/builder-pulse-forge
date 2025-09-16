@@ -320,7 +320,14 @@ export function ProductServicesDropdown({
 
           {/* Content under 碳足��� */}
           <div className="absolute top-[316px] left-[32px] w-[210px]">
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActiveService("carbon-footprint-accounting")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/product-service/carbon-footprint-accounting")}
+            >
               {t("products.carbon.accounting")}
             </div>
           </div>
