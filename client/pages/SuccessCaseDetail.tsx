@@ -130,45 +130,35 @@ export default function SuccessCaseDetail() {
       </div>
 
       {/* Results Section */}
-      {caseData.results && (
-        <div className="bg-[#F8F9FB] py-16">
-          <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-[32px] font-bold text-[#333] mb-4">项目成果</h2>
-              <p className="text-lg text-[#666]">通过专业的解决方案，实现了显著的改善效果</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center bg-white p-8 rounded-xl">
-                <div className="text-[48px] font-bold text-[#058A65] mb-2">
-                  {caseData.results.carbonReduction}
-                </div>
-                <div className="text-[#666] font-medium">碳排放减少</div>
+      {caseData.results && (() => {
+        const items = [
+          { value: caseData.results.carbonReduction, label: "碳排放减少" },
+          { value: caseData.results.energySaving, label: "能源节约" },
+          { value: caseData.results.costSaving, label: "成本节约" },
+        ] as { value: string; label: string }[];
+        if (caseData.results.renewableEnergy) {
+          items.push({ value: caseData.results.renewableEnergy, label: "清洁能源占比" });
+        }
+        const gridCols = items.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4";
+        return (
+          <div className="bg-[#F8F9FB] py-16">
+            <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-[32px] font-bold text-[#333] mb-4">项目成果</h2>
+                <p className="text-lg text-[#666]">通过专业的解决方案，实现了显著的改善效果</p>
               </div>
-              <div className="text-center bg-white p-8 rounded-xl">
-                <div className="text-[48px] font-bold text-[#058A65] mb-2">
-                  {caseData.results.energySaving}
-                </div>
-                <div className="text-[#666] font-medium">能源节约</div>
-              </div>
-              <div className="text-center bg-white p-8 rounded-xl">
-                <div className="text-[48px] font-bold text-[#058A65] mb-2">
-                  {caseData.results.costSaving}
-                </div>
-                <div className="text-[#666] font-medium">成本节约</div>
-              </div>
-              {caseData.results.renewableEnergy && (
-                <div className="text-center bg-white p-8 rounded-xl">
-                  <div className="text-[48px] font-bold text-[#058A65] mb-2">
-                    {caseData.results.renewableEnergy}
+              <div className={`grid grid-cols-1 md:grid-cols-2 ${gridCols} gap-8 justify-items-center`}>
+                {items.map((it, idx) => (
+                  <div key={idx} className="text-center bg-white p-8 rounded-xl w-full">
+                    <div className="text-[48px] font-bold text-[#058A65] mb-2">{it.value}</div>
+                    <div className="text-[#666] font-medium">{it.label}</div>
                   </div>
-                  <div className="text-[#666] font-medium">清洁能源占比</div>
-                </div>
-              )}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* Project Scale */}
       {caseData.projectScale && (
