@@ -99,7 +99,7 @@ export const successCases: SuccessCase[] = [
       {
         phase: "基础设施建设",
         period: "2023年9月 - 2024年3月",
-        description: "部署智能电网、监测设备和清洁能源设施",
+        description: "部署智���电网、监测设备和清洁能源设施",
       },
       {
         phase: "系统集成测试",
@@ -130,7 +130,7 @@ export const successCases: SuccessCase[] = [
     category: "企业碳管理",
     title: "大型制造企业碳中和管理平台建设",
     description:
-      "为某大型制造企业搭建完整的碳排放监测、核算与管理平台，实现数据统一口径、可审计与降本增效，支撑集团碳中和路线落地。",
+      "���某大型制造企业搭建完整的碳排放监测、核算与管理平台，实现数据统一口径、可审计与降本增效，支撑集团碳中和路线落地。",
     image:
       "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop",
     heroImage:
@@ -333,7 +333,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "ESG数��治理与留痕机制",
         description:
-          "建立数据血缘、证据留痕与抽样核验流程，形成自证材料包，提升可审计性与复用效率。",
+          "建立数据血缘、证据留痕与抽样核验流程，形成自证材料包，提升可审计��与复用效率。",
         image:
           "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
       },
@@ -422,7 +422,7 @@ export const successCases: SuccessCase[] = [
     category: "碳交易",
     title: "助力宁波两家机构获评省级“零碳”公共机构",
     description:
-      "浙东环境能源交易所为宁波市海曙区机关事务管理局与鄞州区社会治理中心提供碳交易与碳中和服务，通过核销林业碳汇与CCER抵消2022年度排放，获评二星级省级“零碳”公共机构。",
+      "浙东环境能源交��所为宁波市海曙区机关事务管理局与鄞州区社会治理中心提供碳交易与碳中和服务，通过核销林业碳汇与CCER抵消2022年度排放，获评二星级省级“零碳”公共机构。",
     image:
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
     heroImage:
@@ -443,7 +443,7 @@ export const successCases: SuccessCase[] = [
       {
         title: "组织边界与排放核算",
         description:
-          "确定公共机构组织边界与排放范围，完成2022年度温室气体排放清单与台账核验。",
+          "确定公共机构组织边界与排放范围，完成2022年度温室气体排放清单��台账核验。",
         image:
           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
       },
@@ -489,6 +489,90 @@ export const successCases: SuccessCase[] = [
     ],
     results: {
       carbonReduction: "100%（共995.02吨CO₂e）",
+      energySaving: "—",
+      costSaving: "—",
+    },
+  },
+  {
+    id: 8,
+    category: "碳交易",
+    title: "助力光伏项目施工实现碳中和并获碳减排贷款",
+    description:
+      "与兴业银行宁波分行合作，助力宁波佳豪密封管业有限公司1.6MWp分布式光伏发电项目施工阶段实现碳中和，并获得碳减排贷款。",
+    image:
+      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+    heroImage:
+      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=1920&h=1080&fit=crop",
+    tags: ["光伏", "施工碳中和", "CCER", "碳金融"],
+    date: "2024-07",
+    location: "浙江宁波",
+    client: "宁波佳豪密封管业有限公司",
+    duration: "3个月",
+    projectScale:
+      "1.6MWp分布式光伏发电项目；覆盖施工阶段燃料燃烧、电力使用与交通运输排放核算，并实现等量CCER注销抵消",
+    challenges: [
+      "施工阶段排放边界复杂，需要统一直接与间接排放的核算口径",
+      "交通运输等间接排放的数据采集与证据留痕要求高",
+      "需快速匹配合规CCER资源并完成注销流程",
+      "碳减排贷款所需合规材料与审查流程较为严格",
+    ],
+    solutions: [
+      {
+        title: "ISO 14064与建筑碳排放标准核算",
+        description:
+          "基于ISO 14064与《建筑碳排放计算标准》明确功能单位与系统边界，建立数据质量评价与核算模型。",
+        image:
+          "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+      },
+      {
+        title: "覆盖直接/间接排放的全口径核算",
+        description:
+          "纳入化石燃料燃烧直接排放、电力消费间接排放及交通运输间接排放，形成可审计的台账。",
+        image:
+          "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=800&h=600&fit=crop",
+      },
+      {
+        title: "CCER采购与注销实现施工碳中和",
+        description:
+          "撮合采购并注销等量合规CCER，抵消施工阶段核算排放，出具《碳中和证书》与凭证清单。",
+        image:
+          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
+      },
+      {
+        title: "碳金融工具与贷款落地",
+        description:
+          "串联央行碳减排支持工具与银行碳减排贷款，形成“核算+交易+金融”一体化路径，降低资金成本。",
+        image:
+          "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&h=600&fit=crop",
+      },
+      {
+        title: "披露材料与档案管理",
+        description:
+          "输出核算报告、抵消路径、凭证与影像资料，建立留痕档案，便于外部审查与复用。",
+        image:
+          "https://images.unsplash.com/photo-1523958203904-cdcb402031fd?w=800&h=600&fit=crop",
+      },
+    ],
+    timeline: [
+      { phase: "立项与边界定义", period: "2024.05", description: "确定系统边界与排放口径，拟定数据采集方案" },
+      { phase: "数据采集与核算", period: "2024.05-2024.06", description: "采集施工活动数据并完成核算建模" },
+      { phase: "CCER采购与注销", period: "2024.06", description: "撮合采购并完成注销登记，准备证书与凭证" },
+      { phase: "碳减排贷款落地", period: "2024.07", description: "对接银行完成贷款审批与发放" },
+    ],
+    testimonial: {
+      content:
+        "在交易所团队支持下，我们的光伏项目施工阶段实现了碳中和并获得了碳减排贷款，流程规范、落地高效。",
+      author: "企业负责人",
+      position: "宁波佳豪密封管业有限公司项目负责人",
+    },
+    images: [
+      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&h=600&fit=crop",
+    ],
+    results: {
+      carbonReduction: "100%（施工阶段）",
       energySaving: "—",
       costSaving: "—",
     },
