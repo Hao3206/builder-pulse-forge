@@ -97,6 +97,12 @@ export function ProductServicesDropdown({
     return location.pathname === `/product-service/${serviceId}`;
   };
 
+  const isActivePath = (path: string) => {
+    if (path === "/" && location.pathname === "/") return true;
+    if (path !== "/" && location.pathname.startsWith(path)) return true;
+    return false;
+  };
+
   return (
     <Dropdown
       title={t("nav.products")}
@@ -108,13 +114,13 @@ export function ProductServicesDropdown({
         {/* Left Sidebar */}
         <div className="w-[340px] h-[506px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
           <h3 className="text-[#333] font-inter text-[18px] font-bold leading-[20px] tracking-[-0.1px] mb-4">
-            产品服务
+            {t("nav.products")}
           </h3>
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
-            描述性小文字阐述文字文字描述性小文字阐.。
+            {t("common.description.placeholder")}
           </p>
           <button className="flex items-center gap-2 text-brand-green font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
-            更多内容
+            {t("common.more.content")}
             <ChevronRight className="w-5 h-5 -rotate-90" />
           </button>
         </div>
@@ -124,36 +130,43 @@ export function ProductServicesDropdown({
           {/* Row 1 - Top positioned elements - positions from Figma: 372px, 620px, 868px, 1116px minus 340px sidebar = 32px, 280px, 528px, 776px */}
           <div className="absolute top-[30px] left-[32px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
-              碳交易
+              {t("products.carbon.trading")}
             </span>
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
           </div>
 
           <div className="absolute top-[30px] left-[280px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
-              碳咨询
+              {t("products.carbon.consulting")}
             </span>
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
           </div>
 
           <div className="absolute top-[30px] left-[528px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
-              碳金融
+              {t("products.carbon.finance")}
             </span>
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
           </div>
 
           <div className="absolute top-[30px] left-[776px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
-              碳信息化
+              {t("products.carbon.tech")}
             </span>
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
           </div>
 
           {/* Content under 碳交易 */}
           <div className="absolute top-[64px] left-[32px] w-[210px] space-y-3">
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              地方碳普惠交易
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActivePath("/local-carbon-trading")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/local-carbon-trading")}
+            >
+              {t("products.local.carbon.trading")}
             </div>
             <div
               className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
@@ -165,13 +178,27 @@ export function ProductServicesDropdown({
                 navigate("/product-service/ccer-asset-development")
               }
             >
-              CCER资产开发与交易
+              {t("products.ccer.development")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              绿证交易
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActivePath("/green-certificate-trading")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/green-certificate-trading")}
+            >
+              {t("products.green.certificate")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              企业碳资产管理
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActivePath("/enterprise-carbon-asset-management")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/enterprise-carbon-asset-management")}
+            >
+              {t("products.enterprise.carbon.management")}
             </div>
           </div>
 
@@ -187,72 +214,106 @@ export function ProductServicesDropdown({
                 navigate("/product-service/green-low-carbon-factory")
               }
             >
-              绿色/低碳工厂创建
+              {t("products.green.factory")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              CEAV产品碳排放核算与申报
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActivePath("/ceav-carbon-accounting")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/ceav-carbon-accounting")}
+            >
+              {t("products.ceav.accounting")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳达峰碳中和路径规划
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActivePath("/carbon-neutrality-planning")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/carbon-neutrality-planning")}
+            >
+              {t("products.carbon.neutral.planning")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              ESG信息披露
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActivePath("/esg-disclosure")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/esg-disclosure")}
+            >
+              {t("products.esg.disclosure")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              双碳标准编生
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${
+                isActivePath("/carbon-standard-development")
+                  ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]"
+                  : "text-[#999] hover:text-brand-green"
+              }`}
+              onClick={() => navigate("/carbon-standard-development")}
+            >
+              {t("products.carbon.standard")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              双碳课题研究
+            <div
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/carbon-research") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
+              onClick={() => navigate("/carbon-research")}
+            >
+              {t("products.carbon.research")}
             </div>
           </div>
 
           {/* Content under 碳金融 */}
           <div className="absolute top-[64px] left-[528px] w-[210px]">
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳金融解决方案
+              <div
+                className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/carbon-finance-solution") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
+                onClick={() => navigate("/carbon-finance-solution")}
+              >
+              {t("products.carbon.finance.solutions")}
             </div>
           </div>
 
           {/* Content under 碳信息化 */}
           <div className="absolute top-[64px] left-[776px] w-[210px] space-y-3">
-            <div
-              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
-              onClick={() => navigate("/corporate-carbon-management")}
-            >
-              企业碳管理平台
+              <div
+                className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/corporate-carbon-management") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
+                onClick={() => navigate("/corporate-carbon-management")}
+              >
+              {t("products.enterprise.platform")}
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              区域双碳大脑
+              {t("products.regional.brain")}
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              企业碳管理平台
+              {t("products.enterprise.platform")}
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              个人碳账户建设
+              {t("products.personal.account")}
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              绿色贸易服务平台
+              {t("products.green.trade.platform")}
             </div>
           </div>
 
           {/* Row 2 - Bottom positioned elements */}
           <div className="absolute top-[282px] left-[32px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
-              碳足迹
+              {t("products.carbon.footprint")}
             </span>
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
           </div>
 
           <div className="absolute top-[282px] left-[280px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px]">
-              碳培训
+              {t("products.carbon.training")}
             </span>
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
           </div>
 
           <div className="absolute top-[282px] left-[528px] flex items-center gap-1">
             <span className="text-brand-green font-inter text-[16px] font-semibold leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors">
-              零碳园区
+              {t("products.zero.carbon.park")}
             </span>
             <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
           </div>
@@ -260,45 +321,45 @@ export function ProductServicesDropdown({
           {/* Content under 碳足��� */}
           <div className="absolute top-[316px] left-[32px] w-[210px]">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳盘查/碳足迹核算
+              {t("products.carbon.accounting")}
             </div>
           </div>
 
           {/* Content under 碳培训 */}
           <div className="absolute top-[316px] left-[280px] w-[210px] space-y-3">
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳排放交易员培训
+              {t("products.trader.training")}
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳排放管理员培训
+              {t("products.manager.training")}
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              行业专题讲座/论坛
+              {t("products.industry.seminar")}
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              其他定制化培训
+              {t("products.custom.training")}
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              碳达峰碳中和战略规划高级研修班
+              {t("products.advanced.training")}
             </div>
           </div>
 
           {/* Content under 零碳园区 */}
           <div className="absolute top-[316px] left-[528px] w-[210px] space-y-3">
-            <div
-              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
-              onClick={() => navigate("/zero-carbon-park")}
-            >
-              零碳园区解决方案
+              <div
+                className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/zero-carbon-park") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
+                onClick={() => navigate("/zero-carbon-park")}
+              >
+              {t("products.zero.carbon.solutions")}
             </div>
             <div
-              className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer hover:text-brand-green transition-colors"
+              className={`font-inter text-[14px] leading-5 tracking-[-0.1px] cursor-pointer transition-colors ${isActivePath("/zero-carbon-factory") ? "text-white bg-brand-green font-medium rounded-[4px] px-3 py-1 w-[218px]" : "text-[#999] hover:text-brand-green"}`}
               onClick={() => navigate("/zero-carbon-factory")}
             >
-              零碳工厂解决方案
+              {t("products.zero.carbon.factory")}
             </div>
             <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              其他低/零碳解决方案
+              {t("products.low.carbon.solutions")}
             </div>
           </div>
         </div>
@@ -436,13 +497,13 @@ export function NewsCenterDropdown({
         {/* Left Sidebar */}
         <div className="w-[340px] h-[266px] bg-[#EBF8F6] flex flex-col justify-center px-[30px]">
           <h3 className="text-[#333] font-inter text-[18px] font-bold leading-[20px] tracking-[-0.1px] mb-4">
-            资讯中心
+            {t("news.sidebar.title")}
           </h3>
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
-            获取深度内容，了解最新动态。
+            {t("news.sidebar.description")}
           </p>
           <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
-            更多内容
+            {t("common.more.content")}
             <ChevronRight className="w-5 h-5 -rotate-90" />
           </button>
         </div>
@@ -455,7 +516,7 @@ export function NewsCenterDropdown({
             onClick={() => handleNavigation("政策解读")}
           >
             <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-              政策解读
+              {t("news.policy")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
           </div>
@@ -465,7 +526,7 @@ export function NewsCenterDropdown({
             onClick={() => handleNavigation("本所动态")}
           >
             <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-              本所动态
+              {t("news.dynamics")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
           </div>
@@ -475,7 +536,7 @@ export function NewsCenterDropdown({
             onClick={() => handleNavigation("通知公告")}
           >
             <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-              通知公告
+              {t("news.announcement")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
           </div>
@@ -483,19 +544,19 @@ export function NewsCenterDropdown({
           {/* First Row Descriptions */}
           <div className="absolute left-[32px] top-[64px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              深入解读国家及地方碳达峰碳中和相关政策法规，为企业提供政策指引
+              {t("news.policy.interpretation.desc")}
             </div>
           </div>
 
           <div className="absolute left-[262px] top-[64px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              及时发布本所重要活动、业务进展及重大事项信息
+              {t("news.institute.news.desc")}
             </div>
           </div>
 
           <div className="absolute left-[492px] top-[64px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              发布本所各类通知公告，确保信息及时传达
+              {t("news.announcements.desc")}
             </div>
           </div>
 
@@ -505,7 +566,7 @@ export function NewsCenterDropdown({
             onClick={() => handleNavigation("新闻资讯")}
           >
             <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-              新闻资讯
+              {t("news.general")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
           </div>
@@ -515,7 +576,7 @@ export function NewsCenterDropdown({
             onClick={() => handleNavigation("知识专栏")}
           >
             <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-              知识专栏
+              {t("news.knowledge")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
           </div>
@@ -523,18 +584,24 @@ export function NewsCenterDropdown({
           {/* Second Row Descriptions */}
           <div className="absolute left-[32px] top-[178px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              汇集国内外碳市场最新动态，掌握行业发展趋势
+              {t("news.news.information.desc")}
             </div>
           </div>
 
           <div className="absolute left-[262px] top-[178px] w-[180px]">
             <div className="text-[#999] font-inter text-[14px] font-normal leading-5 tracking-[-0.1px]">
-              分享碳市场专业知识，普及碳交易相关概念
+              {t("news.knowledge.column.desc")}
             </div>
           </div>
 
-          {/* Gray Placeholder Area */}
-          <div className="absolute right-[32px] top-[48px] w-[280px] h-[170px] bg-[#D9D9D9]"></div>
+          {/* News Image Area */}
+          <div className="absolute right-[32px] top-[48px] w-[280px] h-[170px]">
+            <img 
+              src="/news-featured-image.jpg" 
+              alt="资讯中心" 
+              className="w-full h-full object-cover rounded-lg" 
+            />
+          </div>
         </div>
       </div>
     </Dropdown>

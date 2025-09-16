@@ -21,20 +21,20 @@ router.get("/news/:id", async (req, res) => {
 
 // Create a new news article
 router.post("/news", async (req, res) => {
-  const { title, content, imageUrl, author, category } = req.body;
+  const { title, content, rich_content, imageUrl, author, category } = req.body;
   const result = await db.run(
-    "INSERT INTO news (title, content, imageUrl, author, category) VALUES (?, ?, ?, ?, ?)",
-    [title, content, imageUrl, author, category]
+    "INSERT INTO news (title, content, rich_content, imageUrl, author, category) VALUES (?, ?, ?, ?, ?, ?)",
+    [title, content, rich_content || content, imageUrl, author, category]
   );
   res.status(201).json({ id: result.lastID });
 });
 
 // Update a news article
 router.put("/news/:id", async (req, res) => {
-  const { title, content, imageUrl, author, category } = req.body;
+  const { title, content, rich_content, imageUrl, author, category } = req.body;
   const result = await db.run(
-    "UPDATE news SET title = ?, content = ?, imageUrl = ?, author = ?, category = ? WHERE id = ?",
-    [title, content, imageUrl, author, category, req.params.id]
+    "UPDATE news SET title = ?, content = ?, rich_content = ?, imageUrl = ?, author = ?, category = ? WHERE id = ?",
+    [title, content, rich_content || content, imageUrl, author, category, req.params.id]
   );
   if (result.changes > 0) {
     res.json({ message: "News updated successfully" });

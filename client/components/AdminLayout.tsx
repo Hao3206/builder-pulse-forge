@@ -10,6 +10,8 @@ import {
   User,
   BarChart3,
   Bell,
+  Share2,
+  Download,
 } from "lucide-react";
 
 interface AdminUser {
@@ -59,6 +61,16 @@ export default function AdminLayout() {
       path: "/admin/news",
       label: "资讯管理",
       icon: FileText,
+    },
+    {
+      path: "/admin/wechat-config",
+      label: "微信配置",
+      icon: Share2,
+    },
+    {
+      path: "/admin/wechat-sync",
+      label: "微信同步",
+      icon: Download,
     },
     {
       path: "/admin/settings",

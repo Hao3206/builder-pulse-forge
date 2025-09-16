@@ -58,10 +58,20 @@ export default function NewsDetail() {
           if (apiData.imageUrl) {
             blocks.push({ type: "image", src: apiData.imageUrl, alt: "新闻配图" });
           }
-          if (apiData.content) {
-            apiData.content.split('\n').filter(p => p.trim() !== '').forEach(paragraph => {
-              blocks.push({ type: "text", content: paragraph });
-            });
+          
+          // 优先使用富文本内容，如果没有则使用普通文本
+          const contentToUse = apiData.rich_content || apiData.content;
+          if (contentToUse) {
+            // 检查是否包含HTML标签
+            if (contentToUse.includes('<img')) {
+              // 如果有图片标签，直接使用富文本内容
+              blocks.push({ type: "text", content: contentToUse });
+            } else {
+              // 普通文本，按段落分割
+              contentToUse.split('\n').filter(p => p.trim() !== '').forEach(paragraph => {
+                blocks.push({ type: "text", content: paragraph });
+              });
+            }
           }
           setContentBlocks(blocks);
         }
@@ -171,9 +181,10 @@ export default function NewsDetail() {
                 {contentBlocks.map((block, index) => (
                   <div key={index}>
                     {block.type === "text" && (
-                      <p className="text-base leading-6 tracking-[-0.1px] text-[#666]">
-                        {block.content}
-                      </p>
+                      <div 
+                        className="text-base leading-6 tracking-[-0.1px] text-[#666]"
+                        dangerouslySetInnerHTML={{ __html: block.content || '' }}
+                      />
                     )}
                     {block.type === "image" && (
                       <img

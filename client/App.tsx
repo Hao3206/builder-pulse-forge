@@ -14,6 +14,15 @@ import ZeroCarbonPark from "./pages/ZeroCarbonPark";
 import ZeroCarbonFactory from "./pages/ZeroCarbonFactory";
 import CorporateCarbonManagement from "./pages/CorporateCarbonManagement";
 import CarbonFootprint from "./pages/CarbonFootprint";
+import LocalCarbonTrading from "./pages/LocalCarbonTrading";
+import GreenCertificateTrading from "./pages/GreenCertificateTrading";
+import EnterpriseCarbonAssetManagement from "./pages/EnterpriseCarbonAssetManagement";
+import CEAVCarbonAccounting from "./pages/CEAVCarbonAccounting";
+import CarbonNeutralityPlanning from "./pages/CarbonNeutralityPlanning";
+import ESGDisclosure from "./pages/ESGDisclosure";
+import CarbonStandardDevelopment from "./pages/CarbonStandardDevelopment";
+import CarbonResearch from "./pages/CarbonResearch";
+import CarbonFinanceSolution from "./pages/CarbonFinanceSolution";
 import NewsCenter from "./pages/NewsCenter";
 import NewsDetail from "./pages/NewsDetail";
 import SuccessCases from "./pages/SuccessCases";
@@ -29,6 +38,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminNewsList from "./pages/AdminNewsList";
 import AdminNewsEditor from "./pages/AdminNewsEditor";
 import AdminContactMessages from "./pages/AdminContactMessages";
+import AdminWechatConfig from "./pages/AdminWechatConfig";
+import AdminWechatSync from "./pages/AdminWechatSync";
 
 const App = () => (
   <LanguageProvider>
@@ -52,6 +63,15 @@ const App = () => (
               element={<CorporateCarbonManagement />}
             />
             <Route path="/carbon-footprint" element={<CarbonFootprint />} />
+            <Route path="/local-carbon-trading" element={<LocalCarbonTrading />} />
+            <Route path="/green-certificate-trading" element={<GreenCertificateTrading />} />
+            <Route path="/enterprise-carbon-asset-management" element={<EnterpriseCarbonAssetManagement />} />
+            <Route path="/ceav-carbon-accounting" element={<CEAVCarbonAccounting />} />
+            <Route path="/carbon-neutrality-planning" element={<CarbonNeutralityPlanning />} />
+            <Route path="/esg-disclosure" element={<ESGDisclosure />} />
+            <Route path="/carbon-standard-development" element={<CarbonStandardDevelopment />} />
+            <Route path="/carbon-research" element={<CarbonResearch />} />
+            <Route path="/carbon-finance-solution" element={<CarbonFinanceSolution />} />
             <Route path="/news-center" element={<NewsCenter />} />
             <Route path="/news-detail/:id" element={<NewsDetail />} />
             <Route path="/success-cases" element={<SuccessCases />} />
@@ -73,6 +93,8 @@ const App = () => (
               <Route path="news" element={<AdminNewsList />} />
               <Route path="news/create" element={<AdminNewsEditor />} />
               <Route path="news/edit/:id" element={<AdminNewsEditor />} />
+              <Route path="wechat-config" element={<AdminWechatConfig />} />
+              <Route path="wechat-sync" element={<AdminWechatSync />} />
             </Route>
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

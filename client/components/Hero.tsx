@@ -1,37 +1,39 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const carouselData = [
-  {
-    id: 1,
-    image: "/banner-3.jpg",
-    title: "绿色工厂从这里开始",
-    subtitle: "打造零碳、智能、透明的能碳管理系统",
-  },
-  {
-    id: 2,
-    image:
-      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&h=1080&fit=crop",
-    title: "智慧能源管理平台助力企业降本增效",
-    subtitle: "通过数字化手段实现能源监测与优化管理",
-  },
-  {
-    id: 3,
-    image: "/banner-1.jpg",
-    title: "碳资产管理系统引领绿色发展新时代",
-    subtitle: "专业的碳排放监测与交易管理解决方案",
-  },
-  {
-    id: 4,
-    image: "/banner-4.jpg",
-    title: "构建零碳园区生态系统",
-    subtitle: "打造可持续发展的智慧园区管理平台",
-  },
-];
+import { useLanguage } from "../hooks/useLanguage";
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const { t } = useLanguage();
+
+  const carouselData = [
+    {
+      id: 1,
+      image: "/banner-3.jpg",
+      title: t("hero.slide1.title"),
+      subtitle: t("hero.slide1.subtitle"),
+    },
+    {
+      id: 2,
+      image:
+        "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&h=1080&fit=crop",
+      title: t("hero.slide2.title"),
+      subtitle: t("hero.slide2.subtitle"),
+    },
+    {
+      id: 3,
+      image: "/banner-1.jpg",
+      title: t("hero.slide3.title"),
+      subtitle: t("hero.slide3.subtitle"),
+    },
+    {
+      id: 4,
+      image: "/banner-4.jpg",
+      title: t("hero.slide4.title"),
+      subtitle: t("hero.slide4.subtitle"),
+    },
+  ];
 
   // Auto-play functionality
   useEffect(() => {
