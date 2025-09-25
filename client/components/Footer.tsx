@@ -52,27 +52,42 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col gap-2 lg:gap-3">
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
-                    <div className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] text-center lg:text-center">
+                    <div
+                      className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors text-center lg:text-center"
+                      onClick={() => navigate("/carbon-footprint")}
+                    >
                       {t("footer.product.carbon.footprint")}
                     </div>
                   </div>
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
-                    <div className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] text-center lg:text-center">
+                    <div
+                      className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors text-center lg:text-center"
+                      onClick={() => navigate("/ceav-carbon-accounting")}
+                    >
                       {t("footer.cbam.accounting")}
                     </div>
                   </div>
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
-                    <div className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] text-center lg:text-center">
+                    <div
+                      className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors text-center lg:text-center"
+                      onClick={() => navigate("/esg-disclosure")}
+                    >
                       {t("footer.esg.disclosure")}
                     </div>
                   </div>
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
-                    <div className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] text-center lg:text-center">
+                    <div
+                      className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors text-center lg:text-center"
+                      onClick={() => navigate("/local-carbon-trading")}
+                    >
                       {t("footer.local.carbon.trading")}
                     </div>
                   </div>
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
-                    <div className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] text-center lg:text-center">
+                    <div
+                      className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors text-center lg:text-center"
+                      onClick={() => navigate("/enterprise-carbon-asset-management")}
+                    >
                       {t("footer.enterprise.carbon.management")}
                     </div>
                   </div>
@@ -119,11 +134,11 @@ export default function Footer() {
                       {t("footer.zero.carbon.factory.solution")}
                     </div>
                   </div>
-                  <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
+                  {/* <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
                     <div className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] text-center lg:text-center">
                       {t("footer.dual.carbon.detection.solution")}
                     </div>
-                  </div>
+                  </div> */}
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
                     <div
                       className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors text-center lg:text-center"
