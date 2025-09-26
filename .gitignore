@@ -24,3 +24,12 @@ dist-ssr
 *.sw?
 
 .config/
+
+# Public images (uploaded files)
+public/uploads/
+public/*.png
+public/*.jpg
+public/*.jpeg
+public/*.gif
+public/*.webp
+public/*.svg
