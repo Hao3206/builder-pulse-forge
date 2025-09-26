@@ -237,11 +237,13 @@ export default function SuccessCaseDetail() {
                         className="bg-white p-6 rounded-xl border border-[#E5E5E7]"
                       >
                         <div className="flex items-start gap-4">
-                          <img
-                            src={solution.image}
-                            alt={solution.title}
-                            className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
-                          />
+                          {solution.image && (
+                            <img
+                              src={solution.image}
+                              alt={solution.title}
+                              className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
+                            />
+                          )}
                           <div className="flex-1">
                             <h3 className="text-lg font-bold text-[#333] mb-2">
                               {solution.title}

@@ -59,12 +59,12 @@ export default function NewsDetail() {
             blocks.push({ type: "image", src: apiData.imageUrl, alt: "新闻配图" });
           }
           
-          // 优先使用富文本内容，如果没有则使用普通文本
-          const contentToUse = apiData.rich_content || apiData.content;
+          // 优先使用content字段，如果没有则使用rich_content
+          const contentToUse = apiData.content || apiData.rich_content;
           if (contentToUse) {
             // 检查是否包含HTML标签
-            if (contentToUse.includes('<img')) {
-              // 如果有图片标签，直接使用富文本内容
+            if (contentToUse.includes('<') && contentToUse.includes('>')) {
+              // 如果有HTML标签，直接使用富文本内容
               blocks.push({ type: "text", content: contentToUse });
             } else {
               // 普通文本，按段落分割

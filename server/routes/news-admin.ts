@@ -22,9 +22,17 @@ router.get("/news/:id", async (req, res) => {
 // Create a new news article
 router.post("/news", async (req, res) => {
   const { title, content, rich_content, imageUrl, author, category } = req.body;
+  
+  // 确保 content 字段不为空
+  const finalContent = content || rich_content || "";
+  
+  if (!finalContent.trim()) {
+    return res.status(400).json({ error: "内容不能为空" });
+  }
+  
   const result = await db.run(
     "INSERT INTO news (title, content, rich_content, imageUrl, author, category) VALUES (?, ?, ?, ?, ?, ?)",
-    [title, content, rich_content || content, imageUrl, author, category]
+    [title, finalContent, rich_content || finalContent, imageUrl, author, category]
   );
   res.status(201).json({ id: result.lastID });
 });
@@ -32,9 +40,17 @@ router.post("/news", async (req, res) => {
 // Update a news article
 router.put("/news/:id", async (req, res) => {
   const { title, content, rich_content, imageUrl, author, category } = req.body;
+  
+  // 确保 content 字段不为空
+  const finalContent = content || rich_content || "";
+  
+  if (!finalContent.trim()) {
+    return res.status(400).json({ error: "内容不能为空" });
+  }
+  
   const result = await db.run(
     "UPDATE news SET title = ?, content = ?, rich_content = ?, imageUrl = ?, author = ?, category = ? WHERE id = ?",
-    [title, content, rich_content || content, imageUrl, author, category, req.params.id]
+    [title, finalContent, rich_content || finalContent, imageUrl, author, category, req.params.id]
   );
   if (result.changes > 0) {
     res.json({ message: "News updated successfully" });

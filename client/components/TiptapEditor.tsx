@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
@@ -47,7 +47,11 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
 
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        // 禁用StarterKit中的link和underline，使用自定义配置
+        link: false,
+        underline: false,
+      }),
       Image,
       Link.configure({
         openOnClick: false,
@@ -69,12 +73,23 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
         class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none min-h-[200px] p-4 border rounded-md',
       },
     },
-  }, [value]); // 添加value作为依赖项
+  }); // 移除value依赖项
+
+  // 同步外部值的变化到编辑器，但避免在编辑器内部更新时触发
+  useEffect(() => {
+    if (editor && value !== editor.getHTML()) {
+      editor.commands.setContent(value, { emitUpdate: false });
+    }
+  }, [value, editor]);
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (!file) return;
+    if (!file) {
+      console.log("没有选择文件");
+      return;
+    }
 
+    console.log("开始上传文件:", file.name, file.size);
     setUploading(true);
     setUploadError("");
 
@@ -82,19 +97,35 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
     formData.append("image", file);
 
     try {
+      console.log("发送上传请求到 /api/upload/image");
       const response = await fetch("/api/upload/image", {
         method: "POST",
         body: formData,
       });
 
+      console.log("上传响应状态:", response.status);
       const result = await response.json();
+      console.log("上传响应结果:", result);
 
       if (result.success) {
-        setImageUrl(result.data.url);
+        const uploadedUrl = result.data.url;
+        console.log("上传成功，图片URL:", uploadedUrl);
+        setImageUrl(uploadedUrl);
+        
+        // 自动插入图片到编辑器
+        if (editor) {
+          console.log("插入图片到编辑器");
+          editor.chain().focus().setImage({ src: uploadedUrl }).run();
+          setShowImageDialog(false);
+        } else {
+          console.log("编辑器未初始化");
+        }
       } else {
+        console.log("上传失败:", result.error);
         setUploadError(result.error || "上传失败");
       }
     } catch (error) {
+      console.error("上传异常:", error);
       setUploadError("上传失败，请重试");
     } finally {
       setUploading(false);

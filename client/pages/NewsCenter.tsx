@@ -57,12 +57,32 @@ export default function NewsCenter() {
             const d = new Date(apiArticle.createdAt);
             const month = String(d.getMonth() + 1).padStart(2, '0');
             const day = String(d.getDate()).padStart(2, '0');
+            
+            // 从HTML内容中提取纯文本作为摘要
+            const extractTextFromHTML = (html: string): string => {
+              if (!html) return '';
+              
+              // 如果内容包含HTML标签，提取纯文本
+              if (html.includes('<') && html.includes('>')) {
+                // 创建一个临时的DOM元素来解析HTML
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html;
+                const textContent = tempDiv.textContent || tempDiv.innerText || '';
+                
+                // 清理多余的空白字符并截取前200个字符作为摘要
+                return textContent.replace(/\s+/g, ' ').trim().substring(0, 200) + '...';
+              }
+              
+              // 如果是纯文本，直接截取前200个字符
+              return html.substring(0, 200) + (html.length > 200 ? '...' : '');
+            };
+            
             return {
               id: apiArticle.id,
               date: `${month}/${day}`,
               year: String(d.getFullYear()),
               title: apiArticle.title,
-              content: apiArticle.content,
+              content: extractTextFromHTML(apiArticle.content),
               category: apiArticle.category,
             };
           });

@@ -76,30 +76,30 @@ export const successCases: SuccessCase[] = [
       {
         title: "智慧能源管理系统",
         description:
-          "部署覆盖全园区的智能电网和能源监测系统，实现能源使用的实时监控和优化调度。",
-        image:
-          "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+          "部署覆盖全园区的智能电网和能源监测系统，实现能源使用的实时监控和优化调度。",        image:
+          "",
+
       },
       {
         title: "碳排放监测平台",
         description:
-          "建立统一的碳排放数据采集、分析和报告平台，为园区和企业提供精准的碳排放数据。",
-        image:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+          "建立统一的碳排放数据采集、分析和报告平台，为园区和企业提供精准的碳排放数据。",        image:
+          "",
+
       },
       {
         title: "清洁能源改造",
         description:
-          "大规模部署太阳能、风能等清洁能源设施，构建园区绿色能源供应体系。",
-        image:
-          "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop",
+          "大规模部署太阳能、风能等清洁能源设施，构建园区绿色能源供应体系。",        image:
+          "",
+
       },
       {
         title: "数字孪生管理",
         description:
-          "构建园区数字孪生模型，实现虚拟仿真和智能决策，提升管理效率。",
-        image:
-          "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
+          "构建园区数字孪生模型，实现虚拟仿真和智能决策，提升管理效率。",        image:
+          "",
+
       },
     ],
     timeline: [
@@ -166,35 +166,37 @@ export const successCases: SuccessCase[] = [
         description:
           "构建集团级数据标准与口径手册，建立证据留痕机制与抽样核验流程，保障可审计性。",
         image:
-          "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "碳核算与排放监测一体化平台",
         description:
           "打通ERP/MES/能管/计量等系统，自动采集活动数据与计量数据，按ISO 14064/GB标准完成组织层面核算。",
-        image:
-          "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=800&h=600&fit=crop",
+          image:
+          "",
+
       },
       {
         title: "工艺节能改造与余热回收",
         description:
           "针对涂装与加热工序实施换热回收与变频改造，优化工艺参数，显著降低单位产品能耗。",
-        image:
-          "https://images.unsplash.com/photo-1481330744575-8fe8a3d0f6df?w=800&h=600&fit=crop",
+          image:
+          "",
+
       },
       {
         title: "绿电采购与用能优化",
         description:
-          "引入绿电直购与自建分布式光伏，提高可再生能源占比；结合峰谷电价策略优化生产排程。",
-        image:
-          "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+          "引入绿电直购与自建分布式光伏，提高可再生能源占比；结合峰谷电价策略优化生产排程。",        image:
+          "",
+
       },
       {
         title: "CCER 项目识别与收益管理",
         description:
-          "识别余热利用与光伏发电等减排项目的CCER开发潜力，评估减排量与收益路径。",
-        image:
-          "https://images.unsplash.com/photo-1581090463529-c2653f5f36b9?w=800&h=600&fit=crop",
+          "识别余热利用与光伏发电等减排项目的CCER开发潜力，评估减排量与收益路径。",        image:
+          "",
+
       },
     ],
     timeline: [
@@ -267,42 +269,42 @@ export const successCases: SuccessCase[] = [
         description:
           "明确功能单位与系统边界（从摇篮到大门/到坟墓），构建数据质量评价与不确定性分析模型，确保结果可比与可验证。",
         image:
-          "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "供应链数据打通与证据留痕",
         description:
           "对接供应商原料数据、能管与计量系统，建立留痕与抽样核验流程，统一口径并形成审计链路。",
         image:
-          "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "包装轻量化与再生材料替代",
         description:
           "优化包装结构与材质，用再生塑料/纸替代部分原生材料，保持强度与体验的同时降低单位产品碳排。",
         image:
-          "https://images.unsplash.com/photo-1520975922203-bd7b00e3d8f8?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "制造能效提升与绿电接入",
         description:
           "实施设备节能改造与工艺参数优化，引入绿电直购与光伏消纳，降低范围2排放强度。",
         image:
-          "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "物流优化与低碳运输",
         description:
           "通过仓网优化与装载率提升，优先选择铁路/水运与新能源车辆，降低范围3物流排放。",
         image:
-          "https://images.unsplash.com/photo-1542010589005-d1eacc3918f3?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "海外披露与第三方验证",
         description:
           "按客户市场要求输出CFP报告与EPD，穿行测试资料并配合第三方验证机构完成核查。",
         image:
-          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
+          "",
       },
     ],
     timeline: [
@@ -382,14 +384,14 @@ export const successCases: SuccessCase[] = [
         description:
           "建立数据血缘、证据留痕与抽样核验流程，形成自证材料包，提升可审计性与复用效率。",
         image:
-          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "气候相关风险与机会披露（TCFD）",
         description:
           "识别气候物理/转型风险，建立情景分析与压力测试，完善治理、战略、风险管理与指标披露。",
         image:
-          "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "双重重要性评估与利益相关方沟通",
@@ -436,8 +438,8 @@ export const successCases: SuccessCase[] = [
     },
     images: [
       "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=800&h=600&fit=crop",
+      "",
+      "",
       "https://images.unsplash.com/photo-1523958203904-cdcb402031fd?w=800&h=600&fit=crop",
     ],
     results: {
@@ -486,10 +488,8 @@ export const successCases: SuccessCase[] = [
     title: "助力两家机构获评省级\"零碳\"公共机构",
     description:
       "浙东环境能源交易所为两家公共机构提供碳交易与碳中和服务，通过核销林业碳汇与CCER抵消2022年度排放，获评二星级省级\"零碳\"公共机构。",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
-    heroImage:
-      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&h=1080&fit=crop",
+    image: "/uploads/carbon-neutral-cert-1.png",
+    heroImage: "/uploads/carbon-neutral-cert-1.png",
     tags: ["碳中和", "碳交易", "公共机构", "零碳"],
     date: "2024-06",
     location: "华东地区",
@@ -508,28 +508,28 @@ export const successCases: SuccessCase[] = [
         description:
           "确定公共机构组织边界与排放范围，完成2022年度温室气体排放清单与台账核验。",
         image:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "碳资产采购与核销（林业碳汇/CCER）",
         description:
           "撮合“某林业碳汇项目”等合规自愿减排量资产采购与核销，形成可追溯凭据与交易记录。",
         image:
-          "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "碳中和证书签发与披露材料",
         description:
           "为两家机构签发《碳中和证书》，输出核算方法、抵消路径、凭证清单等披露材料。",
         image:
-          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "“零碳”公共机构评价支持",
         description:
           "依据省级评价细则准备审查材料，配合现场核查与专家评审，完成等级评价与授牌。",
         image:
-          "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+          "",
       },
     ],
     timeline: [
@@ -561,10 +561,9 @@ export const successCases: SuccessCase[] = [
       position: "相关公共机构代表",
     },
     images: [
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+      "/uploads/carbon-neutral-cert-1.png",
+      "/uploads/carbon-neutral-cert-1.png",
+      "/uploads/carbon-neutral-cert-1.png",
     ],
     results: {
       carbonReduction: "100%",
@@ -578,10 +577,8 @@ export const successCases: SuccessCase[] = [
     title: "助力光伏项目施工实现碳中和并获碳减排贷款",
     description:
       "与银行合作，助力某制造企业1.6MWp分布式光伏发电项目施工阶段实现碳中和，并获得碳减排贷款。",
-    image:
-      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
-    heroImage:
-      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=1920&h=1080&fit=crop",
+    image: "/uploads/carbon-neutral-cert-1.webp",
+    heroImage: "/uploads/carbon-neutral-cert-1.webp",
     tags: ["光伏", "施工碳中和", "CCER", "碳金融"],
     date: "2024-07",
     location: "华东地区",
@@ -601,35 +598,34 @@ export const successCases: SuccessCase[] = [
         description:
           "基于ISO 14064与《建筑碳排放计算标准》明确功能单位与系统边界，建立数据质量评价与核算模型。",
         image:
-          "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "覆盖直接/间接排放的全口径核算",
         description:
           "纳入化石燃料燃烧直接排放、电力消费间接排放及交通运输间接排放，形成可审计的台账。",
         image:
-          "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "CCER采购与注销实现施工碳中和",
         description:
           "撮合采购并注销等量合规CCER，抵消施工阶段核算排放，出具《碳中和证书》与凭证清单。",
         image:
-          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "碳金融工具与贷款落地",
         description:
           "串联央行碳减排支持工具与银行碳减排贷款，形成“核算+交易+金融”一体化路径，降低资金成本。",
         image:
-          "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "披露材料与档案管理",
         description:
           "输出核算报告、抵消路径、凭证与影像资料，建立留痕档案，便于外部审查与复用。",
-        image:
-          "https://images.unsplash.com/photo-1523958203904-cdcb402031fd?w=800&h=600&fit=crop",
+          image:""
       },
     ],
     timeline: [
@@ -661,10 +657,7 @@ export const successCases: SuccessCase[] = [
       position: "宁波某有限公司项目负责人",
     },
     images: [
-      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&h=600&fit=crop",
+      "/uploads/carbon-neutral-cert-1.webp",
     ],
     results: {
       carbonReduction: "100%",
@@ -678,10 +671,8 @@ export const successCases: SuccessCase[] = [
     title: "\"碳排放、碳管理专技人才高级研修班\"顺利举办",
     description:
       "由人力资源和社会保障局主办，浙东环境能源交易所联合高等院校组织，80余名学员参加的高级研修班顺利举办，聚焦双碳战略、碳资产交易、信息披露与实务核查。",
-    image:
-      "https://images.unsplash.com/photo-1516528387618-afa90b13e000?w=800&h=600&fit=crop",
-    heroImage:
-      "https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?w=1920&h=1080&fit=crop",
+    image: "/uploads/training-presentation-1.png",
+    heroImage: "/uploads/training-presentation-2.webp",
     tags: ["培训", "研修班", "人才培养", "双碳"],
     date: "2024-09",
     location: "浙江宁波",
@@ -700,28 +691,28 @@ export const successCases: SuccessCase[] = [
         description:
           "设置双碳战略与实现路径、能源结构与工业降碳、碳资产交易与路径规划、信息披露评价体系、碳关税与应对策略、核算与核查实践等模块。",
         image:
-          "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "专家授课与专题分享",
         description:
           "邀请多位行业专家进行主题授课与案例解析。",
         image:
-          "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "现场教学：东方日升新能源",
         description:
           "组织学员赴东方日升新能源开展现场教学，理解光伏制造产业链与零碳实践。",
         image:
-          "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
+          "",
       },
       {
         title: "结业认证与学时登记",
         description:
           "完成学习考核，颁发高级研修班证书，学时计入继续教育学习登记管理系统。",
         image:
-          "https://images.unsplash.com/photo-1517732306149-e8f829eb588a?w=800&h=600&fit=crop",
+          "",
       },
     ],
     timeline: [
@@ -753,10 +744,10 @@ export const successCases: SuccessCase[] = [
       position: "企业碳管理负责人",
     },
     images: [
-      "https://images.unsplash.com/photo-1516528387618-afa90b13e000?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop",
+      "/uploads/training-presentation-1.png",
+      "/uploads/training-presentation-2.webp",
+      "/uploads/training-presentation-3.webp",
+      "/uploads/training-presentation-4.webp",
     ],
     results: {
       carbonReduction: "—",
