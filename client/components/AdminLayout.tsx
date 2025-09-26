@@ -77,12 +77,7 @@ export default function AdminLayout() {
       path: "/admin/wechat-sync",
       label: "微信同步",
       icon: Download,
-    },
-    {
-      path: "/admin/settings",
-      label: "系统设置",
-      icon: Settings,
-    },
+    }
   ];
 
   const isActivePath = (path: string) => {
