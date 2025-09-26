@@ -117,10 +117,9 @@ export default function AdminNewsEditor() {
       const url = isEditMode ? `/api/admin/news/${id}` : "/api/admin/news";
       const method = isEditMode ? "PUT" : "POST";
 
-      // 确保 content 字段有值，如果没有则使用 rich_content 或空字符串
+      // 只使用 rich_content 字段
       const submitData = {
         ...data,
-        content: data.content || data.rich_content || "",
       };
 
       await fetch(url, {

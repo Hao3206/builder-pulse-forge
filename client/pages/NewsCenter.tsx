@@ -17,6 +17,7 @@ interface ApiNewsArticle {
   title: string;
   imageUrl: string;
   content: string;
+  rich_content?: string;
   category: string;
   createdAt: string;
   author: string;
@@ -82,7 +83,7 @@ export default function NewsCenter() {
               date: `${month}/${day}`,
               year: String(d.getFullYear()),
               title: apiArticle.title,
-              content: extractTextFromHTML(apiArticle.content),
+              content: extractTextFromHTML(apiArticle.rich_content || ''),
               category: apiArticle.category,
             };
           });
