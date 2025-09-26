@@ -4,7 +4,7 @@ import { ApiResponse } from "@shared/api";
 // 简单的管理员账户 (实际项目中应该使用数据库和加密)
 const ADMIN_CREDENTIALS = {
   username: "admin",
-  password: "zdhjsuo2024", // 实际项目中应该使用加密密码
+  password: "zdhjs2025", // 实际项目中应该使用加密密码
 };
 
 // 模拟JWT token (实际项目中应该使用真实的JWT)

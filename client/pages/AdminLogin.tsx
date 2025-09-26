@@ -165,8 +165,8 @@ export default function AdminLogin() {
           </p>
           <p className="text-xs text-[#666]">
             用户名: admin
-            <br />
-            密码: zdhjsuo2024
+            {/* <br />
+            密码: zdhjsuo2024 */}
           </p>
         </div>
 
