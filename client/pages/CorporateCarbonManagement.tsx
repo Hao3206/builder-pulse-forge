@@ -748,7 +748,7 @@ export default function CorporateCarbonManagement() {
               联系我们
             </h2>
             <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">
-              如果您有任何问题或疑问，请与我们联系我们将尽最大努力尽快回复您。
+              如果您有任何问题或疑问，请与我们联系,我们将尽最大努力尽快回复您。
             </p>
           </div>
 

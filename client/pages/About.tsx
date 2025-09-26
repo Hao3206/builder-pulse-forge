@@ -519,7 +519,7 @@ export default function About() {
                   联系我们
                 </h2>
                 <p className="text-[#666] font-inter text-lg font-normal leading-[26px] tracking-[-0.18px]">
-                  如果您有任何问题或疑问，请与我们联系我们将尽最大努力尽快回复您。
+                  如果您有任何问题或疑问，请与我们联系,我们将尽最大努力尽快回复您。
                 </p>
               </div>
 
