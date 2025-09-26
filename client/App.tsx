@@ -93,16 +93,13 @@ const App = () => (
 
             {/* 管理后台路由 */}
             <Route path="/admin/login" element={<AdminLogin />} />
-            <Route
-              path="/admin/contact-messages"
-              element={<AdminContactMessages />}
-            />
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
               <Route path="dashboard" element={<AdminDashboard />} />
               <Route path="news" element={<AdminNewsList />} />
               <Route path="news/create" element={<AdminNewsEditor />} />
               <Route path="news/edit/:id" element={<AdminNewsEditor />} />
+              <Route path="contact-messages" element={<AdminContactMessages />} />
               <Route path="wechat-config" element={<AdminWechatConfig />} />
               <Route path="wechat-sync" element={<AdminWechatSync />} />
             </Route>

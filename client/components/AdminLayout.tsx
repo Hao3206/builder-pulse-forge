@@ -12,6 +12,7 @@ import {
   Bell,
   Share2,
   Download,
+  MessageSquare,
 } from "lucide-react";
 
 interface AdminUser {
@@ -61,6 +62,11 @@ export default function AdminLayout() {
       path: "/admin/news",
       label: "资讯管理",
       icon: FileText,
+    },
+    {
+      path: "/admin/contact-messages",
+      label: "客户咨询",
+      icon: MessageSquare,
     },
     {
       path: "/admin/wechat-config",
