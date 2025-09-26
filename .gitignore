@@ -33,3 +33,7 @@ public/*.jpeg
 public/*.gif
 public/*.webp
 public/*.svg
+
+# Database files
+database.db
+*.db
