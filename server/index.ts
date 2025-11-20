@@ -96,14 +96,17 @@ export function createServer() {
     },
   );
 
-  // 404处理
-  app.use((req, res) => {
+  // 404处理 - 只处理 API 路由
+  app.use("/api/*", (req, res) => {
     res.status(404).json({
       success: false,
       error: "API路径不存在",
       message: `路径 ${req.path} 不存在`,
     });
   });
+
+  // 注意：非 API 路由的 404 处理由 node-build.ts 中的 SPA 路由处理
+  // 这里不处理，让请求继续传递到 node-build.ts 中的 app.get("*", ...)
 
   return app;
 }
