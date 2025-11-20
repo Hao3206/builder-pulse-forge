@@ -6,6 +6,7 @@ import {
   CarbonFootprint,
   CreateCarbonFootprintRequest,
 } from "@shared/api";
+import { db } from "../database";
 
 // 模拟数据库数据
 const mockCarbonCredits: CarbonCredit[] = [
@@ -57,9 +58,6 @@ const mockCarbonCredits: CarbonCredit[] = [
     updatedAt: "2024-01-22T14:20:00Z",
   },
 ];
-
-// 已清空按月填写的碳排放数据
-const mockFootprints: CarbonFootprint[] = [];
 
 // 获取碳信用额度列表
 export const getCarbonCredits: RequestHandler = (req, res) => {
@@ -132,22 +130,39 @@ export const getCarbonProjects: RequestHandler = (req, res) => {
 };
 
 // 获取碳足迹数据
-export const getCarbonFootprint: RequestHandler = (req, res) => {
+export const getCarbonFootprint: RequestHandler = async (req, res) => {
   try {
     const { userId } = req.params;
 
-    const userFootprints = mockFootprints.filter(
-      (footprint) => footprint.userId === userId,
+    const rows = await db.all(
+      `SELECT * FROM carbon_footprints WHERE user_id = ? ORDER BY created_at DESC`,
+      [userId]
     );
+
+    const footprints: CarbonFootprint[] = rows.map((row: any) => ({
+      id: row.id,
+      userId: row.user_id,
+      entityType: row.entity_type as "individual" | "company" | "product",
+      entityName: row.entity_name,
+      totalEmissions: row.total_emissions,
+      unit: row.unit as "tCO2e",
+      period: {
+        start: row.period_start,
+        end: row.period_end,
+      },
+      breakdown: JSON.parse(row.breakdown),
+      createdAt: row.created_at,
+    }));
 
     const response: ApiResponse<CarbonFootprint[]> = {
       success: true,
-      data: userFootprints,
-      message: `找到 ${userFootprints.length} 条碳足迹记录`,
+      data: footprints,
+      message: `找到 ${footprints.length} 条碳足迹记录`,
     };
 
     res.status(200).json(response);
   } catch (error) {
+    console.error("获取碳足迹数据失败:", error);
     const response: ApiResponse = {
       success: false,
       error: "获取碳足迹数据失败",
@@ -157,7 +172,7 @@ export const getCarbonFootprint: RequestHandler = (req, res) => {
 };
 
 // 创建碳足迹记录
-export const createCarbonFootprint: RequestHandler = (req, res) => {
+export const createCarbonFootprint: RequestHandler = async (req, res) => {
   try {
     const { userId } = req.params;
     const footprintData: CreateCarbonFootprintRequest = req.body;
@@ -177,8 +192,31 @@ export const createCarbonFootprint: RequestHandler = (req, res) => {
       percentage: (emission.amount / totalEmissions) * 100,
     }));
 
+    const footprintId = `footprint_${Date.now()}`;
+    const createdAt = new Date().toISOString();
+
+    // 保存到数据库
+    await db.run(
+      `INSERT INTO carbon_footprints (
+        id, user_id, entity_type, entity_name, total_emissions, unit,
+        period_start, period_end, breakdown, created_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        footprintId,
+        userId,
+        footprintData.entityType,
+        footprintData.entityName,
+        totalEmissions,
+        "tCO2e",
+        footprintData.period.start,
+        footprintData.period.end,
+        JSON.stringify(breakdown),
+        createdAt,
+      ]
+    );
+
     const newFootprint: CarbonFootprint = {
-      id: `footprint_${Date.now()}`,
+      id: footprintId,
       userId,
       entityType: footprintData.entityType,
       entityName: footprintData.entityName,
@@ -186,11 +224,8 @@ export const createCarbonFootprint: RequestHandler = (req, res) => {
       unit: "tCO2e",
       period: footprintData.period,
       breakdown,
-      createdAt: new Date().toISOString(),
+      createdAt,
     };
-
-    // 模拟保存到数据库
-    mockFootprints.push(newFootprint);
 
     const response: ApiResponse<CarbonFootprint> = {
       success: true,
@@ -200,6 +235,7 @@ export const createCarbonFootprint: RequestHandler = (req, res) => {
 
     res.status(201).json(response);
   } catch (error) {
+    console.error("创建碳足迹记录失败:", error);
     const response: ApiResponse = {
       success: false,
       error: "创建碳足迹记录失败",
@@ -209,28 +245,43 @@ export const createCarbonFootprint: RequestHandler = (req, res) => {
 };
 
 // 获取碳足迹统计数据
-export const getCarbonFootprintStats: RequestHandler = (req, res) => {
+export const getCarbonFootprintStats: RequestHandler = async (req, res) => {
   try {
-    const totalFootprints = mockFootprints.length;
-    const totalEmissions = mockFootprints.reduce(
-      (sum, footprint) => sum + footprint.totalEmissions,
-      0,
+    // 获取总数
+    const totalCount = await db.get(
+      "SELECT COUNT(*) as count FROM carbon_footprints"
     );
+    const totalFootprints = totalCount?.count || 0;
 
+    // 获取总排放量
+    const totalEmissionsResult = await db.get(
+      "SELECT SUM(total_emissions) as total FROM carbon_footprints"
+    );
+    const totalEmissions = totalEmissionsResult?.total || 0;
+
+    // 计算平均排放量
     const avgEmissions =
       totalFootprints > 0 ? totalEmissions / totalFootprints : 0;
+
+    // 按实体类型统计
+    const companyCount = await db.get(
+      "SELECT COUNT(*) as count FROM carbon_footprints WHERE entity_type = 'company'"
+    );
+    const individualCount = await db.get(
+      "SELECT COUNT(*) as count FROM carbon_footprints WHERE entity_type = 'individual'"
+    );
+    const productCount = await db.get(
+      "SELECT COUNT(*) as count FROM carbon_footprints WHERE entity_type = 'product'"
+    );
 
     const stats = {
       totalFootprints,
       totalEmissions,
       avgEmissions,
       byEntityType: {
-        company: mockFootprints.filter((f) => f.entityType === "company")
-          .length,
-        individual: mockFootprints.filter((f) => f.entityType === "individual")
-          .length,
-        product: mockFootprints.filter((f) => f.entityType === "product")
-          .length,
+        company: companyCount?.count || 0,
+        individual: individualCount?.count || 0,
+        product: productCount?.count || 0,
       },
     };
 
@@ -242,6 +293,7 @@ export const getCarbonFootprintStats: RequestHandler = (req, res) => {
 
     res.status(200).json(response);
   } catch (error) {
+    console.error("获取统计数据失败:", error);
     const response: ApiResponse = {
       success: false,
       error: "获取统计数据失败",
