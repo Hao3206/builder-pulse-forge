@@ -58,49 +58,8 @@ const mockCarbonCredits: CarbonCredit[] = [
   },
 ];
 
-const mockFootprints: CarbonFootprint[] = [
-  {
-    id: "1",
-    userId: "user_1",
-    entityType: "company",
-    entityName: "浙江某制造企业",
-    totalEmissions: 1250.5,
-    unit: "tCO2e",
-    period: {
-      start: "2023-01-01",
-      end: "2023-12-31",
-    },
-    breakdown: [
-      {
-        category: "能源消耗",
-        subcategory: "电力",
-        amount: 680.2,
-        unit: "tCO2e",
-        percentage: 54.4,
-      },
-      {
-        category: "能源消耗",
-        subcategory: "天然气",
-        amount: 320.8,
-        unit: "tCO2e",
-        percentage: 25.7,
-      },
-      {
-        category: "交通运输",
-        amount: 149.3,
-        unit: "tCO2e",
-        percentage: 11.9,
-      },
-      {
-        category: "工业过程",
-        amount: 100.2,
-        unit: "tCO2e",
-        percentage: 8.0,
-      },
-    ],
-    createdAt: "2024-01-25T10:00:00Z",
-  },
-];
+// 已清空按月填写的碳排放数据
+const mockFootprints: CarbonFootprint[] = [];
 
 // 获取碳信用额度列表
 export const getCarbonCredits: RequestHandler = (req, res) => {
