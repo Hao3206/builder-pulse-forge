@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ContactSection from "../components/ContactSection";
+import SolutionHero from "../components/SolutionHero";
 
 const tradingFeatures = [
   {
@@ -97,33 +98,19 @@ export default function LocalCarbonTrading() {
         <Header isScrolled={isScrolled} />
       </div>
 
-      {/* Hero Section */}
-      <section className="relative">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#155B75] to-[#088AB2] h-[374px]"></div>
-
-        {/* Background Image Overlay */}
-        <div
-          className="absolute inset-0 h-[374px] bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://api.builder.io/api/v1/image/assets/TEMP/9026b87008e8884034ad247a59bfca58d7b09cc8?width=2880')",
-            backgroundBlendMode: "multiply",
-          }}
-        ></div>
-
-        <div className="relative z-10 flex flex-col items-center justify-center px-8 pt-32 pb-16">
-          <div className="max-w-2xl text-center">
-            <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">
-              地方碳普惠交易
-            </h1>
-            <p className="text-lg text-white/90">让每个人都能参与碳减排 · 创造绿色价值</p>
-          </div>
-        </div>
-      </section>
+      <SolutionHero
+        tag="碳交易"
+        title="地方碳普惠交易"
+        description="让每个人都能参与碳减排，打造绿色价值闭环"
+        primaryHref="#contact"
+        secondaryText="了解服务"
+        secondaryHref="#feature-overview"
+        backgroundImage="https://api.builder.io/api/v1/image/assets/TEMP/9026b87008e8884034ad247a59bfca58d7b09cc8?width=2880"
+        heightClass="h-[460px]"
+      />
 
       {/* Introduction Section */}
-      <section className="py-32 bg-white">
+      <section id="feature-overview" className="py-32 bg-white">
         <div className="max-w-6xl mx-auto px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 tracking-tight">

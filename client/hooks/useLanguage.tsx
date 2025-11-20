@@ -144,8 +144,8 @@ const translations: Translations = {
     en: "Low-Carbon Factory",
   },
   "products.ceav.accounting": {
-    zh: "CEAV产品碳排放核算与申报",
-    en: "CEAV Product Carbon Emission Accounting & Declaration",
+    zh: "CBAM碳边境调节机制应对服务",
+    en: "CBAM Compliance & Reporting Service",
   },
   "products.carbon.neutral.planning": {
     zh: "碳达峰碳中和路径规划",
@@ -312,8 +312,8 @@ const translations: Translations = {
     en: "Professional carbon management services covering carbon trading, carbon consulting, carbon finance and other comprehensive businesses to help enterprises achieve green and low-carbon development goals.",
   },
   "common.solution.description": {
-    zh: "解决方案描述性文字文案文案文案文案文案文案文案文案",
-    en: "Solution description text content placeholder description.",
+    zh: "融合行业经验、数字化平台与标准化方法，为企业提供可量化、可复制、可持续的低碳解决方案。",
+    en: "Combine industry expertise, digital platforms, and proven methodologies to deliver measurable, repeatable, and sustainable low-carbon solutions.",
   },
   "common.learn.more": {
     zh: "了解更多",

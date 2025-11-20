@@ -69,7 +69,7 @@ fi
 echo ""
 echo -e "${YELLOW}管理后台登录:${NC}"
 echo "用户名: admin"
-echo "密码: zdhjsuo2024"
+echo "密码: zdhjs2025"
 
 echo ""
 echo -e "${YELLOW}如果无法访问，请检查:${NC}"

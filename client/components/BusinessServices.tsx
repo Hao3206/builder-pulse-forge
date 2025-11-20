@@ -23,7 +23,7 @@ export default function BusinessServices() {
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/7bb1fe9f262a0519faa5ffb370502b8d01792d9d?width=349",
       icon: MessageCircleMore,
-      path: "/product-service/carbon-consulting",
+      path: "/carbon-neutrality-planning",
       submenu: [
         { title: t("products.green.factory"), path: "/product-service/green-low-carbon-factory" },
         { title: t("products.ceav.accounting"), path: "/ceav-carbon-accounting" },
@@ -52,10 +52,8 @@ export default function BusinessServices() {
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/ac321a0ee51299b257411524ffab412103ab7b2c?width=1329",
       icon: DollarSign,
-      path: "/product-service/carbon-finance",
-      submenu: [
-        { title: t("products.carbon.finance.solutions"), path: "/carbon-finance-solution" },
-      ],
+      path: "/carbon-finance-solution",
+      submenu: [],
     },
     {
       title: t("business.carbon.tech.title"),
@@ -79,7 +77,7 @@ export default function BusinessServices() {
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0fa5766228890ff20bfed118baf1bbc6c23711f6?width=1338",
       icon: GraduationCap,
-      path: "/product-service/carbon-training",
+      path: "/product-service/carbon-trader-training",
     },
     {
       title: t("business.zero.carbon.park.title"),
@@ -92,6 +90,7 @@ export default function BusinessServices() {
   ];
 
   const handleServiceClick = (path: string) => {
+    setActiveSubmenu(null);
     navigate(path);
   };
 
@@ -122,13 +121,7 @@ export default function BusinessServices() {
                 key={index}
                 className="relative w-full md:w-[156px] h-[80px] md:h-full rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-105 md:hover:scale-125 hover:z-10 group"
                 style={{ transition: 'height 0.3s' }}
-                onClick={() => {
-                  if (hasSubmenu) {
-                    setActiveSubmenu(activeSubmenu === service.title ? null : service.title);
-                  } else {
-                    handleServiceClick(service.path);
-                  }
-                }}
+                onClick={() => handleServiceClick(service.path)}
               >
                 <img
                   src={service.image}

@@ -17,7 +17,6 @@ interface ApiArticle {
   id: string;
   title: string;
   content: string;
-  rich_content?: string;
   category: string;
   author: string; // Assuming 'author' is the source
   createdAt: string;
@@ -60,8 +59,8 @@ export default function NewsDetail() {
             blocks.push({ type: "image", src: apiData.imageUrl, alt: "新闻配图" });
           }
           
-          // 只使用 rich_content 字段
-          const contentToUse = apiData.rich_content;
+          // 优先使用content字段，如果没有则使用rich_content
+          const contentToUse = apiData.content || apiData.rich_content;
           if (contentToUse) {
             // 检查是否包含HTML标签
             if (contentToUse.includes('<') && contentToUse.includes('>')) {

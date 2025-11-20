@@ -41,16 +41,19 @@ export default function ZeroCarbonFactory() {
               打造企业绿色转型一站式解决方案
             </p>
             <div className="flex gap-4 justify-center">
-              <button className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm">
+              <a
+                href="#factory-path"
+                className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm"
+              >
                 了解建设路径
-              </button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Why Build Zero Carbon Factory Section */}
-      <section className="py-[88px] bg-white">
+      <section id="factory-reasons" className="py-[88px] bg-white">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">
@@ -178,7 +181,7 @@ export default function ZeroCarbonFactory() {
       </section>
 
       {/* Zero Carbon Factory Construction Path Section */}
-      <section className="py-[88px] bg-[#F7F8FA]">
+      <section id="factory-path" className="py-[88px] bg-[#F7F8FA]">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">

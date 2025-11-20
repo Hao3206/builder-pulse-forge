@@ -124,7 +124,6 @@ export default function ProductService() {
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
     },
-
     "green-low-carbon-factory": {
       id: "green-low-carbon-factory",
       title: "绿色/低碳工厂创建",
@@ -350,7 +349,7 @@ export default function ProductService() {
       description:
         "覆盖配额交易、CCER与国际自愿市场机制，结合模拟盘与案例推演，掌握下单、对冲、风控的全流程能力。",
       heroImage:
-        "https://images.unsplash.com/photo-1569025690938-a00729c9e8f8?w=1920&h=1080&fit=crop",
+        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
       category: "碳培训",
       features: [
         {
@@ -422,7 +421,7 @@ export default function ProductService() {
       description:
         "系统掌握碳盘查台账、配额履约、报告披露与系统化管理，适配企业碳管理岗位能力模型。",
       heroImage:
-        "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1920&h=1080&fit=crop",
+        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
       category: "碳培训",
       features: [
         {
@@ -489,7 +488,7 @@ export default function ProductService() {
       description:
         "围绕制造业低碳转型、产品碳足迹、绿电与碳金融等主题举办讲座/论坛/工作坊。",
       heroImage:
-        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&h=1080&fit=crop",
+        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
       category: "碳培训",
       features: [
         { icon: Target, title: "主题演讲", description: "政策解读与技术分享" },
@@ -595,7 +594,7 @@ export default function ProductService() {
       description:
         "面向管理层与核心骨干的高级课程，系统覆盖战略、核算、路径、绿电、碳金融与治理体系。",
       heroImage:
-        "https://images.unsplash.com/photo-1483721310020-03333e577078?w=1920&h=1080&fit=crop",
+        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
       category: "碳培训",
       features: [
         {
@@ -660,8 +659,7 @@ export default function ProductService() {
       subtitle: "区域端碳数据汇聚、分析与决策支持平台",
       description:
         "面向政府与园区的双碳管理平台，汇聚能耗与排放数据，支持达峰路线、绿电消纳、项目评估与绩效考核。",
-      heroImage:
-        "https://images.unsplash.com/photo-1509228468518-180dd4864904?w=1920&h=1080&fit=crop",
+      heroImage: "/banner-1.jpg",
       category: "碳信息化",
       features: [
         {
@@ -723,8 +721,7 @@ export default function ProductService() {
       subtitle: "个人端碳行为量化、激励与绿色生活生态",
       description:
         "以行为数据为基础，构建个人碳账户体系，支持个人碳足迹、绿色消费与积分激励。",
-      heroImage:
-        "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1920&h=1080&fit=crop",
+      heroImage: "/banner-1.jpg",
       category: "碳信息化",
       features: [
         {
@@ -786,8 +783,7 @@ export default function ProductService() {
       subtitle: "出口合规低碳认证与供应链协同的一站式平台",
       description:
         "面向外贸企业，提供碳足迹、ESG披露、CBAM合规、低碳认证与供应链协同，打通绿色贸易全链路。",
-      heroImage:
-        "https://images.unsplash.com/photo-1586521995568-39f60f91db4a?w=1920&h=1080&fit=crop",
+      heroImage: "/banner-1.jpg",
       category: "碳信息化",
       features: [
         {
@@ -995,18 +991,22 @@ export default function ProductService() {
       </div>
 
       {/* Benefits Section */}
-      <div className="bg-[#F8F9FB] py-16">
+      {/* 优势模块暂时隐藏 */}
+      {/* <div className="bg-[#F8F9FB] py-16">
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="max-w-[520px] mx-auto text-center">
               <h2 className="text-[32px] font-bold text-[#333] mb-8">
                 选择我们的优势
               </h2>
               <div className="space-y-4">
                 {service.benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-[#058A65] flex-shrink-0 mt-0.5" />
-                    <span className="text-[#666] leading-relaxed">
+                  <div
+                    key={index}
+                    className="flex items-center justify-center gap-3"
+                  >
+                    <CheckCircle className="w-6 h-6 text-[#058A65] flex-shrink-0" />
+                    <span className="text-[#666] leading-relaxed text-center">
                       {benefit}
                     </span>
                   </div>
@@ -1022,7 +1022,7 @@ export default function ProductService() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Case Studies */}
       <div className="bg-white py-16">
@@ -1107,39 +1107,7 @@ export default function ProductService() {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="bg-[#058A65] py-16">
-        <div className="max-w-screen-2xl mx-auto px-4 lg:px-8 text-center">
-          <h2 className="text-[32px] font-bold text-white mb-4">
-            准备开始您的碳资产项目？
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            我们的专业团队随时为您提供咨询服务，助力您的碳资产价值最大化
-          </p>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <div className="flex items-center gap-2 text-white">
-              <Users className="w-5 h-5" />
-              <span>专业团队</span>
-            </div>
-            <div className="flex items-center gap-2 text-white">
-              <Clock className="w-5 h-5" />
-              <span>快速响应</span>
-            </div>
-            <div className="flex items-center gap-2 text-white">
-              <Award className="w-5 h-5" />
-              <span>品质保证</span>
-            </div>
-          </div>
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <a href="#contact" className="px-8 py-3 bg-white text-[#058A65] font-semibold rounded-md hover:bg-gray-100 transition-colors inline-block">
-              立即咨询
-            </a>
-            <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-md hover:bg-white hover:text-[#058A65] transition-colors">
-              下载资料
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* CTA Section 暂未启用 */}
 
       {/* Contact Section */}
       

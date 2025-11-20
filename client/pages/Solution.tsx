@@ -59,16 +59,22 @@ export default function Solution() {
                 </p>
               </div>
               <div className="flex items-start gap-4">
-                <button className="flex w-[142px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
+                <a
+                  href="#system-intro"
+                  className="flex w-[142px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]"
+                >
                   <span className="text-white font-inter text-[15px] font-bold leading-[22px]">
                     立即了解系统
                   </span>
-                </button>
-                <button className="flex py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
+                </a>
+                <a
+                  href="#contact"
+                  className="flex py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]"
+                >
                   <span className="text-[#058A65] font-inter text-[15px] font-bold leading-[22px]">
                     获取解决方案
                   </span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -76,7 +82,10 @@ export default function Solution() {
       </section>
 
       {/* System Introduction Section */}
-      <section className="w-full h-[560px] py-[100px] px-[112px] flex flex-col justify-center items-center gap-16 bg-white">
+      <section
+        id="system-intro"
+        className="w-full h-[560px] py-[100px] px-[112px] flex flex-col justify-center items-center gap-16 bg-white"
+      >
         <div className="flex h-[520px] items-center gap-12 w-full">
           <img
             src="/system-interface.png"
@@ -121,11 +130,7 @@ export default function Solution() {
                 核心功能
               </h2>
               <p className="text-white text-center font-inter text-lg font-normal leading-6 tracking-[-0.16px] w-full">
-                能源实时监测
-                <br />
-                <span className="text-base">
-                  多级用能结构数据采集，秒级更新，远程抄表
-                </span>
+                建立“一站式能碳数据中枢”，覆盖采集、核算、诊断、决策的全链条能力，帮助工厂形成可持续的能源与碳排管理闭环。
               </p>
             </div>
           </div>
@@ -146,7 +151,7 @@ export default function Solution() {
                     碳排放核算与盘查
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                    自动汇总企业各类能源消耗并换算为CO₂排放，形成碳排放清单
+                    多源数据自动采集与边界校验，按 ISO 14064/GHG Protocol 口径生成组织与工序级碳排放清单。
                   </p>
                 </div>
               </div>
@@ -165,7 +170,7 @@ export default function Solution() {
                     能耗数据分析
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                    对水、电、气等能耗进行多维度统计与对比分析，找出高耗能环节；帮助优化用能结构
+                    对水、电、气、蒸汽等介质进行多维对比，识别异常波动与高耗能工段，为能效优化提供依据。
                   </p>
                 </div>
               </div>
@@ -184,7 +189,7 @@ export default function Solution() {
                     预测与预警
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                    通过模型预测未来一定周期内的能耗与碳排放趋势；设置阈值生成异常告警，及时发现峰值、泄漏等能源浪费情况
+                    结合生产排程与历史数据预测能耗/碳排趋势，配置阈值告警，秒级捕捉峰值、泄漏等异常。
                   </p>
                 </div>
               </div>
@@ -203,7 +208,7 @@ export default function Solution() {
                     减排模拟与规划
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                    基于能源碳排放数据，模拟不同减排策略效果(如设备更新、工艺改进、能效提升等)，制定科学的技能减排路径规划
+                    针对设备改造、工艺优化、绿电替代等方案进行情景模拟，量化减排收益并输出阶段性实施路径。
                   </p>
                 </div>
               </div>
@@ -222,7 +227,7 @@ export default function Solution() {
                     决策支持与报告
                   </h3>
                   <p className="text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.16px] w-full">
-                    生成可视化报表和仪表盘，直观展示节能降碳关键指标；内置碳足迹分析模型，支持碳排放方案论证；平台可对接政府策系统或碳交易平台，实现碳交易配额管理等服务
+                    构建多角色驾驶舱与专题报表，支撑月度例会、碳披露、配额管理及碳交易对接的合规需求。
                   </p>
                 </div>
               </div>
@@ -371,7 +376,7 @@ export default function Solution() {
                 我们的优势
               </h2>
               <p className="text-[#858C95] text-center font-inter text-base font-normal leading-6 tracking-[-0.1px] w-full">
-                优势的文案文字优势的文案文字优势的文案文字
+                深度融合行业经验、数字化平台与标准化方法，为企业提供可快速落地、可衡量收益、可持续迭代的能碳管理能力。
               </p>
             </div>
           </div>
@@ -423,10 +428,10 @@ export default function Solution() {
           <div className="flex w-[800px] flex-col justify-center items-center gap-2">
             <div className="flex flex-col items-center gap-4 w-full">
               <h2 className="text-[#333] text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.64px] w-full">
-                案例标题文案
+                客户成功实践
               </h2>
               <p className="text-[#858C95] text-center font-inter text-base font-normal leading-6 tracking-[-0.1px] w-full">
-                成功实施的案例文案文案文案文案
+                覆盖制造、园区、能源等多元场景，持续验证方案在节能降碳、运营协同与合规提升上的真实成效。
               </p>
             </div>
           </div>
@@ -462,13 +467,13 @@ export default function Solution() {
 
         {/* Case Study Titles */}
         <div className="text-[#333] text-center font-inter text-xl font-medium leading-normal tracking-[-0.4px] absolute left-[181px] top-[481px] w-[250px] h-6">
-          xxxxx案例文案文案文案文案
+          华东制造基地能碳一体化改造
         </div>
         <div className="text-[#333] font-inter text-xl font-medium leading-normal tracking-[-0.4px] absolute left-[605px] top-[481px] w-[230px] h-6">
-          xxxxx案例文案文案文案文
+          西部园区综合能源管控平台
         </div>
         <div className="text-[#333] text-center font-inter text-xl font-medium leading-normal tracking-[-0.4px] absolute left-[1019px] top-[481px] w-[230px] h-6">
-          xxxxx案例文案文案文案文
+          南方电子企业碳足迹精益管理
         </div>
       </section>
 

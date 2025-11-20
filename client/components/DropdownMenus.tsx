@@ -428,9 +428,6 @@ export function ProductServicesDropdown({
             >
               {t("products.zero.carbon.factory")}
             </div>
-            <div className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
-              {t("products.low.carbon.solutions")}
-            </div>
           </div>
         </div>
       </div>

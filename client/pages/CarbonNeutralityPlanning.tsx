@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SolutionHero from "../components/SolutionHero";
 
 export default function CarbonNeutralityPlanning() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,30 +61,13 @@ export default function CarbonNeutralityPlanning() {
     <div className="min-h-screen bg-white">
       <Header isScrolled={isScrolled} />
 
-      {/* Hero */}
-      <section className="relative w-full h-[520px] bg-white">
-        <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url('https://api.builder.io/api/v1/image/assets/TEMP/9026b87008e8884034ad247a59bfca58d7b09cc8?width=2880')",
-              backgroundBlendMode: "multiply",
-            }}
-          />
-        </div>
-        <div className="relative z-10 flex items-center justify-center h-full pt-[88px]">
-          <div className="max-w-[760px] text-center px-8">
-            <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">碳达峰碳中和路径规划</h1>
-            <p className="text-lg text-white/90 mb-10 tracking-[-0.1px]">以数据为底座、以路径为抓手，规划可落地、可量化、可验证的双碳路线图</p>
-            <div className="flex gap-4 justify-center">
-              <a href="#contact" className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm">获取方案</a>
-              <a href="#roadmap" className="bg-white/10 backdrop-blur text-white px-6 py-3 rounded-full font-semibold text-[15px] border border-white/30">查看路径</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SolutionHero
+        tag="碳咨询"
+        title="碳达峰碳中和路径规划"
+        description="以数据为底座、以路径为抓手，规划可落地、可量化、可验证的双碳路线图"
+        secondaryText="查看路径"
+        secondaryHref="#roadmap"
+      />
 
       {/* Why */}
       <section className="py-[88px] bg-white">

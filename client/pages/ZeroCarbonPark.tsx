@@ -191,16 +191,22 @@ export default function ZeroCarbonPark() {
                 </p>
               </div>
               <div className="flex items-start gap-4">
-                <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
+                <a
+                  href="#park-concept"
+                  className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]"
+                >
                   <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
                     了解详情
                   </span>
-                </button>
-                <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
+                </a>
+                <a
+                  href="#contact"
+                  className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]"
+                >
                   <span className="text-[#058A65] font-inter text-[15px] font-semibold leading-[22px]">
                     联系我们
                   </span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -226,7 +232,10 @@ export default function ZeroCarbonPark() {
       </section>
 
       {/* Features Section - 零碳园区建设理念 */}
-      <section className="flex w-full py-[88px] px-[112px] flex-col justify-center items-center gap-16 bg-[rgba(5,138,101,0.06)]">
+      <section
+        id="park-concept"
+        className="flex w-full py-[88px] px-[112px] flex-col justify-center items-center gap-16 bg-[rgba(5,138,101,0.06)]"
+      >
         <div className="flex max-w-[1280px] flex-col justify-center items-center gap-3 self-stretch">
           <div className="flex w-[800px] flex-col justify-center items-center gap-2">
             <div className="flex flex-col items-center gap-4 self-stretch">
@@ -618,64 +627,6 @@ export default function ZeroCarbonPark() {
                 </span>
               </button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to action */}
-      <section className="flex w-full py-16 px-[112px] flex-col justify-center items-center bg-[rgba(5,138,101,0.05)]">
-        <div className="flex flex-col justify-center items-center gap-8 self-stretch">
-          <div className="flex w-[752px] flex-col items-center gap-4">
-            <h2 className="self-stretch text-[#333] text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.48px]">
-              联系我们
-            </h2>
-            <p className="self-stretch text-[#666] text-center font-inter text-base font-normal leading-6 tracking-[-0.1px]">
-              欢迎预约系统演示，获取专属能碳管理解决方案
-            </p>
-          </div>
-          <div className="flex w-[752px] justify-center items-start gap-4">
-            <form className="flex flex-col items-start gap-2 flex-1" onSubmit={async (e) => {
-              e.preventDefault();
-              const form = e.target as HTMLFormElement;
-              const data = {
-                name: (form.elements[0] as HTMLInputElement).value,
-                company: (form.elements[1] as HTMLInputElement).value,
-                contact: (form.elements[2] as HTMLInputElement).value,
-                message: (form.elements[3] as HTMLTextAreaElement).value,
-                source: "/zero-carbon-park",
-              };
-              const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-              });
-              if (res.ok) {
-                alert("提交成功！");
-                form.reset();
-              } else {
-                alert("提交失败，请重试");
-              }
-            }}>
-              <div className="flex h-[46px] py-3 px-3 items-center gap-2 self-stretch rounded-[6px] border border-[#E5E5E7] bg-white">
-                <div className="flex items-start gap-2 flex-1">
-                  <div className="flex-1 text-[#999] font-inter text-[15px] font-normal leading-[22px]">
-                    您的姓名
-                  </div>
-                </div>
-              </div>
-              <div className="flex h-[46px] py-3 px-3 items-center gap-2 self-stretch rounded-[6px] border border-[#E5E5E7] bg-white">
-                <div className="flex items-start gap-2 flex-1">
-                  <div className="flex-1 text-[#999] font-inter text-[15px] font-normal leading-[22px]">
-                    您的联系方式
-                  </div>
-                </div>
-              </div>
-              <button className="flex py-3 px-5 justify-center items-center gap-1.5 rounded-[6px] bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
-                <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
-                  提交信息
-                </span>
-              </button>
-            </form>
           </div>
         </div>
       </section>

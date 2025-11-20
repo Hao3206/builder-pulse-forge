@@ -26,8 +26,7 @@ export default function CorporateCarbonManagement() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage:
-                "url('https://api.builder.io/api/v1/image/assets/TEMP/d3c2a75c75d2b22cd54ba87fdf99348bf0398abd?width=2880')",
+              backgroundImage: "url('/banner-1.jpg')",
               backgroundBlendMode: "multiply",
             }}
           />
@@ -35,7 +34,7 @@ export default function CorporateCarbonManagement() {
 
         <div className="relative z-10 flex items-center justify-center h-full pt-[88px]">
           <div className="max-w-[640px] text-center px-8">
-            <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">
+            <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px] whitespace-nowrap">
               企业碳管理一站式解决方案
             </h1>
             <p className="text-lg text-white mb-12 tracking-[-0.1px]">
@@ -157,7 +156,7 @@ export default function CorporateCarbonManagement() {
               核心功能
             </h2>
             <p className="text-[16px] text-white/80 max-w-[800px] mx-auto tracking-[-0.16px]">
-              核心功能描述性文案文字文字文字文字文字文字文字文字文字文字文字文字文字
+              以“一套数据底座”贯穿采集、核算、洞察与履约，帮助企业快速构建从组织到产品的数字化碳管理能力。
             </p>
           </div>
 
@@ -245,7 +244,7 @@ export default function CorporateCarbonManagement() {
               进阶能力
             </h2>
             <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">
-              进阶能力描述下文案文案文案文案文案文案文案文案文案文案文案
+              在基础核算之上叠加策略模拟、流程协同与外部衔接，满足集团化、跨区域、多场景的复杂业务需求。
             </p>
           </div>
 
@@ -360,7 +359,7 @@ export default function CorporateCarbonManagement() {
               应用场景
             </h2>
             <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">
-              应用场景描述性文案描述性文案描述性文案描述性文案描述性文案
+              覆盖制造、园区、楼宇、校园等典型场景，按行业口径提供定制化指标、流程与合规输出。
             </p>
           </div>
 
@@ -448,7 +447,7 @@ export default function CorporateCarbonManagement() {
               技术架构
             </h2>
             <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">
-              技术架构描述下文案文字文案文字文案文字文案文字文案文字文案文字
+              采用云原生架构、数据湖与微服务解耦设计，保障多租户隔离、弹性扩展与全链路安全合规。
             </p>
           </div>
 
@@ -581,15 +580,16 @@ export default function CorporateCarbonManagement() {
         </div>
       </section>
 
-      {/* Partners & Qualifications Section */}
-      <section className="py-[88px] bg-white">
+      {/* 合作客户 & 资质 暂时隐藏 */}
+      {false && (
+        <section className="py-[88px] bg-white">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">
               合作客户 & 资质
             </h2>
             <p className="text-[16px] text-[#5F6D7E] max-w-[800px] mx-auto tracking-[-0.1px]">
-              描述下文案文字文案文字文案文字文案文字文案文字文案文字
+              深度服务制造、能源、园区等客户，与科研院校及认证机构共建方法论与培训体系。
             </p>
           </div>
 
@@ -711,7 +711,7 @@ export default function CorporateCarbonManagement() {
               行业资质与标准
             </h3>
             <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">
-              技术架构描述下文案文字文案文字文案文字文案文字文案文字文案文字
+              平台遵循 ISO 14064、PAS 2050、GHG Protocol 等国际国内主流标准，实现数据采信与第三方审核对接。
             </p>
           </div>
 
@@ -738,80 +738,8 @@ export default function CorporateCarbonManagement() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section className="py-[88px] bg-[#F2F9F7]">
-        <div className="max-w-[840px] mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">
-              联系我们
-            </h2>
-            <p className="text-[16px] text-[#858C95] max-w-[800px] mx-auto tracking-[-0.1px]">
-              如果您有任何问题或疑问，请与我们联系,我们将尽最大努力尽快回复您。
-            </p>
-          </div>
-
-          <form
-            className="space-y-6"
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const form = e.target as HTMLFormElement;
-              const data = {
-                name: (form.elements[0] as HTMLInputElement).value,
-                contact: (form.elements[1] as HTMLInputElement).value,
-                company: (form.elements[2] as HTMLInputElement).value,
-                message: (form.elements[3] as HTMLTextAreaElement).value,
-                source: "/corporate-carbon-management",
-              };
-              const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-              });
-              if (res.ok) {
-                alert("提交成功！");
-                form.reset();
-              } else {
-                alert("提交失败，请重试");
-              }
-            }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input
-                type="text"
-                placeholder="您的姓名"
-                className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm"
-              />
-              <input
-                type="text"
-                placeholder="您的联系方式"
-                className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm"
-              />
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="您的公司"
-                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#058A65] focus:border-transparent"
-              />
-            </div>
-            <textarea
-              placeholder="您的留言内容"
-              rows={5}
-              className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm resize-none"
-            />
-            <div className="text-center">
-              <button
-                type="submit"
-                className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm"
-              >
-                立即咨询
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
+        </section>
+      )}
 
       <ContactSection />
       <Footer />

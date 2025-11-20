@@ -80,7 +80,7 @@ export default function CarbonFootprint() {
               基础知识
             </h2>
             <p className="text-gray-600 text-base leading-relaxed">
-              基础知识述性文案描述性文案描述性文案描述性文案描述性文案
+              了解碳足迹的含义、核算边界与计算方法，是企业建立“双碳”管理体系的第一步。以下内容梳理常见概念，帮助团队快速构建统一语言。
             </p>
           </div>
 
@@ -105,7 +105,7 @@ export default function CarbonFootprint() {
                 碳足迹定义
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                碳足迹是指个人、组织或产品在特定时间段内直接或间接产生的温室气体排放总量，以二氧化碳当量(CO₂e)。
+                碳足迹是指在某个生命周期或时间窗口内，组织、产品、项目等活动直接或间接产生的温室气体排放总量，通常折算成二氧化碳当量（CO₂e）。
               </p>
             </div>
 
@@ -129,7 +129,7 @@ export default function CarbonFootprint() {
                 排放范围分类
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                范围一：直接排放；范围二：电力相关间接排放；范围三：其他间接排放
+                范围一：自有与可控设施的直接排放；范围二：购入电力、蒸汽、热力等间接排放；范围三：供应链、出行、废弃物等其他间接排放。
               </p>
             </div>
 
@@ -153,8 +153,7 @@ export default function CarbonFootprint() {
                 计算方法
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                碳排放量 = 活动数据 × 排放因子 ×
-                GWP值，通过这一公式将各种温室气体排放量统一转换为二氧化碳当量。
+                常用公式为：碳排放量 = 活动数据 × 排放因子 × GWP。根据不同介质选择合适的排放因子和全球增温潜势，实现多种温室气体的可比化。
               </p>
             </div>
           </div>
@@ -170,7 +169,7 @@ export default function CarbonFootprint() {
                 政策法规
               </h2>
               <p className="text-gray-600 mb-12 text-base leading-relaxed">
-                政策法规文案描述文案描述文案描述文案描述文案描述
+                国家持续完善碳排放与碳足迹管理制度，地方政府及行业协会陆续发布配套指南，国际上也涌现 CBAM、CSRD 等法规要求。掌握政策动态有助于企业合规运营与市场拓展。
               </p>
 
               <div className="space-y-0 rounded-xl overflow-hidden">
@@ -247,7 +246,7 @@ export default function CarbonFootprint() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">应用场景</h2>
             <p className="text-gray-600">
-              应用场景描述性文案描述性文案描述性文案描述性文案描述性文案
+              不同行业可围绕自身业务场景开展碳足迹核算与减排行动，支撑绿色供应链、产品认证、绿色金融与对外披露。
             </p>
           </div>
 
@@ -318,7 +317,7 @@ export default function CarbonFootprint() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">联系我们</h2>
             <p className="text-gray-600">
-              如果您有任何问题或疑问，请与我们联系我们将尽最大努力尽快回复您。
+              想要了解碳足迹核算、验证辅导或系统化建设，可留下联系方式，我们的顾问将与您一对一沟通需求。
             </p>
           </div>
 

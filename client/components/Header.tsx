@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ProductServicesDropdown, NewsCenterDropdown } from "./DropdownMenus";
-import { SolutionsDropdown } from "./SolutionsDropdownFixed";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "../hooks/useLanguage";
 import { Menu, X } from "lucide-react";
@@ -89,11 +88,6 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                     isActivePath("/zero-carbon-factory") ||
                     isActivePath("/carbon-footprint")
                   }
-                />
-
-                <SolutionsDropdown
-                  isScrolled={isScrolled}
-                  isActive={isActivePath("/solution")}
                 />
 
                 <span
@@ -368,20 +362,6 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   }}
                 >
                   {t("nav.products")}
-                </button>
-
-                <button
-                  className={`text-left py-3 px-4 rounded-lg transition-colors ${
-                    isActivePath("/solution")
-                      ? "text-[#058A65] bg-green-50"
-                      : "text-[#333] hover:bg-gray-50"
-                  }`}
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    // Could navigate to solutions page
-                  }}
-                >
-                  {t("nav.solutions")}
                 </button>
 
                 <button

@@ -3,66 +3,6 @@ import { db } from "../database";
 
 const router = express.Router();
 
-// 处理内容中的图片，将图片URL替换为微信media_id
-async function processContentImages(content: string, accessToken: string): Promise<string> {
-  if (!content) return content;
-  
-  // 匹配所有img标签
-  const imgRegex = /<img[^>]+src=["']([^"']+)["'][^>]*>/gi;
-  let processedContent = content;
-  let match;
-  
-  while ((match = imgRegex.exec(content)) !== null) {
-    const imgTag = match[0];
-    const imgUrl = match[1];
-    
-    try {
-      // 如果是相对路径，转换为完整URL
-      let fullImgUrl = imgUrl;
-      if (imgUrl.startsWith('/uploads/')) {
-        fullImgUrl = `https://www.zdeaee.com${imgUrl}`;
-      }
-      
-      // 下载图片
-      const imgResponse = await fetch(fullImgUrl);
-      if (!imgResponse.ok) {
-        console.warn(`无法下载图片: ${fullImgUrl}`);
-        continue;
-      }
-      
-      const imgBuffer = await imgResponse.arrayBuffer();
-      const imgBlob = new Blob([new Uint8Array(imgBuffer)]);
-      
-      // 上传到微信服务器
-      const formData = new FormData();
-      formData.append('media', imgBlob, 'image.jpg');
-      
-      const uploadResponse = await fetch(
-        `https://api.weixin.qq.com/cgi-bin/media/upload?access_token=${accessToken}&type=image`,
-        {
-          method: 'POST',
-          body: formData
-        }
-      );
-      
-      const uploadResult = await uploadResponse.json();
-      
-      if (uploadResult.media_id) {
-        // 替换img标签为微信格式
-        const wechatImgTag = `<img src="${uploadResult.media_id}" />`;
-        processedContent = processedContent.replace(imgTag, wechatImgTag);
-        console.log(`图片上传成功: ${imgUrl} -> ${uploadResult.media_id}`);
-      } else {
-        console.warn(`图片上传失败: ${imgUrl}`, uploadResult);
-      }
-    } catch (error) {
-      console.error(`处理图片失败: ${imgUrl}`, error);
-    }
-  }
-  
-  return processedContent;
-}
-
 // 获取微信访问令牌
 async function getWechatAccessToken(): Promise<string> {
   const config = await db.get("SELECT * FROM wechat_config LIMIT 1");
@@ -125,17 +65,8 @@ async function syncArticleToWechat(articleId: number): Promise<any> {
   }
   
   // 处理文章内容，确保符合微信API要求
-  // 移除HTML标签并清理内容
-  const cleanContent = article.content
-    .replace(/<[^>]*>/g, '') // 移除HTML标签
-    .replace(/\s+/g, ' ') // 合并多个空格
-    .trim();
-  
-  // 微信描述限制为64个字符
-  const digest = cleanContent.length > 64 ? cleanContent.substring(0, 64) + "..." : cleanContent;
-  
-  // 处理富文本内容中的图片
-  let processedContent = await processContentImages(article.content, accessToken);
+  const cleanContent = article.content.replace(/\s+/g, ' ').trim();
+  const digest = cleanContent.length > 120 ? cleanContent.substring(0, 120) + "..." : cleanContent;
   
   // 使用指定的封面图片
   let thumbMediaId = "";
@@ -148,7 +79,7 @@ async function syncArticleToWechat(articleId: number): Promise<any> {
     
     // 上传到微信服务器
     const formData = new FormData();
-    formData.append('media', new Blob([new Uint8Array(imageBuffer)]), 'banner-1.jpg');
+    formData.append('media', new Blob([imageBuffer]), 'banner-1.jpg');
     
     const uploadResponse = await fetch(
       `https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=${accessToken}&type=image`,
@@ -175,7 +106,7 @@ async function syncArticleToWechat(articleId: number): Promise<any> {
       title: article.title,
       author: article.author || "浙东环境能源交易所",
       digest: digest,
-      content: processedContent, // 使用处理后的内容（包含微信media_id的图片）
+      content: cleanContent,
       content_source_url: "",
       thumb_media_id: thumbMediaId,
       show_cover_pic: 1
