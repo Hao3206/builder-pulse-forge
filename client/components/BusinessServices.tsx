@@ -21,7 +21,7 @@ export default function BusinessServices() {
       title: t("business.carbon.consulting.title"),
       subtitle: t("business.carbon.consulting.subtitle"),
       image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/7bb1fe9f262a0519faa5ffb370502b8d01792d9d?width=349",
+        "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
       icon: MessageCircleMore,
       path: "/carbon-neutrality-planning",
       submenu: [
@@ -37,7 +37,7 @@ export default function BusinessServices() {
       title: t("business.carbon.trading.title"),
       subtitle: t("business.carbon.trading.subtitle"),
       image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/016820fd6b8a92264e45eec769581861a334348a?width=546",
+        "https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg",
       icon: TrendingUp,
       path: "/local-carbon-trading",
       submenu: [
