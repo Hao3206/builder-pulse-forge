@@ -37,7 +37,7 @@ export default function BusinessServices() {
       title: t("business.carbon.trading.title"),
       subtitle: t("business.carbon.trading.subtitle"),
       image:
-        "https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg",
+        "https://api.builder.io/api/v1/image/assets/TEMP/016820fd6b8a92264e45eec769581861a334348a?width=546",
       icon: TrendingUp,
       path: "/local-carbon-trading",
       submenu: [
