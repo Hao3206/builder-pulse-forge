@@ -437,100 +437,140 @@ export function ProductServicesDropdown({
 
 export function SolutionsDropdown({
   isScrolled = false,
+  isActive = false,
 }: DropdownComponentProps) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleNavigation = (path: string) => {
     navigate(path);
   };
 
   return (
-    <Dropdown title="解决方案" isScrolled={isScrolled}>
-      <div className="flex h-[308px]">
+    <Dropdown title={t("nav.solutions")} isScrolled={isScrolled} isActive={isActive}>
+      <div className="flex h-[308px] min-h-[308px]">
         {/* Left Sidebar */}
         <div className="w-[340px] bg-[#EBF8F6] px-[30px] flex flex-col justify-center">
           <h3 className="text-[#333] font-inter text-[18px] font-bold leading-[20px] tracking-[-0.1px] mb-4">
-            解决方案
+            {t("solutions.sidebar.title")}
           </h3>
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
-            全行业的解决方案，助力用户快速增长。
+            {t("solutions.sidebar.description")}
           </p>
           <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
-            更多内容
+            {t("common.more.content")}
             <ChevronRight className="w-5 h-5 -rotate-90" />
           </button>
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 p-8">
-          <div className="grid grid-cols-2 gap-8">
-            {/* Left Column */}
-            <div className="space-y-8">
-              <div>
-                <div
-                  className="flex items-center gap-1 mb-2 cursor-pointer"
-                  onClick={() => handleNavigation("/solution")}
-                >
-                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-                    能碳管理系统(园区/工厂)解决方案
-                  </span>
-                  <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-                </div>
-                <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  全面赋能工厂实现能碳精益管理，助力双碳目标落地
-                </p>
-              </div>
+        <div className="flex-1 bg-white relative">
+          {/* Top row solutions */}
+          <div className="absolute left-8 top-[30px] flex items-center gap-1">
+            <span
+              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
+              onClick={() => handleNavigation("/solution")}
+            >
+              {t("solutions.energy.carbon.management.title")}
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
 
-              <div>
-                <div
-                  className="flex items-center gap-1 mb-2 cursor-pointer"
-                  onClick={() =>
-                    handleNavigation("/corporate-carbon-management")
-                  }
-                >
-                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-                    企业碳管理一站式解决方案
-                  </span>
-                  <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-                </div>
-                <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  为企业提供全方位的碳管理服务，包括碳盘查、碳核算、碳交易等一站式解决方案
-                </p>
-              </div>
-            </div>
+          <div className="absolute left-[369px] top-[30px] flex items-center gap-1">
+            <span
+              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
+              onClick={() => handleNavigation("/zero-carbon-park")}
+            >
+              {t("solutions.zero.carbon.park.title")}
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
 
-            {/* Right Column */}
-            <div className="space-y-8">
-              <div>
-                <div
-                  className="flex items-center gap-1 mb-2 cursor-pointer"
-                  onClick={() => handleNavigation("/zero-carbon-park")}
-                >
-                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-                    零碳园区解决方案
-                  </span>
-                  <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-                </div>
-                <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  为园区提供零碳转型整体解决方案，包括能源管理、碳监测、减排技术等
-                </p>
-              </div>
+          <div className="absolute left-[650px] top-[30px] flex items-center gap-1">
+            <span
+              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
+              onClick={() => handleNavigation("/zero-carbon-factory")}
+            >
+              {t("solutions.zero.carbon.factory.title")}
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
 
-              <div>
-                <div
-                  className="flex items-center gap-1 mb-2 cursor-pointer"
-                  onClick={() => handleNavigation("/carbon-footprint")}
-                >
-                  <span className="text-brand-green font-inter text-base font-medium leading-6 tracking-[-0.16px] hover:text-[#046B52] transition-colors">
-                    碳核算/碳足迹解决方案
-                  </span>
-                  <ChevronRight className="w-5 h-5 text-brand-green -rotate-90" />
-                </div>
-                <p className="text-[#999] font-inter text-sm leading-5 tracking-[-0.1px]">
-                  碳足迹核算与管理解决方案，助力企业实现低碳发展
-                </p>
-              </div>
-            </div>
+          {/* Description text for top row */}
+          <div className="absolute left-8 top-[64px] w-[210px]">
+            <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              {t("solutions.energy.carbon.management.desc")}
+            </p>
+          </div>
+
+          <div className="absolute left-[369px] top-[64px] w-[210px]">
+            <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              {t("solutions.zero.carbon.park.desc")}
+            </p>
+          </div>
+
+          <div className="absolute left-[650px] top-[64px] w-[210px]">
+            <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              {t("solutions.zero.carbon.factory.desc")}
+            </p>
+          </div>
+
+          {/* Bottom row solutions */}
+          <div className="absolute left-8 top-[164px] flex items-center gap-1">
+            <span
+              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
+              onClick={() => handleNavigation("/corporate-carbon-management")}
+            >
+              {t("solutions.enterprise.carbon.management.title")}
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
+
+          <div className="absolute left-[369px] top-[164px] flex items-center gap-1">
+            <span
+              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
+              onClick={() => handleNavigation("/carbon-footprint")}
+            >
+              {t("solutions.carbon.footprint.title")}
+            </span>
+            <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
+          </div>
+
+          {/* Description text for bottom row */}
+          <div className="absolute left-8 top-[198px] w-[210px]">
+            <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              {t("solutions.enterprise.carbon.management.desc")}
+            </p>
+          </div>
+
+          <div className="absolute left-[369px] top-[198px] w-[210px]">
+            <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
+              {t("solutions.carbon.footprint.desc")}
+            </p>
+          </div>
+
+          {/* Right side images/icons - both in second row */}
+          <div className="absolute right-[292px] top-[159px] w-[90px] h-[90px]">
+            <img
+              src="/yongcheng-low-carbon.png"
+              alt="甬城低碳"
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <div className="absolute right-[400px] top-[159px] w-[90px] h-[90px]">
+            <img
+              src="/carbon-calculator.png"
+              alt="个人碳足迹计算器"
+              className="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+
+          {/* Image labels - both in second row, separated */}
+          <div className="absolute right-[310px] top-[252px] text-[#666] font-inter text-[14px] font-medium leading-6 tracking-[-0.14px]">
+            甬城低碳
+          </div>
+          <div className="absolute right-[395px] top-[252px] text-[#666] font-inter text-[14px] font-medium leading-6 tracking-[-0.14px]">
+            个人碳足迹计算
           </div>
         </div>
       </div>
