@@ -52,8 +52,8 @@ const translations: Translations = {
 
   // Search
   "search.placeholder": {
-    zh: "搜索资讯内容...",
-    en: "Search news content...",
+    zh: "搜索产品、解决方案、资讯...",
+    en: "Search products, solutions, news...",
   },
   "search.button": {
     zh: "搜索",
