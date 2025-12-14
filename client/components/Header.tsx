@@ -27,7 +27,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      navigate(`/news-center?search=${encodeURIComponent(searchQuery)}`);
+      navigate(`/search?search=${encodeURIComponent(searchQuery)}`);
       setSearchOpen(false);
       setSearchQuery("");
     }
