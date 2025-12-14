@@ -52,28 +52,6 @@ async function setup() {
     );
   `);
 
-  // 创建碳排放足迹表
-  await db.exec(`
-    CREATE TABLE IF NOT EXISTS carbon_footprints (
-      id TEXT PRIMARY KEY,
-      user_id TEXT NOT NULL,
-      entity_type TEXT NOT NULL CHECK(entity_type IN ('individual', 'company', 'product')),
-      entity_name TEXT NOT NULL,
-      total_emissions REAL NOT NULL,
-      unit TEXT DEFAULT 'tCO2e',
-      period_start TEXT NOT NULL,
-      period_end TEXT NOT NULL,
-      breakdown TEXT NOT NULL,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    );
-  `);
-
-  // 创建索引以提高查询性能
-  await db.exec(`
-    CREATE INDEX IF NOT EXISTS idx_carbon_footprints_user_id ON carbon_footprints(user_id);
-    CREATE INDEX IF NOT EXISTS idx_carbon_footprints_created_at ON carbon_footprints(created_at);
-  `);
-
   // For testing, let's add some mock data if the table is empty
   const count = await db.get("SELECT COUNT(*) as count FROM news");
   if (count.count === 0) {

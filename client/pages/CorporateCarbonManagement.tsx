@@ -582,7 +582,7 @@ export default function CorporateCarbonManagement() {
 
       {/* 合作客户 & 资质 暂时隐藏 */}
       {false && (
-        <section className="py-[88px] bg-white">
+      <section className="py-[88px] bg-white">
         <div className="max-w-[1280px] mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">
@@ -738,7 +738,7 @@ export default function CorporateCarbonManagement() {
             </div>
           </div>
         </div>
-        </section>
+      </section>
       )}
 
       <ContactSection />

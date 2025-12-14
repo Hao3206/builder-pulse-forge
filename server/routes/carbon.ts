@@ -6,7 +6,6 @@ import {
   CarbonFootprint,
   CreateCarbonFootprintRequest,
 } from "@shared/api";
-import { db } from "../database";
 
 // 模拟数据库数据
 const mockCarbonCredits: CarbonCredit[] = [
@@ -56,6 +55,50 @@ const mockCarbonCredits: CarbonCredit[] = [
     },
     createdAt: "2024-01-10T09:15:00Z",
     updatedAt: "2024-01-22T14:20:00Z",
+  },
+];
+
+const mockFootprints: CarbonFootprint[] = [
+  {
+    id: "1",
+    userId: "user_1",
+    entityType: "company",
+    entityName: "浙江某制造企业",
+    totalEmissions: 1250.5,
+    unit: "tCO2e",
+    period: {
+      start: "2023-01-01",
+      end: "2023-12-31",
+    },
+    breakdown: [
+      {
+        category: "能源消耗",
+        subcategory: "电力",
+        amount: 680.2,
+        unit: "tCO2e",
+        percentage: 54.4,
+      },
+      {
+        category: "能源消耗",
+        subcategory: "天然气",
+        amount: 320.8,
+        unit: "tCO2e",
+        percentage: 25.7,
+      },
+      {
+        category: "交通运输",
+        amount: 149.3,
+        unit: "tCO2e",
+        percentage: 11.9,
+      },
+      {
+        category: "工业过程",
+        amount: 100.2,
+        unit: "tCO2e",
+        percentage: 8.0,
+      },
+    ],
+    createdAt: "2024-01-25T10:00:00Z",
   },
 ];
 
@@ -130,39 +173,22 @@ export const getCarbonProjects: RequestHandler = (req, res) => {
 };
 
 // 获取碳足迹数据
-export const getCarbonFootprint: RequestHandler = async (req, res) => {
+export const getCarbonFootprint: RequestHandler = (req, res) => {
   try {
     const { userId } = req.params;
 
-    const rows = await db.all(
-      `SELECT * FROM carbon_footprints WHERE user_id = ? ORDER BY created_at DESC`,
-      [userId]
+    const userFootprints = mockFootprints.filter(
+      (footprint) => footprint.userId === userId,
     );
-
-    const footprints: CarbonFootprint[] = rows.map((row: any) => ({
-      id: row.id,
-      userId: row.user_id,
-      entityType: row.entity_type as "individual" | "company" | "product",
-      entityName: row.entity_name,
-      totalEmissions: row.total_emissions,
-      unit: row.unit as "tCO2e",
-      period: {
-        start: row.period_start,
-        end: row.period_end,
-      },
-      breakdown: JSON.parse(row.breakdown),
-      createdAt: row.created_at,
-    }));
 
     const response: ApiResponse<CarbonFootprint[]> = {
       success: true,
-      data: footprints,
-      message: `找到 ${footprints.length} 条碳足迹记录`,
+      data: userFootprints,
+      message: `找到 ${userFootprints.length} 条碳足迹记录`,
     };
 
     res.status(200).json(response);
   } catch (error) {
-    console.error("获取碳足迹数据失败:", error);
     const response: ApiResponse = {
       success: false,
       error: "获取碳足迹数据失败",
@@ -172,7 +198,7 @@ export const getCarbonFootprint: RequestHandler = async (req, res) => {
 };
 
 // 创建碳足迹记录
-export const createCarbonFootprint: RequestHandler = async (req, res) => {
+export const createCarbonFootprint: RequestHandler = (req, res) => {
   try {
     const { userId } = req.params;
     const footprintData: CreateCarbonFootprintRequest = req.body;
@@ -192,31 +218,8 @@ export const createCarbonFootprint: RequestHandler = async (req, res) => {
       percentage: (emission.amount / totalEmissions) * 100,
     }));
 
-    const footprintId = `footprint_${Date.now()}`;
-    const createdAt = new Date().toISOString();
-
-    // 保存到数据库
-    await db.run(
-      `INSERT INTO carbon_footprints (
-        id, user_id, entity_type, entity_name, total_emissions, unit,
-        period_start, period_end, breakdown, created_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-      [
-        footprintId,
-        userId,
-        footprintData.entityType,
-        footprintData.entityName,
-        totalEmissions,
-        "tCO2e",
-        footprintData.period.start,
-        footprintData.period.end,
-        JSON.stringify(breakdown),
-        createdAt,
-      ]
-    );
-
     const newFootprint: CarbonFootprint = {
-      id: footprintId,
+      id: `footprint_${Date.now()}`,
       userId,
       entityType: footprintData.entityType,
       entityName: footprintData.entityName,
@@ -224,8 +227,11 @@ export const createCarbonFootprint: RequestHandler = async (req, res) => {
       unit: "tCO2e",
       period: footprintData.period,
       breakdown,
-      createdAt,
+      createdAt: new Date().toISOString(),
     };
+
+    // 模拟保存到数据库
+    mockFootprints.push(newFootprint);
 
     const response: ApiResponse<CarbonFootprint> = {
       success: true,
@@ -235,7 +241,6 @@ export const createCarbonFootprint: RequestHandler = async (req, res) => {
 
     res.status(201).json(response);
   } catch (error) {
-    console.error("创建碳足迹记录失败:", error);
     const response: ApiResponse = {
       success: false,
       error: "创建碳足迹记录失败",
@@ -245,43 +250,28 @@ export const createCarbonFootprint: RequestHandler = async (req, res) => {
 };
 
 // 获取碳足迹统计数据
-export const getCarbonFootprintStats: RequestHandler = async (req, res) => {
+export const getCarbonFootprintStats: RequestHandler = (req, res) => {
   try {
-    // 获取总数
-    const totalCount = await db.get(
-      "SELECT COUNT(*) as count FROM carbon_footprints"
+    const totalFootprints = mockFootprints.length;
+    const totalEmissions = mockFootprints.reduce(
+      (sum, footprint) => sum + footprint.totalEmissions,
+      0,
     );
-    const totalFootprints = totalCount?.count || 0;
 
-    // 获取总排放量
-    const totalEmissionsResult = await db.get(
-      "SELECT SUM(total_emissions) as total FROM carbon_footprints"
-    );
-    const totalEmissions = totalEmissionsResult?.total || 0;
-
-    // 计算平均排放量
     const avgEmissions =
       totalFootprints > 0 ? totalEmissions / totalFootprints : 0;
-
-    // 按实体类型统计
-    const companyCount = await db.get(
-      "SELECT COUNT(*) as count FROM carbon_footprints WHERE entity_type = 'company'"
-    );
-    const individualCount = await db.get(
-      "SELECT COUNT(*) as count FROM carbon_footprints WHERE entity_type = 'individual'"
-    );
-    const productCount = await db.get(
-      "SELECT COUNT(*) as count FROM carbon_footprints WHERE entity_type = 'product'"
-    );
 
     const stats = {
       totalFootprints,
       totalEmissions,
       avgEmissions,
       byEntityType: {
-        company: companyCount?.count || 0,
-        individual: individualCount?.count || 0,
-        product: productCount?.count || 0,
+        company: mockFootprints.filter((f) => f.entityType === "company")
+          .length,
+        individual: mockFootprints.filter((f) => f.entityType === "individual")
+          .length,
+        product: mockFootprints.filter((f) => f.entityType === "product")
+          .length,
       },
     };
 
@@ -293,7 +283,6 @@ export const getCarbonFootprintStats: RequestHandler = async (req, res) => {
 
     res.status(200).json(response);
   } catch (error) {
-    console.error("获取统计数据失败:", error);
     const response: ApiResponse = {
       success: false,
       error: "获取统计数据失败",
