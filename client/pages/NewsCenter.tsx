@@ -53,39 +53,47 @@ export default function NewsCenter() {
         const result = await response.json();
         if (result.success && Array.isArray(result.data)) {
           // Transform API data to the format the component expects
-          const formattedArticles = result.data.map((apiArticle: ApiNewsArticle) => {
-            const d = new Date(apiArticle.createdAt);
-            const month = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            
-            // 从HTML内容中提取纯文本作为摘要
-            const extractTextFromHTML = (html: string): string => {
-              if (!html) return '';
-              
-              // 如果内容包含HTML标签，提取纯文本
-              if (html.includes('<') && html.includes('>')) {
-                // 创建一个临时的DOM元素来解析HTML
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = html;
-                const textContent = tempDiv.textContent || tempDiv.innerText || '';
-                
-                // 清理多余的空白字符并截取前200个字符作为摘要
-                return textContent.replace(/\s+/g, ' ').trim().substring(0, 200) + '...';
-              }
-              
-              // 如果是纯文本，直接截取前200个字符
-              return html.substring(0, 200) + (html.length > 200 ? '...' : '');
-            };
-            
-            return {
-              id: apiArticle.id,
-              date: `${month}/${day}`,
-              year: String(d.getFullYear()),
-              title: apiArticle.title,
-              content: extractTextFromHTML(apiArticle.content),
-              category: apiArticle.category,
-            };
-          });
+          const formattedArticles = result.data.map(
+            (apiArticle: ApiNewsArticle) => {
+              const d = new Date(apiArticle.createdAt);
+              const month = String(d.getMonth() + 1).padStart(2, "0");
+              const day = String(d.getDate()).padStart(2, "0");
+
+              // 从HTML内容中提取纯文本作为摘要
+              const extractTextFromHTML = (html: string): string => {
+                if (!html) return "";
+
+                // 如果内容包含HTML标签，提取纯文本
+                if (html.includes("<") && html.includes(">")) {
+                  // 创建一个临时的DOM元素来解析HTML
+                  const tempDiv = document.createElement("div");
+                  tempDiv.innerHTML = html;
+                  const textContent =
+                    tempDiv.textContent || tempDiv.innerText || "";
+
+                  // 清理多余的空白字符并截取前200个字符作为摘要
+                  return (
+                    textContent.replace(/\s+/g, " ").trim().substring(0, 200) +
+                    "..."
+                  );
+                }
+
+                // 如果是纯文本，直接截取前200个字符
+                return (
+                  html.substring(0, 200) + (html.length > 200 ? "..." : "")
+                );
+              };
+
+              return {
+                id: apiArticle.id,
+                date: `${month}/${day}`,
+                year: String(d.getFullYear()),
+                title: apiArticle.title,
+                content: extractTextFromHTML(apiArticle.content),
+                category: apiArticle.category,
+              };
+            },
+          );
           setArticles(formattedArticles);
         }
       } catch (error) {
@@ -120,33 +128,34 @@ export default function NewsCenter() {
     {
       id: "全部",
       name: "全部",
-      description: "浏览所有类别的文章，了解最新资讯动态"
+      description: "浏览所有类别的文章，了解最新资讯动态",
     },
     {
       id: "政策解读",
       name: "政策解读",
-      description: "深入解读国家及地方碳达峰碳中和相关政策法规，为企业提供政策指引"
+      description:
+        "深入解读国家及地方碳达峰碳中和相关政策法规，为企业提供政策指引",
     },
     {
       id: "本所动态",
       name: "本所动态",
-      description: "及时发布本所重要活动、业务进展及重大事项信息"
+      description: "及时发布本所重要活动、业务进展及重大事项信息",
     },
     {
       id: "通知公告",
       name: "通知公告",
-      description: "发布本所各类通知公告，确保信息及时传达"
+      description: "发布本所各类通知公告，确保信息及时传达",
     },
     {
       id: "新闻资讯",
       name: "新闻资讯",
-      description: "汇集国内外碳市场最新动态，掌握行业发展趋势"
+      description: "汇集国内外碳市场最新动态，掌握行业发展趋势",
     },
     {
       id: "知识专栏",
       name: "知识专栏",
-      description: "分享碳市场专业知识，普及碳交易相关概念"
-    }
+      description: "分享碳市场专业知识，普及碳交易相关概念",
+    },
   ];
 
   return (
@@ -265,10 +274,12 @@ export default function NewsCenter() {
             {/* Category Description */}
             <div className="text-center">
               <h2 className="text-[#333] text-xl font-bold mb-2">
-                {categories.find(cat => cat.id === activeCategory)?.name || "全部资讯"}
+                {categories.find((cat) => cat.id === activeCategory)?.name ||
+                  "全部资讯"}
               </h2>
               <p className="text-[#666] text-base">
-                {categories.find(cat => cat.id === activeCategory)?.description || "浏览所有类别的文章，了解最新资讯动态"}
+                {categories.find((cat) => cat.id === activeCategory)
+                  ?.description || "浏览所有类别的文章，了解最新资讯动态"}
               </p>
             </div>
 
@@ -315,49 +326,53 @@ export default function NewsCenter() {
       <div className="bg-white pb-12">
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-28">
           {articles
-            .filter((article) => activeCategory === "全部" || article.category === activeCategory)
+            .filter(
+              (article) =>
+                activeCategory === "全部" ||
+                article.category === activeCategory,
+            )
             .map((article) => (
-            <div
-              key={article.id}
-              className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10 py-10 border-b border-[#E5E5E7] last:border-b-0"
-            >
-              {/* Date */}
-              <div className="flex items-start w-full lg:w-auto">
-                <div className="px-4 lg:px-10 py-5 text-center">
-                  <div className="text-[26px] font-bold leading-[22px] text-[#333] font-mono">
-                    {article.date}
+              <div
+                key={article.id}
+                className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10 py-10 border-b border-[#E5E5E7] last:border-b-0"
+              >
+                {/* Date */}
+                <div className="flex items-start w-full lg:w-auto">
+                  <div className="px-4 lg:px-10 py-5 text-center">
+                    <div className="text-[26px] font-bold leading-[22px] text-[#333] font-mono">
+                      {article.date}
+                    </div>
+                    <div className="text-base font-bold leading-[22px] text-[#999] font-mono mt-2">
+                      {article.year}
+                    </div>
                   </div>
-                  <div className="text-base font-bold leading-[22px] text-[#999] font-mono mt-2">
-                    {article.year}
-                  </div>
+                  <div className="hidden lg:block w-px h-[120px] bg-[#E5E5E7] ml-4"></div>
                 </div>
-                <div className="hidden lg:block w-px h-[120px] bg-[#E5E5E7] ml-4"></div>
-              </div>
 
-              {/* Content */}
-              <div className="flex-1 space-y-5">
-                <div className="space-y-4">
+                {/* Content */}
+                <div className="flex-1 space-y-5">
+                  <div className="space-y-4">
+                    <Link
+                      to={`/news-detail/${article.id}`}
+                      className="text-[22px] font-bold leading-[30px] tracking-[-0.22px] text-[#333] hover:text-[#058A65] transition-colors cursor-pointer inline-block"
+                    >
+                      {article.title}
+                    </Link>
+                    <p className="text-base leading-6 tracking-[-0.16px] text-[#999]">
+                      {article.content}
+                    </p>
+                  </div>
+
                   <Link
                     to={`/news-detail/${article.id}`}
-                    className="text-[22px] font-bold leading-[30px] tracking-[-0.22px] text-[#333] hover:text-[#058A65] transition-colors cursor-pointer inline-block"
+                    className="flex items-center gap-2 text-[#058A65] text-sm font-semibold hover:text-[#046B52] transition-colors"
                   >
-                    {article.title}
+                    查看详情
+                    <ChevronDown className="w-5 h-5 -rotate-90" />
                   </Link>
-                  <p className="text-base leading-6 tracking-[-0.16px] text-[#999]">
-                    {article.content}
-                  </p>
                 </div>
-
-                <Link
-                  to={`/news-detail/${article.id}`}
-                  className="flex items-center gap-2 text-[#058A65] text-sm font-semibold hover:text-[#046B52] transition-colors"
-                >
-                  查看详情
-                  <ChevronDown className="w-5 h-5 -rotate-90" />
-                </Link>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
 

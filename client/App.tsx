@@ -69,19 +69,52 @@ const App = () => (
               element={<CorporateCarbonManagement />}
             />
             <Route path="/carbon-footprint" element={<CarbonFootprint />} />
-            <Route path="/local-carbon-trading" element={<LocalCarbonTrading />} />
-            <Route path="/green-certificate-trading" element={<GreenCertificateTrading />} />
-            <Route path="/enterprise-carbon-asset-management" element={<EnterpriseCarbonAssetManagement />} />
-            <Route path="/ceav-carbon-accounting" element={<CEAVCarbonAccounting />} />
-            <Route path="/carbon-neutrality-planning" element={<CarbonNeutralityPlanning />} />
+            <Route
+              path="/local-carbon-trading"
+              element={<LocalCarbonTrading />}
+            />
+            <Route
+              path="/green-certificate-trading"
+              element={<GreenCertificateTrading />}
+            />
+            <Route
+              path="/enterprise-carbon-asset-management"
+              element={<EnterpriseCarbonAssetManagement />}
+            />
+            <Route
+              path="/ceav-carbon-accounting"
+              element={<CEAVCarbonAccounting />}
+            />
+            <Route
+              path="/carbon-neutrality-planning"
+              element={<CarbonNeutralityPlanning />}
+            />
             <Route path="/esg-disclosure" element={<ESGDisclosure />} />
-            <Route path="/carbon-standard-development" element={<CarbonStandardDevelopment />} />
+            <Route
+              path="/carbon-standard-development"
+              element={<CarbonStandardDevelopment />}
+            />
             <Route path="/carbon-research" element={<CarbonResearch />} />
-            <Route path="/carbon-finance-solution" element={<CarbonFinanceSolution />} />
-            <Route path="/advanced-carbon-training" element={<AdvancedCarbonTraining />} />
-            <Route path="/carbon-trader-training" element={<CarbonTraderTraining />} />
-            <Route path="/carbon-admin-training" element={<CarbonAdminTraining />} />
-            <Route path="/industry-seminars-forums" element={<IndustrySeminarsForums />} />
+            <Route
+              path="/carbon-finance-solution"
+              element={<CarbonFinanceSolution />}
+            />
+            <Route
+              path="/advanced-carbon-training"
+              element={<AdvancedCarbonTraining />}
+            />
+            <Route
+              path="/carbon-trader-training"
+              element={<CarbonTraderTraining />}
+            />
+            <Route
+              path="/carbon-admin-training"
+              element={<CarbonAdminTraining />}
+            />
+            <Route
+              path="/industry-seminars-forums"
+              element={<IndustrySeminarsForums />}
+            />
             <Route path="/custom-training" element={<CustomTraining />} />
             <Route path="/news-center" element={<NewsCenter />} />
             <Route path="/news-detail/:id" element={<NewsDetail />} />

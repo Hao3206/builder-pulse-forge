@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { ProductServicesDropdown, NewsCenterDropdown, SolutionsDropdown } from "./DropdownMenus";
+import {
+  ProductServicesDropdown,
+  NewsCenterDropdown,
+  SolutionsDropdown,
+} from "./DropdownMenus";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "../hooks/useLanguage";
 import { Menu, X } from "lucide-react";

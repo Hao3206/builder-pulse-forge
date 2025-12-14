@@ -182,7 +182,8 @@ const SOLUTIONS_DATA = [
     id: 1,
     name: "零碳园区",
     title: "零碳园区解决方案",
-    description: "零碳园区解决方案通过综合能源管理、智能监测和碳排放优化，助力园区实现碳中和目标。",
+    description:
+      "零碳园区解决方案通过综合能源管理、智能监测和碳排放优化，助力园区实现碳中和目标。",
     type: "solution" as const,
     path: "/solution",
   },
@@ -198,7 +199,8 @@ const SOLUTIONS_DATA = [
     id: 3,
     name: "零碳工厂",
     title: "零碳工厂解决方案",
-    description: "零碳工厂解决方案通过优化生产工艺、应用清洁能源、建立能效管理体系，助力制造企业实现碳中和生产目标。",
+    description:
+      "零碳工厂解决方案通过优化生产工艺、应用清洁能源、建立能效管理体系，助力制造企业实现碳中和生产目标。",
     type: "solution" as const,
     path: "/solution",
   },
@@ -206,7 +208,8 @@ const SOLUTIONS_DATA = [
     id: 4,
     name: "能碳管理",
     title: "能碳管理系统(园区/工厂)解决方案",
-    description: "集成能源管理和碳管理的一体化解决方案，通过优化能源结构、提升能效水平、管控碳排放。",
+    description:
+      "集成能源管理和碳管理的一体化解决方案，通过优化能源结构、提升能效水平、管控碳排放。",
     type: "solution" as const,
     path: "/solution",
   },
@@ -214,7 +217,8 @@ const SOLUTIONS_DATA = [
     id: 5,
     name: "低碳消费平台",
     title: "企业碳管理一站式解决方案",
-    description: "面向企业的碳管理一站式服务平台，提供从碳核算、碳监测到碳交易的全流程服务。",
+    description:
+      "面向企业的碳管理一站式服务平台，提供从碳核算、碳监测到碳交易的全流程服务。",
     type: "solution" as const,
     path: "/solution",
   },
@@ -356,7 +360,9 @@ export default function SearchResults() {
           <div className="mb-12">
             <h1 className="text-[34px] font-bold text-[#333] mb-2">搜索结果</h1>
             <p className="text-[#666]">
-              关于 "<span className="font-semibold text-[#333]">{searchQuery}</span>" 的搜索结果
+              关于 "
+              <span className="font-semibold text-[#333]">{searchQuery}</span>"
+              的搜索结果
               {results.length > 0 && (
                 <span className="font-semibold text-brand-green ml-2">
                   找到 {results.length} 个结果
@@ -382,7 +388,7 @@ export default function SearchResults() {
                         </h3>
                         <span
                           className={`text-xs font-medium px-3 py-1 rounded-full ${getTypeColor(
-                            result.type
+                            result.type,
                           )}`}
                         >
                           {getTypeLabel(result.type)}

@@ -1,11 +1,11 @@
-import { 
-  MessageCircleMore, 
-  TrendingUp, 
-  DollarSign, 
-  Monitor, 
-  Footprints, 
-  GraduationCap, 
-  Building2 
+import {
+  MessageCircleMore,
+  TrendingUp,
+  DollarSign,
+  Monitor,
+  Footprints,
+  GraduationCap,
+  Building2,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -25,11 +25,23 @@ export default function BusinessServices() {
       icon: MessageCircleMore,
       path: "/carbon-neutrality-planning",
       submenu: [
-        { title: t("products.green.factory"), path: "/product-service/green-low-carbon-factory" },
-        { title: t("products.ceav.accounting"), path: "/ceav-carbon-accounting" },
-        { title: t("products.carbon.neutral.planning"), path: "/carbon-neutrality-planning" },
+        {
+          title: t("products.green.factory"),
+          path: "/product-service/green-low-carbon-factory",
+        },
+        {
+          title: t("products.ceav.accounting"),
+          path: "/ceav-carbon-accounting",
+        },
+        {
+          title: t("products.carbon.neutral.planning"),
+          path: "/carbon-neutrality-planning",
+        },
         { title: t("products.esg.disclosure"), path: "/esg-disclosure" },
-        { title: t("products.carbon.standard"), path: "/carbon-standard-development" },
+        {
+          title: t("products.carbon.standard"),
+          path: "/carbon-standard-development",
+        },
         { title: t("products.carbon.research"), path: "/carbon-research" },
       ],
     },
@@ -41,9 +53,18 @@ export default function BusinessServices() {
       icon: TrendingUp,
       path: "/local-carbon-trading",
       submenu: [
-        { title: t("products.local.carbon.trading"), path: "/local-carbon-trading" },
-        { title: t("products.green.certificate"), path: "/green-certificate-trading" },
-        { title: t("products.enterprise.carbon.management"), path: "/enterprise-carbon-asset-management" },
+        {
+          title: t("products.local.carbon.trading"),
+          path: "/local-carbon-trading",
+        },
+        {
+          title: t("products.green.certificate"),
+          path: "/green-certificate-trading",
+        },
+        {
+          title: t("products.enterprise.carbon.management"),
+          path: "/enterprise-carbon-asset-management",
+        },
       ],
     },
     {
@@ -120,7 +141,7 @@ export default function BusinessServices() {
               <div
                 key={index}
                 className="relative w-full md:w-[156px] h-[80px] md:h-full rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:scale-105 md:hover:scale-125 hover:z-10 group"
-                style={{ transition: 'height 0.3s' }}
+                style={{ transition: "height 0.3s" }}
                 onClick={() => handleServiceClick(service.path)}
               >
                 <img
@@ -149,19 +170,23 @@ export default function BusinessServices() {
                   <p className="text-sm text-white/70 leading-6 mb-6 text-center">
                     {service.subtitle}
                   </p>
-                  
+
                   {hasSubmenu ? (
                     <div className="w-full">
-                      <button 
+                      <button
                         className="bg-white text-brand-green font-semibold py-3 px-6 rounded-full text-sm hover:bg-gray-50 transition-colors mb-3 w-full"
                         onClick={(e) => {
                           e.stopPropagation();
-                          setActiveSubmenu(activeSubmenu === service.title ? null : service.title);
+                          setActiveSubmenu(
+                            activeSubmenu === service.title
+                              ? null
+                              : service.title,
+                          );
                         }}
                       >
                         {t("common.select.service")}
                       </button>
-                      
+
                       {/* Submenu */}
                       {activeSubmenu === service.title && (
                         <div className="absolute top-full left-0 right-0 bg-white rounded-lg shadow-lg mt-2 z-20">
@@ -181,7 +206,7 @@ export default function BusinessServices() {
                       )}
                     </div>
                   ) : (
-                    <button 
+                    <button
                       className="bg-white text-brand-green font-semibold py-3 px-6 rounded-full text-sm hover:bg-gray-50 transition-colors"
                       onClick={(e) => {
                         e.stopPropagation();
