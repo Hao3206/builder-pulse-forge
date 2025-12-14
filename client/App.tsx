@@ -33,6 +33,7 @@ import NewsDetail from "./pages/NewsDetail";
 import SuccessCases from "./pages/SuccessCases";
 import SuccessCaseDetail from "./pages/SuccessCaseDetail";
 import ProductService from "./pages/ProductService";
+import SearchResults from "./pages/SearchResults";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
