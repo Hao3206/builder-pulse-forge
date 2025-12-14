@@ -337,9 +337,12 @@ export default function NewsCenter() {
               {/* Content */}
               <div className="flex-1 space-y-5">
                 <div className="space-y-4">
-                  <h3 className="text-[22px] font-bold leading-[30px] tracking-[-0.22px] text-[#333]">
+                  <Link
+                    to={`/news-detail/${article.id}`}
+                    className="text-[22px] font-bold leading-[30px] tracking-[-0.22px] text-[#333] hover:text-[#058A65] transition-colors cursor-pointer inline-block"
+                  >
                     {article.title}
-                  </h3>
+                  </Link>
                   <p className="text-base leading-6 tracking-[-0.16px] text-[#999]">
                     {article.content}
                   </p>
