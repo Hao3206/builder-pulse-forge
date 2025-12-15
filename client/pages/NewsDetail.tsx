@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Share, MessageCircle, Repeat, Twitter, Facebook } from "lucide-react";
+import { Share, MessageCircle, Repeat, Twitter, Facebook, File, Download } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -21,6 +21,13 @@ interface ApiArticle {
   author: string; // Assuming 'author' is the source
   createdAt: string;
   imageUrl: string; // The main image for the article
+  attachments?: Array<{
+    url: string;
+    filename: string;
+    originalName: string;
+    size: number;
+    mimetype: string;
+  }>;
 }
 
 export default function NewsDetail() {
@@ -30,6 +37,13 @@ export default function NewsDetail() {
   const [article, setArticle] = useState<any>(null); // State to hold the final article data for rendering
   const [contentBlocks, setContentBlocks] = useState<ContentBlock[]>([]);
   const [recommendedNews, setRecommendedNews] = useState<ApiArticle[]>([]);
+  const [attachments, setAttachments] = useState<Array<{
+    url: string;
+    filename: string;
+    originalName: string;
+    size: number;
+    mimetype: string;
+  }>>([]);
 
 
   useEffect(() => {
@@ -52,6 +66,11 @@ export default function NewsDetail() {
             viewCount: "N/A", // View count is not available from API
             source: apiData.author,
           });
+          
+          // 设置附件列表
+          if (apiData.attachments && Array.isArray(apiData.attachments)) {
+            setAttachments(apiData.attachments);
+          }
 
           // Create content blocks
           const blocks: ContentBlock[] = [];
@@ -126,6 +145,22 @@ export default function NewsDetail() {
       window.open(shareUrl, "_blank", "width=600,height=400");
     }
   };
+
+  const handleDownloadAttachment = (attachment: {
+    url: string;
+    filename: string;
+    originalName: string;
+  }) => {
+    // 使用下载接口下载文件
+    const downloadUrl = `/api/upload/attachment/${attachment.filename}`;
+    window.open(downloadUrl, "_blank");
+  };
+
+  const formatFileSize = (bytes: number) => {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + " KB";
+    return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+  };
   
   if (!article) {
     return (
@@ -196,6 +231,43 @@ export default function NewsDetail() {
                   </div>
                 ))}
               </div>
+
+              {/* Attachments Section */}
+              {attachments.length > 0 && (
+                <div className="mt-12 p-6 bg-[#F5F5F5] rounded-lg">
+                  <h3 className="text-lg font-semibold text-[#333] mb-4 flex items-center gap-2">
+                    <File className="w-5 h-5" />
+                    相关附件
+                  </h3>
+                  <div className="space-y-2">
+                    {attachments.map((attachment, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 hover:border-[#058A65] transition-colors"
+                      >
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          <File className="w-5 h-5 text-[#058A65] flex-shrink-0" />
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-[#333] truncate">
+                              {attachment.originalName}
+                            </p>
+                            <p className="text-xs text-[#666]">
+                              {formatFileSize(attachment.size)}
+                            </p>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => handleDownloadAttachment(attachment)}
+                          className="flex items-center gap-2 px-4 py-2 bg-[#058A65] text-white rounded-lg hover:bg-[#046B52] transition-colors text-sm"
+                        >
+                          <Download className="w-4 h-4" />
+                          下载
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Source */}
               <div className="mt-12 p-4 bg-[#F5F5F5] rounded-lg">

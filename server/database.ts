@@ -39,6 +39,13 @@ async function setup() {
   } catch (e) {
     // 字段已存在时忽略
   }
+  
+  // 添加附件字段到news表
+  try {
+    await db.exec("ALTER TABLE news ADD COLUMN attachments TEXT;");
+  } catch (e) {
+    // 字段已存在时忽略
+  }
   await db.exec(`
     CREATE TABLE IF NOT EXISTS contact_messages (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
