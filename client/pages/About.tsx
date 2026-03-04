@@ -498,7 +498,7 @@ export default function About() {
                     电话
                   </h4>
                   <p className="text-[#666] font-inter text-sm font-medium leading-5 tracking-[-0.1px]">
-                    18606624246
+                    18969889828
                   </p>
                 </div>
                 <div className="flex-1">

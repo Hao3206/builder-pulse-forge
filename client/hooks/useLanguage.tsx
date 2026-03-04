@@ -66,8 +66,8 @@ const translations: Translations = {
 
   // Common
   "common.phone": {
-    zh: "18606624246",
-    en: "18606624246",
+    zh: "18969889828",
+    en: "18969889828",
   },
   "common.language.zh": {
     zh: "中文",

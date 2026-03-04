@@ -17,6 +17,7 @@ interface ApiArticle {
   id: string;
   title: string;
   content: string;
+  rich_content?: string;
   category: string;
   author: string; // Assuming 'author' is the source
   createdAt: string;

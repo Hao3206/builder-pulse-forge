@@ -119,7 +119,7 @@ export default function ProductService() {
         management: "年度维护与更新：3-5万元",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
@@ -227,7 +227,7 @@ export default function ProductService() {
         management: "技术支持：年度3-5万元",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市江北区",
       },
@@ -337,7 +337,7 @@ export default function ProductService() {
         management: "资产管理费：年度1-2%",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
@@ -409,7 +409,7 @@ export default function ProductService() {
         management: "内训定制：支持",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
@@ -476,7 +476,7 @@ export default function ProductService() {
         management: "内训定制：支持",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
@@ -523,7 +523,7 @@ export default function ProductService() {
         management: "定制专场：支持",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
@@ -582,7 +582,7 @@ export default function ProductService() {
         management: "后续辅导：支持",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
@@ -648,7 +648,7 @@ export default function ProductService() {
         management: "校友社群：支持",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
@@ -710,7 +710,7 @@ export default function ProductService() {
         management: "运维服务：年度",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
@@ -772,7 +772,7 @@ export default function ProductService() {
         management: "运营服务：可选",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
@@ -834,7 +834,7 @@ export default function ProductService() {
         management: "运维服务：年度",
       },
       contact: {
-        phone: "18606624246",
+        phone: "18969889828",
         email: "zdhjs2021@163.com",
         address: "浙江省宁波市鄞州区汇海路26号环领未来大楼",
       },
