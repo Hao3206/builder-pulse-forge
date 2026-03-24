@@ -29,7 +29,7 @@ export default function Hero() {
     },
     {
       id: 4,
-      image: "/banner-4.jpg",
+      image: "https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?w=1920&h=1080&fit=crop",
       title: t("hero.slide4.title"),
       subtitle: t("hero.slide4.subtitle"),
     },
