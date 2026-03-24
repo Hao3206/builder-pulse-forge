@@ -63,8 +63,25 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# 拉取最新代码
+echo -e "${BLUE}[3/5] 拉取最新代码...${NC}"
+ssh ${SERVER_USER}@${SERVER_IP} << EOF
+    set -e
+    cd ${PROJECT_PATH}
+    
+    # 拉取最新代码
+    git pull origin main
+    
+    echo "✓ 代码更新完成"
+EOF
+
+if [ $? -ne 0 ]; then
+    echo -e "${RED}✗ 代码拉取失败${NC}"
+    exit 1
+fi
+
 # 执行部署
-echo -e "${BLUE}[3/4] 开始部署...${NC}"
+echo -e "${BLUE}[4/5] 开始部署...${NC}"
 ssh ${SERVER_USER}@${SERVER_IP} << EOF
     set -e
     cd ${PROJECT_PATH}
@@ -84,7 +101,7 @@ else
 fi
 
 # 验证部署
-echo -e "${BLUE}[4/4] 验证部署...${NC}"
+echo -e "${BLUE}[5/5] 验证部署..."
 sleep 3
 if ssh ${SERVER_USER}@${SERVER_IP} "curl -f http://localhost:3000/api/ping >/dev/null 2>&1"; then
     echo -e "${GREEN}✓ 服务运行正常${NC}"
