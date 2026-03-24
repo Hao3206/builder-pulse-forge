@@ -10,7 +10,7 @@ export default function Hero() {
   const carouselData = [
     {
       id: 1,
-      image: "/banner-3.jpg",
+      image: "/banner-green-factory.jpg",
       title: t("hero.slide1.title"),
       subtitle: t("hero.slide1.subtitle"),
     },
@@ -29,7 +29,7 @@ export default function Hero() {
     },
     {
       id: 4,
-      image: "/banner-4.jpg",
+      image: "/banner-renewable-energy.jpg",
       title: t("hero.slide4.title"),
       subtitle: t("hero.slide4.subtitle"),
     },
