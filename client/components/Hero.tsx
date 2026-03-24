@@ -10,7 +10,7 @@ export default function Hero() {
   const carouselData = [
     {
       id: 1,
-      image: "/banner-3.jpg",
+      image: "https://images.pexels.com/photos/29289933/pexels-photo-29289933.jpeg?w=1920&h=1080&fit=crop",
       title: t("hero.slide1.title"),
       subtitle: t("hero.slide1.subtitle"),
     },
@@ -23,7 +23,7 @@ export default function Hero() {
     },
     {
       id: 3,
-      image: "https://images.pexels.com/photos/29289933/pexels-photo-29289933.jpeg?w=1920&h=1080&fit=crop",
+      image: "/banner-1.jpg",
       title: t("hero.slide3.title"),
       subtitle: t("hero.slide3.subtitle"),
     },
