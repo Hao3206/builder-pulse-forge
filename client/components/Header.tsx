@@ -172,7 +172,9 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                     <img
                       src="/language-icon.svg"
                       alt="Language"
-                      className="w-5 h-5 relative"
+                      className={`w-5 h-5 relative transition-all duration-300 ${
+                        isScrolled ? "brightness-0" : ""
+                      }`}
                     />
                     <svg
                       width="12"
