@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import { handleDemo } from "./routes/demo";
 import {
   getCarbonCredits,
@@ -35,6 +36,10 @@ export function createServer() {
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
+  
+  // 静态文件服务 - 附件目录
+  const attachmentsPath = path.join(process.cwd(), "public", "attachments");
+  app.use("/attachments", express.static(attachmentsPath));
 
   // Mount the routers
   app.use("/api/admin", newsAdminRoutes);

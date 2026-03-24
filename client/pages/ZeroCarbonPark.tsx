@@ -129,7 +129,7 @@ export default function ZeroCarbonPark() {
               <div className="flex justify-end items-start gap-[30px]">
                 <div className="w-[139px] h-[22px] relative">
                   <span className="text-white font-inter text-[15px] font-normal leading-[22px] absolute left-[27px] top-0">
-                    18606624246
+                    18969889828
                   </span>
                   <svg
                     width="20"

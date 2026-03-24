@@ -4,19 +4,19 @@ export default function TrainingServices() {
   const trainingPrograms = [
     {
       title: "制造业企业碳中和高级研修",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/placeholder1.jpg",
+      image: "https://www.zdeaee.com/uploads/training-presentation-1.png",
     },
     {
       title: "制造业企业碳中和高级研修…",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/placeholder2.jpg",
+      image: "https://www.zdeaee.com/uploads/training-presentation-2.webp",
     },
     {
       title: "制造业企业碳中和高级",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/placeholder3.jpg",
+      image: "https://www.zdeaee.com/uploads/training-presentation-3.webp",
     },
     {
       title: "制造业企业碳中和高级研修…",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/placeholder4.jpg",
+      image: "https://www.zdeaee.com/uploads/training-presentation-4.webp",
     },
   ];
 
@@ -43,9 +43,15 @@ export default function TrainingServices() {
               key={index}
               className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow"
             >
-              {/* Image Placeholder */}
-              <div className="w-full h-40 bg-gray-200 rounded-t-lg flex items-center justify-center">
-                <div className="text-gray-400 text-sm">培训图片</div>
+              {/* Image */}
+              <div className="w-full h-40 bg-gray-100 rounded-t-lg overflow-hidden">
+                <img
+                  src={program.image}
+                  alt={program.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
               {/* Content */}

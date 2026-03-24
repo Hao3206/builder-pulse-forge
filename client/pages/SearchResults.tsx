@@ -215,12 +215,12 @@ const SOLUTIONS_DATA = [
   },
   {
     id: 5,
-    name: "低碳消费平台",
-    title: "企业碳管理一站式解决方案",
+    name: "碳普惠体系搭建",
+    title: "碳普惠体系搭建解决方案",
     description:
-      "面向企业的碳管理一站式服务平台，提供从碳核算、碳监测到碳交易的全流程服务。",
+      "为地方政府和企业搭建碳普惠体系，通过建立碳积分机制，激励公众参与低碳行为。",
     type: "solution" as const,
-    path: "/solution",
+    path: "/local-carbon-trading",
   },
 ];
 

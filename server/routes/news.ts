@@ -20,6 +20,16 @@ router.get("/:id", async (req, res) => {
       req.params.id,
     ]);
     if (news) {
+      // 解析附件JSON字符串
+      if (news.attachments) {
+        try {
+          news.attachments = JSON.parse(news.attachments);
+        } catch (e) {
+          news.attachments = [];
+        }
+      } else {
+        news.attachments = [];
+      }
       res.json({ success: true, data: news });
     } else {
       res.status(404).json({ success: false, error: "News not found" });
