@@ -10,7 +10,7 @@ export default function Hero() {
   const carouselData = [
     {
       id: 1,
-      image: "https://images.pexels.com/photos/29289933/pexels-photo-29289933.jpeg?w=1920&h=1080&fit=crop",
+      image: "/banner-green-factory.jpg",
       title: t("hero.slide1.title"),
       subtitle: t("hero.slide1.subtitle"),
     },
@@ -29,7 +29,7 @@ export default function Hero() {
     },
     {
       id: 4,
-      image: "https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?w=1920&h=1080&fit=crop",
+      image: "/banner-renewable-energy.jpg",
       title: t("hero.slide4.title"),
       subtitle: t("hero.slide4.subtitle"),
     },
