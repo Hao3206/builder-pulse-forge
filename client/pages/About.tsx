@@ -472,7 +472,7 @@ export default function About() {
                 className="w-full h-[464px] rounded-2xl border border-[#E5E5E7] bg-cover bg-center bg-no-repeat"
                 style={{
                   backgroundImage:
-                    "url('https://api.builder.io/api/v1/image/assets/TEMP/0199bf4e2203c2a1d68459433f7cc59913ba7781?width=1152')",
+                    "url('/images/ZDMAP.png')",
                 }}
               />
 

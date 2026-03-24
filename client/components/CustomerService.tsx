@@ -1,10 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CustomerService() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleBusinessConsult = () => {
+    setIsOpen(false);
+    navigate("/about#contact");
   };
 
   return (
@@ -13,7 +20,7 @@ export default function CustomerService() {
       <div className="fixed right-6 top-3/4 transform -translate-y-1/2 z-50">
         <button
           onClick={togglePopup}
-          className="bg-[#058A65] hover:bg-[#046B52] transition-colors duration-300 rounded-full w-[50px] h-[140px] flex flex-col items-center justify-start text-white shadow-lg relative"
+          className="bg-[#058A65] hover:bg-[#046B52] transition-all duration-300 rounded-full w-[50px] h-[140px] flex flex-col items-center justify-start text-white shadow-lg hover:shadow-xl relative overflow-hidden isolate"
         >
           {/* Headset Icon */}
           <div className="w-6 h-6 mt-[17px] mb-2 relative">
@@ -36,7 +43,7 @@ export default function CustomerService() {
           </div>
 
           {/* Vertical Text */}
-          <div className="text-white text-sm font-medium leading-[16.6px] flex flex-col items-center w-[14px] h-[70px] absolute left-[18px] top-[51px]">
+          <div className="text-white text-sm font-medium leading-[16.6px] flex flex-col items-center mt-2">
             <span>联</span>
             <span>系</span>
             <span>客</span>
@@ -56,35 +63,14 @@ export default function CustomerService() {
 
           {/* Popup Content */}
           <div className="fixed right-[76px] top-1/2 transform -translate-y-1/2 z-50">
-            <div className="relative w-[289px] h-[208px]">
-              {/* Main popup background with speech bubble */}
-              <svg
-                width="301"
-                height="222"
-                viewBox="0 0 301 222"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute left-0 top-0 w-[289px] h-[208px]"
-                style={{
-                  filter: "drop-shadow(0px 4px 6.3px rgba(0, 0, 0, 0.07))",
-                }}
-              >
-                <g>
-                  <path
-                    d="M7 13C7 7.47715 11.4772 3 17 3H277C282.523 3 287 7.47715 287 13V98.5087C287 99.2115 287.369 99.8627 287.972 100.224L293.471 103.521C294.683 104.248 294.779 105.969 293.656 106.827L287.787 111.305C287.291 111.684 287 112.272 287 112.895V201C287 206.523 282.523 211 277 211H17C11.4771 211 7 206.523 7 201V13Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M17 3.5H277C282.247 3.5 286.5 7.75329 286.5 13V98.5088C286.5 99.3872 286.962 100.202 287.715 100.653L293.214 103.95C294.123 104.495 294.195 105.786 293.353 106.429L287.483 110.908C286.864 111.381 286.5 112.116 286.5 112.896V201C286.5 206.247 282.247 210.5 277 210.5H17C11.7533 210.5 7.5 206.247 7.5 201V13C7.5 7.7533 11.7533 3.5 17 3.5Z"
-                    stroke="#E8E8E8"
-                  />
-                </g>
-              </svg>
-
+            <div className="relative flex items-center">
+              {/* Speech Bubble Arrow */}
+              <div className="w-3 h-3 bg-white border-r border-t border-gray-200 transform rotate-45 absolute -right-1.5 top-1/2 -translate-y-1/2 z-10"></div>
+              
               {/* Contact Options */}
-              <div className="absolute left-0 top-[4px] w-[280px] divide-y divide-gray-100">
+              <div className="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden w-[280px]">
                 {/* Phone Consultation */}
-                <div className="flex items-center justify-between py-[14px] hover:bg-gray-50 transition-colors cursor-pointer h-[66px]">
+                <div className="flex items-center justify-between py-[14px] hover:bg-gray-50 transition-colors cursor-pointer h-[66px] border-b border-gray-100">
                   <div className="flex items-center gap-3 pl-6">
                     <div className="w-9 h-9 bg-[#F1F3F5] rounded-full flex items-center justify-center relative">
                       <svg
@@ -109,7 +95,7 @@ export default function CustomerService() {
                         咨询电话
                       </div>
                       <div className="text-xs font-medium text-[#058A65] tracking-[-0.12px]">
-                        8888-888-88
+                        18969889828
                       </div>
                     </div>
                   </div>
@@ -131,7 +117,7 @@ export default function CustomerService() {
                 </div>
 
                 {/* WeChat Customer Service */}
-                <div className="flex items-center justify-between py-[14px] hover:bg-gray-50 transition-colors cursor-pointer h-[66px]">
+                <div className="flex items-center justify-between py-[14px] hover:bg-gray-50 transition-colors cursor-pointer h-[66px] border-b border-gray-100">
                   <div className="flex items-center gap-3 pl-6">
                     <div className="w-9 h-9 bg-[#F1F3F5] rounded-full flex items-center justify-center relative">
                       <svg
@@ -175,7 +161,10 @@ export default function CustomerService() {
                 </div>
 
                 {/* Business Consultation */}
-                <div className="flex items-center justify-between py-[14px] hover:bg-gray-50 transition-colors cursor-pointer h-[66px]">
+                <div 
+                  onClick={handleBusinessConsult}
+                  className="flex items-center justify-between py-[14px] hover:bg-gray-50 transition-colors cursor-pointer h-[66px]"
+                >
                   <div className="flex items-center gap-3 pl-6">
                     <div className="w-9 h-9 bg-[#F1F3F5] rounded-full flex items-center justify-center relative">
                       <svg

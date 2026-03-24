@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   Search,
   Play,
+  Pause,
   Volume2,
+  VolumeX,
   MoreHorizontal,
   ChevronDown,
 } from "lucide-react";
@@ -39,6 +41,81 @@ export default function NewsCenter() {
   const [activeCategory, setActiveCategory] = useState("全部");
   const [searchQuery, setSearchQuery] = useState("");
   const [articles, setArticles] = useState<ComponentArticle[]>([]);
+
+  // Audio player state
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(1);
+  const [isMuted, setIsMuted] = useState(false);
+
+  // Format time to mm:ss
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  };
+
+  // Handle play/pause
+  const togglePlay = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  // Handle time update
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  // Handle loaded metadata
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  // Handle seek
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const time = parseFloat(e.target.value);
+    if (audioRef.current) {
+      audioRef.current.currentTime = time;
+      setCurrentTime(time);
+    }
+  };
+
+  // Handle volume change
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const vol = parseFloat(e.target.value);
+    if (audioRef.current) {
+      audioRef.current.volume = vol;
+      setVolume(vol);
+      setIsMuted(vol === 0);
+    }
+  };
+
+  // Toggle mute
+  const toggleMute = () => {
+    if (audioRef.current) {
+      const newMuted = !isMuted;
+      audioRef.current.muted = newMuted;
+      setIsMuted(newMuted);
+    }
+  };
+
+  // Handle audio ended
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setCurrentTime(0);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -225,19 +302,56 @@ export default function NewsCenter() {
 
                   {/* Audio Player */}
                   <div className="relative">
+                    <audio
+                      ref={audioRef}
+                      src="/audio/carbon-peak-neutrality.m4a"
+                      onTimeUpdate={handleTimeUpdate}
+                      onLoadedMetadata={handleLoadedMetadata}
+                      onEnded={handleEnded}
+                    />
                     <div className="bg-[#F1F3F4] rounded-full h-[50px] flex items-center px-4 gap-4">
-                      <Play className="w-[14px] h-[14px] fill-[#333] rotate-90" />
-                      <span className="text-base text-[#666] tracking-[-0.1px]">
-                        0:00/0:19
+                      <button
+                        onClick={togglePlay}
+                        className="flex items-center justify-center hover:opacity-70 transition-opacity"
+                      >
+                        {isPlaying ? (
+                          <Pause className="w-[14px] h-[14px] fill-[#333] text-[#333]" />
+                        ) : (
+                          <Play className="w-[14px] h-[14px] fill-[#333] text-[#333]" />
+                        )}
+                      </button>
+                      <span className="text-base text-[#666] tracking-[-0.1px] min-w-[80px]">
+                        {formatTime(currentTime)}/{formatTime(duration || 23)}
                       </span>
 
                       {/* Progress Bar */}
                       <div className="flex-1 relative">
-                        <div className="w-full h-1 bg-[#C1C2C3] rounded-full"></div>
-                        <div className="absolute top-0 left-0 w-[40%] h-1 bg-[#595959] rounded-full"></div>
+                        <input
+                          type="range"
+                          min={0}
+                          max={duration || 23}
+                          value={currentTime}
+                          onChange={handleSeek}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                        />
+                        <div className="w-full h-1 bg-[#C1C2C3] rounded-full">
+                          <div
+                            className="h-1 bg-[#595959] rounded-full transition-all duration-100"
+                            style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
+                          />
+                        </div>
                       </div>
 
-                      <Volume2 className="w-4 h-4 text-[#333]" />
+                      <button
+                        onClick={toggleMute}
+                        className="flex items-center justify-center hover:opacity-70 transition-opacity"
+                      >
+                        {isMuted || volume === 0 ? (
+                          <VolumeX className="w-4 h-4 text-[#333]" />
+                        ) : (
+                          <Volume2 className="w-4 h-4 text-[#333]" />
+                        )}
+                      </button>
                       <MoreHorizontal className="w-4 h-4 text-[#333]" />
                     </div>
                   </div>
