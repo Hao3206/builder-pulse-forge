@@ -514,8 +514,8 @@ const translations: Translations = {
     en: "© 2025 ningbozhedong. All Rights Reserved.",
   },
   "footer.icp.record": {
-    zh: "公安网备42010602001482号 ICP备13012389号-1",
-    en: "Public Security Network Record 42010602001482 ICP Record 13012389-1",
+    zh: "浙ICP备2022003593号",
+    en: "Zhejiang ICP 2022003593",
   },
   "footer.logo.alt": {
     zh: "浙东 Logo",

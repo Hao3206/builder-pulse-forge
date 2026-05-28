@@ -256,7 +256,9 @@ export default function Footer() {
               {t("footer.copyright")}
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> </span>
-              {t("footer.icp.record")}
+              <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                {t("footer.icp.record")}
+              </a>
             </div>
           </div>
         </div>
