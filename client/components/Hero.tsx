@@ -61,7 +61,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative h-[680px] w-full overflow-hidden sm:h-[760px] xl:h-[min(820px,calc(100vh-24px))]"
+      className="relative h-[680px] w-full overflow-hidden sm:h-[760px] lg:h-[100svh]"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
