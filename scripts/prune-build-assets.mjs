@@ -5,7 +5,6 @@ const distRoot = path.resolve("dist/spa");
 const unusedBuildAssets = [
   "images/ZDMAP.png",
   "uploads/training-presentation-1.png",
-  "audio/carbon-peak-neutrality.m4a",
 ];
 
 await Promise.all(
