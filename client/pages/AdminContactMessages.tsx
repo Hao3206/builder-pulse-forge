@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   Clock3,
   Copy,
+  Eye,
   Inbox,
   Loader2,
   Mail,
@@ -29,6 +30,13 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 type MessageStatus = "未处理" | "处理中" | "已处理";
 
@@ -83,6 +91,8 @@ export default function AdminContactMessages() {
   const [loading, setLoading] = useState(true);
   const [updatingId, setUpdatingId] = useState<number | null>(null);
   const [deleting, setDeleting] = useState<ContactMessage | null>(null);
+  const [selectedMessage, setSelectedMessage] =
+    useState<ContactMessage | null>(null);
   const [deletePending, setDeletePending] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [statusFilter, setStatusFilter] = useState<"全部" | MessageStatus>(
@@ -178,6 +188,9 @@ export default function AdminContactMessages() {
           message.id === id ? { ...message, status } : message,
         ),
       );
+      setSelectedMessage((current) =>
+        current?.id === id ? { ...current, status } : current,
+      );
       setNotice("留言状态已更新");
     } catch (err) {
       setError(err instanceof Error ? err.message : "状态更新失败，请重试");
@@ -194,6 +207,9 @@ export default function AdminContactMessages() {
       await request(`/api/contact/${deleting.id}`, { method: "DELETE" });
       setMessages((current) =>
         current.filter((item) => item.id !== deleting.id),
+      );
+      setSelectedMessage((current) =>
+        current?.id === deleting.id ? null : current,
       );
       setNotice("留言已删除");
       setDeleting(null);
@@ -460,9 +476,14 @@ export default function AdminContactMessages() {
                           </div>
                         </td>
                         <td className="max-w-sm px-4 py-4">
-                          <p className="line-clamp-3 whitespace-pre-wrap leading-6 text-gray-700">
+                          <button
+                            type="button"
+                            className="line-clamp-3 w-full whitespace-pre-wrap text-left leading-6 text-gray-700 hover:text-[#047558] focus-visible:rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#058A65]/40"
+                            onClick={() => setSelectedMessage(message)}
+                            aria-label={`查看 ${message.name} 的留言详情`}
+                          >
                             {message.message || "未填写具体需求"}
-                          </p>
+                          </button>
                         </td>
                         <td className="px-4 py-4 text-xs text-gray-500">
                           <div>{formatDate(message.createdAt)}</div>
@@ -477,6 +498,15 @@ export default function AdminContactMessages() {
                           {renderStatusSelect(message)}
                         </td>
                         <td className="px-4 py-4 text-right">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            title="查看详情"
+                            aria-label={`查看 ${message.name} 的留言详情`}
+                            onClick={() => setSelectedMessage(message)}
+                          >
+                            <Eye className="h-4 w-4 text-[#047558]" />
+                          </Button>
                           <Button
                             variant="ghost"
                             size="icon"
@@ -519,7 +549,7 @@ export default function AdminContactMessages() {
                         {normalizeStatus(message.status)}
                       </Badge>
                     </div>
-                    <p className="whitespace-pre-wrap text-sm leading-6 text-gray-700">
+                    <p className="line-clamp-4 whitespace-pre-wrap text-sm leading-6 text-gray-700">
                       {message.message || "未填写具体需求"}
                     </p>
                     <div className="space-y-2 text-xs text-gray-500">
@@ -549,14 +579,24 @@ export default function AdminContactMessages() {
                     </div>
                     <div className="flex items-center justify-between gap-3 border-t border-gray-100 pt-3">
                       {renderStatusSelect(message)}
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        aria-label="删除留言"
-                        onClick={() => setDeleting(message)}
-                      >
-                        <Trash2 className="h-4 w-4 text-gray-500" />
-                      </Button>
+                      <div className="flex items-center gap-1">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => setSelectedMessage(message)}
+                        >
+                          <Eye className="mr-1.5 h-4 w-4" />
+                          查看详情
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          aria-label="删除留言"
+                          onClick={() => setDeleting(message)}
+                        >
+                          <Trash2 className="h-4 w-4 text-gray-500" />
+                        </Button>
+                      </div>
                     </div>
                   </article>
                 );
@@ -571,6 +611,91 @@ export default function AdminContactMessages() {
           </div>
         )}
       </section>
+
+      <Dialog
+        open={Boolean(selectedMessage)}
+        onOpenChange={(open) => !open && setSelectedMessage(null)}
+      >
+        <DialogContent className="max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto p-0">
+          {selectedMessage && (
+            <>
+              <DialogHeader className="border-b border-gray-200 px-5 py-5 pr-12 sm:px-6">
+                <DialogTitle>留言详情</DialogTitle>
+                <DialogDescription>
+                  {selectedMessage.name} 于 {formatDate(selectedMessage.createdAt)} 提交
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-5 px-5 pb-6 sm:px-6">
+                <div>
+                  <h3 className="mb-2 text-sm font-medium text-gray-700">留言内容</h3>
+                  <div className="max-h-72 overflow-y-auto rounded-md border border-gray-200 bg-gray-50 p-4 text-sm leading-7 text-gray-800 whitespace-pre-wrap break-words">
+                    {selectedMessage.message || "未填写具体需求"}
+                  </div>
+                </div>
+
+                <dl className="grid gap-x-6 gap-y-4 text-sm sm:grid-cols-2">
+                  <div>
+                    <dt className="text-gray-500">咨询人</dt>
+                    <dd className="mt-1 font-medium text-gray-950">{selectedMessage.name}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-gray-500">公司</dt>
+                    <dd className="mt-1 font-medium text-gray-950">{selectedMessage.company || "未填写公司"}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-gray-500">联系方式</dt>
+                    <dd className="mt-1 flex min-w-0 items-center gap-2">
+                      {contactHref(selectedMessage.contact) ? (
+                        <a href={contactHref(selectedMessage.contact)} className="min-w-0 break-all font-medium text-[#047558] hover:underline">
+                          {selectedMessage.contact}
+                        </a>
+                      ) : (
+                        <span className="min-w-0 break-all font-medium text-gray-950">{selectedMessage.contact}</span>
+                      )}
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8 shrink-0"
+                        title="复制联系方式"
+                        aria-label="复制联系方式"
+                        onClick={() => void copyContact(selectedMessage.contact)}
+                      >
+                        <Copy className="h-4 w-4" />
+                      </Button>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-gray-500">来源</dt>
+                    <dd className="mt-1 break-words font-medium text-gray-950">{selectedMessage.source || "官网咨询"}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-gray-500">提交时间</dt>
+                    <dd className="mt-1 font-medium text-gray-950">{formatDate(selectedMessage.createdAt)}</dd>
+                  </div>
+                  <div>
+                    <dt className="mb-1 text-gray-500">处理状态</dt>
+                    <dd>{renderStatusSelect(selectedMessage)}</dd>
+                  </div>
+                </dl>
+
+                <div className="flex justify-end border-t border-gray-200 pt-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="border-red-200 text-red-700 hover:bg-red-50 hover:text-red-800"
+                    onClick={() => setDeleting(selectedMessage)}
+                  >
+                    <Trash2 className="mr-2 h-4 w-4" />
+                    删除留言
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
 
       <AlertDialog
         open={Boolean(deleting)}
