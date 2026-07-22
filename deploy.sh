@@ -49,6 +49,7 @@ echo -e "${GREEN}✓ 依赖安装完成${NC}"
 echo -e "${BLUE}检查微信采集浏览器...${NC}"
 export PLAYWRIGHT_BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-/var/lib/zdeaee/playwright}"
 mkdir -p "$PLAYWRIGHT_BROWSERS_PATH"
+npx playwright install-deps chromium
 npx playwright install chromium
 echo -e "${GREEN}✓ 微信采集浏览器已就绪${NC}"
 
