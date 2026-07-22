@@ -44,6 +44,9 @@ interface WechatCandidate {
   category: string;
   status: CandidateStatus;
   news_id: number | null;
+  content_status: "pending" | "fetched" | "failed";
+  content_error: string;
+  localized_images: number;
 }
 
 interface CrawlerSession {
@@ -203,11 +206,7 @@ export default function AdminWechatSync() {
     }
   };
 
-  const scrollCrawlerWindow = async (
-    deltaY: number,
-    x = 640,
-    y = 430,
-  ) => {
+  const scrollCrawlerWindow = async (deltaY: number, x = 640, y = 430) => {
     if (!crawlerSession || crawlerInteracting) return;
     setCrawlerInteracting(true);
     try {
@@ -234,7 +233,11 @@ export default function AdminWechatSync() {
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = ((event.clientX - bounds.left) / bounds.width) * 1280;
     const y = ((event.clientY - bounds.top) / bounds.height) * 860;
-    void scrollCrawlerWindow(Math.max(-900, Math.min(900, event.deltaY * 2)), x, y);
+    void scrollCrawlerWindow(
+      Math.max(-900, Math.min(900, event.deltaY * 2)),
+      x,
+      y,
+    );
   };
 
   const logoutCrawler = async () => {
@@ -282,6 +285,27 @@ export default function AdminWechatSync() {
         type: "error",
         text: error instanceof Error ? error.message : "操作失败",
       });
+    } finally {
+      setActing(false);
+    }
+  };
+
+  const retryContent = async (id: number) => {
+    setActing(true);
+    setMessage(null);
+    try {
+      const result = await request(
+        `/api/wechat-candidates/${id}/fetch-content`,
+        { method: "POST", body: "{}" },
+      );
+      setMessage({ type: "success", text: result.message || "正文采集成功" });
+      await fetchCandidates();
+    } catch (error) {
+      setMessage({
+        type: "error",
+        text: error instanceof Error ? error.message : "正文采集失败",
+      });
+      await fetchCandidates();
     } finally {
       setActing(false);
     }
@@ -540,6 +564,44 @@ export default function AdminWechatSync() {
                             {item.digest}
                           </div>
                         )}
+                        <div className="mt-2 flex flex-wrap items-center gap-2">
+                          <Badge
+                            variant={
+                              item.content_status === "fetched"
+                                ? "default"
+                                : item.content_status === "failed"
+                                  ? "destructive"
+                                  : "secondary"
+                            }
+                          >
+                            {item.content_status === "fetched"
+                              ? `正文已采集 · ${item.localized_images} 图`
+                              : item.content_status === "failed"
+                                ? "正文采集失败"
+                                : "正文等待采集"}
+                          </Badge>
+                          {item.content_error && (
+                            <span
+                              className="max-w-md truncate text-xs text-red-600"
+                              title={item.content_error}
+                            >
+                              {item.content_error}
+                            </span>
+                          )}
+                          {item.content_status !== "fetched" && (
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              className="h-7 px-2 text-xs"
+                              disabled={acting}
+                              onClick={() => void retryContent(item.id)}
+                            >
+                              <RefreshCw className="mr-1 h-3 w-3" />
+                              重新采集正文
+                            </Button>
+                          )}
+                        </div>
                       </TableCell>
                       <TableCell className="whitespace-nowrap">
                         {item.publish_date

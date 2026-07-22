@@ -75,11 +75,29 @@ async function setup() {
       category TEXT DEFAULT '本所动态',
       status TEXT DEFAULT 'pending',
       news_id INTEGER,
+      rich_content TEXT,
+      content_status TEXT DEFAULT 'pending',
+      content_error TEXT,
+      content_fetched_at DATETIME,
+      localized_images INTEGER DEFAULT 0,
       raw_payload TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
   `);
+  for (const statement of [
+    "ALTER TABLE wechat_candidates ADD COLUMN rich_content TEXT",
+    "ALTER TABLE wechat_candidates ADD COLUMN content_status TEXT DEFAULT 'pending'",
+    "ALTER TABLE wechat_candidates ADD COLUMN content_error TEXT",
+    "ALTER TABLE wechat_candidates ADD COLUMN content_fetched_at DATETIME",
+    "ALTER TABLE wechat_candidates ADD COLUMN localized_images INTEGER DEFAULT 0",
+  ]) {
+    try {
+      await db.exec(statement);
+    } catch {
+      // Existing installations already have the column.
+    }
+  }
   await db.exec(
     "CREATE INDEX IF NOT EXISTS idx_wechat_candidates_status ON wechat_candidates(status, publish_date DESC);",
   );

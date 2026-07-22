@@ -51,6 +51,18 @@ export function createServer() {
   app.use(express.urlencoded({ extended: true }));
 
   // 静态文件服务 - 附件目录
+  const uploadsPath = path.join(process.cwd(), "public", "uploads");
+  app.use(
+    "/uploads",
+    express.static(uploadsPath, {
+      immutable: true,
+      maxAge: "1y",
+      setHeaders(res) {
+        res.setHeader("X-Content-Type-Options", "nosniff");
+      },
+    }),
+  );
+
   const attachmentsPath = path.join(process.cwd(), "public", "attachments");
   app.use(
     "/attachments",

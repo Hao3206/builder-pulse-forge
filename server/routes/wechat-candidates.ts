@@ -2,6 +2,7 @@ import express from "express";
 import { db } from "../database";
 import { verifyAdminToken } from "./admin";
 import { sanitizeRichContent } from "../lib/content";
+import { fetchWechatArticle } from "../services/wechat-article";
 import {
   clearCrawlerProfile,
   clickCrawlerSession,
@@ -39,6 +40,10 @@ function serialize(row: any) {
     category: row.category,
     status: row.status,
     news_id: row.news_id,
+    content_status: row.content_status || "pending",
+    content_error: row.content_error || "",
+    content_fetched_at: row.content_fetched_at,
+    localized_images: Number(row.localized_images || 0),
     created_at: row.created_at,
   };
 }
@@ -61,6 +66,14 @@ async function importCandidates(articles: any[], defaultCategory = "本所动态
   let created = 0;
   let skipped = 0;
   let invalid = 0;
+  let contentFetched = 0;
+  let contentFailed = 0;
+  const pendingArticles: Array<{
+    article: any;
+    title: string;
+    sourceUrl: string;
+    candidateId?: number;
+  }> = [];
 
   for (const article of articles.slice(0, 200)) {
     const title =
@@ -76,38 +89,109 @@ async function importCandidates(articles: any[], defaultCategory = "本所动态
       [sourceUrl, title],
     );
     const existingCandidate = await db.get(
-      "SELECT id FROM wechat_candidates WHERE source_url = ?",
+      "SELECT id, content_status FROM wechat_candidates WHERE source_url = ?",
       [sourceUrl],
     );
-    if (existingNews || existingCandidate) {
+    if (existingNews || existingCandidate?.content_status === "fetched") {
       skipped += 1;
       continue;
     }
 
-    await db.run(
-      `INSERT INTO wechat_candidates
-        (title, digest, cover_image, source_url, publish_date, category, raw_payload)
-       VALUES (?, ?, ?, ?, ?, ?, ?)`,
-      [
-        title,
-        typeof article.digest === "string"
-          ? article.digest.trim().slice(0, 1000)
-          : "",
-        typeof (article.cover_image || article.cover) === "string"
-          ? article.cover_image || article.cover
-          : "",
-        sourceUrl,
-        article.publish_date || null,
-        typeof article.category === "string"
-          ? article.category
-          : defaultCategory,
-        JSON.stringify(article),
-      ],
-    );
-    created += 1;
+    pendingArticles.push({
+      article,
+      title,
+      sourceUrl,
+      candidateId: existingCandidate?.id,
+    });
   }
 
-  return { created, skipped, invalid, total: articles.length };
+  let cursor = 0;
+  async function importNext() {
+    while (cursor < pendingArticles.length) {
+      const { article, title, sourceUrl, candidateId } =
+        pendingArticles[cursor++];
+      let richContent = "";
+      let contentStatus = "failed";
+      let contentError = "";
+      let localizedImages = 0;
+      let fetchedCover = "";
+      try {
+        const fetched = await fetchWechatArticle(sourceUrl);
+        richContent = fetched.richContent;
+        localizedImages = fetched.localizedImages;
+        fetchedCover = fetched.coverImage;
+        contentStatus = "fetched";
+        contentFetched += 1;
+      } catch (error) {
+        contentError =
+          error instanceof Error ? error.message.slice(0, 500) : "正文采集失败";
+        contentFailed += 1;
+      }
+
+      if (candidateId) {
+        await db.run(
+          `UPDATE wechat_candidates
+           SET rich_content = ?, content_status = ?, content_error = ?,
+               content_fetched_at = CASE WHEN ? = 'fetched' THEN CURRENT_TIMESTAMP ELSE NULL END,
+               localized_images = ?, updated_at = CURRENT_TIMESTAMP
+           WHERE id = ?`,
+          [
+            richContent,
+            contentStatus,
+            contentError,
+            contentStatus,
+            localizedImages,
+            candidateId,
+          ],
+        );
+        skipped += 1;
+      } else {
+        await db.run(
+          `INSERT INTO wechat_candidates
+        (title, digest, cover_image, source_url, publish_date, category,
+         rich_content, content_status, content_error, content_fetched_at,
+         localized_images, raw_payload)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CASE WHEN ? = 'fetched' THEN CURRENT_TIMESTAMP ELSE NULL END, ?, ?)`,
+          [
+            title,
+            typeof article.digest === "string"
+              ? article.digest.trim().slice(0, 1000)
+              : "",
+            fetchedCover ||
+              (typeof (article.cover_image || article.cover) === "string"
+                ? article.cover_image || article.cover
+                : ""),
+            sourceUrl,
+            article.publish_date || null,
+            typeof article.category === "string"
+              ? article.category
+              : defaultCategory,
+            richContent,
+            contentStatus,
+            contentError,
+            contentStatus,
+            localizedImages,
+            JSON.stringify(article),
+          ],
+        );
+        created += 1;
+      }
+    }
+  }
+  await Promise.all(
+    Array.from({ length: Math.min(3, pendingArticles.length) }, () =>
+      importNext(),
+    ),
+  );
+
+  return {
+    created,
+    skipped,
+    invalid,
+    contentFetched,
+    contentFailed,
+    total: articles.length,
+  };
 }
 
 router.post("/import", async (req, res) => {
@@ -126,12 +210,10 @@ router.post("/sessions", async (_req, res) => {
     res.json({ success: true, data: await createCrawlerSession() });
   } catch (error) {
     console.error("启动公众号采集会话失败:", error);
-    res
-      .status(500)
-      .json({
-        success: false,
-        error: error instanceof Error ? error.message : "采集会话启动失败",
-      });
+    res.status(500).json({
+      success: false,
+      error: error instanceof Error ? error.message : "采集会话启动失败",
+    });
   }
 });
 
@@ -142,12 +224,10 @@ router.get("/sessions/:id", async (req, res) => {
       data: await crawlerSessionSnapshot(req.params.id),
     });
   } catch (error) {
-    res
-      .status(404)
-      .json({
-        success: false,
-        error: error instanceof Error ? error.message : "会话不存在",
-      });
+    res.status(404).json({
+      success: false,
+      error: error instanceof Error ? error.message : "会话不存在",
+    });
   }
 });
 
@@ -200,12 +280,10 @@ router.post("/sessions/:id/collect", async (req, res) => {
       message: "采集完成，结果已进入待确认池",
     });
   } catch (error) {
-    res
-      .status(400)
-      .json({
-        success: false,
-        error: error instanceof Error ? error.message : "采集失败",
-      });
+    res.status(400).json({
+      success: false,
+      error: error instanceof Error ? error.message : "采集失败",
+    });
   }
 });
 
@@ -260,6 +338,62 @@ router.patch("/status", async (req, res) => {
   res.json({ success: true, data: { updated: result.changes || 0 } });
 });
 
+router.post("/:id/fetch-content", async (req, res) => {
+  const id = Number(req.params.id);
+  if (!Number.isInteger(id) || id <= 0) {
+    return res.status(400).json({ success: false, error: "无效候选文章编号" });
+  }
+  const candidate = await db.get(
+    "SELECT id, source_url, news_id FROM wechat_candidates WHERE id = ?",
+    [id],
+  );
+  if (!candidate) {
+    return res.status(404).json({ success: false, error: "候选文章不存在" });
+  }
+  try {
+    const article = await fetchWechatArticle(candidate.source_url);
+    await db.run(
+      `UPDATE wechat_candidates
+       SET rich_content = ?, cover_image = COALESCE(NULLIF(?, ''), cover_image),
+           content_status = 'fetched', content_error = '',
+           content_fetched_at = CURRENT_TIMESTAMP, localized_images = ?,
+           updated_at = CURRENT_TIMESTAMP
+       WHERE id = ?`,
+      [article.richContent, article.coverImage, article.localizedImages, id],
+    );
+    if (candidate.news_id) {
+      await db.run(
+        `UPDATE news
+         SET content = ?, rich_content = ?, imageUrl = COALESCE(NULLIF(?, ''), imageUrl)
+         WHERE id = ?`,
+        [
+          article.richContent,
+          article.richContent,
+          article.coverImage,
+          candidate.news_id,
+        ],
+      );
+    }
+    res.json({
+      success: true,
+      data: {
+        content_status: "fetched",
+        localized_images: article.localizedImages,
+      },
+      message: "正文重新采集成功",
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "正文采集失败";
+    await db.run(
+      `UPDATE wechat_candidates
+       SET content_status = 'failed', content_error = ?, updated_at = CURRENT_TIMESTAMP
+       WHERE id = ?`,
+      [message.slice(0, 500), id],
+    );
+    res.status(400).json({ success: false, error: message });
+  }
+});
+
 router.post("/confirm", async (req, res) => {
   const ids = Array.isArray(req.body?.ids)
     ? req.body.ids.map(Number).filter(Number.isInteger)
@@ -285,9 +419,11 @@ router.post("/confirm", async (req, res) => {
     );
     let newsId = existing?.id;
     if (!newsId) {
-      const link = sanitizeRichContent(
-        `<p>${escapeHtml(candidate.digest || "点击下方原文链接查看完整内容。")}</p><p><a href="${candidate.source_url}" target="_blank" rel="noopener noreferrer">阅读微信公众号原文</a></p>`,
-      );
+      const link = candidate.rich_content
+        ? sanitizeRichContent(candidate.rich_content)
+        : sanitizeRichContent(
+            `<p>${escapeHtml(candidate.digest || "正文暂未成功采集，请点击原文链接查看。")}</p><p><a href="${candidate.source_url}" target="_blank" rel="noopener noreferrer">阅读微信公众号原文</a></p>`,
+          );
       const result = await db.run(
         `INSERT INTO news (title, content, rich_content, imageUrl, author, category, createdAt, source_url)
          VALUES (?, ?, ?, ?, ?, ?, COALESCE(?, CURRENT_TIMESTAMP), ?)`,
