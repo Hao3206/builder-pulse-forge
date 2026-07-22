@@ -128,7 +128,7 @@ export default function GreenCertificateTrading() {
         primaryHref="#contact"
         secondaryText="了解服务"
         secondaryHref="#certificate-types"
-        backgroundImage="https://api.builder.io/api/v1/image/assets/TEMP/9026b87008e8884034ad247a59bfca58d7b09cc8?width=2880"
+        backgroundImage="/assets/remote/9026b87008e8884034ad247a59bfca58d7b09cc8.webp"
         heightClass="h-[460px]"
       />
 
@@ -282,9 +282,7 @@ export default function GreenCertificateTrading() {
             <a href="#contact" className="bg-white text-[#058A65] font-semibold py-4 px-8 rounded-lg hover:bg-gray-50 transition-colors inline-block">
               立即咨询
             </a>
-            <button className="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-[#058A65] transition-colors">
-              了解更多
-            </button>
+            <a href="#contact" className="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-[#058A65] transition-colors">获取方案</a>
           </div>
         </div>
       </section>

@@ -1,24 +1,17 @@
-import { useState, useEffect, useRef } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import {
-  Search,
-  Play,
-  Pause,
-  Volume2,
-  VolumeX,
-  MoreHorizontal,
-  ChevronDown,
-} from "lucide-react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { Search, AlertCircle, ChevronDown, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
+import { NEWS_FALLBACK_IMAGE, publicNewsImage } from "@/lib/news";
 
 // Define the type for a single news article from the API
 interface ApiNewsArticle {
   id: string;
   title: string;
   imageUrl: string;
-  content: string;
+  summary: string;
   category: string;
   createdAt: string;
   author: string;
@@ -32,90 +25,19 @@ interface ComponentArticle {
   title: string;
   content: string;
   category: string;
+  imageUrl: string;
+  author: string;
 }
 
 export default function NewsCenter() {
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeCategory, setActiveCategory] = useState("全部");
   const [searchQuery, setSearchQuery] = useState("");
   const [articles, setArticles] = useState<ComponentArticle[]>([]);
-
-  // Audio player state
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
-  const [isMuted, setIsMuted] = useState(false);
-
-  // Format time to mm:ss
-  const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-  };
-
-  // Handle play/pause
-  const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  // Handle time update
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-    }
-  };
-
-  // Handle loaded metadata
-  const handleLoadedMetadata = () => {
-    if (audioRef.current) {
-      setDuration(audioRef.current.duration);
-    }
-  };
-
-  // Handle seek
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const time = parseFloat(e.target.value);
-    if (audioRef.current) {
-      audioRef.current.currentTime = time;
-      setCurrentTime(time);
-    }
-  };
-
-  // Handle volume change
-  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const vol = parseFloat(e.target.value);
-    if (audioRef.current) {
-      audioRef.current.volume = vol;
-      setVolume(vol);
-      setIsMuted(vol === 0);
-    }
-  };
-
-  // Toggle mute
-  const toggleMute = () => {
-    if (audioRef.current) {
-      const newMuted = !isMuted;
-      audioRef.current.muted = newMuted;
-      setIsMuted(newMuted);
-    }
-  };
-
-  // Handle audio ended
-  const handleEnded = () => {
-    setIsPlaying(false);
-    setCurrentTime(0);
-  };
+  const [visibleCount, setVisibleCount] = useState(8);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -126,9 +48,9 @@ export default function NewsCenter() {
 
     const fetchNews = async () => {
       try {
-        const response = await fetch("/api/news");
-        const result = await response.json();
-        if (result.success && Array.isArray(result.data)) {
+        const response = await fetch("/api/news?view=summary");
+        const result = await response.json().catch(() => ({}));
+        if (response.ok && result.success && Array.isArray(result.data)) {
           // Transform API data to the format the component expects
           const formattedArticles = result.data.map(
             (apiArticle: ApiNewsArticle) => {
@@ -136,45 +58,26 @@ export default function NewsCenter() {
               const month = String(d.getMonth() + 1).padStart(2, "0");
               const day = String(d.getDate()).padStart(2, "0");
 
-              // 从HTML内容中提取纯文本作为摘要
-              const extractTextFromHTML = (html: string): string => {
-                if (!html) return "";
-
-                // 如果内容包含HTML标签，提取纯文本
-                if (html.includes("<") && html.includes(">")) {
-                  // 创建一个临时的DOM元素来解析HTML
-                  const tempDiv = document.createElement("div");
-                  tempDiv.innerHTML = html;
-                  const textContent =
-                    tempDiv.textContent || tempDiv.innerText || "";
-
-                  // 清理多余的空白字符并截取前200个字符作为摘要
-                  return (
-                    textContent.replace(/\s+/g, " ").trim().substring(0, 200) +
-                    "..."
-                  );
-                }
-
-                // 如果是纯文本，直接截取前200个字符
-                return (
-                  html.substring(0, 200) + (html.length > 200 ? "..." : "")
-                );
-              };
-
               return {
                 id: apiArticle.id,
                 date: `${month}/${day}`,
                 year: String(d.getFullYear()),
                 title: apiArticle.title,
-                content: extractTextFromHTML(apiArticle.content),
+                content: apiArticle.summary || "",
                 category: apiArticle.category,
+                imageUrl: apiArticle.imageUrl || "",
+                author: apiArticle.author || "浙东环境能源交易所",
               };
             },
           );
           setArticles(formattedArticles);
+        } else {
+          throw new Error(result.error || "资讯加载失败");
         }
       } catch (error) {
-        console.error("Failed to fetch news:", error);
+        setLoadError(error instanceof Error ? error.message : "资讯加载失败");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -186,6 +89,8 @@ export default function NewsCenter() {
   // Handle URL category parameter and scroll to news section
   useEffect(() => {
     const categoryParam = searchParams.get("category");
+    const searchParam = searchParams.get("search");
+    if (searchParam) setSearchQuery(searchParam);
     if (categoryParam) {
       setActiveCategory(categoryParam);
       // Scroll to news list section after a short delay to ensure the page has loaded
@@ -235,6 +140,23 @@ export default function NewsCenter() {
     },
   ];
 
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const filteredArticles = articles.filter((article) => {
+    const matchesCategory =
+      activeCategory === "全部" || article.category === activeCategory;
+    const matchesSearch =
+      !normalizedQuery ||
+      article.title.toLowerCase().includes(normalizedQuery) ||
+      article.content.toLowerCase().includes(normalizedQuery);
+    return matchesCategory && matchesSearch;
+  });
+  const visibleArticles = filteredArticles.slice(0, visibleCount);
+  const featuredArticle = articles[0];
+
+  useEffect(() => {
+    setVisibleCount(8);
+  }, [activeCategory, searchQuery]);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -250,14 +172,16 @@ export default function NewsCenter() {
       <div className="relative h-[420px] flex flex-col justify-center items-center bg-[#F8F9FB] overflow-hidden">
         {/* Background Image */}
         <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/98e13ab9047ae91c29a19fadad047b469733151f?width=3840"
-          alt="Forest Background"
+          src="/assets/remote/98e13ab9047ae91c29a19fadad047b469733151f.webp"
+          alt="绿色森林与道路航拍"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
         {/* Content */}
         <div className="relative z-10 text-center text-white mt-[88px]">
-          <h1 className="text-[44px] font-bold leading-[60px] tracking-[-0.88px] mb-6">
+          <h1 className="mb-6 text-[34px] font-bold leading-[44px] sm:text-[44px] sm:leading-[60px]">
             资讯中心
           </h1>
           <p className="text-lg leading-[26px] tracking-[-0.1px] text-white/80">
@@ -267,117 +191,76 @@ export default function NewsCenter() {
       </div>
 
       {/* Featured Article Section */}
-      <div className="bg-white py-12 px-4 lg:px-28">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="bg-white rounded-xl border border-[#E5E5E7] shadow-sm overflow-hidden">
-            <div className="flex flex-col lg:flex-row">
-              {/* Left Image Area */}
-              <div
-                className="w-full lg:w-[505px] h-[330px] bg-cover bg-center relative flex items-end justify-center pb-4"
-                style={{
-                  backgroundImage: "url('/news-featured-image.jpg')",
-                }}
-              >
-                {/* Progress Dots */}
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-1 bg-white rounded"></div>
-                  <div className="w-5 h-1 bg-white/52 rounded"></div>
-                  <div className="w-5 h-1 bg-white/52 rounded"></div>
-                  <div className="w-5 h-1 bg-white/52 rounded"></div>
-                </div>
-              </div>
-
-              {/* Right Content Area */}
-              <div className="flex-1 p-8">
-                <div className="space-y-8">
-                  {/* Article Content */}
-                  <div className="space-y-4">
-                    <h2 className="text-[22px] font-bold leading-[30px] tracking-[-0.22px] text-[#333]">
-                      碳达峰碳中和的提出
-                    </h2>
-                    <p className="text-base leading-6 tracking-[-0.1px] text-[#666]">
-                      2020年9月22日，习近平主席在第75届联合国大会一般性辩论上作出我国二氧化碳排放力争于2030年前达到峰值、努力争取2060年前实现碳中和的重大宣示。
-                    </p>
-                  </div>
-
-                  {/* Audio Player */}
-                  <div className="relative">
-                    <audio
-                      ref={audioRef}
-                      src="/audio/carbon-peak-neutrality.m4a"
-                      onTimeUpdate={handleTimeUpdate}
-                      onLoadedMetadata={handleLoadedMetadata}
-                      onEnded={handleEnded}
-                    />
-                    <div className="bg-[#F1F3F4] rounded-full h-[50px] flex items-center px-4 gap-4">
-                      <button
-                        onClick={togglePlay}
-                        className="flex items-center justify-center hover:opacity-70 transition-opacity"
-                      >
-                        {isPlaying ? (
-                          <Pause className="w-[14px] h-[14px] fill-[#333] text-[#333]" />
-                        ) : (
-                          <Play className="w-[14px] h-[14px] fill-[#333] text-[#333]" />
-                        )}
-                      </button>
-                      <span className="text-base text-[#666] tracking-[-0.1px] min-w-[80px]">
-                        {formatTime(currentTime)}/{formatTime(duration || 23)}
-                      </span>
-
-                      {/* Progress Bar */}
-                      <div className="flex-1 relative">
-                        <input
-                          type="range"
-                          min={0}
-                          max={duration || 23}
-                          value={currentTime}
-                          onChange={handleSeek}
-                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                        />
-                        <div className="w-full h-1 bg-[#C1C2C3] rounded-full">
-                          <div
-                            className="h-1 bg-[#595959] rounded-full transition-all duration-100"
-                            style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
-                          />
-                        </div>
-                      </div>
-
-                      <button
-                        onClick={toggleMute}
-                        className="flex items-center justify-center hover:opacity-70 transition-opacity"
-                      >
-                        {isMuted || volume === 0 ? (
-                          <VolumeX className="w-4 h-4 text-[#333]" />
-                        ) : (
-                          <Volume2 className="w-4 h-4 text-[#333]" />
-                        )}
-                      </button>
-                      <MoreHorizontal className="w-4 h-4 text-[#333]" />
-                    </div>
-                  </div>
-
-                  {/* Partner Logos */}
-                  <div className="flex items-center gap-5">
-                    <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/e2b144e437ae6601fc1795040020ee4ab17039d9?width=284"
-                      alt="Partner Logo"
-                      className="w-[142px] h-[60px]"
-                    />
-                    <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/35aa67d35d470ec49e2dd4ab47b4f342488ef45d?width=284"
-                      alt="Partner Logo"
-                      className="w-[142px] h-[60px]"
-                    />
-                    <img
-                      src="https://api.builder.io/api/v1/image/assets/TEMP/18300e2234598f0edd2074e6c88ef9873fac7c64?width=284"
-                      alt="Partner Logo"
-                      className="w-[142px] h-[60px]"
-                    />
-                  </div>
-                </div>
-              </div>
+      <div className="bg-white px-4 py-12 lg:px-28">
+        <div className="mx-auto max-w-screen-2xl">
+          {loading ? (
+            <div className="flex min-h-64 items-center justify-center gap-2 rounded-md border border-[#E5E5E7] text-sm text-gray-500">
+              <Loader2 className="h-6 w-6 animate-spin text-[#058A65]" />
+              正在加载最新资讯
             </div>
-          </div>
+          ) : loadError ? (
+            <div className="flex min-h-64 flex-col items-center justify-center gap-3 rounded-md border border-red-100 bg-red-50/40 px-6 text-center">
+              <AlertCircle className="h-7 w-7 text-red-500" />
+              <h2 className="font-semibold text-gray-900">资讯暂时无法加载</h2>
+              <p className="text-sm text-gray-500">{loadError}</p>
+              <button
+                onClick={() => window.location.reload()}
+                className="rounded-md border border-red-200 bg-white px-4 py-2 text-sm font-medium text-red-700"
+              >
+                重新加载
+              </button>
+            </div>
+          ) : featuredArticle ? (
+            <article className="grid overflow-hidden rounded-md border border-[#E5E5E7] bg-white lg:grid-cols-[minmax(320px,0.9fr)_minmax(0,1.1fr)]">
+              <Link
+                to={`/news-detail/${featuredArticle.id}`}
+                className="block min-h-60 overflow-hidden bg-gray-100 lg:min-h-80"
+              >
+                <img
+                  src={publicNewsImage(featuredArticle.imageUrl)}
+                  alt={featuredArticle.title}
+                  className="h-full w-full object-cover transition duration-300 hover:scale-[1.02]"
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = NEWS_FALLBACK_IMAGE;
+                  }}
+                />
+              </Link>
+              <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+                <div className="mb-4 flex flex-wrap items-center gap-3 text-sm text-gray-500">
+                  <span className="rounded-full bg-[#058A65]/10 px-3 py-1 font-medium text-[#058A65]">
+                    最新资讯
+                  </span>
+                  <span>{featuredArticle.category}</span>
+                  <span>
+                    {featuredArticle.year}/{featuredArticle.date}
+                  </span>
+                </div>
+                <h2 className="text-2xl font-bold leading-9 text-[#333]">
+                  {featuredArticle.title}
+                </h2>
+                <p className="mt-4 line-clamp-4 text-base leading-7 text-[#666]">
+                  {featuredArticle.content || "点击查看资讯详情。"}
+                </p>
+                <div className="mt-6 flex items-center justify-between gap-4">
+                  <span className="text-sm text-gray-500">
+                    来源：{featuredArticle.author}
+                  </span>
+                  <Link
+                    to={`/news-detail/${featuredArticle.id}`}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-[#058A65]"
+                  >
+                    查看详情
+                    <ChevronDown className="h-4 w-4 -rotate-90" />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ) : (
+            <div className="flex min-h-64 items-center justify-center rounded-md border border-[#E5E5E7] text-sm text-gray-500">
+              暂时没有资讯
+            </div>
+          )}
         </div>
       </div>
 
@@ -404,6 +287,7 @@ export default function NewsCenter() {
                   <button
                     key={category.id}
                     onClick={() => setActiveCategory(category.id)}
+                    aria-pressed={activeCategory === category.id}
                     className={`px-3 py-2 rounded-full text-sm font-medium tracking-[-0.1px] transition-colors ${
                       activeCategory === category.id
                         ? "bg-[#058A65]/10 text-[#058A65]"
@@ -421,15 +305,13 @@ export default function NewsCenter() {
                   <Search className="w-4 h-4 text-[#999] mr-2" />
                   <input
                     type="text"
+                    aria-label="搜索资讯"
                     placeholder="输入您想要查询的内容"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="flex-1 text-sm text-[#999] tracking-[-0.1px] outline-none"
                   />
                 </div>
-                <button className="px-5 py-3 bg-white border border-[#058A65] text-[#058A65] text-sm font-semibold rounded-md hover:bg-[#058A65]/5 transition-colors">
-                  搜索
-                </button>
               </div>
             </div>
           </div>
@@ -439,13 +321,19 @@ export default function NewsCenter() {
       {/* Articles List */}
       <div className="bg-white pb-12">
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-28">
-          {articles
-            .filter(
-              (article) =>
-                activeCategory === "全部" ||
-                article.category === activeCategory,
-            )
-            .map((article) => (
+          {loading ? (
+            <div className="flex min-h-48 items-center justify-center gap-2 text-sm text-gray-500">
+              <Loader2 className="h-5 w-5 animate-spin text-[#058A65]" />
+              正在加载资讯列表
+            </div>
+          ) : !loadError && visibleArticles.length === 0 ? (
+            <div className="flex min-h-48 flex-col items-center justify-center gap-2 text-center">
+              <Search className="h-6 w-6 text-gray-400" />
+              <h2 className="font-semibold text-gray-800">没有匹配的资讯</h2>
+              <p className="text-sm text-gray-500">请调整分类或搜索关键词。</p>
+            </div>
+          ) : (
+            visibleArticles.map((article) => (
               <div
                 key={article.id}
                 className="flex flex-col lg:flex-row items-start gap-6 lg:gap-10 py-10 border-b border-[#E5E5E7] last:border-b-0"
@@ -486,18 +374,25 @@ export default function NewsCenter() {
                   </Link>
                 </div>
               </div>
-            ))}
+            ))
+          )}
         </div>
       </div>
 
       {/* Load More Button */}
-      <div className="bg-white py-10">
-        <div className="max-w-screen-2xl mx-auto text-center">
-          <button className="px-5 py-3 border border-[#058A65] text-[#058A65] text-sm font-semibold rounded-full hover:bg-[#058A65]/5 transition-colors">
-            查看全部
-          </button>
+      {visibleCount < filteredArticles.length && (
+        <div className="bg-white py-10">
+          <div className="max-w-screen-2xl mx-auto text-center">
+            <button
+              onClick={() => setVisibleCount((count) => count + 8)}
+              aria-label="加载更多资讯"
+              className="px-5 py-3 border border-[#058A65] text-[#058A65] text-sm font-semibold rounded-full hover:bg-[#058A65]/5 transition-colors"
+            >
+              加载更多资讯
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Footer */}
       <Footer />

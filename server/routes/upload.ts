@@ -31,7 +31,11 @@ const imageUpload = multer({
   },
   fileFilter: (req, file, cb) => {
     // 只允许图片文件
-    if (file.mimetype.startsWith("image/")) {
+    if (
+      ["image/jpeg", "image/png", "image/gif", "image/webp"].includes(
+        file.mimetype,
+      )
+    ) {
       cb(null, true);
     } else {
       cb(new Error("只允许上传图片文件"));
@@ -63,50 +67,73 @@ const attachmentUpload = multer({
   limits: {
     fileSize: 50 * 1024 * 1024, // 50MB限制
   },
+  fileFilter: (_req, file, cb) => {
+    const allowedExtensions = new Set([
+      ".pdf",
+      ".doc",
+      ".docx",
+      ".xls",
+      ".xlsx",
+      ".ppt",
+      ".pptx",
+      ".csv",
+      ".txt",
+      ".zip",
+      ".rar",
+      ".7z",
+    ]);
+    allowedExtensions.has(path.extname(file.originalname).toLowerCase())
+      ? cb(null, true)
+      : cb(new Error("不支持的附件类型"));
+  },
 });
 
 // 上传图片 - 需要管理员认证
-router.post("/image", verifyAdminToken, imageUpload.single("image"), async (req, res) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({
+router.post(
+  "/image",
+  verifyAdminToken,
+  imageUpload.single("image"),
+  async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({
+          success: false,
+          error: "没有上传文件",
+        });
+      }
+
+      // 返回图片URL
+      const imageUrl = `/uploads/${req.file.filename}`;
+
+      res.json({
+        success: true,
+        data: {
+          url: imageUrl,
+          filename: req.file.filename,
+          originalName: req.file.originalname,
+          size: req.file.size,
+        },
+        message: "图片上传成功",
+      });
+    } catch (error) {
+      console.error("图片上传失败:", error);
+      res.status(500).json({
         success: false,
-        error: "没有上传文件",
+        error: "图片上传失败",
       });
     }
-
-    // 返回图片URL
-    const imageUrl = `/uploads/${req.file.filename}`;
-    
-    res.json({
-      success: true,
-      data: {
-        url: imageUrl,
-        filename: req.file.filename,
-        originalName: req.file.originalname,
-        size: req.file.size,
-      },
-      message: "图片上传成功",
-    });
-  } catch (error) {
-    console.error("图片上传失败:", error);
-    res.status(500).json({
-      success: false,
-      error: "图片上传失败",
-    });
-  }
-});
+  },
+);
 
 // 获取已上传的图片列表
-router.get("/images", async (req, res) => {
+router.get("/images", verifyAdminToken, async (req, res) => {
   try {
     const files = await fs.readdir(uploadDir);
     const images = files
-      .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
-      .map(file => ({
+      .filter((file) => /\.(jpg|jpeg|png|gif|webp)$/i.test(file))
+      .map((file) => ({
         filename: file,
         url: `/uploads/${file}`,
-        path: path.join(uploadDir, file),
       }));
 
     res.json({
@@ -123,11 +150,11 @@ router.get("/images", async (req, res) => {
 });
 
 // 删除图片
-router.delete("/image/:filename", async (req, res) => {
+router.delete("/image/:filename", verifyAdminToken, async (req, res) => {
   try {
-    const { filename } = req.params;
+    const filename = path.basename(req.params.filename);
     const filePath = path.join(uploadDir, filename);
-    
+
     // 检查文件是否存在
     try {
       await fs.access(filePath);
@@ -140,7 +167,7 @@ router.delete("/image/:filename", async (req, res) => {
 
     // 删除文件
     await fs.unlink(filePath);
-    
+
     res.json({
       success: true,
       message: "图片删除成功",
@@ -155,37 +182,42 @@ router.delete("/image/:filename", async (req, res) => {
 });
 
 // 上传附件（支持各种文件类型）- 需要管理员认证
-router.post("/attachment", verifyAdminToken, attachmentUpload.single("attachment"), async (req, res) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({
+router.post(
+  "/attachment",
+  verifyAdminToken,
+  attachmentUpload.single("attachment"),
+  async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({
+          success: false,
+          error: "没有上传文件",
+        });
+      }
+
+      // 返回附件信息
+      const attachmentUrl = `/attachments/${req.file.filename}`;
+
+      res.json({
+        success: true,
+        data: {
+          url: attachmentUrl,
+          filename: req.file.filename,
+          originalName: req.file.originalname,
+          size: req.file.size,
+          mimetype: req.file.mimetype,
+        },
+        message: "附件上传成功",
+      });
+    } catch (error: any) {
+      console.error("附件上传失败:", error);
+      res.status(500).json({
         success: false,
-        error: "没有上传文件",
+        error: error.message || "附件上传失败",
       });
     }
-
-    // 返回附件信息
-    const attachmentUrl = `/attachments/${req.file.filename}`;
-    
-    res.json({
-      success: true,
-      data: {
-        url: attachmentUrl,
-        filename: req.file.filename,
-        originalName: req.file.originalname,
-        size: req.file.size,
-        mimetype: req.file.mimetype,
-      },
-      message: "附件上传成功",
-    });
-  } catch (error: any) {
-    console.error("附件上传失败:", error);
-    res.status(500).json({
-      success: false,
-      error: error.message || "附件上传失败",
-    });
-  }
-});
+  },
+);
 
 // 下载附件
 router.get("/attachment/:filename", async (req, res) => {
@@ -194,7 +226,7 @@ router.get("/attachment/:filename", async (req, res) => {
     // 防止路径遍历攻击
     const safeFilename = path.basename(filename);
     const filePath = path.join(attachmentsDir, safeFilename);
-    
+
     // 检查文件是否存在
     try {
       await fs.access(filePath);
@@ -207,12 +239,17 @@ router.get("/attachment/:filename", async (req, res) => {
 
     // 从数据库中查找原始文件名（如果可能）
     // 这里简化处理，从文件名中提取原始名称
-    const originalName = safeFilename.replace(/^attachment-\d+-\d+-/, "").replace(/^attachment-\d+-/, "");
-    
+    const originalName = safeFilename
+      .replace(/^attachment-\d+-\d+-/, "")
+      .replace(/^attachment-\d+-/, "");
+
     // 设置下载响应头
-    res.setHeader("Content-Disposition", `attachment; filename="${encodeURIComponent(originalName)}"`);
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename="${encodeURIComponent(originalName)}"`,
+    );
     res.setHeader("Content-Type", "application/octet-stream");
-    
+
     // 使用绝对路径发送文件
     res.sendFile(path.resolve(filePath));
   } catch (error) {
@@ -225,4 +262,3 @@ router.get("/attachment/:filename", async (req, res) => {
 });
 
 export default router;
-

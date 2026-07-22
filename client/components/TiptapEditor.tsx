@@ -10,7 +10,13 @@ import { Color } from "@tiptap/extension-color";
 import { Highlight } from "@tiptap/extension-highlight";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import {
   Bold,
@@ -36,7 +42,11 @@ interface TiptapEditorProps {
   placeholder?: string;
 }
 
-export default function TiptapEditor({ value, onChange, placeholder }: TiptapEditorProps) {
+export default function TiptapEditor({
+  value,
+  onChange,
+  placeholder,
+}: TiptapEditorProps) {
   const [showImageDialog, setShowImageDialog] = useState(false);
   const [showLinkDialog, setShowLinkDialog] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
@@ -56,11 +66,11 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
       Link.configure({
         openOnClick: false,
         HTMLAttributes: {
-          class: 'text-blue-500 underline cursor-pointer',
+          class: "text-blue-500 underline cursor-pointer",
         },
       }),
       TextAlign.configure({
-        types: ['heading', 'paragraph'],
+        types: ["heading", "paragraph"],
       }),
       Underline,
     ],
@@ -70,7 +80,8 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
     },
     editorProps: {
       attributes: {
-        class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none min-h-[200px] p-4 border rounded-md',
+        class:
+          "prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none min-h-[200px] p-4 border rounded-md",
       },
     },
   }); // 移除value依赖项
@@ -82,14 +93,12 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
     }
   }, [value, editor]);
 
-  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const file = event.target.files?.[0];
-    if (!file) {
-      console.log("没有选择文件");
-      return;
-    }
+    if (!file) return;
 
-    console.log("开始上传文件:", file.name, file.size);
     setUploading(true);
     setUploadError("");
 
@@ -97,31 +106,25 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
     formData.append("image", file);
 
     try {
-      console.log("发送上传请求到 /api/upload/image");
+      const token = localStorage.getItem("admin_token");
       const response = await fetch("/api/upload/image", {
         method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
         body: formData,
       });
 
-      console.log("上传响应状态:", response.status);
-      const result = await response.json();
-      console.log("上传响应结果:", result);
+      const result = await response.json().catch(() => ({}));
 
-      if (result.success) {
+      if (response.ok && result.success) {
         const uploadedUrl = result.data.url;
-        console.log("上传成功，图片URL:", uploadedUrl);
         setImageUrl(uploadedUrl);
-        
+
         // 自动插入图片到编辑器
         if (editor) {
-          console.log("插入图片到编辑器");
           editor.chain().focus().setImage({ src: uploadedUrl }).run();
           setShowImageDialog(false);
-        } else {
-          console.log("编辑器未初始化");
         }
       } else {
-        console.log("上传失败:", result.error);
         setUploadError(result.error || "上传失败");
       }
     } catch (error) {
@@ -154,8 +157,6 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
     }
   };
 
-
-
   if (!editor) {
     return null;
   }
@@ -163,103 +164,151 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
   return (
     <div className="space-y-4">
       {/* 工具栏 */}
-      <div className="flex flex-wrap items-center gap-1 p-2 border rounded-md bg-gray-50">
+      <div
+        role="toolbar"
+        aria-label="富文本格式工具"
+        className="flex flex-wrap items-center gap-1 p-2 border rounded-md bg-gray-50"
+      >
         {/* 文本格式 */}
         <Button
           type="button"
-          variant={editor.isActive('bold') ? 'default' : 'outline'}
+          variant={editor.isActive("bold") ? "default" : "outline"}
           size="sm"
+          aria-label="粗体"
+          title="粗体"
+          aria-pressed={editor.isActive("bold")}
           onClick={() => editor.chain().focus().toggleBold().run()}
         >
           <Bold className="w-4 h-4" />
         </Button>
         <Button
           type="button"
-          variant={editor.isActive('italic') ? 'default' : 'outline'}
+          variant={editor.isActive("italic") ? "default" : "outline"}
           size="sm"
+          aria-label="斜体"
+          title="斜体"
+          aria-pressed={editor.isActive("italic")}
           onClick={() => editor.chain().focus().toggleItalic().run()}
         >
           <Italic className="w-4 h-4" />
         </Button>
         <Button
           type="button"
-          variant={editor.isActive('underline') ? 'default' : 'outline'}
+          variant={editor.isActive("underline") ? "default" : "outline"}
           size="sm"
+          aria-label="下划线"
+          title="下划线"
+          aria-pressed={editor.isActive("underline")}
           onClick={() => editor.chain().focus().toggleUnderline().run()}
         >
           <UnderlineIcon className="w-4 h-4" />
         </Button>
         <Button
           type="button"
-          variant={editor.isActive('strike') ? 'default' : 'outline'}
+          variant={editor.isActive("strike") ? "default" : "outline"}
           size="sm"
+          aria-label="删除线"
+          title="删除线"
+          aria-pressed={editor.isActive("strike")}
           onClick={() => editor.chain().focus().toggleStrike().run()}
         >
           <Strikethrough className="w-4 h-4" />
         </Button>
 
-        <div className="w-px h-6 bg-gray-300 mx-1" />
+        <div aria-hidden="true" className="w-px h-6 bg-gray-300 mx-1" />
 
         {/* 列表 */}
         <Button
           type="button"
-          variant={editor.isActive('bulletList') ? 'default' : 'outline'}
+          variant={editor.isActive("bulletList") ? "default" : "outline"}
           size="sm"
+          aria-label="无序列表"
+          title="无序列表"
+          aria-pressed={editor.isActive("bulletList")}
           onClick={() => editor.chain().focus().toggleBulletList().run()}
         >
           <List className="w-4 h-4" />
         </Button>
         <Button
           type="button"
-          variant={editor.isActive('orderedList') ? 'default' : 'outline'}
+          variant={editor.isActive("orderedList") ? "default" : "outline"}
           size="sm"
+          aria-label="有序列表"
+          title="有序列表"
+          aria-pressed={editor.isActive("orderedList")}
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
         >
           <ListOrdered className="w-4 h-4" />
         </Button>
 
-        <div className="w-px h-6 bg-gray-300 mx-1" />
+        <div aria-hidden="true" className="w-px h-6 bg-gray-300 mx-1" />
 
         {/* 对齐 */}
         <Button
           type="button"
-          variant={editor.isActive({ textAlign: 'left' }) ? 'default' : 'outline'}
+          variant={
+            editor.isActive({ textAlign: "left" }) ? "default" : "outline"
+          }
           size="sm"
-          onClick={() => editor.chain().focus().setTextAlign('left').run()}
+          aria-label="左对齐"
+          title="左对齐"
+          aria-pressed={editor.isActive({ textAlign: "left" })}
+          onClick={() => editor.chain().focus().setTextAlign("left").run()}
         >
           <AlignLeft className="w-4 h-4" />
         </Button>
         <Button
           type="button"
-          variant={editor.isActive({ textAlign: 'center' }) ? 'default' : 'outline'}
+          variant={
+            editor.isActive({ textAlign: "center" }) ? "default" : "outline"
+          }
           size="sm"
-          onClick={() => editor.chain().focus().setTextAlign('center').run()}
+          aria-label="居中对齐"
+          title="居中对齐"
+          aria-pressed={editor.isActive({ textAlign: "center" })}
+          onClick={() => editor.chain().focus().setTextAlign("center").run()}
         >
           <AlignCenter className="w-4 h-4" />
         </Button>
         <Button
           type="button"
-          variant={editor.isActive({ textAlign: 'right' }) ? 'default' : 'outline'}
+          variant={
+            editor.isActive({ textAlign: "right" }) ? "default" : "outline"
+          }
           size="sm"
-          onClick={() => editor.chain().focus().setTextAlign('right').run()}
+          aria-label="右对齐"
+          title="右对齐"
+          aria-pressed={editor.isActive({ textAlign: "right" })}
+          onClick={() => editor.chain().focus().setTextAlign("right").run()}
         >
           <AlignRight className="w-4 h-4" />
         </Button>
         <Button
           type="button"
-          variant={editor.isActive({ textAlign: 'justify' }) ? 'default' : 'outline'}
+          variant={
+            editor.isActive({ textAlign: "justify" }) ? "default" : "outline"
+          }
           size="sm"
-          onClick={() => editor.chain().focus().setTextAlign('justify').run()}
+          aria-label="两端对齐"
+          title="两端对齐"
+          aria-pressed={editor.isActive({ textAlign: "justify" })}
+          onClick={() => editor.chain().focus().setTextAlign("justify").run()}
         >
           <AlignJustify className="w-4 h-4" />
         </Button>
 
-        <div className="w-px h-6 bg-gray-300 mx-1" />
+        <div aria-hidden="true" className="w-px h-6 bg-gray-300 mx-1" />
 
         {/* 图片 */}
         <Dialog open={showImageDialog} onOpenChange={setShowImageDialog}>
           <DialogTrigger asChild>
-            <Button type="button" variant="outline" size="sm">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              aria-label="插入图片"
+              title="插入图片"
+            >
               <ImageIcon className="w-4 h-4" />
             </Button>
           </DialogTrigger>
@@ -335,7 +384,13 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
         {/* 链接 */}
         <Dialog open={showLinkDialog} onOpenChange={setShowLinkDialog}>
           <DialogTrigger asChild>
-            <Button type="button" variant="outline" size="sm">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              aria-label="插入链接"
+              title="插入链接"
+            >
               <LinkIcon className="w-4 h-4" />
             </Button>
           </DialogTrigger>
@@ -365,21 +420,16 @@ export default function TiptapEditor({ value, onChange, placeholder }: TiptapEdi
           type="button"
           variant="outline"
           size="sm"
+          aria-label="移除链接"
+          title="移除链接"
           onClick={removeLink}
         >
           <Unlink className="w-4 h-4" />
         </Button>
-
-
       </div>
 
       {/* 编辑器内容 */}
       <EditorContent editor={editor} />
-
-      {/* 提示信息 */}
-      <div className="text-xs text-gray-500">
-        提示：支持富文本编辑，包括粗体、斜体、下划线、列表、对齐、图片、链接、颜色等功能
-      </div>
     </div>
   );
 }

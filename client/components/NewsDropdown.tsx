@@ -138,10 +138,12 @@ export default function NewsDropdown({
 
                 {/* News Image Area */}
                 <div className="absolute right-[112px] top-[48px] w-[280px] h-[170px]">
-                  <img 
-                    src="/news-featured-image.jpg" 
-                    alt="资讯中心" 
-                    className="w-full h-full object-cover rounded-lg" 
+                  <img
+                    src="/news-featured-image.jpg"
+                    alt="资讯中心"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
               </div>

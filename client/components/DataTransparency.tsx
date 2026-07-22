@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function DataTransparency() {
   return (
@@ -20,8 +21,10 @@ export default function DataTransparency() {
             </h3>
             <div className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/ad18ef2f2dc17e29c4e87da3d7d93240100179b2?width=1584"
+                src="/assets/remote/ad18ef2f2dc17e29c4e87da3d7d93240100179b2.webp"
                 alt="碳排放权交易数据图表"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain rounded-lg"
               />
             </div>
@@ -34,8 +37,10 @@ export default function DataTransparency() {
             </h3>
             <div className="bg-gray-100 rounded-lg h-[300px] flex items-center justify-center">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/7b8ab5ef49658d038697736a798fcde878d4a7dd?width=915"
+                src="/assets/remote/7b8ab5ef49658d038697736a798fcde878d4a7dd.webp"
                 alt="排污权交易数据图表"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-contain rounded-lg"
               />
             </div>
@@ -44,10 +49,10 @@ export default function DataTransparency() {
 
         {/* More Content Link */}
         <div className="text-center">
-          <button className="inline-flex items-center gap-2 text-brand-green font-inter text-[22px] font-normal leading-6 tracking-[-0.1px] group">
+          <Link to="/news-center" className="inline-flex items-center gap-2 text-brand-green font-inter text-[22px] font-normal leading-6 tracking-[-0.1px] group">
             更多内容
             <ChevronRight className="w-5 h-5 -rotate-90 group-hover:transform group-hover:-rotate-90 group-hover:translate-y-0.5 transition-transform" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

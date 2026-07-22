@@ -48,6 +48,8 @@ export default function SuccessCases() {
                 <img
                   src={caseItem.image}
                   alt={caseItem.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 {/* Category Badge */}

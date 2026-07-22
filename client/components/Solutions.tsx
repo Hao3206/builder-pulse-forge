@@ -69,8 +69,10 @@ export default function Solutions() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/2363313ddbbb93771e18b640faf9df8a90d1c91d?width=2133"
+          src="/assets/remote/2363313ddbbb93771e18b640faf9df8a90d1c91d.webp"
           alt="Solutions background"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover opacity-80"
         />
       </div>

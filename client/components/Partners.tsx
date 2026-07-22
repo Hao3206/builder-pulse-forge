@@ -2,42 +2,42 @@ export default function Partners() {
   const partners = [
     {
       name: "Partner 1",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/eef957b9486d49e9c686d9c5a49cb83a46f7a7b1?width=188",
+      logo: "/assets/remote/eef957b9486d49e9c686d9c5a49cb83a46f7a7b1.png",
     },
     {
       name: "Partner 2",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/2e5ad7cbd5dd0b36170c3dbaddfe6635d3c3ee7e?width=392",
+      logo: "/assets/remote/2e5ad7cbd5dd0b36170c3dbaddfe6635d3c3ee7e.webp",
     },
     {
       name: "Partner 3",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/dd72107f2c7f04de16143aebbf428df803828d5b?width=272",
+      logo: "/assets/remote/dd72107f2c7f04de16143aebbf428df803828d5b.webp",
     },
     {
       name: "Partner 4",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/3c2bc917980d9f0ca8c8feb4aece04e0a2c3dfb9?width=292",
+      logo: "/assets/remote/3c2bc917980d9f0ca8c8feb4aece04e0a2c3dfb9.webp",
     },
     {
       name: "Partner 5",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/e961341dd5adba510feb62b820a9a610b61a7517?width=280",
+      logo: "/assets/remote/e961341dd5adba510feb62b820a9a610b61a7517.webp",
     },
     {
       name: "Partner 6",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/91fa2a6428fa2408e63fbfa315e71334901b0c76?width=312",
+      logo: "/assets/remote/91fa2a6428fa2408e63fbfa315e71334901b0c76.webp",
     },
   ];
 
   const partnersRow2 = [
     {
       name: "Partner 7",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/d0441d3eaeff4aac8ccb9cd5ceca83aef0dfe3ca?width=164",
+      logo: "/assets/remote/d0441d3eaeff4aac8ccb9cd5ceca83aef0dfe3ca.png",
     },
     {
       name: "Partner 8",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/777a4824371d65555d3c1813d665c07088353ec5?width=316",
+      logo: "/assets/remote/777a4824371d65555d3c1813d665c07088353ec5.webp",
     },
     {
       name: "Partner 9",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/f7d66ae42b78d07489b73bb5185c5216848a11b4?width=180",
+      logo: "/assets/remote/f7d66ae42b78d07489b73bb5185c5216848a11b4.webp",
     },
     {
       name: "Partner 10",
@@ -45,11 +45,11 @@ export default function Partners() {
     },
     {
       name: "Partner 11",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/8dec302d08ea62eea8ece1b9695e8c59ab466212?width=264",
+      logo: "/assets/remote/8dec302d08ea62eea8ece1b9695e8c59ab466212.webp",
     },
     {
       name: "Partner 12",
-      logo: "https://api.builder.io/api/v1/image/assets/TEMP/78db10919a6ed0f4424b14d3415224085c22defb?width=160",
+      logo: "/assets/remote/78db10919a6ed0f4424b14d3415224085c22defb.webp",
     },
   ];
 
@@ -80,6 +80,8 @@ export default function Partners() {
                 <img
                   src={partner.logo}
                   alt={partner.name}
+                  loading="lazy"
+                  decoding="async"
                   className="max-w-full max-h-full object-contain"
                 />
               </div>

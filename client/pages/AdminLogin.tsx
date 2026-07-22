@@ -129,6 +129,8 @@ export default function AdminLogin() {
               />
               <button
                 type="button"
+                aria-label={showPassword ? "隐藏密码" : "显示密码"}
+                title={showPassword ? "隐藏密码" : "显示密码"}
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#999] hover:text-[#666] transition-colors"
               >
@@ -157,18 +159,6 @@ export default function AdminLogin() {
             )}
           </button>
         </form>
-
-        {/* 默认账户提示 */}
-        <div className="mt-8 p-4 bg-[#F2F9F7] rounded-lg">
-          <p className="text-sm text-[#058A65] font-medium mb-2">
-            默认管理员账户：
-          </p>
-          <p className="text-xs text-[#666]">
-            用户名: admin
-            {/* <br />
-            密码: zdhjsuo2024 */}
-          </p>
-        </div>
 
         {/* 返回首页链接 */}
         <div className="mt-6 text-center">

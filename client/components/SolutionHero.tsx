@@ -41,7 +41,7 @@ const SolutionHero: React.FC<SolutionHeroProps> = ({
           <div className="inline-block px-4 py-2 bg-[#058A65] rounded-full text-sm font-medium text-white mb-4">
             {tag}
           </div>
-          <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">
+          <h1 className="mb-6 text-[34px] font-bold leading-[44px] text-white sm:text-[52px] sm:leading-[60px]">
             {title}
           </h1>
           <p className="text-lg text-white/90 mb-10 tracking-[-0.1px]">{description}</p>
@@ -68,5 +68,4 @@ const SolutionHero: React.FC<SolutionHeroProps> = ({
 };
 
 export default SolutionHero;
-
 

@@ -130,8 +130,7 @@ export default function ProductService() {
       subtitle: "专业的绿色低碳工厂建设咨询服务",
       description:
         "为制造企业提供从绿色工厂认定到低碳工厂建设的全方位咨询服务，助力企业实现绿色转型和可持续发展。",
-      heroImage:
-        "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1920&h=1080&fit=crop",
+      heroImage: "/assets/remote/unsplash-cf38650ce69d369c.webp",
       category: "碳咨询",
       features: [
         {
@@ -238,8 +237,7 @@ export default function ProductService() {
       subtitle: "专业的碳资产开发与交易服务",
       description:
         "为企业提供从项目识别、开发设计到交易变现的全链条CCER资产管理服务，助力企业实现碳资产价值最大化。",
-      heroImage:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1080&fit=crop",
+      heroImage: "/assets/remote/unsplash-bef1681a2c04457d.webp",
       category: "碳交易",
       features: [
         {
@@ -348,8 +346,7 @@ export default function ProductService() {
       subtitle: "市场规则+交易实战+风控合规，一课掌握核心能力",
       description:
         "覆盖配额交易、CCER与国际自愿市场机制，结合模拟盘与案例推演，掌握下单、对冲、风控的全流程能力。",
-      heroImage:
-        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
+      heroImage: "/assets/remote/unsplash-18dab88ad4b72e7b.webp",
       category: "碳培训",
       features: [
         {
@@ -381,7 +378,11 @@ export default function ProductService() {
       ],
       process: [
         { step: "01", title: "概论与规则", description: "市场体系与履约机制" },
-        { step: "02", title: "产品与制度", description: "配额/CCER/绿证据详解" },
+        {
+          step: "02",
+          title: "产品与制度",
+          description: "配额/CCER/绿证据详解",
+        },
         {
           step: "03",
           title: "策略与实操",
@@ -420,8 +421,7 @@ export default function ProductService() {
       subtitle: "从台账到履约到披露，打造企业碳管理骨干能力",
       description:
         "系统掌握碳盘查台账、配额履约、报告披露与系统化管理，适配企业碳管理岗位能力模型。",
-      heroImage:
-        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
+      heroImage: "/assets/remote/unsplash-18dab88ad4b72e7b.webp",
       category: "碳培训",
       features: [
         {
@@ -487,8 +487,7 @@ export default function ProductService() {
       subtitle: "链接政策、技术与产业实践，构建行业交流平台",
       description:
         "围绕制造业低碳转型、产品碳足迹、绿电与碳金融等主题举办讲座/论坛/工作坊。",
-      heroImage:
-        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
+      heroImage: "/assets/remote/unsplash-18dab88ad4b72e7b.webp",
       category: "碳培训",
       features: [
         { icon: Target, title: "主题演讲", description: "政策解读与技术分享" },
@@ -534,8 +533,7 @@ export default function ProductService() {
       subtitle: "围绕企业诉求定制内容、时长与形式，聚焦实操与落地",
       description:
         "覆盖普及型、条线提升、管理层工作坊与项目制辅导，按需定制，效果导向。",
-      heroImage:
-        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
+      heroImage: "/assets/remote/unsplash-18dab88ad4b72e7b.webp",
       category: "碳培训",
       features: [
         {
@@ -593,8 +591,7 @@ export default function ProductService() {
       subtitle: "战略-核算-路径-投策一体化，打造落地型双碳能力体系",
       description:
         "面向管理层与核心骨干的高级课程，系统覆盖战略、核算、路径、绿电、碳金融与治理体系。",
-      heroImage:
-        "https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1080&fit=crop",
+      heroImage: "/assets/remote/unsplash-18dab88ad4b72e7b.webp",
       category: "碳培训",
       features: [
         {
@@ -875,6 +872,8 @@ export default function ProductService() {
         <img
           src={service.heroImage}
           alt={service.title}
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -887,13 +886,16 @@ export default function ProductService() {
             <div className="inline-block px-4 py-2 bg-[#058A65] rounded-full text-sm font-medium mb-4">
               {service.category}
             </div>
-            <h1 className="text-[48px] font-bold leading-[60px] mb-6">
+            <h1 className="mb-6 text-[34px] font-bold leading-[44px] sm:text-[48px] sm:leading-[60px]">
               {service.title}
             </h1>
             <p className="text-xl leading-[30px] text-white/90 max-w-2xl mx-auto mb-8">
               {service.description}
             </p>
-            <a href="#contact" className="px-8 py-3 bg-[#058A65] text-white font-semibold rounded-md hover:bg-[#046B52] transition-colors inline-block">
+            <a
+              href="#contact"
+              className="px-8 py-3 bg-[#058A65] text-white font-semibold rounded-md hover:bg-[#046B52] transition-colors inline-block"
+            >
               立即咨询
             </a>
           </div>
@@ -956,16 +958,16 @@ export default function ProductService() {
           </div>
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-[#E5E5E7] h-full"></div>
+            <div className="absolute left-[7px] h-full w-1 bg-[#E5E5E7] md:left-1/2 md:-translate-x-1/2 md:transform"></div>
 
             <div className="space-y-12">
               {service.process.map((step, index) => (
                 <div
                   key={index}
-                  className={`flex items-center gap-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+                  className={`flex items-center gap-4 pl-8 md:gap-8 md:pl-0 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
                   <div
-                    className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}
+                    className={`flex-1 text-left ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}
                   >
                     <div className="bg-white p-6 rounded-xl border border-[#E5E5E7] inline-block max-w-md">
                       <div className="text-[#058A65] font-bold text-2xl mb-2">
@@ -978,11 +980,11 @@ export default function ProductService() {
                     </div>
                   </div>
 
-                  <div className="relative">
+                  <div className="absolute left-0 md:relative md:left-auto">
                     <div className="w-4 h-4 bg-[#058A65] rounded-full border-4 border-white z-10 relative"></div>
                   </div>
 
-                  <div className="flex-1"></div>
+                  <div className="hidden flex-1 md:block"></div>
                 </div>
               ))}
             </div>
@@ -1015,8 +1017,10 @@ export default function ProductService() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop"
+                src="/assets/remote/unsplash-717c8d320b106fa4.webp"
                 alt="服务优势"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[400px] object-cover rounded-xl"
               />
             </div>
@@ -1110,7 +1114,6 @@ export default function ProductService() {
       {/* CTA Section 暂未启用 */}
 
       {/* Contact Section */}
-      
 
       <ContactSection />
       {/* Footer */}

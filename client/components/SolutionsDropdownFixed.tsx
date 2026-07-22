@@ -205,6 +205,8 @@ export function SolutionsDropdown({
             <img
               src="/yongcheng-low-carbon.png"
               alt="甬城低碳"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
@@ -212,6 +214,8 @@ export function SolutionsDropdown({
             <img
               src="/carbon-calculator.png"
               alt="个人碳足迹计算器"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>

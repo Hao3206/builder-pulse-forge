@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
+import InquiryForm from "../components/InquiryForm";
 
 export default function About() {
   const [currentHonor, setCurrentHonor] = useState(0);
@@ -75,7 +76,7 @@ export default function About() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://api.builder.io/api/v1/image/assets/TEMP/2de65da77c5648ddbe85ded358b4e35acab603fb?width=2969')",
+              "url('/assets/remote/2de65da77c5648ddbe85ded358b4e35acab603fb.webp')",
           }}
         >
           <div className="absolute inset-0 bg-black/40" />
@@ -84,7 +85,7 @@ export default function About() {
         {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-center justify-center px-8 py-20 min-h-[500px]">
           <div className="max-w-4xl text-center">
-            <h1 className="text-white font-inter text-[44px] font-bold leading-[60px] tracking-[-0.88px] mb-6">
+            <h1 className="mb-6 font-inter text-[34px] font-bold leading-[44px] text-white sm:text-[44px] sm:leading-[60px]">
               关于浙东环境能源交易所
             </h1>
             <p className="text-white/80 font-inter text-lg font-normal leading-[26px] tracking-[-0.1px] max-w-2xl mx-auto">
@@ -171,8 +172,10 @@ export default function About() {
             {/* Right Image */}
             <div className="relative">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/7aefd54b19448f9ce0deccde8c5ce2fe364bab4c?width=942"
+                src="/assets/remote/7aefd54b19448f9ce0deccde8c5ce2fe364bab4c.webp"
                 alt="Company Building"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto rounded-lg shadow-lg"
               />
               {/* Decorative SVG */}
@@ -257,8 +260,10 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex p-6 flex-col justify-center items-start gap-5 rounded-[10px] bg-[#F7F8FA]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/1375d9eceea05d153f2972b8b8eb44a08a0176a4?width=56"
+                src="/assets/remote/1375d9eceea05d153f2972b8b8eb44a08a0176a4.webp"
                 alt="Institution Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-7 h-7"
               />
               <div>
@@ -273,8 +278,10 @@ export default function About() {
 
             <div className="flex p-6 flex-col justify-center items-start gap-5 rounded-[10px] bg-[#F7F8FA]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/95f3c2fb61bcded1c654a8ce8cac4d50f6241009?width=56"
+                src="/assets/remote/95f3c2fb61bcded1c654a8ce8cac4d50f6241009.webp"
                 alt="Lab Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-7 h-7"
               />
               <div>
@@ -289,8 +296,10 @@ export default function About() {
 
             <div className="flex p-6 flex-col justify-center items-start gap-5 bg-[#F7F8FA]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/40d51393a9c5639be634f082a9bff1af6068d9fc?width=56"
+                src="/assets/remote/40d51393a9c5639be634f082a9bff1af6068d9fc.webp"
                 alt="Association Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-7 h-7"
               />
               <div>
@@ -305,8 +314,10 @@ export default function About() {
 
             <div className="flex p-6 flex-col justify-center items-start gap-5 rounded-[10px] bg-[#F7F8FA]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/d34cb9f93650b54e6826e58b0172fc5de9fb25fb?width=56"
+                src="/assets/remote/d34cb9f93650b54e6826e58b0172fc5de9fb25fb.webp"
                 alt="Trade Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-7 h-7"
               />
               <div>
@@ -365,8 +376,10 @@ export default function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/adf935000c6c08e27a84d6e4b8546f5750074411?width=96"
+                src="/assets/remote/adf935000c6c08e27a84d6e4b8546f5750074411.png"
                 alt="Carbon Footprint Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-12 h-12"
               />
               <div>
@@ -381,8 +394,10 @@ export default function About() {
 
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/2f9929af664bbf1e64400732488a8052f7100b0f?width=96"
+                src="/assets/remote/2f9929af664bbf1e64400732488a8052f7100b0f.webp"
                 alt="Green Factory Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-12 h-12"
               />
               <div>
@@ -397,8 +412,10 @@ export default function About() {
 
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/86f224687a51ec7ec2dc88e9d64e68a255149798?width=96"
+                src="/assets/remote/86f224687a51ec7ec2dc88e9d64e68a255149798.webp"
                 alt="Carbon Neutral Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-12 h-12"
               />
               <div>
@@ -413,8 +430,10 @@ export default function About() {
 
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/8aaa4c1be1d45b2254fd23a9fb15d27012910161?width=96"
+                src="/assets/remote/8aaa4c1be1d45b2254fd23a9fb15d27012910161.png"
                 alt="Standards Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-12 h-12"
               />
               <div>
@@ -429,8 +448,10 @@ export default function About() {
 
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/9706a5c17f8b519e3119bb8463b4ff16bb538b47?width=96"
+                src="/assets/remote/9706a5c17f8b519e3119bb8463b4ff16bb538b47.png"
                 alt="Carbon Trading Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-12 h-12"
               />
               <div>
@@ -445,8 +466,10 @@ export default function About() {
 
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/1a009ac9c370ad4937a8ec3526d6e309d2c4cc4e?width=96"
+                src="/assets/remote/1a009ac9c370ad4937a8ec3526d6e309d2c4cc4e.webp"
                 alt="ESG Icon"
+                loading="lazy"
+                decoding="async"
                 className="w-12 h-12"
               />
               <div>
@@ -471,15 +494,16 @@ export default function About() {
               <div
                 className="w-full h-[464px] rounded-2xl border border-[#E5E5E7] bg-cover bg-center bg-no-repeat"
                 style={{
-                  backgroundImage:
-                    "url('/images/ZDMAP.png')",
+                  backgroundImage: "url('/images/ZDMAP.webp')",
                 }}
               />
 
               {/* Map Marker */}
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/a1cc6b2dded43a45244f008283a59eab5e5e6e68?width=96"
+                src="/assets/remote/a1cc6b2dded43a45244f008283a59eab5e5e6e68.webp"
                 alt="Map Marker"
+                loading="lazy"
+                decoding="async"
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full"
               />
 
@@ -523,59 +547,12 @@ export default function About() {
                 </p>
               </div>
 
-              <form className="space-y-6" onSubmit={async (e) => {
-                e.preventDefault();
-                const form = e.target as HTMLFormElement;
-                const data = {
-                  name: (form.elements[0] as HTMLInputElement).value,
-                  company: (form.elements[1] as HTMLInputElement).value,
-                  contact: (form.elements[2] as HTMLInputElement).value,
-                  message: (form.elements[3] as HTMLTextAreaElement).value,
-                };
-                const res = await fetch("/api/contact", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(data),
-                });
-                if (res.ok) {
-                  alert("提交成功！");
-                  form.reset();
-                } else {
-                  alert("提交失败，请重试");
-                }
-              }}>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    placeholder="您的名字"
-                    className="w-full p-3 rounded-md border border-[#E5E5E7] bg-[#F8F9FB] text-[#999] font-inter text-[15px] font-normal leading-[22px] focus:outline-none focus:ring-2 focus:ring-[#058A65] focus:border-transparent"
-                  />
-                  <input
-                    type="text"
-                    placeholder="您的公司"
-                    className="w-full p-3 rounded-md border border-[#E5E5E7] bg-[#F8F9FB] text-[#999] font-inter text-[15px] font-normal leading-[22px] focus:outline-none focus:ring-2 focus:ring-[#058A65] focus:border-transparent"
-                  />
-                </div>
-
-                <input
-                  type="text"
-                  placeholder="您的联系方式"
-                  className="w-full p-3 rounded-md border border-[#E5E5E7] bg-[#F8F9FB] text-[#999] font-inter text-[15px] font-normal leading-[22px] focus:outline-none focus:ring-2 focus:ring-[#058A65] focus:border-transparent"
-                />
-
-                <textarea
-                  placeholder="您的问题"
-                  rows={4}
-                  className="w-full p-3 rounded-md border border-[#E5E5E7] bg-[#F8F9FB] text-[#999] font-inter text-[15px] font-medium leading-[22px] resize-none focus:outline-none focus:ring-2 focus:ring-[#058A65] focus:border-transparent"
-                ></textarea>
-
-                <button
-                  type="submit"
-                  className="w-full py-3 px-[18px] rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)] text-white font-inter text-[15px] font-semibold leading-[22px] hover:bg-[#047556] transition-colors duration-200"
-                >
-                  立即咨询
-                </button>
-              </form>
+              <InquiryForm
+                source="关于我们"
+                companyPlaceholder="您的公司"
+                messagePlaceholder="您的问题"
+                submitLabel="立即咨询"
+              />
             </div>
           </div>
         </div>

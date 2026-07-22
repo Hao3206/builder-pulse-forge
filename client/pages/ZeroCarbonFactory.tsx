@@ -26,7 +26,7 @@ export default function ZeroCarbonFactory() {
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage:
-                "url('https://api.builder.io/api/v1/image/assets/TEMP/d3c2a75c75d2b22cd54ba87fdf99348bf0398abd?width=2880')",
+                "url('/assets/remote/d3c2a75c75d2b22cd54ba87fdf99348bf0398abd.webp')",
               backgroundBlendMode: "multiply",
             }}
           />
@@ -34,7 +34,7 @@ export default function ZeroCarbonFactory() {
 
         <div className="relative z-10 flex items-center justify-center h-full pt-[88px]">
           <div className="max-w-[640px] text-center px-8">
-            <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">
+            <h1 className="mb-6 text-[34px] font-bold leading-[44px] text-white sm:text-[52px] sm:leading-[60px]">
               零碳制造 智慧驱动
             </h1>
             <p className="text-lg text-white mb-12 tracking-[-0.1px]">
@@ -495,7 +495,7 @@ export default function ZeroCarbonFactory() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/6278c676c2ad30d7e027ccabe01c97e69052b327?width=560"
+                  src="/assets/remote/6278c676c2ad30d7e027ccabe01c97e69052b327.webp"
                   alt="电子制造"
                   className="w-full h-full object-cover"
                 />
@@ -513,7 +513,7 @@ export default function ZeroCarbonFactory() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/19417e8a7776c13c6c140cf41d4bf3d5fb5f662a?width=560"
+                  src="/assets/remote/19417e8a7776c13c6c140cf41d4bf3d5fb5f662a.webp"
                   alt="汽车制造"
                   className="w-full h-full object-cover"
                 />
@@ -531,7 +531,7 @@ export default function ZeroCarbonFactory() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/057e0cdafd21c78f25cd903a7ae570798f3f48d0?width=560"
+                  src="/assets/remote/057e0cdafd21c78f25cd903a7ae570798f3f48d0.webp"
                   alt="化工制造"
                   className="w-full h-full object-cover"
                 />
@@ -549,7 +549,7 @@ export default function ZeroCarbonFactory() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/f14fb6ae155be56e4370c89a04f2842b615e855b?width=560"
+                  src="/assets/remote/f14fb6ae155be56e4370c89a04f2842b615e855b.webp"
                   alt="纺织制造"
                   className="w-full h-full object-cover"
                 />
@@ -567,7 +567,7 @@ export default function ZeroCarbonFactory() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/6278c676c2ad30d7e027ccabe01c97e69052b327?width=560"
+                  src="/assets/remote/6278c676c2ad30d7e027ccabe01c97e69052b327.webp"
                   alt="食品制造"
                   className="w-full h-full object-cover"
                 />
@@ -585,7 +585,7 @@ export default function ZeroCarbonFactory() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/19417e8a7776c13c6c140cf41d4bf3d5fb5f662a?width=560"
+                  src="/assets/remote/19417e8a7776c13c6c140cf41d4bf3d5fb5f662a.webp"
                   alt="建材制造"
                   className="w-full h-full object-cover"
                 />

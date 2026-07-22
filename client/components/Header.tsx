@@ -62,8 +62,8 @@ export default function Header({ isScrolled = false }: HeaderProps) {
             <img
               src={
                 isScrolled
-                  ? "https://api.builder.io/api/v1/image/assets/TEMP/1fee28a4f9031537e9b8b95943a60af33406ebb2?width=300"
-                  : "https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
+                  ? "/assets/remote/1fee28a4f9031537e9b8b95943a60af33406ebb2.webp"
+                  : "/assets/remote/96232ba0ae227372c391ef7914f1eefa297895e9.webp"
               }
               alt="浙东环交所 Logo"
               className="w-[157px] h-[50px] cursor-pointer relative"
@@ -255,8 +255,8 @@ export default function Header({ isScrolled = false }: HeaderProps) {
           <img
             src={
               isScrolled
-                ? "https://api.builder.io/api/v1/image/assets/TEMP/1fee28a4f9031537e9b8b95943a60af33406ebb2?width=300"
-                : "https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
+                ? "/assets/remote/1fee28a4f9031537e9b8b95943a60af33406ebb2.webp"
+                : "/assets/remote/96232ba0ae227372c391ef7914f1eefa297895e9.webp"
             }
             alt="浙东环交所 Logo"
             className="h-[40px] w-auto cursor-pointer"
@@ -325,6 +325,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
             {/* Mobile Menu Button */}
             <button
               className="p-1"
+              aria-label={mobileMenuOpen ? "关闭导航菜单" : "打开导航菜单"}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? (
@@ -367,7 +368,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   }`}
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    // Could navigate to products overview page
+                    navigate("/#product-services");
                   }}
                 >
                   {t("nav.products")}

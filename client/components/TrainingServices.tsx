@@ -1,22 +1,23 @@
 import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function TrainingServices() {
   const trainingPrograms = [
     {
       title: "制造业企业碳中和高级研修",
-      image: "https://www.zdeaee.com/uploads/training-presentation-1.png",
+      image: "/uploads/training-presentation-1.webp",
     },
     {
       title: "制造业企业碳中和高级研修…",
-      image: "https://www.zdeaee.com/uploads/training-presentation-2.webp",
+      image: "/uploads/training-presentation-2.webp",
     },
     {
       title: "制造业企业碳中和高级",
-      image: "https://www.zdeaee.com/uploads/training-presentation-3.webp",
+      image: "/uploads/training-presentation-3.webp",
     },
     {
       title: "制造业企业碳中和高级研修…",
-      image: "https://www.zdeaee.com/uploads/training-presentation-4.webp",
+      image: "/uploads/training-presentation-4.webp",
     },
   ];
 
@@ -30,10 +31,10 @@ export default function TrainingServices() {
           </h2>
 
           {/* More Content Link */}
-          <button className="inline-flex items-center gap-2 text-brand-green font-inter text-[22px] font-normal leading-6 tracking-[-0.1px] group">
+          <Link to="/advanced-carbon-training" className="inline-flex items-center gap-2 text-brand-green font-inter text-[22px] font-normal leading-6 tracking-[-0.1px] group">
             更多内容
             <ChevronRight className="w-5 h-5 -rotate-90 group-hover:transform group-hover:-rotate-90 group-hover:translate-y-0.5 transition-transform" />
-          </button>
+          </Link>
         </div>
 
         {/* Training Programs Grid */}

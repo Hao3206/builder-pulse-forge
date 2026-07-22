@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import multer from "multer";
 import path from "path";
 import { handleDemo } from "./routes/demo";
 import {
@@ -26,26 +27,68 @@ import {
 } from "./routes/solutions";
 import contactRoutes from "./routes/contact";
 import wechatRoutes from "./routes/wechat";
+import wechatCandidateRoutes from "./routes/wechat-candidates";
 import uploadRoutes from "./routes/upload";
+import { createRateLimiter } from "./middleware/security";
 import "./database"; // Import to initialize
 
 export function createServer() {
   const app = express();
+  const contactSubmissionLimiter = createRateLimiter({
+    windowMs: 15 * 60 * 1000,
+    max: 10,
+    message: "提交过于频繁，请稍后重试",
+  });
 
   // Middleware
-  app.use(cors());
-  app.use(express.json());
+  app.disable("x-powered-by");
+  app.set("trust proxy", 1);
+  app.use((_req, res, next) => {
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+    res.setHeader(
+      "Permissions-Policy",
+      "camera=(), microphone=(), geolocation=()",
+    );
+    res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+    if (process.env.NODE_ENV === "production") {
+      res.setHeader(
+        "Strict-Transport-Security",
+        "max-age=31536000; includeSubDomains",
+      );
+    }
+    next();
+  });
+  app.use(cors({ origin: process.env.CORS_ORIGIN?.split(",") || false }));
+  app.use(express.json({ limit: "1mb" }));
   app.use(express.urlencoded({ extended: true }));
-  
+
   // 静态文件服务 - 附件目录
   const attachmentsPath = path.join(process.cwd(), "public", "attachments");
-  app.use("/attachments", express.static(attachmentsPath));
+  app.use(
+    "/attachments",
+    express.static(attachmentsPath, {
+      setHeaders(res, filePath) {
+        res.setHeader("X-Content-Type-Options", "nosniff");
+        res.setHeader(
+          "Content-Disposition",
+          `attachment; filename*=UTF-8''${encodeURIComponent(path.basename(filePath))}`,
+        );
+      },
+    }),
+  );
 
   // Mount the routers
-  app.use("/api/admin", newsAdminRoutes);
   app.use("/api/news", newsRoutes);
-  app.use("/api/contact", contactRoutes);
+  app.use(
+    "/api/contact",
+    (req, res, next) =>
+      req.method === "POST" ? contactSubmissionLimiter(req, res, next) : next(),
+    contactRoutes,
+  );
   app.use("/api/wechat", wechatRoutes);
+  app.use("/api/wechat-candidates", wechatCandidateRoutes);
   app.use("/api/upload", uploadRoutes);
 
   // Health check
@@ -72,31 +115,44 @@ export function createServer() {
   // 解决方案API
   app.get("/api/solutions", getSolutions);
   app.get("/api/solutions/stats", getSolutionsStats);
-  app.get("/api/solutions/:id", getSolutionById);
   app.get("/api/solutions/cases", getCaseStudies);
   app.get("/api/solutions/cases/:id", getCaseStudyById);
+  app.get("/api/solutions/:id", getSolutionById);
 
   // 管理员认证API
-  app.post("/api/admin/login", adminLogin);
+  app.post(
+    "/api/admin/login",
+    createRateLimiter({
+      windowMs: 15 * 60 * 1000,
+      max: 10,
+      message: "登录尝试过多，请稍后重试",
+    }),
+    adminLogin,
+  );
   app.post("/api/admin/logout", verifyAdminToken, adminLogout);
   app.get("/api/admin/profile", verifyAdminToken, getAdminProfile);
+  app.use("/api/admin", newsAdminRoutes);
 
   // 管理员新闻管理API is now handled by newsAdminRoutes
 
   // 错误处理中间件
   app.use(
     (
-      err: any,
-      req: express.Request,
+      err: unknown,
+      _req: express.Request,
       res: express.Response,
-      next: express.NextFunction,
+      _next: express.NextFunction,
     ) => {
       console.error("API错误:", err);
-      res.status(500).json({
+      const message = err instanceof Error ? err.message : "服务器内部错误";
+      const isUploadError =
+        err instanceof multer.MulterError ||
+        ["只允许上传图片文件", "不支持的附件类型"].includes(message);
+      res.status(isUploadError ? 400 : 500).json({
         success: false,
-        error: "服务器内部错误",
+        error: isUploadError ? message : "服务器内部错误",
         message:
-          process.env.NODE_ENV === "development" ? err.message : "请稍后重试",
+          process.env.NODE_ENV === "development" ? message : "请稍后重试",
       });
     },
   );

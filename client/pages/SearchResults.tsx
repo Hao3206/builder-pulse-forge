@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 
 interface SearchResult {
   id: string;
@@ -229,6 +229,7 @@ export default function SearchResults() {
   const navigate = useNavigate();
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [searching, setSearching] = useState(false);
   const searchQuery = searchParams.get("search") || "";
 
   useEffect(() => {
@@ -244,8 +245,10 @@ export default function SearchResults() {
     const performSearch = async () => {
       if (!searchQuery.trim()) {
         setResults([]);
+        setSearching(false);
         return;
       }
+      setSearching(true);
 
       const query = searchQuery.toLowerCase();
       const allResults: SearchResult[] = [];
@@ -285,22 +288,22 @@ export default function SearchResults() {
 
       // Search in news
       try {
-        const response = await fetch("/api/news");
+        const response = await fetch("/api/news?view=summary");
         const result = await response.json();
         if (result.success && Array.isArray(result.data)) {
           result.data.forEach((article: any) => {
             if (
               article.title.toLowerCase().includes(query) ||
-              article.content.toLowerCase().includes(query)
+              String(article.summary || "")
+                .toLowerCase()
+                .includes(query)
             ) {
               allResults.push({
                 id: article.id,
                 title: article.title,
-                description: article.content
-                  .substring(0, 150)
-                  .replace(/<[^>]*>/g, ""),
+                description: article.summary || "",
                 type: "news",
-                path: `/news-center?search=${encodeURIComponent(searchQuery)}`,
+                path: `/news-detail/${article.id}`,
                 category: article.category,
               });
             }
@@ -311,6 +314,7 @@ export default function SearchResults() {
       }
 
       setResults(allResults);
+      setSearching(false);
     };
 
     performSearch();
@@ -354,11 +358,13 @@ export default function SearchResults() {
       </div>
 
       {/* Main Content */}
-      <main className="pt-[120px] pb-20">
-        <div className="max-w-7xl mx-auto px-4">
+      <main className="pb-16 pt-[100px] sm:pb-20 sm:pt-[120px]">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6">
           {/* Search Info */}
-          <div className="mb-12">
-            <h1 className="text-[34px] font-bold text-[#333] mb-2">搜索结果</h1>
+          <div className="mb-8 sm:mb-12">
+            <h1 className="mb-2 text-[28px] font-bold text-[#333] sm:text-[34px]">
+              搜索结果
+            </h1>
             <p className="text-[#666]">
               关于 "
               <span className="font-semibold text-[#333]">{searchQuery}</span>"
@@ -372,18 +378,28 @@ export default function SearchResults() {
           </div>
 
           {/* Results */}
-          {results.length > 0 ? (
+          {searching ? (
+            <div className="flex min-h-52 items-center justify-center gap-2 text-sm text-gray-500">
+              <Loader2 className="h-5 w-5 animate-spin text-[#058A65]" />
+              正在搜索
+            </div>
+          ) : results.length > 0 ? (
             <div className="space-y-6">
               {results.map((result) => (
                 <div
                   key={result.id}
-                  className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer"
+                  className="cursor-pointer rounded-lg border border-gray-200 bg-white p-4 transition-shadow hover:shadow-lg sm:p-6"
+                  role="link"
+                  tabIndex={0}
                   onClick={() => navigate(result.path)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") navigate(result.path);
+                  }}
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start justify-between gap-3 sm:gap-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-xl font-semibold text-[#333]">
+                      <div className="mb-2 flex flex-wrap items-center gap-2 sm:gap-3">
+                        <h3 className="text-lg font-semibold text-[#333] sm:text-xl">
                           {result.title}
                         </h3>
                         <span

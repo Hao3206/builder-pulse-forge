@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import InquiryForm from "../components/InquiryForm";
 
 const policies = [
   {
@@ -57,14 +58,14 @@ export default function CarbonFootprint() {
           className="absolute inset-0 h-[374px] bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://api.builder.io/api/v1/image/assets/TEMP/9026b87008e8884034ad247a59bfca58d7b09cc8?width=2880')",
+              "url('/assets/remote/9026b87008e8884034ad247a59bfca58d7b09cc8.webp')",
             backgroundBlendMode: "multiply",
           }}
         ></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center px-8 pt-32 pb-16">
           <div className="max-w-2xl text-center">
-            <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">
+            <h1 className="mb-6 text-[34px] font-bold leading-[44px] text-white sm:text-[52px] sm:leading-[60px]">
               碳核算与碳足迹专题
             </h1>
             <p className="text-lg text-white/90">推动低碳发展 · 共建绿色未来</p>
@@ -153,7 +154,8 @@ export default function CarbonFootprint() {
                 计算方法
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                常用公式为：碳排放量 = 活动数据 × 排放因子 × GWP。根据不同介质选择合适的排放因子和全球增温潜势，实现多种温室气体的可比化。
+                常用公式为：碳排放量 = 活动数据 × 排放因子 ×
+                GWP。根据不同介质选择合适的排放因子和全球增温潜势，实现多种温室气体的可比化。
               </p>
             </div>
           </div>
@@ -169,7 +171,9 @@ export default function CarbonFootprint() {
                 政策法规
               </h2>
               <p className="text-gray-600 mb-12 text-base leading-relaxed">
-                国家持续完善碳排放与碳足迹管理制度，地方政府及行业协会陆续发布配套指南，国际上也涌现 CBAM、CSRD 等法规要求。掌握政策动态有助于企业合规运营与市场拓展。
+                国家持续完善碳排放与碳足迹管理制度，地方政府及行业协会陆续发布配套指南，国际上也涌现
+                CBAM、CSRD
+                等法规要求。掌握政策动态有助于企业合规运营与市场拓展。
               </p>
 
               <div className="space-y-0 rounded-xl overflow-hidden">
@@ -231,7 +235,7 @@ export default function CarbonFootprint() {
 
             <div className="lg:w-1/2 flex justify-center">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/7ca461c02e9998d60d4dfe570f20ad648479e9b6?width=976"
+                src="/assets/remote/7ca461c02e9998d60d4dfe570f20ad648479e9b6.webp"
                 alt="Policy illustration"
                 className="w-full max-w-lg h-auto"
               />
@@ -255,7 +259,7 @@ export default function CarbonFootprint() {
             <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
               <div className="h-56 bg-gray-100">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/097ecb1743757d06d193729868f220c6028a2aa9?width=768"
+                  src="/assets/remote/097ecb1743757d06d193729868f220c6028a2aa9.webp"
                   alt="制造业应用"
                   className="w-full h-full object-cover"
                 />
@@ -274,7 +278,7 @@ export default function CarbonFootprint() {
             <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
               <div className="h-56 bg-gray-100">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/b78d212a80bbcda33f31d68008388ef94f6c464a?width=768"
+                  src="/assets/remote/b78d212a80bbcda33f31d68008388ef94f6c464a.webp"
                   alt="建筑行业应用"
                   className="w-full h-full object-cover"
                 />
@@ -293,7 +297,7 @@ export default function CarbonFootprint() {
             <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
               <div className="h-56 bg-gray-100">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/3e8886d20b85a92ac5005e42070b86fed5971a54?width=768"
+                  src="/assets/remote/3e8886d20b85a92ac5005e42070b86fed5971a54.webp"
                   alt="交通领域应用"
                   className="w-full h-full object-cover"
                 />
@@ -321,73 +325,12 @@ export default function CarbonFootprint() {
             </p>
           </div>
 
-          <form
-            className="space-y-6"
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const form = e.target as HTMLFormElement;
-              const data = {
-                name: (form.elements[0] as HTMLInputElement).value,
-                company: (form.elements[1] as HTMLInputElement).value,
-                contact: (form.elements[2] as HTMLInputElement).value,
-                message: (form.elements[3] as HTMLTextAreaElement).value,
-                source: "/carbon-footprint",
-              };
-              const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-              });
-              if (res.ok) {
-                alert("提交成功！");
-                form.reset();
-              } else {
-                alert("提交失败，请重试");
-              }
-            }}
-          >
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <input
-                  type="text"
-                  placeholder="您的姓名"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#058A65] focus:border-transparent"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="您的联系方式"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#058A65] focus:border-transparent"
-                />
-              </div>
-            </div>
-
-            <div>
-              <input
-                type="text"
-                placeholder="您的公司"
-                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#058A65] focus:border-transparent"
-              />
-            </div>
-
-            <div>
-              <textarea
-                placeholder="您的留言内容"
-                rows={4}
-                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#058A65] focus:border-transparent resize-none"
-              ></textarea>
-            </div>
-
-            <div className="text-center">
-              <button
-                type="submit"
-                className="px-6 py-3 bg-[#058A65] text-white font-semibold rounded-full hover:bg-[#047556] transition-colors duration-200"
-              >
-                立即咨询
-              </button>
-            </div>
-          </form>
+          <InquiryForm
+            source="产品碳足迹"
+            companyPlaceholder="您的公司"
+            messagePlaceholder="您的留言内容"
+            submitLabel="立即咨询"
+          />
         </div>
       </section>
 

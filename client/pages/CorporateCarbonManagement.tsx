@@ -34,7 +34,7 @@ export default function CorporateCarbonManagement() {
 
         <div className="relative z-10 flex items-center justify-center h-full pt-[88px]">
           <div className="max-w-[640px] text-center px-8">
-            <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px] whitespace-nowrap">
+            <h1 className="mb-6 text-[34px] font-bold leading-[44px] text-white sm:text-[52px] sm:leading-[60px]">
               企业碳管理一站式解决方案
             </h1>
             <p className="text-lg text-white mb-12 tracking-[-0.1px]">
@@ -44,9 +44,9 @@ export default function CorporateCarbonManagement() {
               <a href="#contact" className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm inline-block">
                 立即咨询
               </a>
-              <button className="bg-white text-[#058A65] px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm">
+              <a href="#contact" className="bg-white text-[#058A65] px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm">
                 获取方案
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function CorporateCarbonManagement() {
               <div>
                 <div className="w-12 h-12 mb-6">
                   <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/9847d16d3abb74607ecb473488365f9f22a804ad?width=96"
+                    src="/assets/remote/9847d16d3abb74607ecb473488365f9f22a804ad.webp"
                     alt="数据采集"
                     className="w-12 h-12 rounded-lg"
                   />
@@ -183,7 +183,7 @@ export default function CorporateCarbonManagement() {
               <div>
                 <div className="w-12 h-12 mb-6">
                   <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/dae2161615bad92f86c19e1d783290097b90eeed?width=96"
+                    src="/assets/remote/dae2161615bad92f86c19e1d783290097b90eeed.webp"
                     alt="碳排放管理"
                     className="w-12 h-12 rounded-lg"
                   />
@@ -201,7 +201,7 @@ export default function CorporateCarbonManagement() {
               <div>
                 <div className="w-12 h-12 mb-6">
                   <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/25717adfbb3c64c1d2ff768298f47424c35ef554?width=96"
+                    src="/assets/remote/25717adfbb3c64c1d2ff768298f47424c35ef554.webp"
                     alt="产品碳足迹"
                     className="w-12 h-12 rounded-lg"
                   />
@@ -219,7 +219,7 @@ export default function CorporateCarbonManagement() {
               <div>
                 <div className="w-12 h-12 mb-6">
                   <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/f33b2c64eb1baf98b8518b607f5a7e3cd0cb58ed?width=96"
+                    src="/assets/remote/f33b2c64eb1baf98b8518b607f5a7e3cd0cb58ed.webp"
                     alt="碳资产管理"
                     className="w-12 h-12 rounded-lg"
                   />
@@ -367,7 +367,7 @@ export default function CorporateCarbonManagement() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/6278c676c2ad30d7e027ccabe01c97e69052b327?width=560"
+                  src="/assets/remote/6278c676c2ad30d7e027ccabe01c97e69052b327.webp"
                   alt="工厂应用"
                   className="w-full h-full object-cover"
                 />
@@ -385,7 +385,7 @@ export default function CorporateCarbonManagement() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/19417e8a7776c13c6c140cf41d4bf3d5fb5f662a?width=560"
+                  src="/assets/remote/19417e8a7776c13c6c140cf41d4bf3d5fb5f662a.webp"
                   alt="楼宇应用"
                   className="w-full h-full object-cover"
                 />
@@ -403,7 +403,7 @@ export default function CorporateCarbonManagement() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/057e0cdafd21c78f25cd903a7ae570798f3f48d0?width=560"
+                  src="/assets/remote/057e0cdafd21c78f25cd903a7ae570798f3f48d0.webp"
                   alt="园区应用"
                   className="w-full h-full object-cover"
                 />
@@ -421,7 +421,7 @@ export default function CorporateCarbonManagement() {
             <div className="bg-white border border-[#EAEBF0] rounded-lg shadow-sm overflow-hidden">
               <div className="h-[200px] overflow-hidden">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/f14fb6ae155be56e4370c89a04f2842b615e855b?width=560"
+                  src="/assets/remote/f14fb6ae155be56e4370c89a04f2842b615e855b.webp"
                   alt="校园应用"
                   className="w-full h-full object-cover"
                 />

@@ -16,8 +16,7 @@ export default function Hero() {
     },
     {
       id: 2,
-      image:
-        "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=1920&h=1080&fit=crop",
+      image: "/assets/remote/unsplash-75b46f3ec0b75463.webp",
       title: t("hero.slide2.title"),
       subtitle: t("hero.slide2.subtitle"),
     },
@@ -29,7 +28,7 @@ export default function Hero() {
     },
     {
       id: 4,
-      image: "/banner-renewable-energy.jpg",
+      image: "/banner-renewable-energy.webp",
       title: t("hero.slide4.title"),
       subtitle: t("hero.slide4.subtitle"),
     },
@@ -77,7 +76,9 @@ export default function Hero() {
           >
             <img
               src={slide.image}
-              alt={`Slide ${index + 1}`}
+              alt={slide.title}
+              decoding="async"
+              fetchPriority={index === 0 ? "high" : "low"}
               className="w-full h-full object-cover"
             />
           </div>
@@ -86,11 +87,11 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
-        <h1 className="text-neutral-200 font-inter text-[44px] font-black leading-[60px] tracking-[-0.44px] mb-4 max-w-[838px] transition-all duration-500">
+        <h1 className="mb-4 max-w-[838px] font-inter text-[34px] font-black leading-[44px] text-neutral-200 transition-all duration-500 sm:text-[44px] sm:leading-[60px]">
           {carouselData[currentSlide].title}
         </h1>
 
-        <p className="text-neutral-200 font-inter text-[23px] font-medium leading-[60px] tracking-[-0.23px] max-w-[502px] transition-all duration-500">
+        <p className="max-w-[502px] font-inter text-lg font-medium leading-8 text-neutral-200 transition-all duration-500 sm:text-[23px] sm:leading-[60px]">
           {carouselData[currentSlide].subtitle}
         </p>
 

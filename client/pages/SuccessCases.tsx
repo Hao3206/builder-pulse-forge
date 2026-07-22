@@ -58,15 +58,17 @@ export default function SuccessCases() {
       <div className="relative h-[420px] flex flex-col justify-center items-center bg-[#F8F9FB] overflow-hidden">
         {/* Background Image */}
         <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop"
-          alt="Success Cases Background"
+          src="/assets/remote/unsplash-e8b529f257c91d31.webp"
+          alt="绿色能源项目园区"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
 
         {/* Content */}
         <div className="relative z-10 text-center text-white mt-[88px]">
-          <h1 className="text-[44px] font-bold leading-[60px] tracking-[-0.88px] mb-6">
+          <h1 className="mb-6 text-[34px] font-bold leading-[44px] sm:text-[44px] sm:leading-[60px]">
             成功案例
           </h1>
           <p className="text-lg leading-[26px] tracking-[-0.1px] text-white/80">
@@ -80,25 +82,25 @@ export default function SuccessCases() {
         <div className="max-w-screen-2xl mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-[48px] font-bold text-[#058A65] mb-2">
+              <div className="mb-2 text-[38px] font-bold text-[#058A65] sm:text-[48px]">
                 100+
               </div>
               <div className="text-[#666] text-lg">服务客户</div>
             </div>
             <div className="text-center">
-              <div className="text-[48px] font-bold text-[#058A65] mb-2">
+              <div className="mb-2 text-[38px] font-bold text-[#058A65] sm:text-[48px]">
                 50%
               </div>
               <div className="text-[#666] text-lg">平均减排效果</div>
             </div>
             <div className="text-center">
-              <div className="text-[48px] font-bold text-[#058A65] mb-2">
+              <div className="mb-2 text-[38px] font-bold text-[#058A65] sm:text-[48px]">
                 200万吨
               </div>
               <div className="text-[#666] text-lg">累计减排量</div>
             </div>
             <div className="text-center">
-              <div className="text-[48px] font-bold text-[#058A65] mb-2">
+              <div className="mb-2 text-[38px] font-bold text-[#058A65] sm:text-[48px]">
                 98%
               </div>
               <div className="text-[#666] text-lg">客户满意度</div>
@@ -140,9 +142,6 @@ export default function SuccessCases() {
                   className="flex-1 text-sm text-[#333] tracking-[-0.1px] outline-none"
                 />
               </div>
-              <button className="px-5 py-3 bg-[#058A65] text-white text-sm font-semibold rounded-md hover:bg-[#046B52] transition-colors">
-                搜索
-              </button>
             </div>
           </div>
         </div>
@@ -163,6 +162,8 @@ export default function SuccessCases() {
                   <img
                     src={caseItem.image}
                     alt={caseItem.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-4 left-4">
@@ -243,17 +244,6 @@ export default function SuccessCases() {
           )}
         </div>
       </div>
-
-      {/* Load More Button */}
-      {searchFilteredCases.length > 0 && (
-        <div className="bg-white py-10">
-          <div className="max-w-screen-2xl mx-auto text-center">
-            <button className="px-8 py-3 border border-[#058A65] text-[#058A65] text-sm font-semibold rounded-full hover:bg-[#058A65]/5 transition-colors">
-              加载更多案例
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Footer */}
       <Footer />

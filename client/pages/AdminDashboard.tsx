@@ -1,344 +1,327 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
-  FileText,
-  Star,
-  TrendingUp,
-  Calendar,
-  Users,
-  Eye,
   BarChart3,
+  Calendar,
+  Eye,
+  FileText,
+  MessageSquare,
+  Users,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-interface NewsStats {
-  total: number;
-  featured: number;
-  categories: Record<string, number>;
+interface NewsArticle {
+  id: number;
+  title: string;
+  category?: string;
+  createdAt: string;
 }
 
-interface DashboardCard {
-  title: string;
-  value: string | number;
-  icon: React.ElementType;
-  color: string;
-  bgColor: string;
-  change?: string;
-  changeType?: "increase" | "decrease";
+interface ContactMessage {
+  id: number;
+  name: string;
+  contact: string;
+  message?: string;
+  createdAt: string;
+  status?: string;
+}
+
+interface NewsStats {
+  total: number;
+  categories: Record<string, number>;
+  publishedThisMonth: number;
 }
 
 export default function AdminDashboard() {
-  const [newsStats, setNewsStats] = useState<NewsStats | null>(null);
-  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const [recentMessages, setRecentMessages] = useState<any[]>([]);
+  const [newsStats, setNewsStats] = useState<NewsStats | null>(null);
+  const [recentNews, setRecentNews] = useState<NewsArticle[]>([]);
+  const [recentMessages, setRecentMessages] = useState<ContactMessage[]>([]);
+  const [pendingMessages, setPendingMessages] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetchDashboardData();
-    fetchRecentMessages();
-  }, []);
+    const fetchDashboardData = async () => {
+      try {
+        const token = localStorage.getItem("admin_token");
+        const headers = { Authorization: `Bearer ${token}` };
+        const [newsResponse, messagesResponse] = await Promise.all([
+          fetch("/api/admin/news", { headers }),
+          fetch("/api/contact", { headers }),
+        ]);
 
-  const fetchDashboardData = async () => {
-    try {
-      const token = localStorage.getItem("admin_token");
-      const response = await fetch("/api/admin/news?limit=1", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        setNewsStats(result.data.statistics);
-      }
-    } catch (error) {
-      console.error("获取仪表板数据失败:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fetchRecentMessages = async () => {
-    try {
-      const token = localStorage.getItem("admin_token");
-      const response = await fetch("/api/contact", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        if (result.success && Array.isArray(result.data)) {
-          setRecentMessages(result.data.slice(0, 5));
+        if (newsResponse.status === 401 || messagesResponse.status === 401) {
+          navigate("/admin/login", { replace: true });
+          return;
         }
-      }
-    } catch (error) {
-      console.error("获取最近留言失败:", error);
-    }
-  };
+        if (!newsResponse.ok || !messagesResponse.ok) {
+          throw new Error("后台数据加载失败");
+        }
 
-  const dashboardCards: DashboardCard[] = [
+        const newsResult = await newsResponse.json();
+        const messagesResult = await messagesResponse.json();
+        const articles: NewsArticle[] = Array.isArray(newsResult)
+          ? newsResult
+          : [];
+        const categories = articles.reduce<Record<string, number>>(
+          (result, article) => {
+            const category = article.category?.trim() || "未分类";
+            result[category] = (result[category] || 0) + 1;
+            return result;
+          },
+          {},
+        );
+        const now = new Date();
+        const publishedThisMonth = articles.filter((article) => {
+          const createdAt = new Date(article.createdAt);
+          return (
+            createdAt.getFullYear() === now.getFullYear() &&
+            createdAt.getMonth() === now.getMonth()
+          );
+        }).length;
+
+        setNewsStats({
+          total: articles.length,
+          categories,
+          publishedThisMonth,
+        });
+        setRecentNews(articles.slice(0, 5));
+        const contactMessages: ContactMessage[] =
+          messagesResult.success && Array.isArray(messagesResult.data)
+            ? messagesResult.data
+            : [];
+        setPendingMessages(
+          contactMessages.filter(
+            (message) => !message.status || message.status === "未处理",
+          ).length,
+        );
+        setRecentMessages(contactMessages.slice(0, 5));
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "后台数据加载失败");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDashboardData();
+  }, [navigate]);
+
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {[...Array(4)].map((_, index) => (
+          <div
+            key={index}
+            className="h-32 animate-pulse rounded-lg border bg-white p-6"
+          >
+            <div className="mb-3 h-4 w-1/2 rounded bg-gray-200" />
+            <div className="h-8 w-1/3 rounded bg-gray-200" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  const cards = [
     {
       title: "总文章数",
       value: newsStats?.total || 0,
       icon: FileText,
       color: "text-blue-600",
-      bgColor: "bg-blue-100",
-      change: "+3",
-      changeType: "increase",
-    },
-    {
-      title: "精选文章",
-      value: newsStats?.featured || 0,
-      icon: Star,
-      color: "text-yellow-600",
-      bgColor: "bg-yellow-100",
-      change: "+1",
-      changeType: "increase",
+      bg: "bg-blue-100",
     },
     {
       title: "文章分类",
       value: Object.keys(newsStats?.categories || {}).length,
       icon: BarChart3,
       color: "text-green-600",
-      bgColor: "bg-green-100",
+      bg: "bg-green-100",
     },
     {
       title: "本月发布",
-      value: "8",
+      value: newsStats?.publishedThisMonth || 0,
       icon: Calendar,
-      color: "text-purple-600",
-      bgColor: "bg-purple-100",
-      change: "+2",
-      changeType: "increase",
+      color: "text-amber-600",
+      bg: "bg-amber-100",
+    },
+    {
+      title: "待处理留言",
+      value: pendingMessages,
+      icon: MessageSquare,
+      color: "text-red-600",
+      bg: "bg-red-100",
     },
   ];
-
-  const recentActivities = [
-    {
-      action: "创建文章",
-      target: "CCER重启交易首日，浙东环交所成交额突破千万",
-      time: "2小时前",
-      user: "系统管理员",
-    },
-    {
-      action: "更新文章",
-      target: "浙江省发布碳达峰实施方案，明确2030年达峰目标",
-      time: "4小时前",
-      user: "系统管理员",
-    },
-    {
-      action: "设为精选",
-      target: "浙东环交所与宁波大学签署碳中和人才培养合作协议",
-      time: "1天前",
-      user: "系统管理员",
-    },
-  ];
-
-  if (loading) {
-    return (
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[...Array(4)].map((_, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 animate-pulse"
-            >
-              <div className="h-4 bg-gray-200 rounded w-1/2 mb-2"></div>
-              <div className="h-8 bg-gray-200 rounded w-1/3"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="space-y-6">
-      {/* 页面标题 */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">仪表板</h1>
-          <p className="text-gray-600 mt-1">欢迎回到管理后台</p>
+          <p className="mt-1 text-gray-600">后台内容与客户咨询概览</p>
         </div>
         <div className="text-sm text-gray-500">
-          最后更新: {new Date().toLocaleString()}
+          最后更新：{new Date().toLocaleString()}
         </div>
       </div>
 
-      {/* 统计卡片 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {dashboardCards.map((card, index) => {
-          const Icon = card.icon;
-          return (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-gray-600 mb-1">
-                    {card.title}
-                  </p>
-                  <p className="text-2xl font-bold text-gray-900">
-                    {card.value}
-                  </p>
-                  {card.change && (
-                    <div className="flex items-center mt-2">
-                      <TrendingUp
-                        className={`w-4 h-4 mr-1 ${
-                          card.changeType === "increase"
-                            ? "text-green-500"
-                            : "text-red-500"
-                        }`}
-                      />
-                      <span
-                        className={`text-sm font-medium ${
-                          card.changeType === "increase"
-                            ? "text-green-500"
-                            : "text-red-500"
-                        }`}
-                      >
-                        {card.change}
-                      </span>
-                      <span className="text-sm text-gray-500 ml-1">本周</span>
-                    </div>
-                  )}
-                </div>
-                <div className={`p-3 rounded-lg ${card.bgColor}`}>
-                  <Icon className={`w-6 h-6 ${card.color}`} />
-                </div>
+      {error && (
+        <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          {error}，请刷新页面重试。
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {cards.map(({ title, value, icon: Icon, color, bg }) => (
+          <div
+            key={title}
+            className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="mb-1 text-sm font-medium text-gray-600">
+                  {title}
+                </p>
+                <p className="text-2xl font-bold text-gray-900">{value}</p>
+              </div>
+              <div className={`rounded-lg p-3 ${bg}`}>
+                <Icon className={`h-6 w-6 ${color}`} />
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* 分类统计 */}
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            文章分类统计
-          </h3>
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <section className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+          <h2 className="mb-4 text-lg font-semibold">文章分类统计</h2>
           <div className="space-y-3">
-            {newsStats?.categories &&
-              Object.entries(newsStats.categories).map(([category, count]) => (
-                <div
-                  key={category}
-                  className="flex items-center justify-between"
-                >
-                  <span className="text-sm font-medium text-gray-700">
-                    {category}
-                  </span>
-                  <div className="flex items-center">
-                    <div className="w-24 bg-gray-200 rounded-full h-2 mr-3">
-                      <div
-                        className="bg-[#058A65] h-2 rounded-full"
-                        style={{
-                          width: `${
-                            newsStats.total
-                              ? (count / newsStats.total) * 100
-                              : 0
-                          }%`,
-                        }}
-                      />
-                    </div>
-                    <span className="text-sm font-semibold text-gray-900 w-8">
-                      {count}
+            {Object.entries(newsStats?.categories || {}).length === 0 ? (
+              <p className="text-sm text-gray-400">暂无资讯</p>
+            ) : (
+              Object.entries(newsStats?.categories || {}).map(
+                ([category, count]) => (
+                  <div
+                    key={category}
+                    className="flex items-center justify-between gap-4"
+                  >
+                    <span className="truncate text-sm font-medium text-gray-700">
+                      {category}
                     </span>
+                    <div className="flex items-center gap-3">
+                      <div className="h-2 w-24 rounded-full bg-gray-200">
+                        <div
+                          className="h-2 rounded-full bg-[#058A65]"
+                          style={{
+                            width: `${newsStats?.total ? (count / newsStats.total) * 100 : 0}%`,
+                          }}
+                        />
+                      </div>
+                      <span className="w-8 text-sm font-semibold">{count}</span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ),
+              )
+            )}
           </div>
-        </div>
+        </section>
 
-        {/* 最近活动 */}
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">最近活动</h3>
+        <section className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+          <h2 className="mb-4 text-lg font-semibold">最近发布</h2>
           <div className="space-y-4">
-            {recentActivities.map((activity, index) => (
-              <div key={index} className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-[#058A65] rounded-full mt-2 flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm text-gray-900">
-                    <span className="font-medium">{activity.user}</span>{" "}
-                    <span className="text-gray-600">{activity.action}</span>
-                  </p>
-                  <p className="text-sm text-gray-600 truncate">
-                    {activity.target}
-                  </p>
-                  <p className="text-xs text-gray-500 mt-1">{activity.time}</p>
-                </div>
-              </div>
-            ))}
+            {recentNews.length === 0 ? (
+              <p className="text-sm text-gray-400">暂无资讯</p>
+            ) : (
+              recentNews.map((article) => (
+                <button
+                  key={article.id}
+                  onClick={() => navigate(`/admin/news/edit/${article.id}`)}
+                  className="flex w-full items-start gap-3 text-left"
+                >
+                  <span className="mt-2 h-2 w-2 flex-none rounded-full bg-[#058A65]" />
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm font-medium text-gray-900">
+                      {article.title}
+                    </span>
+                    <span className="mt-1 block text-xs text-gray-500">
+                      {new Date(article.createdAt).toLocaleString()}
+                    </span>
+                  </span>
+                </button>
+              ))
+            )}
           </div>
-        </div>
+        </section>
       </div>
 
-      {/* 快速操作 */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">快速操作</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <section className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-lg font-semibold">最新留言</h2>
           <button
-            onClick={() => (window.location.href = "/admin/news/create")}
-            className="flex items-center justify-center px-4 py-3 bg-[#058A65] text-white rounded-lg hover:bg-[#046B52] transition-colors"
+            className="text-sm font-medium text-[#058A65]"
+            onClick={() => navigate("/admin/contact-messages")}
           >
-            <FileText className="w-5 h-5 mr-2" />
-            新建文章
-          </button>
-          <button
-            onClick={() => (window.location.href = "/admin/news")}
-            className="flex items-center justify-center px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
-          >
-            <Eye className="w-5 h-5 mr-2" />
-            查看所有文章
-          </button>
-          <button
-            onClick={() => (window.location.href = "/")}
-            className="flex items-center justify-center px-4 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
-          >
-            <Users className="w-5 h-5 mr-2" />
-            查看网站
+            查看全部
           </button>
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-        {/* 留言管理 */}
-        <div className="bg-white p-6 rounded-lg shadow flex flex-col items-center w-full">
-          <h2 className="text-xl font-bold mb-4">最新留言</h2>
-          {recentMessages.length === 0 ? (
-            <div className="text-gray-400">暂无留言</div>
-          ) : (
-            <table className="w-full text-sm mb-4">
+        {recentMessages.length === 0 ? (
+          <p className="text-sm text-gray-400">暂无留言</p>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
               <thead>
-                <tr className="text-left text-gray-500">
-                  <th className="p-1">姓名</th>
-                  <th className="p-1">联系方式</th>
-                  <th className="p-1">留言内容</th>
-                  <th className="p-1">时间</th>
+                <tr className="border-b text-left text-gray-500">
+                  <th className="p-2">姓名</th>
+                  <th className="p-2">联系方式</th>
+                  <th className="p-2">留言内容</th>
+                  <th className="p-2">时间</th>
                 </tr>
               </thead>
               <tbody>
-                {recentMessages.map((msg) => (
-                  <tr key={msg.id} className="border-t">
-                    <td className="p-1">{msg.name}</td>
-                    <td className="p-1">{msg.contact}</td>
-                    <td className="p-1 max-w-[180px] truncate">{msg.message}</td>
-                    <td className="p-1 whitespace-nowrap">{new Date(msg.createdAt).toLocaleString()}</td>
+                {recentMessages.map((message) => (
+                  <tr key={message.id} className="border-b last:border-0">
+                    <td className="p-2">{message.name}</td>
+                    <td className="p-2">{message.contact}</td>
+                    <td className="max-w-xs truncate p-2">
+                      {message.message || "-"}
+                    </td>
+                    <td className="whitespace-nowrap p-2">
+                      {new Date(message.createdAt).toLocaleString()}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          )}
+          </div>
+        )}
+      </section>
+
+      <section className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-lg font-semibold">快速操作</h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <button
-            className="px-4 py-1 bg-[#058A65] text-white rounded hover:bg-[#046B52]"
-            onClick={() => navigate("/admin/contact-messages")}
+            onClick={() => navigate("/admin/news/create")}
+            className="flex items-center justify-center gap-2 rounded-md bg-[#058A65] px-4 py-3 text-white hover:bg-[#046B52]"
           >
-            查看全部留言
+            <FileText className="h-5 w-5" />
+            新建文章
+          </button>
+          <button
+            onClick={() => navigate("/admin/news")}
+            className="flex items-center justify-center gap-2 rounded-md bg-gray-100 px-4 py-3 text-gray-700 hover:bg-gray-200"
+          >
+            <Eye className="h-5 w-5" />
+            查看所有文章
+          </button>
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center justify-center gap-2 rounded-md bg-gray-100 px-4 py-3 text-gray-700 hover:bg-gray-200"
+          >
+            <Users className="h-5 w-5" />
+            查看网站
           </button>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

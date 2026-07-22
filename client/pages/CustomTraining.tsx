@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import InquiryForm from "../components/InquiryForm";
 import ContactSection from "../components/ContactSection";
 
 export default function CustomTraining() {
@@ -32,11 +33,11 @@ export default function CustomTraining() {
       <section className="relative w-full h-[480px] bg-white">
         <div className="absolute inset-0">
           <div className="w-full h-full bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/9026b87008e8884034ad247a59bfca58d7b09cc8?width=2880')", backgroundBlendMode: "multiply" }} />
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/assets/remote/9026b87008e8884034ad247a59bfca58d7b09cc8.webp')", backgroundBlendMode: "multiply" }} />
         </div>
         <div className="relative z-10 flex items-center justify-center h-full pt-[88px]">
           <div className="max-w-[760px] text-center px-8">
-            <h1 className="text-[48px] font-bold leading-[56px] text-white mb-6 tracking-[-0.48px]">其他定制化培训</h1>
+            <h1 className="mb-6 text-[34px] font-bold leading-[44px] text-white sm:text-[48px] sm:leading-[56px]">其他定制化培训</h1>
             <p className="text-lg text-white/90">围绕企业诉求定制内容、时长与形式，聚焦实操与落地</p>
           </div>
         </div>
@@ -59,7 +60,7 @@ export default function CustomTraining() {
       <section id="contact" className="py-[72px] bg-[#F2F9F7]">
         <div className="max-w-[840px] mx-auto px-8">
           <div className="text-center mb-10"><h2 className="text-[28px] font-bold text-[#333] mb-3">定制咨询</h2><p className="text-[15px] text-[#858C95]">留下需求，我们将提供定制化方案与报价。</p></div>
-          <div className="space-y-6"><div className="grid grid-cols-1 md:grid-cols-2 gap-6"><input type="text" placeholder="您的姓名" className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white placeholder-[#999] shadow-sm" /><input type="text" placeholder="您的联系方式" className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white placeholder-[#999] shadow-sm" /></div><input type="text" placeholder="您的公司/岗位" className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white placeholder-[#999] shadow-sm" /><textarea placeholder="培训主题/受众/时长/形式/时间" rows={5} className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white placeholder-[#999] shadow-sm resize-none" /><div className="text-center"><button className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold">提交</button></div></div>
+          <InquiryForm source="其他定制化培训" messagePlaceholder="培训主题/受众/时长/形式/时间" submitLabel="提交定制需求" />
         </div>
       </section>
 

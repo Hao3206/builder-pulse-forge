@@ -16,7 +16,7 @@ export default function ZeroCarbonPark() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white font-inter">
+    <div className="min-h-screen overflow-x-hidden bg-white font-inter">
       {/* Sticky Header */}
       <div
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -29,10 +29,10 @@ export default function ZeroCarbonPark() {
       {/* Hero Section */}
       <section className="relative w-full h-[468px] bg-[#F0F8F6]">
         {/* Page Header */}
-        <div className="flex w-full py-5 px-40 justify-center items-center gap-2.5 border-b border-white/21">
+        <div className="hidden">
           <div className="flex py-0 px-8 items-center gap-[91px]">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/96232ba0ae227372c391ef7914f1eefa297895e9?width=314"
+              src="/assets/remote/96232ba0ae227372c391ef7914f1eefa297895e9.webp"
               className="w-[157px] h-[50px]"
               alt="Logo"
             />
@@ -149,12 +149,12 @@ export default function ZeroCarbonPark() {
                 </div>
                 <div className="flex w-[42px] py-0 px-0.5 items-center gap-2">
                   <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/faf28f18a1e75151324b0be17744769ea7bb2acc?width=40"
+                    src="/assets/remote/faf28f18a1e75151324b0be17744769ea7bb2acc.webp"
                     className="w-5 h-5"
                     alt="Language"
                   />
                   <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/42c608dd09a41851bb23e2412698e05dfc99feb1?width=24"
+                    src="/assets/remote/42c608dd09a41851bb23e2412698e05dfc99feb1.webp"
                     className="w-3 h-3"
                     alt="Dropdown"
                   />
@@ -179,11 +179,11 @@ export default function ZeroCarbonPark() {
         </div>
 
         {/* Hero Content Container */}
-        <div className="relative z-20 flex w-[1280px] py-20 px-[30px] pb-[92px] flex-col justify-center items-center mx-auto">
-          <div className="flex w-[640px] flex-col items-center gap-6">
+        <div className="relative z-20 mx-auto flex h-full w-full max-w-[1280px] flex-col items-center justify-center px-5 pb-12 pt-24 sm:px-[30px] sm:pb-[92px]">
+          <div className="flex w-full max-w-[640px] flex-col items-center gap-6">
             <div className="flex flex-col items-center gap-12 self-stretch">
               <div className="flex flex-col items-center gap-6 self-stretch">
-                <h1 className="self-stretch text-[#F9F9F9] drop-shadow-lg text-center font-inter text-[52px] font-bold leading-[60px] tracking-[-0.52px]">
+                <h1 className="self-stretch text-center font-inter text-[36px] font-bold leading-[44px] text-[#F9F9F9] drop-shadow-lg sm:text-[52px] sm:leading-[60px]">
                   打造零碳未来
                 </h1>
                 <p className="self-stretch text-[#F9F9F9] text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.1px]">
@@ -223,7 +223,7 @@ export default function ZeroCarbonPark() {
             className="flex-1 self-stretch absolute left-0 top-0 w-full h-[468px] bg-cover bg-center bg-lightgray"
             style={{
               backgroundImage:
-                "url('https://api.builder.io/api/v1/image/assets/TEMP/d3c2a75c75d2b22cd54ba87fdf99348bf0398abd?width=2880')",
+                "url('/assets/remote/d3c2a75c75d2b22cd54ba87fdf99348bf0398abd.webp')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -234,10 +234,10 @@ export default function ZeroCarbonPark() {
       {/* Features Section - 零碳园区建设理念 */}
       <section
         id="park-concept"
-        className="flex w-full py-[88px] px-[112px] flex-col justify-center items-center gap-16 bg-[rgba(5,138,101,0.06)]"
+        className="flex w-full flex-col items-center justify-center gap-10 bg-[rgba(5,138,101,0.06)] px-5 py-16 lg:gap-16 lg:px-[112px] lg:py-[88px]"
       >
         <div className="flex max-w-[1280px] flex-col justify-center items-center gap-3 self-stretch">
-          <div className="flex w-[800px] flex-col justify-center items-center gap-2">
+          <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-2">
             <div className="flex flex-col items-center gap-4 self-stretch">
               <h2 className="self-stretch text-[#323539] text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.48px]">
                 零碳园区建设理念
@@ -251,11 +251,13 @@ export default function ZeroCarbonPark() {
 
         <div className="flex items-start content-start gap-8 self-stretch flex-wrap">
           {/* 绿色低碳 */}
-          <div className="flex h-[300px] min-w-[320px] py-[34px] px-8 flex-col items-start gap-5 flex-1 rounded-[12px] bg-white">
+          <div className="flex min-h-[300px] min-w-0 flex-1 flex-col items-start gap-5 rounded-[8px] bg-white px-6 py-[34px] sm:min-w-[320px] sm:px-8">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/46e33197f9c96c898d50fb066b9ce8b72588c437?width=96"
+              src="/assets/remote/46e33197f9c96c898d50fb066b9ce8b72588c437.webp"
               className="flex w-12 h-12 justify-center items-center flex-shrink-0 rounded-[10px]"
               alt="绿色低碳图标"
+              loading="lazy"
+              decoding="async"
             />
             <div className="flex h-[164px] flex-col items-start gap-5 flex-shrink-0 self-stretch">
               <div className="self-stretch text-[#058A65] font-inter text-[26px] font-bold leading-[42px] tracking-[-0.26px]">
@@ -264,7 +266,7 @@ export default function ZeroCarbonPark() {
               <div className="self-stretch text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px]">
                 以创新技术为驱动，构建可持续发展的产业生态
               </div>
-              <div className="flex items-start gap-2.5">
+              <div className="flex flex-wrap items-start gap-2.5">
                 <div className="flex py-1 px-[14px] justify-center items-center gap-2.5 rounded-[6px] bg-[#F2F9F7]">
                   <div className="text-[#058461] font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
                     光伏发电
@@ -285,11 +287,13 @@ export default function ZeroCarbonPark() {
           </div>
 
           {/* 智慧运营 */}
-          <div className="flex h-[300px] min-w-[320px] py-[34px] px-8 flex-col items-start gap-5 flex-1 rounded-[12px] bg-white">
+          <div className="flex min-h-[300px] min-w-0 flex-1 flex-col items-start gap-5 rounded-[8px] bg-white px-6 py-[34px] sm:min-w-[320px] sm:px-8">
             <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/9607aca296eceee88b082d337783c0d911d6abe3?width=96"
+              src="/assets/remote/9607aca296eceee88b082d337783c0d911d6abe3.webp"
               className="flex w-12 h-12 justify-center items-center flex-shrink-0 rounded-[8px]"
               alt="智慧运营图标"
+              loading="lazy"
+              decoding="async"
             />
             <div className="flex h-[164px] flex-col items-start gap-5 flex-shrink-0 self-stretch">
               <div className="self-stretch text-[#058A65] font-inter text-[26px] font-semibold leading-[42px] tracking-[-0.26px]">
@@ -298,7 +302,7 @@ export default function ZeroCarbonPark() {
               <div className="self-stretch text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px]">
                 基于数字孪生技术，构建园区碳管理智慧大脑，实现精细化运营
               </div>
-              <div className="flex items-start gap-2.5">
+              <div className="flex flex-wrap items-start gap-2.5">
                 <div className="flex py-1 px-[14px] justify-center items-center gap-2.5 rounded-[6px] bg-[#F2F9F7]">
                   <div className="text-[#058461] font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
                     数字孪生
@@ -319,7 +323,7 @@ export default function ZeroCarbonPark() {
           </div>
 
           {/* 循环经济 */}
-          <div className="flex h-[300px] min-w-[320px] py-[34px] px-8 flex-col items-start gap-5 flex-1 rounded-[12px] bg-white">
+          <div className="flex min-h-[300px] min-w-0 flex-1 flex-col items-start gap-5 rounded-[8px] bg-white px-6 py-[34px] sm:min-w-[320px] sm:px-8">
             <div className="flex w-12 h-12 p-2 justify-center items-center flex-shrink-0 rounded-[8px] bg-[#058460]">
               <svg
                 width="30"
@@ -341,7 +345,7 @@ export default function ZeroCarbonPark() {
               <div className="self-stretch text-[#858C95] font-inter text-base font-normal leading-6 tracking-[-0.16px]">
                 建立资源循环利用体系，推动产业协同和废物资源化利用
               </div>
-              <div className="flex items-start gap-2.5">
+              <div className="flex flex-wrap items-start gap-2.5">
                 <div className="flex py-1 px-[14px] justify-center items-center gap-2.5 rounded-[6px] bg-[#F2F9F7]">
                   <div className="text-[#058461] font-inter text-sm font-normal leading-[26px] tracking-[-0.14px]">
                     废物利用
@@ -364,10 +368,10 @@ export default function ZeroCarbonPark() {
       </section>
 
       {/* 零碳园区建设路径 */}
-      <section className="relative w-full h-[550px]">
+      <section className="relative w-full overflow-hidden bg-[#058A65] px-5 py-16 lg:px-8 lg:py-[88px]">
         {/* Background Shape */}
         <svg
-          className="w-full h-[550px] fill-[#058A65] absolute left-0 top-0"
+          className="absolute inset-0 h-full w-full fill-[#058A65]"
           width="100%"
           height="550"
           viewBox="0 0 1440 550"
@@ -381,18 +385,20 @@ export default function ZeroCarbonPark() {
         </svg>
 
         {/* Background Mask */}
-        <div className="w-full h-[550px] flex-shrink-0 absolute left-0 top-0">
+        <div className="absolute inset-0 h-full w-full flex-shrink-0">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/1c55a1792c8dc15683c883fd3a952d1983361665?width=2954"
+            src="/assets/remote/1c55a1792c8dc15683c883fd3a952d1983361665.webp"
             className="w-full h-full flex-shrink-0 mix-blend-multiply absolute left-0 top-0 object-cover"
             alt=""
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
         {/* Header */}
-        <div className="flex w-[1216px] flex-col items-center gap-10 absolute left-[112px] top-[88px] h-[82px]">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1216px] flex-col items-center gap-10">
           <div className="flex max-w-[1280px] flex-col justify-center items-center gap-3 self-stretch">
-            <div className="flex w-[800px] flex-col justify-center items-center gap-2">
+            <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-2">
               <div className="flex flex-col items-center gap-4 self-stretch">
                 <h2 className="self-stretch text-white text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.48px]">
                   零碳园区建设路径
@@ -406,62 +412,60 @@ export default function ZeroCarbonPark() {
         </div>
 
         {/* Process Steps */}
-        {[
-          {
-            title: "碳盘查诊断",
-            desc: "全面评估园区碳排放现状，识别减排潜力"
-          },
-          {
-            title: "目标与规划",
-            desc: "制定零碳目标，科学规划分步实施路径"
-          },
-          {
-            title: "低碳技术集成",
-            desc: "应用可再生能源、储能与智能管理等低碳技术"
-          },
-          {
-            title: "智慧运营管理",
-            desc: "建立数字化平台，实现能碳一体化智慧运营"
-          },
-          {
-            title: "持续优化提升",
-            desc: "跟踪评估，动态优化，确保零碳目标达成"
-          }
-        ].map((step, index) => (
-          <div
-            key={index}
-            className="absolute"
-            style={{ left: `${212 + index * 225}px`, top: "267px" }}
-          >
-            <svg
-              width="64"
-              height="64"
-              viewBox="0 0 64 64"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-16 h-16 flex-shrink-0"
-            >
-              <path
-                d="M8.36996 14.8856L29.6173 2.82137C31.5231 1.7392 33.8674 1.78232 35.7322 2.93383L55.0328 14.8519C56.8029 15.9449 57.8804 17.8768 57.8804 19.957V43.0749C57.8804 45.0847 56.8741 46.9611 55.1999 48.073L35.8923 60.896C33.9499 62.1861 31.4358 62.2339 29.4457 61.0186L8.20537 48.0472C6.42096 46.9575 5.33252 45.0174 5.33252 42.9265V20.1032C5.33252 17.9442 6.49249 15.9517 8.36996 14.8856Z"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                d="M13.2346 34.1641H19.0251C19.3871 34.1641 19.7208 33.9685 19.8976 33.6527L22.873 28.3395C23.2778 27.6166 24.3359 27.6714 24.6638 28.4323L30.3048 41.5195C30.6812 42.3926 31.949 42.2972 32.1904 41.3775L37.0149 22.9986C37.264 22.0495 38.5887 21.9896 38.9225 22.9124L42.7536 33.5042C42.8968 33.9002 43.2728 34.1641 43.6939 34.1641H49.9762"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-            <div className="text-white text-center font-inter text-base font-bold leading-[26px] tracking-[-0.18px] w-[110px] h-[26px] absolute left-[-23px] top-[86px] whitespace-nowrap">
-              {step.title}
+        <div className="relative z-10 mx-auto mt-12 grid w-full max-w-[1216px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          {[
+            {
+              title: "碳盘查诊断",
+              desc: "全面评估园区碳排放现状，识别减排潜力",
+            },
+            {
+              title: "目标与规划",
+              desc: "制定零碳目标，科学规划分步实施路径",
+            },
+            {
+              title: "低碳技术集成",
+              desc: "应用可再生能源、储能与智能管理等低碳技术",
+            },
+            {
+              title: "智慧运营管理",
+              desc: "建立数字化平台，实现能碳一体化智慧运营",
+            },
+            {
+              title: "持续优化提升",
+              desc: "跟踪评估，动态优化，确保零碳目标达成",
+            },
+          ].map((step, index) => (
+            <div key={index} className="flex flex-col items-center text-center">
+              <svg
+                width="64"
+                height="64"
+                viewBox="0 0 64 64"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-16 h-16 flex-shrink-0"
+              >
+                <path
+                  d="M8.36996 14.8856L29.6173 2.82137C31.5231 1.7392 33.8674 1.78232 35.7322 2.93383L55.0328 14.8519C56.8029 15.9449 57.8804 17.8768 57.8804 19.957V43.0749C57.8804 45.0847 56.8741 46.9611 55.1999 48.073L35.8923 60.896C33.9499 62.1861 31.4358 62.2339 29.4457 61.0186L8.20537 48.0472C6.42096 46.9575 5.33252 45.0174 5.33252 42.9265V20.1032C5.33252 17.9442 6.49249 15.9517 8.36996 14.8856Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M13.2346 34.1641H19.0251C19.3871 34.1641 19.7208 33.9685 19.8976 33.6527L22.873 28.3395C23.2778 27.6166 24.3359 27.6714 24.6638 28.4323L30.3048 41.5195C30.6812 42.3926 31.949 42.2972 32.1904 41.3775L37.0149 22.9986C37.264 22.0495 38.5887 21.9896 38.9225 22.9124L42.7536 33.5042C42.8968 33.9002 43.2728 34.1641 43.6939 34.1641H49.9762"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <div className="mt-4 font-inter text-base font-bold leading-[26px] text-white">
+                {step.title}
+              </div>
+              <div className="mt-2 max-w-[180px] text-center font-inter text-sm font-normal leading-[22px] text-white/70">
+                {step.desc}
+              </div>
             </div>
-            <div className="w-[151px] text-white/70 text-center font-inter text-sm font-normal leading-[22px] tracking-[-0.14px] h-11 absolute left-[-30px] top-[126px]">
-              {step.desc}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* Connecting Lines and Arrows */}
         <svg
@@ -470,7 +474,7 @@ export default function ZeroCarbonPark() {
           viewBox="0 0 120 2"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute left-[112px] top-[298px]"
+          className="hidden"
         >
           <path
             d="M1 1H119"
@@ -485,7 +489,7 @@ export default function ZeroCarbonPark() {
           viewBox="0 0 117 2"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute left-[1213px] top-[298px]"
+          className="hidden"
         >
           <path
             d="M1 1H116"
@@ -503,7 +507,7 @@ export default function ZeroCarbonPark() {
             viewBox="0 0 180 14"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute"
+            className="hidden"
             style={{ left: `${287 + index * 233}px`, top: "292px" }}
           >
             <path
@@ -529,9 +533,9 @@ export default function ZeroCarbonPark() {
       </section>
 
       {/* 我们的核心能力 */}
-      <section className="flex w-full py-16 flex-col justify-center items-center gap-16 bg-white">
-        <div className="flex w-[1216px] px-8 flex-col justify-center items-center gap-3">
-          <div className="flex w-[800px] flex-col justify-center items-center gap-2">
+      <section className="flex w-full flex-col items-center justify-center gap-10 bg-white px-5 py-16 lg:gap-16">
+        <div className="flex w-full max-w-[1216px] flex-col items-center justify-center gap-3 lg:px-8">
+          <div className="flex w-full max-w-[800px] flex-col items-center justify-center gap-2">
             <div className="flex flex-col items-center gap-4 self-stretch">
               <h2 className="self-stretch text-[#272D37] text-center font-inter text-[32px] font-bold leading-10 tracking-[-0.64px]">
                 我们的核心能力
@@ -543,89 +547,104 @@ export default function ZeroCarbonPark() {
           </div>
         </div>
 
-        <div className="flex flex-col items-start">
+        <div className="flex w-full max-w-[1216px] flex-col items-start">
           {/* 碳画像与诊断 */}
-          <div className="flex w-[1216px] h-[450px] pr-8 items-center gap-[118px]">
-            <div className="flex w-[528px] h-[462px] justify-center items-center flex-shrink-0">
+          <div className="flex w-full flex-col items-center gap-8 py-8 lg:h-[450px] lg:flex-row lg:gap-[118px] lg:pr-8">
+            <div className="flex w-full max-w-[528px] items-center justify-center lg:h-[462px] lg:flex-shrink-0">
               <img
                 src="/core-ability-1.png"
-                className="w-[438px] h-[438px] object-cover rounded-2xl"
+                className="aspect-square h-auto w-full max-w-[438px] rounded-[8px] object-cover"
                 alt="碳画像与诊断"
+                loading="lazy"
+                decoding="async"
               />
             </div>
-            <div className="flex w-[490px] flex-col items-start gap-10 flex-shrink-0">
-              <div className="flex w-[490px] flex-col items-start gap-2">
+            <div className="flex w-full max-w-[490px] flex-col items-start gap-8 lg:flex-shrink-0 lg:gap-10">
+              <div className="flex w-full flex-col items-start gap-2">
                 <div className="flex flex-col items-start gap-4 self-stretch">
                   <h3 className="self-stretch text-[#272D37] font-inter text-[32px] font-semibold leading-[42px] tracking-[-0.32px]">
                     碳画像与诊断
                   </h3>
-                  <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
+                  <p className="w-full font-inter text-base font-normal leading-6 text-[#666]">
                     基于全生命周期评估方法，构建园区碳画像，精准识别减排重点领域和关键环节，为低碳转型提供科学依据。
                   </p>
                 </div>
               </div>
-              <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
+              <a
+                href="#contact"
+                className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]"
+              >
                 <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
                   咨询详情
                 </span>
-              </button>
+              </a>
             </div>
           </div>
 
           {/* 数字孪生平台 */}
-          <div className="flex w-[1216px] h-[450px] py-0 px-8 pl-20 items-center gap-20">
-            <div className="flex w-[490px] flex-col items-start gap-10 flex-shrink-0">
-              <div className="flex w-[490px] flex-col items-start gap-2">
+          <div className="flex w-full flex-col-reverse items-center gap-8 py-8 lg:h-[450px] lg:flex-row lg:gap-20 lg:px-8 lg:pl-20">
+            <div className="flex w-full max-w-[490px] flex-col items-start gap-8 lg:flex-shrink-0 lg:gap-10">
+              <div className="flex w-full flex-col items-start gap-2">
                 <div className="flex flex-col items-start gap-4 self-stretch">
                   <h3 className="self-stretch text-[#272D37] font-inter text-[32px] font-semibold leading-[42px] tracking-[-0.32px]">
                     数字孪生平台
                   </h3>
-                  <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
+                  <p className="w-full font-inter text-base font-normal leading-6 text-[#666]">
                     构建园区数字孪生体，实现碳排放实时监测、预测预警和优化调控，提升碳管理精细化水平。
                   </p>
                 </div>
               </div>
-              <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
+              <a
+                href="#contact"
+                className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]"
+              >
                 <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
                   了解方案
                 </span>
-              </button>
+              </a>
             </div>
             {/* Digital Twin Visualization */}
-            <div className="flex w-[528px] h-[462px] justify-center items-center flex-shrink-0">
+            <div className="flex w-full max-w-[528px] items-center justify-center lg:h-[462px] lg:flex-shrink-0">
               <img
                 src="/core-ability-3.png"
-                className="w-[438px] h-[438px] object-cover rounded-2xl"
+                className="aspect-square h-auto w-full max-w-[438px] rounded-[8px] object-cover"
                 alt="数字孪生平台"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
 
           {/* 能源运营优化 */}
-          <div className="flex w-[1216px] h-[450px] pr-8 items-center gap-[118px]">
-            <div className="flex w-[528px] h-[462px] justify-center items-center flex-shrink-0">
+          <div className="flex w-full flex-col items-center gap-8 py-8 lg:h-[450px] lg:flex-row lg:gap-[118px] lg:pr-8">
+            <div className="flex w-full max-w-[528px] items-center justify-center lg:h-[462px] lg:flex-shrink-0">
               <img
                 src="/core-ability-2.png"
-                className="w-[438px] h-[438px] object-cover rounded-2xl"
+                className="aspect-square h-auto w-full max-w-[438px] rounded-[8px] object-cover"
                 alt="能源运营优化"
+                loading="lazy"
+                decoding="async"
               />
             </div>
-            <div className="flex w-[490px] flex-col items-start gap-10 flex-shrink-0">
-              <div className="flex w-[490px] flex-col items-start gap-2">
+            <div className="flex w-full max-w-[490px] flex-col items-start gap-8 lg:flex-shrink-0 lg:gap-10">
+              <div className="flex w-full flex-col items-start gap-2">
                 <div className="flex flex-col items-start gap-4 self-stretch">
                   <h3 className="self-stretch text-[#272D37] font-inter text-[32px] font-semibold leading-[42px] tracking-[-0.32px]">
                     能源运营优化
                   </h3>
-                  <p className="w-[480px] text-[#666] font-inter text-base font-normal leading-6 tracking-[-0.1px]">
+                  <p className="w-full font-inter text-base font-normal leading-6 text-[#666]">
                     整合分布式能源、储能系统和柔性负荷，构建多能互补的智慧能源系统，降低能源成本与碳排放。
                   </p>
                 </div>
               </div>
-              <button className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
+              <a
+                href="#contact"
+                className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-[#058A65] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]"
+              >
                 <span className="text-white font-inter text-[15px] font-semibold leading-[22px]">
                   获取方案
                 </span>
-              </button>
+              </a>
             </div>
           </div>
         </div>

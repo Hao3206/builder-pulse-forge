@@ -19,7 +19,8 @@ async function setup() {
       category TEXT,
       createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
       wechat_media_id TEXT,
-      wechat_synced_at DATETIME
+      wechat_synced_at DATETIME,
+      source_url TEXT
     );
   `);
 
@@ -39,13 +40,41 @@ async function setup() {
   } catch (e) {
     // 字段已存在时忽略
   }
-  
+
   // 添加附件字段到news表
   try {
     await db.exec("ALTER TABLE news ADD COLUMN attachments TEXT;");
   } catch (e) {
     // 字段已存在时忽略
   }
+  try {
+    await db.exec("ALTER TABLE news ADD COLUMN source_url TEXT;");
+  } catch (e) {
+    // 字段已存在时忽略
+  }
+  await db.exec(
+    "CREATE UNIQUE INDEX IF NOT EXISTS idx_news_source_url ON news(source_url) WHERE source_url IS NOT NULL AND source_url != '';",
+  );
+
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS wechat_candidates (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL,
+      digest TEXT,
+      cover_image TEXT,
+      source_url TEXT NOT NULL UNIQUE,
+      publish_date DATETIME,
+      category TEXT DEFAULT '本所动态',
+      status TEXT DEFAULT 'pending',
+      news_id INTEGER,
+      raw_payload TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+  `);
+  await db.exec(
+    "CREATE INDEX IF NOT EXISTS idx_wechat_candidates_status ON wechat_candidates(status, publish_date DESC);",
+  );
   await db.exec(`
     CREATE TABLE IF NOT EXISTS contact_messages (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -59,9 +88,9 @@ async function setup() {
     );
   `);
 
-  // For testing, let's add some mock data if the table is empty
+  // Keep demo content out of a newly provisioned production database.
   const count = await db.get("SELECT COUNT(*) as count FROM news");
-  if (count.count === 0) {
+  if (process.env.NODE_ENV !== "production" && count.count === 0) {
     await db.run(
       "INSERT INTO news (title, content, imageUrl, author, category) VALUES (?, ?, ?, ?, ?)",
       [
@@ -70,7 +99,7 @@ async function setup() {
         "https://images.unsplash.com/photo-1569163139394-de4e4f43e4e5?q=80&w=800&auto=format&fit=crop",
         "政策研究室",
         "政策解读",
-      ]
+      ],
     );
     await db.run(
       "INSERT INTO news (title, content, imageUrl, author, category) VALUES (?, ?, ?, ?, ?)",
@@ -80,7 +109,7 @@ async function setup() {
         "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
         "本所新闻",
         "本所动态",
-      ]
+      ],
     );
     await db.run(
       "INSERT INTO news (title, content, imageUrl, author, category) VALUES (?, ?, ?, ?, ?)",
@@ -90,7 +119,7 @@ async function setup() {
         "https://images.unsplash.com/photo-1584949091598-c31daaaa4aa9?q=80&w=800&auto=format&fit=crop",
         "信息技术部",
         "通知公告",
-      ]
+      ],
     );
     await db.run(
       "INSERT INTO news (title, content, imageUrl, author, category) VALUES (?, ?, ?, ?, ?)",
@@ -100,7 +129,7 @@ async function setup() {
         "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800&auto=format&fit=crop",
         "国际能源网",
         "新闻资讯",
-      ]
+      ],
     );
     await db.run(
       "INSERT INTO news (title, content, imageUrl, author, category) VALUES (?, ?, ?, ?, ?)",
@@ -110,9 +139,9 @@ async function setup() {
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop",
         "科普君",
         "知识专栏",
-      ]
+      ],
     );
   }
 }
 
-setup(); 
+await setup();

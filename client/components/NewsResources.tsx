@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
+import { AlertCircle, Calendar } from "lucide-react";
+import { NEWS_FALLBACK_IMAGE, publicNewsImage } from "@/lib/news";
 
 interface NewsArticle {
   id: string;
   title: string;
   imageUrl: string;
-  content: string;
+  summary: string;
   category: string;
   createdAt: string;
   author: string;
-  featured: boolean;
 }
 
 export default function NewsResources() {
@@ -18,23 +18,24 @@ export default function NewsResources() {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [featuredArticles, setFeaturedArticles] = useState<NewsArticle[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchNews = async () => {
       setIsLoading(true);
+      setLoadError("");
       try {
-        const response = await fetch("/api/news");
-        const result = await response.json();
-        if (result.success && Array.isArray(result.data)) {
+        const response = await fetch("/api/news?view=summary");
+        const result = await response.json().catch(() => ({}));
+        if (response.ok && result.success && Array.isArray(result.data)) {
           setArticles(result.data);
-          // Manually filter featured articles
-          setFeaturedArticles(
-            result.data.filter((a: any) => a.featured).slice(0, 2)
-          );
+          setFeaturedArticles(result.data.slice(0, 2));
+        } else {
+          throw new Error(result.error || "资讯加载失败");
         }
       } catch (error) {
-        console.error("Failed to fetch news:", error);
+        setLoadError(error instanceof Error ? error.message : "资讯加载失败");
       } finally {
         setIsLoading(false);
       }
@@ -80,13 +81,25 @@ export default function NewsResources() {
                 <div
                   key={article.id}
                   className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  role="link"
+                  tabIndex={0}
                   onClick={() => navigate(`/news-detail/${article.id}`)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter")
+                      navigate(`/news-detail/${article.id}`);
+                  }}
                 >
                   {article.imageUrl && (
                     <div className="aspect-video overflow-hidden">
                       <img
-                        src={article.imageUrl}
+                        src={publicNewsImage(article.imageUrl)}
                         alt={article.title}
+                        loading="lazy"
+                        decoding="async"
+                        onError={(event) => {
+                          event.currentTarget.onerror = null;
+                          event.currentTarget.src = NEWS_FALLBACK_IMAGE;
+                        }}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
@@ -95,19 +108,17 @@ export default function NewsResources() {
                     <div className="flex items-center gap-4 mb-3">
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          categories.find(
-                            (cat) => cat.key === article.category
-                          )?.color || "bg-gray-100"
+                          categories.find((cat) => cat.key === article.category)
+                            ?.color || "bg-gray-100"
                         }`}
                       >
-                        {categories.find(
-                          (cat) => cat.key === article.category
-                        )?.label || "其他"}
+                        {categories.find((cat) => cat.key === article.category)
+                          ?.label || "其他"}
                       </span>
                       <div className="flex items-center gap-1 text-gray-500 text-sm">
                         <Calendar className="w-4 h-4" />
                         {new Date(article.createdAt).toLocaleDateString(
-                          "zh-CN"
+                          "zh-CN",
                         )}
                       </div>
                     </div>
@@ -115,7 +126,7 @@ export default function NewsResources() {
                       {article.title}
                     </h4>
                     <p className="text-[#666] font-inter text-base leading-relaxed mb-4 line-clamp-3">
-                      {article.content.substring(0, 100)}...
+                      {article.summary}
                     </p>
                   </div>
                 </div>
@@ -131,6 +142,7 @@ export default function NewsResources() {
               <button
                 key={category.key}
                 onClick={() => setSelectedCategory(category.key)}
+                aria-pressed={selectedCategory === category.key}
                 className={`px-4 py-2 rounded-full font-medium text-sm transition-all duration-200 ${
                   selectedCategory === category.key
                     ? "bg-brand-green text-white"
@@ -160,18 +172,35 @@ export default function NewsResources() {
                 </div>
               </div>
             ))
+          ) : loadError ? (
+            <div className="col-span-full py-12 text-center">
+              <AlertCircle className="mx-auto h-7 w-7 text-red-500" />
+              <p className="mt-3 text-gray-600">{loadError}</p>
+            </div>
           ) : filteredArticles.length > 0 ? (
             filteredArticles.slice(0, 6).map((article) => (
               <div
                 key={article.id}
                 className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                role="link"
+                tabIndex={0}
                 onClick={() => navigate(`/news-detail/${article.id}`)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter")
+                    navigate(`/news-detail/${article.id}`);
+                }}
               >
                 {article.imageUrl && (
                   <div className="aspect-video overflow-hidden">
                     <img
-                      src={article.imageUrl}
+                      src={publicNewsImage(article.imageUrl)}
                       alt={article.title}
+                      loading="lazy"
+                      decoding="async"
+                      onError={(event) => {
+                        event.currentTarget.onerror = null;
+                        event.currentTarget.src = NEWS_FALLBACK_IMAGE;
+                      }}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -180,14 +209,12 @@ export default function NewsResources() {
                   <div className="flex items-center gap-3 mb-3">
                     <span
                       className={`px-2 py-1 rounded text-xs font-medium ${
-                        categories.find(
-                          (cat) => cat.key === article.category
-                        )?.color || "bg-gray-100"
+                        categories.find((cat) => cat.key === article.category)
+                          ?.color || "bg-gray-100"
                       }`}
                     >
-                      {categories.find(
-                        (cat) => cat.key === article.category
-                      )?.label || "其他"}
+                      {categories.find((cat) => cat.key === article.category)
+                        ?.label || "其他"}
                     </span>
                     <span className="text-gray-500 text-xs">
                       {new Date(article.createdAt).toLocaleDateString("zh-CN")}
@@ -197,7 +224,7 @@ export default function NewsResources() {
                     {article.title}
                   </h4>
                   <p className="text-[#666] font-inter text-sm leading-relaxed mb-4 line-clamp-3">
-                    {article.content.substring(0, 100)}...
+                    {article.summary}
                   </p>
                   <button
                     onClick={() => navigate(`/news-detail/${article.id}`)}

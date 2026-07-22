@@ -41,6 +41,14 @@ echo -e "${BLUE}安装所有依赖...${NC}"
 npm ci --silent
 echo -e "${GREEN}✓ 依赖安装完成${NC}"
 
+# Install the browser used by the server-side WeChat crawler. Playwright skips
+# the download when the matching browser revision is already cached.
+echo -e "${BLUE}检查微信采集浏览器...${NC}"
+export PLAYWRIGHT_BROWSERS_PATH="${PLAYWRIGHT_BROWSERS_PATH:-/var/lib/zdeaee/playwright}"
+mkdir -p "$PLAYWRIGHT_BROWSERS_PATH"
+npx playwright install chromium
+echo -e "${GREEN}✓ 微信采集浏览器已就绪${NC}"
+
 # 构建项目
 echo -e "${BLUE}构建项目...${NC}"
 npm run build

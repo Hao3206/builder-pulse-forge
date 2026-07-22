@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import InquiryForm from "../components/InquiryForm";
 
 export default function CarbonStandardDevelopment() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -72,11 +73,11 @@ export default function CarbonStandardDevelopment() {
       <section className="relative w-full h-[520px] bg-white">
         <div className="absolute inset-0">
           <div className="w-full h-full bg-gradient-to-r from-[#155B75] to-[#088AB2]" />
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://api.builder.io/api/v1/image/assets/TEMP/9026b87008e8884034ad247a59bfca58d7b09cc8?width=2880')", backgroundBlendMode: "multiply" }} />
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/assets/remote/9026b87008e8884034ad247a59bfca58d7b09cc8.webp')", backgroundBlendMode: "multiply" }} />
         </div>
         <div className="relative z-10 flex items-center justify-center h-full pt-[88px]">
           <div className="max-w-[760px] text-center px-8">
-            <h1 className="text-[52px] font-bold leading-[60px] text-white mb-6 tracking-[-0.52px]">双碳标准编制</h1>
+            <h1 className="mb-6 text-[34px] font-bold leading-[44px] text-white sm:text-[52px] sm:leading-[60px]">双碳标准编制</h1>
             <p className="text-lg text-white/90 mb-10 tracking-[-0.1px]">以方法学为核心、以试点为抓手，打造可实施、可验证的行业标准</p>
             <div className="flex gap-4 justify-center">
               <a href="#contact" className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm">申请合作</a>
@@ -199,15 +200,7 @@ export default function CarbonStandardDevelopment() {
       <section id="contact" className="py-[88px] bg-[#F2F9F7]">
         <div className="max-w-[840px] mx-auto px-8">
           <div className="text-center mb-12"><h2 className="text-[32px] font-bold text-[#333] mb-4 tracking-[-0.64px]">联系我们</h2><p className="text-[16px] text-[#858C95] tracking-[-0.1px]">共建行业标准与方法学，欢迎联合立项与试点。</p></div>
-          <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input type="text" placeholder="您的姓名" className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm" />
-              <input type="text" placeholder="您的联系方式" className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm" />
-            </div>
-            <input type="text" placeholder="您的单位/机构" className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm" />
-            <textarea placeholder="关注的标准方向与合作方式" rows={5} className="w-full px-4 py-3 border border-[#DAE0E6] rounded-md bg-white text-[15px] placeholder-[#999] shadow-sm resize-none" />
-            <div className="text-center"><button className="bg-[#058A65] text-white px-6 py-3 rounded-full font-semibold text-[15px] shadow-sm">提交合作意向</button></div>
-          </div>
+          <InquiryForm source="双碳标准编制" companyPlaceholder="您的单位/机构" messagePlaceholder="关注的标准方向与合作方式" submitLabel="提交合作意向" />
         </div>
       </section>
 

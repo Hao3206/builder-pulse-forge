@@ -14,8 +14,10 @@ export default function Footer() {
             {/* Logo Section */}
             <div className="flex flex-col gap-4 w-full lg:w-[247px]">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/fa613bde97f40bc79e4c1d9f49052c56c7039e22?width=314"
+                src="/assets/remote/fa613bde97f40bc79e4c1d9f49052c56c7039e22.webp"
                 alt={t("footer.logo.alt")}
+                loading="lazy"
+                decoding="async"
                 className="w-[120px] h-[38px] lg:w-[157px] lg:h-[50px]"
               />
 
@@ -29,10 +31,12 @@ export default function Footer() {
                 {/* Mobile: Hide QR code and subscription text on small screens */}
                 <div className="hidden sm:flex flex-col gap-4">
                   {/* QR Code */}
-                  <img 
-                    src="/qrcode.jpg" 
-                    alt="关注订阅号" 
-                    className="w-[70px] h-[70px] lg:w-[88px] lg:h-[88px] object-cover rounded-lg" 
+                  <img
+                    src="/qrcode.jpg"
+                    alt="关注订阅号"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-[70px] h-[70px] lg:w-[88px] lg:h-[88px] object-cover rounded-lg"
                   />
                   <div className="text-white/80 font-inter text-sm lg:text-base font-normal leading-5 lg:leading-6 tracking-[-0.16px]">
                     {t("footer.follow.subscription")}
@@ -86,7 +90,9 @@ export default function Footer() {
                   <div className="flex justify-start lg:justify-center items-center gap-1 rounded-[5px]">
                     <div
                       className="text-white/70 font-inter text-xs lg:text-base font-normal leading-4 lg:leading-6 tracking-[-0.16px] cursor-pointer hover:text-white transition-colors text-center lg:text-center"
-                      onClick={() => navigate("/enterprise-carbon-asset-management")}
+                      onClick={() =>
+                        navigate("/enterprise-carbon-asset-management")
+                      }
                     >
                       {t("footer.enterprise.carbon.management")}
                     </div>
@@ -237,10 +243,12 @@ export default function Footer() {
 
           {/* Mobile: QR Code section for small screens */}
           <div className="sm:hidden flex items-center gap-4 pt-4 border-t border-white/20">
-            <img 
-              src="/qrcode.jpg" 
-              alt="关注订阅号" 
-              className="w-[60px] h-[60px] object-cover rounded-lg flex-shrink-0" 
+            <img
+              src="/qrcode.jpg"
+              alt="关注订阅号"
+              loading="lazy"
+              decoding="async"
+              className="w-[60px] h-[60px] object-cover rounded-lg flex-shrink-0"
             />
             <div className="text-white/80 font-inter text-sm font-normal leading-5">
               {t("footer.follow.subscription")}
@@ -256,7 +264,12 @@ export default function Footer() {
               {t("footer.copyright")}
               <br className="sm:hidden" />
               <span className="hidden sm:inline"> </span>
-              <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <a
+                href="https://beian.miit.gov.cn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
                 {t("footer.icp.record")}
               </a>
             </div>

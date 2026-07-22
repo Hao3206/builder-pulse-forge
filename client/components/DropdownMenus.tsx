@@ -108,7 +108,7 @@ export function ProductServicesDropdown({
       title={t("nav.products")}
       isScrolled={isScrolled}
       isActive={isActive}
-      onTitleClick={() => {}}
+      onTitleClick={() => navigate("/#product-services")}
     >
       <div className="flex h-[506px]">
         {/* Left Sidebar */}
@@ -119,7 +119,10 @@ export function ProductServicesDropdown({
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
             {t("common.description.placeholder")}
           </p>
-          <button className="flex items-center gap-2 text-brand-green font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
+          <button
+            onClick={() => navigate("/#product-services")}
+            className="flex items-center gap-2 text-brand-green font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]"
+          >
             {t("common.more.content")}
             <ChevronRight className="w-5 h-5 -rotate-90" />
           </button>
@@ -447,7 +450,11 @@ export function SolutionsDropdown({
   };
 
   return (
-    <Dropdown title={t("nav.solutions")} isScrolled={isScrolled} isActive={isActive}>
+    <Dropdown
+      title={t("nav.solutions")}
+      isScrolled={isScrolled}
+      isActive={isActive}
+    >
       <div className="flex h-[308px] min-h-[308px]">
         {/* Left Sidebar */}
         <div className="w-[340px] bg-[#EBF8F6] px-[30px] flex flex-col justify-center">
@@ -457,7 +464,10 @@ export function SolutionsDropdown({
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
             {t("solutions.sidebar.description")}
           </p>
-          <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
+          <button
+            onClick={() => handleNavigation("/solution")}
+            className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]"
+          >
             {t("common.more.content")}
             <ChevronRight className="w-5 h-5 -rotate-90" />
           </button>
@@ -469,12 +479,12 @@ export function SolutionsDropdown({
           <div className="absolute left-8 top-[30px] flex items-center gap-1">
             <span
               className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
-                  onClick={() => handleNavigation("/solution")}
-                >
+              onClick={() => handleNavigation("/solution")}
+            >
               {t("solutions.energy.carbon.management.title")}
-                  </span>
+            </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-                </div>
+          </div>
 
           <div className="absolute left-[369px] top-[30px] flex items-center gap-1">
             <span
@@ -484,7 +494,7 @@ export function SolutionsDropdown({
               {t("solutions.zero.carbon.park.title")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-              </div>
+          </div>
 
           <div className="absolute left-[650px] top-[30px] flex items-center gap-1">
             <span
@@ -492,28 +502,28 @@ export function SolutionsDropdown({
               onClick={() => handleNavigation("/zero-carbon-factory")}
             >
               {t("solutions.zero.carbon.factory.title")}
-                  </span>
+            </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-                </div>
+          </div>
 
           {/* Description text for top row */}
           <div className="absolute left-8 top-[64px] w-[210px]">
             <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               {t("solutions.energy.carbon.management.desc")}
-                </p>
-              </div>
+            </p>
+          </div>
 
           <div className="absolute left-[369px] top-[64px] w-[210px]">
             <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               {t("solutions.zero.carbon.park.desc")}
             </p>
-            </div>
+          </div>
 
           <div className="absolute left-[650px] top-[64px] w-[210px]">
             <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               {t("solutions.zero.carbon.factory.desc")}
-                </p>
-              </div>
+            </p>
+          </div>
 
           {/* Bottom row solutions */}
           <div className="absolute left-8 top-[164px] flex items-center gap-1">
@@ -529,10 +539,10 @@ export function SolutionsDropdown({
           <div className="absolute left-[369px] top-[164px] flex items-center gap-1">
             <span
               className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
-                  onClick={() => handleNavigation("/carbon-footprint")}
-                >
+              onClick={() => handleNavigation("/carbon-footprint")}
+            >
               {t("solutions.carbon.footprint.title")}
-                  </span>
+            </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
           </div>
 
@@ -541,19 +551,21 @@ export function SolutionsDropdown({
             <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               {t("solutions.enterprise.carbon.management.desc")}
             </p>
-                </div>
+          </div>
 
           <div className="absolute left-[369px] top-[198px] w-[210px]">
             <p className="text-[#999] font-inter text-[14px] leading-5 tracking-[-0.1px]">
               {t("solutions.carbon.footprint.desc")}
-                </p>
-              </div>
+            </p>
+          </div>
 
           {/* Right side images/icons - both in second row */}
           <div className="absolute right-[292px] top-[159px] w-[90px] h-[90px]">
             <img
               src="/yongcheng-low-carbon.png"
               alt="甬城低碳"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
@@ -561,6 +573,8 @@ export function SolutionsDropdown({
             <img
               src="/carbon-calculator.png"
               alt="个人碳足迹计算器"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
@@ -568,7 +582,7 @@ export function SolutionsDropdown({
           {/* Image labels - both in second row, separated */}
           <div className="absolute right-[310px] top-[252px] text-[#666] font-inter text-[14px] font-medium leading-6 tracking-[-0.14px]">
             甬城低碳
-            </div>
+          </div>
           <div className="absolute right-[395px] top-[252px] text-[#666] font-inter text-[14px] font-medium leading-6 tracking-[-0.14px]">
             个人碳足迹计算
           </div>
@@ -609,7 +623,10 @@ export function NewsCenterDropdown({
           <p className="text-[#666] font-inter text-[14px] font-normal leading-normal tracking-[-0.1px] mb-6 w-[163px]">
             {t("news.sidebar.description")}
           </p>
-          <button className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]">
+          <button
+            onClick={handleTitleClick}
+            className="flex items-center gap-2 text-[#058A65] font-inter text-[15px] font-normal leading-6 tracking-[-0.1px]"
+          >
             {t("common.more.content")}
             <ChevronRight className="w-5 h-5 -rotate-90" />
           </button>
@@ -706,6 +723,8 @@ export function NewsCenterDropdown({
             <img
               src="/news-featured-image.jpg"
               alt="资讯中心"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>

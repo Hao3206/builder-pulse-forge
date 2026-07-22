@@ -17,13 +17,13 @@ export default function CustomerService() {
   return (
     <>
       {/* Vertical Customer Service Button */}
-      <div className="fixed right-6 top-3/4 transform -translate-y-1/2 z-50">
+      <div className="fixed bottom-5 right-4 z-50 sm:bottom-auto sm:right-6 sm:top-3/4 sm:-translate-y-1/2 sm:transform">
         <button
           onClick={togglePopup}
-          className="bg-[#058A65] hover:bg-[#046B52] transition-all duration-300 rounded-full w-[50px] h-[140px] flex flex-col items-center justify-start text-white shadow-lg hover:shadow-xl relative overflow-hidden isolate"
+          className="relative isolate flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-[#058A65] text-white shadow-lg transition-all duration-300 hover:bg-[#046B52] hover:shadow-xl sm:h-[140px] sm:w-[50px] sm:flex-col sm:justify-start"
         >
           {/* Headset Icon */}
-          <div className="w-6 h-6 mt-[17px] mb-2 relative">
+          <div className="relative h-6 w-6 sm:mb-2 sm:mt-[17px]">
             <svg
               width="22"
               height="20"
@@ -43,7 +43,7 @@ export default function CustomerService() {
           </div>
 
           {/* Vertical Text */}
-          <div className="text-white text-sm font-medium leading-[16.6px] flex flex-col items-center mt-2">
+          <div className="mt-2 hidden flex-col items-center text-sm font-medium leading-[16.6px] text-white sm:flex">
             <span>联</span>
             <span>系</span>
             <span>客</span>
@@ -62,13 +62,13 @@ export default function CustomerService() {
           ></div>
 
           {/* Popup Content */}
-          <div className="fixed right-[76px] top-1/2 transform -translate-y-1/2 z-50">
+          <div className="fixed bottom-20 left-4 right-4 z-50 sm:bottom-auto sm:left-auto sm:right-[76px] sm:top-1/2 sm:-translate-y-1/2 sm:transform">
             <div className="relative flex items-center">
               {/* Speech Bubble Arrow */}
-              <div className="w-3 h-3 bg-white border-r border-t border-gray-200 transform rotate-45 absolute -right-1.5 top-1/2 -translate-y-1/2 z-10"></div>
+              <div className="absolute -right-1.5 top-1/2 z-10 hidden h-3 w-3 -translate-y-1/2 rotate-45 transform border-r border-t border-gray-200 bg-white sm:block"></div>
               
               {/* Contact Options */}
-              <div className="bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden w-[280px]">
+              <div className="w-full overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg sm:w-[280px]">
                 {/* Phone Consultation */}
                 <div className="flex items-center justify-between py-[14px] hover:bg-gray-50 transition-colors cursor-pointer h-[66px] border-b border-gray-100">
                   <div className="flex items-center gap-3 pl-6">

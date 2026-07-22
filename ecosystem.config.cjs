@@ -3,8 +3,10 @@ module.exports = {
     {
       name: "zdhjsuo-web",
       script: "./dist/server/node-build.mjs",
-      instances: "max", // 根据 CPU 核心数自动扩展
-      exec_mode: "cluster",
+      // SQLite and crawler sessions are process-local, so production must use
+      // one process unless those state stores are externalized.
+      instances: 1,
+      exec_mode: "fork",
       watch: false,
       max_memory_restart: "1G",
       env: {
@@ -14,6 +16,7 @@ module.exports = {
       env_production: {
         NODE_ENV: "production",
         PORT: 3000,
+        PLAYWRIGHT_BROWSERS_PATH: "/var/lib/zdeaee/playwright",
       },
       error_file: "./logs/err.log",
       out_file: "./logs/out.log",

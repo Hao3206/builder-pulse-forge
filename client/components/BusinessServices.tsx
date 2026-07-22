@@ -21,7 +21,7 @@ export default function BusinessServices() {
       title: t("business.carbon.consulting.title"),
       subtitle: t("business.carbon.consulting.subtitle"),
       image:
-        "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
+        "/assets/remote/unsplash-2f485880db261541.webp",
       icon: MessageCircleMore,
       path: "/carbon-neutrality-planning",
       submenu: [
@@ -49,7 +49,7 @@ export default function BusinessServices() {
       title: t("business.carbon.trading.title"),
       subtitle: t("business.carbon.trading.subtitle"),
       image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/016820fd6b8a92264e45eec769581861a334348a?width=546",
+        "/assets/remote/016820fd6b8a92264e45eec769581861a334348a.webp",
       icon: TrendingUp,
       path: "/local-carbon-trading",
       submenu: [
@@ -71,7 +71,7 @@ export default function BusinessServices() {
       title: t("business.carbon.finance.title"),
       subtitle: t("business.carbon.finance.subtitle"),
       image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/ac321a0ee51299b257411524ffab412103ab7b2c?width=1329",
+        "/assets/remote/ac321a0ee51299b257411524ffab412103ab7b2c.webp",
       icon: DollarSign,
       path: "/carbon-finance-solution",
       submenu: [],
@@ -80,7 +80,7 @@ export default function BusinessServices() {
       title: t("business.carbon.tech.title"),
       subtitle: t("business.carbon.tech.subtitle"),
       image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/6a64cd50e1b9fc8390c4aaf934f7576ecfbaa7f2?width=632",
+        "/assets/remote/6a64cd50e1b9fc8390c4aaf934f7576ecfbaa7f2.webp",
       icon: Monitor,
       path: "/corporate-carbon-management",
     },
@@ -88,7 +88,7 @@ export default function BusinessServices() {
       title: t("business.carbon.footprint.title"),
       subtitle: t("business.carbon.footprint.subtitle"),
       image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/681c8a293aa285306001bad46de4183adcf195e3?width=2104",
+        "/assets/remote/681c8a293aa285306001bad46de4183adcf195e3.webp",
       icon: Footprints,
       path: "/carbon-footprint",
     },
@@ -96,7 +96,7 @@ export default function BusinessServices() {
       title: t("business.carbon.training.title"),
       subtitle: t("business.carbon.training.subtitle"),
       image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/0fa5766228890ff20bfed118baf1bbc6c23711f6?width=1338",
+        "/assets/remote/0fa5766228890ff20bfed118baf1bbc6c23711f6.webp",
       icon: GraduationCap,
       path: "/product-service/carbon-trader-training",
     },
@@ -104,7 +104,7 @@ export default function BusinessServices() {
       title: t("business.zero.carbon.park.title"),
       subtitle: t("business.zero.carbon.park.subtitle"),
       image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/d900a4c1d4408745c3bae28ab6d14e3468f7d624?width=1406",
+        "/assets/remote/d900a4c1d4408745c3bae28ab6d14e3468f7d624.webp",
       icon: Building2,
       path: "/zero-carbon-park",
     },
@@ -121,7 +121,7 @@ export default function BusinessServices() {
   };
 
   return (
-    <section className="bg-white py-20">
+    <section id="product-services" className="scroll-mt-20 bg-white py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Title */}
         <div className="text-center mb-16">
@@ -147,6 +147,8 @@ export default function BusinessServices() {
                 <img
                   src={service.image}
                   alt={service.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/48" />

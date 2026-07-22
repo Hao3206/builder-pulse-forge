@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, MapPin, Target, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { successCases, SuccessCase } from "@/data/successCases";
+import { applyDynamicMeta } from "@/lib/dynamic-meta";
 
 export default function SuccessCaseDetail() {
   const { id } = useParams();
@@ -23,6 +24,22 @@ export default function SuccessCaseDetail() {
   const caseData: SuccessCase | undefined = successCases.find(
     (c) => c.id === numericId,
   );
+
+  useEffect(() => {
+    if (caseData) {
+      applyDynamicMeta({
+        title: `${caseData.title} - 浙东环境能源交易所`,
+        description: caseData.description.slice(0, 160),
+        image: caseData.heroImage || caseData.image,
+      });
+    } else {
+      applyDynamicMeta({
+        title: "案例不存在 - 浙东环境能源交易所",
+        description: "该成功案例不存在或已被移除。",
+        noIndex: true,
+      });
+    }
+  }, [caseData]);
 
   if (!caseData) {
     return (
@@ -58,6 +75,8 @@ export default function SuccessCaseDetail() {
         <img
           src={heroImage}
           alt={caseData.title}
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -77,7 +96,7 @@ export default function SuccessCaseDetail() {
             <div className="inline-block px-4 py-2 bg-[#058A65] rounded-full text-sm font-medium mb-4">
               {caseData.category}
             </div>
-            <h1 className="text-[48px] font-bold leading-[60px] mb-6">
+            <h1 className="mb-6 text-[34px] font-bold leading-[44px] sm:text-[48px] sm:leading-[60px]">
               {caseData.title}
             </h1>
             <p className="text-xl leading-[30px] text-white/90 max-w-2xl mx-auto">
@@ -241,6 +260,8 @@ export default function SuccessCaseDetail() {
                             <img
                               src={solution.image}
                               alt={solution.title}
+                              loading="lazy"
+                              decoding="async"
                               className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
                             />
                           )}
@@ -279,16 +300,16 @@ export default function SuccessCaseDetail() {
             </div>
 
             <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-[#E5E5E7] h-full"></div>
+              <div className="absolute left-[7px] h-full w-1 bg-[#E5E5E7] md:left-1/2 md:-translate-x-1/2 md:transform"></div>
 
               <div className="space-y-12">
                 {caseData.timeline.map((phase, index) => (
                   <div
                     key={index}
-                    className={`flex items-center gap-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+                    className={`flex items-center gap-4 pl-8 md:gap-8 md:pl-0 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
                   >
                     <div
-                      className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}
+                      className={`flex-1 text-left ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}
                     >
                       <div className="bg-white p-6 rounded-xl border border-[#E5E5E7] inline-block max-w-md">
                         <h3 className="text-lg font-bold text-[#333] mb-2">
@@ -303,11 +324,11 @@ export default function SuccessCaseDetail() {
                       </div>
                     </div>
 
-                    <div className="relative">
+                    <div className="absolute left-0 md:relative md:left-auto">
                       <div className="w-4 h-4 bg-[#058A65] rounded-full border-4 border-white z-10 relative"></div>
                     </div>
 
-                    <div className="flex-1"></div>
+                    <div className="hidden flex-1 md:block"></div>
                   </div>
                 ))}
               </div>
@@ -360,6 +381,8 @@ export default function SuccessCaseDetail() {
                   <img
                     src={image}
                     alt={`项目图片 ${index + 1}`}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>

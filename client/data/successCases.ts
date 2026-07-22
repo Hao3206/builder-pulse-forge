@@ -51,7 +51,7 @@ export const successCases: SuccessCase[] = [
     description:
       "通过综合能源管理系统和智慧碳管理平台，该园区实现了碳排放减少60%，成为行业标杆案例。",
     image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-0d7e7b63d9e84fa1.webp",
     tags: ["园区管理", "减排60%", "智慧监控"],
     date: "2024-12",
     location: "华东地区",
@@ -62,7 +62,7 @@ export const successCases: SuccessCase[] = [
       renewableEnergy: "75%",
     },
     heroImage:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop",
+      "/assets/remote/unsplash-e8b529f257c91d31.webp",
     client: "某国际生态园区",
     duration: "18个月",
     projectScale: "占地500公顷，入驻企业150家",
@@ -131,10 +131,10 @@ export const successCases: SuccessCase[] = [
       position: "园区管理委员会主任",
     },
     images: [
-      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-99e956019f730a4d.webp",
+      "/assets/remote/unsplash-717c8d320b106fa4.webp",
+      "/assets/remote/unsplash-6013ea2f7d8d0876.webp",
+      "/uploads/solar-project-image.webp",
     ],
   },
   {
@@ -144,9 +144,9 @@ export const successCases: SuccessCase[] = [
     description:
       "为某大型制造企业搭建完整的碳排放监测、核算与管理平台，实现数据统一口径、可审计与降本增效，支撑集团碳中和路线落地。",
     image:
-      "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-14939437101c2be5.webp",
     heroImage:
-      "https://images.unsplash.com/photo-1581093588401-16bcb8d6ff83?w=1920&h=1080&fit=crop",
+      "/banner-green-factory.jpg",
     tags: ["制造业", "碳中和", "数字化管理"],
     date: "2024-11",
     location: "华东地区",
@@ -228,10 +228,10 @@ export const successCases: SuccessCase[] = [
       position: "制造集团信息化负责人",
     },
     images: [
-      "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1481330744575-8fe8a3d0f6df?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-60fb4d251b645599.webp",
+      "/system-interface.png",
+      "/assets/remote/unsplash-0602aebb2d2d85e7.webp",
+      "/assets/remote/unsplash-65ea309b4ed1909d.webp",
     ],
     results: {
       carbonReduction: "45%",
@@ -247,9 +247,9 @@ export const successCases: SuccessCase[] = [
     description:
       "为知名消费品牌建立完整的产品生命周期碳足迹评估体系，明确功能单位与系统边界，形成可审计的核算与披露材料，支持ESG价值提升与海外合规。",
     image:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-717c8d320b106fa4.webp",
     heroImage:
-      "https://images.unsplash.com/photo-1562158070-74b1b9b4d7d9?w=1920&h=1080&fit=crop",
+      "/images/ZDMAP.webp",
     tags: ["生命周期评估", "消费品", "ISO 14067", "ESG提升"],
     date: "2024-10",
     location: "华东地区",
@@ -336,10 +336,10 @@ export const successCases: SuccessCase[] = [
       position: "品牌可持续发展负责人",
     },
     images: [
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1520975922203-bd7b00e3d8f8?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1509395176047-4a66953fd231?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1542010589005-d1eacc3918f3?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-717c8d320b106fa4.webp",
+      "/carbon-calculator.png",
+      "/assets/remote/unsplash-0602aebb2d2d85e7.webp",
+      "/banner-renewable-energy.jpg",
     ],
     results: {
       carbonReduction: "30%",
@@ -355,9 +355,9 @@ export const successCases: SuccessCase[] = [
     description:
       "协助大型商业银行建立与国际标准对齐的ESG信息披露体系，覆盖治理、环境与社会三大维度的指标框架、数据治理、流程与内外部披露，实现合规、可审计价值沟通。",
     image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-7e11f571aaded5e4.webp",
     heroImage:
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1920&h=1080&fit=crop",
+      "/assets/remote/unsplash-5af032f09222919f.webp",
     tags: ["金融业", "信息披露", "国际标准", "数据治理"],
     date: "2024-09",
     location: "华北地区",
@@ -377,7 +377,7 @@ export const successCases: SuccessCase[] = [
         description:
           "以ISSB/TCFD/GRI为基准构建指标体系与映射关系，明确指标归口、计算口径、更新频率与责任人。",
         image:
-          "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+          "/assets/remote/unsplash-1c114b1a9b47c003.webp",
       },
       {
         title: "ESG数据治理与留痕机制",
@@ -398,14 +398,14 @@ export const successCases: SuccessCase[] = [
         description:
           "完成双重重要性评估与利益相关方访谈，形成矩阵与行动清单，指导披露重点与改进路径。",
         image:
-          "https://images.unsplash.com/photo-1523958203904-cdcb402031fd?w=800&h=600&fit=crop",
+          "/assets/remote/unsplash-b18c80a8a7474923.webp",
       },
       {
         title: "年度披露流程与内控体系",
         description:
           "设计年度披露计划、内控与审阅流程，打通与风险管理/战略/合规条线的联动机制，形成闭环。",
         image:
-          "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=800&h=600&fit=crop",
+          "/assets/remote/unsplash-615b4e6d1540c74f.webp",
       },
     ],
     timeline: [
@@ -437,10 +437,10 @@ export const successCases: SuccessCase[] = [
       position: "银行ESG与投资者关系负责人",
     },
     images: [
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-1c114b1a9b47c003.webp",
       "",
       "",
-      "https://images.unsplash.com/photo-1523958203904-cdcb402031fd?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-b18c80a8a7474923.webp",
     ],
     results: {
       carbonReduction: "12%",
@@ -455,7 +455,7 @@ export const successCases: SuccessCase[] = [
     description:
       "帮助工业园区开发碳减排项目，成功完成碳信用交易，实现经济效益与环境效益双赢。",
     image:
-      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-6013ea2f7d8d0876.webp",
     tags: ["碳资产", "碳交易", "经济效益"],
     date: "2024-08",
     location: "华南地区",
@@ -472,7 +472,7 @@ export const successCases: SuccessCase[] = [
     description:
       "运用数字孪生技术为高科技产业园打造智慧能源管理系统，实现园区运营零碳化。",
     image:
-      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&h=600&fit=crop",
+      "/assets/remote/unsplash-99e956019f730a4d.webp",
     tags: ["数字孪生", "智慧能源", "零碳运营"],
     date: "2024-07",
     location: "华南地区",
@@ -671,7 +671,7 @@ export const successCases: SuccessCase[] = [
     title: "\"碳排放、碳管理专技人才高级研修班\"顺利举办",
     description:
       "由人力资源和社会保障局主办，浙东环境能源交易所联合高等院校组织，80余名学员参加的高级研修班顺利举办，聚焦双碳战略、碳资产交易、信息披露与实务核查。",
-    image: "/uploads/training-presentation-1.png",
+    image: "/uploads/training-presentation-1.webp",
     heroImage: "/uploads/training-presentation-2.webp",
     tags: ["培训", "研修班", "人才培养", "双碳"],
     date: "2024-09",
@@ -744,7 +744,7 @@ export const successCases: SuccessCase[] = [
       position: "企业碳管理负责人",
     },
     images: [
-      "/uploads/training-presentation-1.png",
+      "/uploads/training-presentation-1.webp",
       "/uploads/training-presentation-2.webp",
       "/uploads/training-presentation-3.webp",
       "/uploads/training-presentation-4.webp",

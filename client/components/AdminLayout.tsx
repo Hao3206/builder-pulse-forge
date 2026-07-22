@@ -9,9 +9,9 @@ import {
   LogOut,
   User,
   BarChart3,
-  Bell,
   Share2,
   Download,
+  MessageSquare,
 } from "lucide-react";
 
 interface AdminUser {
@@ -25,11 +25,10 @@ interface AdminUser {
 export default function AdminLayout() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [user, setUser] = useState<AdminUser | null>(null);
 
   useEffect(() => {
-    // 检查登录状态
     const token = localStorage.getItem("admin_token");
     const userData = localStorage.getItem("admin_user");
 
@@ -38,12 +37,37 @@ export default function AdminLayout() {
       return;
     }
 
-    try {
-      setUser(JSON.parse(userData));
-    } catch {
-      navigate("/admin/login");
-    }
+    const validateSession = async () => {
+      try {
+        const response = await fetch("/api/admin/profile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!response.ok) throw new Error("Session expired");
+        const result = await response.json();
+        const profile = result.data || JSON.parse(userData);
+        localStorage.setItem("admin_user", JSON.stringify(profile));
+        setUser(profile);
+      } catch {
+        localStorage.removeItem("admin_token");
+        localStorage.removeItem("admin_user");
+        navigate("/admin/login", { replace: true });
+      }
+    };
+
+    validateSession();
   }, [navigate]);
+
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 1024px)").matches) {
+      setSidebarOpen(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!window.matchMedia("(min-width: 1024px)").matches) {
+      setSidebarOpen(false);
+    }
+  }, [location.pathname]);
 
   const handleLogout = () => {
     localStorage.removeItem("admin_token");
@@ -63,15 +87,20 @@ export default function AdminLayout() {
       icon: FileText,
     },
     {
+      path: "/admin/contact-messages",
+      label: "留言管理",
+      icon: MessageSquare,
+    },
+    {
       path: "/admin/wechat-config",
       label: "微信配置",
       icon: Share2,
     },
     {
       path: "/admin/wechat-sync",
-      label: "微信同步",
+      label: "公众号采集",
       icon: Download,
-    }
+    },
   ];
 
   const isActivePath = (path: string) => {
@@ -92,7 +121,7 @@ export default function AdminLayout() {
     <div className="min-h-screen bg-gray-100">
       {/* 侧边栏 */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0 left-0 z-50 w-[min(16rem,85vw)] bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -108,6 +137,7 @@ export default function AdminLayout() {
           </div>
           <button
             onClick={() => setSidebarOpen(false)}
+            aria-label="关闭导航菜单"
             className="lg:hidden p-1 rounded-md hover:bg-gray-100"
           >
             <X className="w-5 h-5" />
@@ -138,6 +168,7 @@ export default function AdminLayout() {
                 <button
                   key={item.path}
                   onClick={() => navigate(item.path)}
+                  aria-current={isActive ? "page" : undefined}
                   className={`w-full flex items-center px-3 py-2 mb-1 text-sm font-medium rounded-lg transition-colors ${
                     isActive
                       ? "bg-[#058A65] text-white"
@@ -184,17 +215,14 @@ export default function AdminLayout() {
           <div className="flex items-center justify-between h-16 px-4 lg:px-6">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
+              aria-label={sidebarOpen ? "收起导航菜单" : "展开导航菜单"}
+              aria-expanded={sidebarOpen}
               className="p-2 rounded-md hover:bg-gray-100 transition-colors"
             >
               <Menu className="w-5 h-5" />
             </button>
 
             <div className="flex items-center space-x-4">
-              {/* 通知 */}
-              <button className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors">
-                <Bell className="w-5 h-5" />
-              </button>
-
               {/* 用户菜单 */}
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-[#058A65] rounded-full flex items-center justify-center">
@@ -217,6 +245,7 @@ export default function AdminLayout() {
       {/* 移动端遮罩 */}
       {sidebarOpen && (
         <div
+          aria-hidden="true"
           className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
