@@ -39,6 +39,9 @@ fi
 # 安装所有依赖（构建需要开发依赖）
 echo -e "${BLUE}安装所有依赖...${NC}"
 npm ci --silent
+# sqlite3 prebuilt binaries may target a newer glibc than the production host.
+# Rebuilding locally keeps the native module compatible with the server OS.
+npm rebuild sqlite3 --build-from-source --silent
 echo -e "${GREEN}✓ 依赖安装完成${NC}"
 
 # Install the browser used by the server-side WeChat crawler. Playwright skips
