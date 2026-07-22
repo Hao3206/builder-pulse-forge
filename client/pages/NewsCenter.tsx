@@ -1,6 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search, AlertCircle, ChevronDown, Loader2 } from "lucide-react";
+import {
+  AlertCircle,
+  ChevronDown,
+  Loader2,
+  Pause,
+  Play,
+  Search,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
@@ -38,6 +47,33 @@ export default function NewsCenter() {
   const [visibleCount, setVisibleCount] = useState(8);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState("");
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(23);
+  const [isMuted, setIsMuted] = useState(false);
+
+  const formatTime = (seconds: number) => {
+    if (!Number.isFinite(seconds)) return "0:00";
+    const minutes = Math.floor(seconds / 60);
+    return `${minutes}:${Math.floor(seconds % 60)
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
+  const toggleAudio = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.paused) {
+      try {
+        await audio.play();
+      } catch {
+        setIsPlaying(false);
+      }
+    } else {
+      audio.pause();
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -190,7 +226,107 @@ export default function NewsCenter() {
         </div>
       </div>
 
-      {/* Featured Article Section */}
+      {/* Fixed carbon-neutrality speech feature */}
+      <section className="bg-white px-4 py-10 sm:py-12 lg:px-28">
+        <div className="mx-auto max-w-screen-2xl overflow-hidden rounded-md border border-[#E5E5E7] bg-white shadow-sm">
+          <div className="grid lg:grid-cols-[minmax(320px,0.9fr)_minmax(0,1.1fr)]">
+            <div className="relative min-h-64 overflow-hidden bg-[#E8EFEB] sm:min-h-80">
+              <img
+                src="/news-featured-image.jpg"
+                alt="碳达峰碳中和专题"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent px-6 pb-5 pt-16 text-sm font-medium text-white">
+                中国向世界作出庄严承诺
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+              <div className="mb-4 flex items-center gap-3 text-sm text-[#058A65]">
+                <span className="h-px w-8 bg-[#058A65]" />
+                双碳重要时刻
+              </div>
+              <h2 className="text-2xl font-bold leading-9 text-[#333]">
+                碳达峰碳中和的提出
+              </h2>
+              <p className="mt-4 text-base leading-7 text-[#666]">
+                2020年9月22日，习近平主席在第75届联合国大会一般性辩论上作出我国二氧化碳排放力争于2030年前达到峰值、努力争取2060年前实现碳中和的重大宣示。
+              </p>
+
+              <audio
+                ref={audioRef}
+                src="/audio/carbon-peak-neutrality.m4a"
+                preload="metadata"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onEnded={() => {
+                  setIsPlaying(false);
+                  setCurrentTime(0);
+                }}
+                onTimeUpdate={(event) =>
+                  setCurrentTime(event.currentTarget.currentTime)
+                }
+                onLoadedMetadata={(event) =>
+                  setDuration(event.currentTarget.duration || 23)
+                }
+              />
+
+              <div className="mt-7 flex min-h-14 items-center gap-3 rounded-md bg-[#F1F3F4] px-3 sm:gap-4 sm:px-4">
+                <button
+                  type="button"
+                  onClick={toggleAudio}
+                  aria-label={isPlaying ? "暂停讲话录音" : "播放讲话录音"}
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#058A65] text-white transition-colors hover:bg-[#04785A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#058A65] focus-visible:ring-offset-2"
+                >
+                  {isPlaying ? (
+                    <Pause className="h-4 w-4 fill-current" />
+                  ) : (
+                    <Play className="ml-0.5 h-4 w-4 fill-current" />
+                  )}
+                </button>
+
+                <span className="w-[76px] shrink-0 text-xs tabular-nums text-[#666] sm:text-sm">
+                  {formatTime(currentTime)} / {formatTime(duration)}
+                </span>
+
+                <input
+                  type="range"
+                  min={0}
+                  max={duration || 23}
+                  step={0.1}
+                  value={Math.min(currentTime, duration || 23)}
+                  onChange={(event) => {
+                    const nextTime = Number(event.target.value);
+                    if (audioRef.current) audioRef.current.currentTime = nextTime;
+                    setCurrentTime(nextTime);
+                  }}
+                  aria-label="讲话录音播放进度"
+                  className="h-2 min-w-0 flex-1 cursor-pointer accent-[#058A65]"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!audioRef.current) return;
+                    audioRef.current.muted = !audioRef.current.muted;
+                    setIsMuted(audioRef.current.muted);
+                  }}
+                  aria-label={isMuted ? "开启声音" : "静音"}
+                  className="flex h-10 w-10 shrink-0 items-center justify-center text-[#555] hover:text-[#058A65] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#058A65]"
+                >
+                  {isMuted ? (
+                    <VolumeX className="h-5 w-5" />
+                  ) : (
+                    <Volume2 className="h-5 w-5" />
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest article section */}
       <div className="bg-white px-4 py-12 lg:px-28">
         <div className="mx-auto max-w-screen-2xl">
           {loading ? (
