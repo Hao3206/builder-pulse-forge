@@ -2,14 +2,6 @@ import express from "express";
 import cors from "cors";
 import multer from "multer";
 import path from "path";
-import { handleDemo } from "./routes/demo";
-import {
-  getCarbonCredits,
-  getCarbonProjects,
-  getCarbonFootprint,
-  createCarbonFootprint,
-  getCarbonFootprintStats,
-} from "./routes/carbon";
 import newsRoutes from "./routes/news";
 import {
   adminLogin,
@@ -18,13 +10,6 @@ import {
   adminLogout,
 } from "./routes/admin";
 import newsAdminRoutes from "./routes/news-admin";
-import {
-  getSolutions,
-  getSolutionById,
-  getCaseStudies,
-  getCaseStudyById,
-  getSolutionsStats,
-} from "./routes/solutions";
 import contactRoutes from "./routes/contact";
 import wechatRoutes from "./routes/wechat";
 import wechatCandidateRoutes from "./routes/wechat-candidates";
@@ -101,25 +86,6 @@ export function createServer() {
       version: "1.0.0",
     });
   });
-
-  // Legacy demo route
-  app.get("/api/demo", handleDemo);
-
-  // 碳交易相关API
-  app.get("/api/carbon/credits", getCarbonCredits);
-  app.get("/api/carbon/projects", getCarbonProjects);
-  app.get("/api/carbon/footprint/stats", getCarbonFootprintStats);
-  app.get("/api/carbon/footprint/:userId", getCarbonFootprint);
-  app.post("/api/carbon/footprint/:userId", createCarbonFootprint);
-
-  // 新闻资讯API is now handled by newsRoutes
-
-  // 解决方案API
-  app.get("/api/solutions", getSolutions);
-  app.get("/api/solutions/stats", getSolutionsStats);
-  app.get("/api/solutions/cases", getCaseStudies);
-  app.get("/api/solutions/cases/:id", getCaseStudyById);
-  app.get("/api/solutions/:id", getSolutionById);
 
   // 管理员认证API
   app.post(

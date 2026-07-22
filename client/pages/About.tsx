@@ -173,7 +173,7 @@ export default function About() {
             <div className="relative">
               <img
                 src="/assets/remote/7aefd54b19448f9ce0deccde8c5ce2fe364bab4c.webp"
-                alt="Company Building"
+                alt="浙东环境能源交易所办公环境"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-auto rounded-lg shadow-lg"
@@ -261,7 +261,7 @@ export default function About() {
             <div className="flex p-6 flex-col justify-center items-start gap-5 rounded-[10px] bg-[#F7F8FA]">
               <img
                 src="/assets/remote/1375d9eceea05d153f2972b8b8eb44a08a0176a4.webp"
-                alt="Institution Icon"
+                alt="研究中心"
                 loading="lazy"
                 decoding="async"
                 className="w-7 h-7"
@@ -279,7 +279,7 @@ export default function About() {
             <div className="flex p-6 flex-col justify-center items-start gap-5 rounded-[10px] bg-[#F7F8FA]">
               <img
                 src="/assets/remote/95f3c2fb61bcded1c654a8ce8cac4d50f6241009.webp"
-                alt="Lab Icon"
+                alt="联合实验室"
                 loading="lazy"
                 decoding="async"
                 className="w-7 h-7"
@@ -297,7 +297,7 @@ export default function About() {
             <div className="flex p-6 flex-col justify-center items-start gap-5 bg-[#F7F8FA]">
               <img
                 src="/assets/remote/40d51393a9c5639be634f082a9bff1af6068d9fc.webp"
-                alt="Association Icon"
+                alt="行业协会"
                 loading="lazy"
                 decoding="async"
                 className="w-7 h-7"
@@ -315,7 +315,7 @@ export default function About() {
             <div className="flex p-6 flex-col justify-center items-start gap-5 rounded-[10px] bg-[#F7F8FA]">
               <img
                 src="/assets/remote/d34cb9f93650b54e6826e58b0172fc5de9fb25fb.webp"
-                alt="Trade Icon"
+                alt="交易服务"
                 loading="lazy"
                 decoding="async"
                 className="w-7 h-7"
@@ -377,7 +377,7 @@ export default function About() {
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
                 src="/assets/remote/adf935000c6c08e27a84d6e4b8546f5750074411.png"
-                alt="Carbon Footprint Icon"
+                alt="碳足迹服务"
                 loading="lazy"
                 decoding="async"
                 className="w-12 h-12"
@@ -395,7 +395,7 @@ export default function About() {
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
                 src="/assets/remote/2f9929af664bbf1e64400732488a8052f7100b0f.webp"
-                alt="Green Factory Icon"
+                alt="绿色工厂服务"
                 loading="lazy"
                 decoding="async"
                 className="w-12 h-12"
@@ -413,7 +413,7 @@ export default function About() {
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
                 src="/assets/remote/86f224687a51ec7ec2dc88e9d64e68a255149798.webp"
-                alt="Carbon Neutral Icon"
+                alt="碳中和服务"
                 loading="lazy"
                 decoding="async"
                 className="w-12 h-12"
@@ -431,7 +431,7 @@ export default function About() {
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
                 src="/assets/remote/8aaa4c1be1d45b2254fd23a9fb15d27012910161.png"
-                alt="Standards Icon"
+                alt="标准编制服务"
                 loading="lazy"
                 decoding="async"
                 className="w-12 h-12"
@@ -449,7 +449,7 @@ export default function About() {
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
                 src="/assets/remote/9706a5c17f8b519e3119bb8463b4ff16bb538b47.png"
-                alt="Carbon Trading Icon"
+                alt="碳交易服务"
                 loading="lazy"
                 decoding="async"
                 className="w-12 h-12"
@@ -467,7 +467,7 @@ export default function About() {
             <div className="flex flex-col items-start gap-6 p-6 rounded-xl bg-white shadow-[0px_1px_2px_0px_rgba(16,24,40,0.04)]">
               <img
                 src="/assets/remote/1a009ac9c370ad4937a8ec3526d6e309d2c4cc4e.webp"
-                alt="ESG Icon"
+                alt="ESG信息披露服务"
                 loading="lazy"
                 decoding="async"
                 className="w-12 h-12"
@@ -501,7 +501,7 @@ export default function About() {
               {/* Map Marker */}
               <img
                 src="/assets/remote/a1cc6b2dded43a45244f008283a59eab5e5e6e68.webp"
-                alt="Map Marker"
+                alt="交易所位置"
                 loading="lazy"
                 decoding="async"
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full"

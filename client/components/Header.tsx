@@ -59,16 +59,21 @@ export default function Header({ isScrolled = false }: HeaderProps) {
         >
           <div className="flex px-[32px] items-center gap-[91px] relative min-w-0 flex-shrink-0">
             {/* Logo - 按照Figma尺寸：157px x 50px */}
-            <img
-              src={
-                isScrolled
-                  ? "/assets/remote/1fee28a4f9031537e9b8b95943a60af33406ebb2.webp"
-                  : "/assets/remote/96232ba0ae227372c391ef7914f1eefa297895e9.webp"
-              }
-              alt="浙东环交所 Logo"
-              className="w-[157px] h-[50px] cursor-pointer relative"
+            <button
+              type="button"
               onClick={() => navigate("/")}
-            />
+              aria-label="返回首页"
+            >
+              <img
+                src={
+                  isScrolled
+                    ? "/assets/remote/1fee28a4f9031537e9b8b95943a60af33406ebb2.webp"
+                    : "/assets/remote/96232ba0ae227372c391ef7914f1eefa297895e9.webp"
+                }
+                alt="浙东环交所 Logo"
+                className="relative h-[50px] w-[157px]"
+              />
+            </button>
 
             <div className="flex items-center gap-[160px] relative">
               {/* Navigation - 按照Figma间距：gap-32px */}
@@ -98,7 +103,8 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   isActive={isActivePath("/solution")}
                 />
 
-                <span
+                <button
+                  type="button"
                   className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 whitespace-nowrap ${
                     isActivePath("/success-cases") && isScrolled
                       ? "text-[#058A65]"
@@ -109,14 +115,15 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   onClick={() => navigate("/success-cases")}
                 >
                   {t("nav.cases")}
-                </span>
+                </button>
 
                 <NewsCenterDropdown
                   isScrolled={isScrolled}
                   isActive={isActivePath("/news-center")}
                 />
 
-                <span
+                <button
+                  type="button"
                   className={`font-inter text-[15px] font-medium leading-[22px] cursor-pointer transition-colors duration-300 whitespace-nowrap ${
                     isActivePath("/about") && isScrolled
                       ? "text-[#058A65]"
@@ -127,7 +134,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   onClick={() => navigate("/about")}
                 >
                   {t("nav.about")}
-                </span>
+                </button>
               </nav>
 
               {/* Right Side Actions - 按照Figma间距：gap-30px */}
@@ -171,7 +178,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
                   >
                     <img
                       src="/language-icon.svg"
-                      alt="Language"
+                      alt="切换语言"
                       className={`w-5 h-5 relative transition-all duration-300 ${
                         isScrolled ? "brightness-0" : ""
                       }`}
@@ -296,7 +303,7 @@ export default function Header({ isScrolled = false }: HeaderProps) {
               >
                 <img
                   src="/language-icon.svg"
-                  alt="Language"
+                  alt="切换语言"
                   className="w-5 h-5"
                 />
               </div>

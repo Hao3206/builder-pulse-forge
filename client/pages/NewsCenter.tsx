@@ -228,9 +228,9 @@ export default function NewsCenter() {
 
       {/* Fixed carbon-neutrality speech feature */}
       <section className="bg-white px-4 py-10 sm:py-12 lg:px-28">
-        <div className="mx-auto max-w-screen-2xl overflow-hidden rounded-md border border-[#E5E5E7] bg-white shadow-sm">
-          <div className="grid lg:grid-cols-[minmax(320px,0.9fr)_minmax(0,1.1fr)]">
-            <div className="relative min-h-64 overflow-hidden bg-[#E8EFEB] sm:min-h-80">
+        <div className="mx-auto min-w-0 max-w-screen-2xl overflow-hidden rounded-md border border-[#E5E5E7] bg-white shadow-sm">
+          <div className="grid min-w-0 lg:grid-cols-[minmax(320px,0.9fr)_minmax(0,1.1fr)]">
+            <div className="relative min-h-64 min-w-0 overflow-hidden bg-[#E8EFEB] sm:min-h-80">
               <img
                 src="/news-featured-image.jpg"
                 alt="碳达峰碳中和专题"
@@ -241,7 +241,7 @@ export default function NewsCenter() {
               </div>
             </div>
 
-            <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
+            <div className="flex min-w-0 flex-col justify-center p-5 sm:p-8 lg:p-10">
               <div className="mb-4 flex items-center gap-3 text-sm text-[#058A65]">
                 <span className="h-px w-8 bg-[#058A65]" />
                 双碳重要时刻
@@ -271,7 +271,7 @@ export default function NewsCenter() {
                 }
               />
 
-              <div className="mt-7 flex min-h-14 items-center gap-3 rounded-md bg-[#F1F3F4] px-3 sm:gap-4 sm:px-4">
+              <div className="mt-7 flex min-h-14 w-full min-w-0 items-center gap-2 rounded-md bg-[#F1F3F4] px-2 sm:gap-4 sm:px-4">
                 <button
                   type="button"
                   onClick={toggleAudio}
@@ -297,7 +297,8 @@ export default function NewsCenter() {
                   value={Math.min(currentTime, duration || 23)}
                   onChange={(event) => {
                     const nextTime = Number(event.target.value);
-                    if (audioRef.current) audioRef.current.currentTime = nextTime;
+                    if (audioRef.current)
+                      audioRef.current.currentTime = nextTime;
                     setCurrentTime(nextTime);
                   }}
                   aria-label="讲话录音播放进度"

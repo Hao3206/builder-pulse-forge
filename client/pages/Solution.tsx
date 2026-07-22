@@ -49,10 +49,10 @@ export default function Solution() {
             <div className="flex flex-col items-center gap-12 w-full">
               <div className="flex flex-col items-center gap-6 w-full">
                 <h1 className="w-full text-center font-inter text-[36px] font-bold leading-[44px] text-[#F9F9F9] sm:text-[52px] sm:leading-[60px]">
-                  绿色工厂从这里开始
+                  能碳管理系统解决方案
                 </h1>
                 <h2 className="w-full text-center font-inter text-xl font-bold leading-7 text-[#F9F9F9] sm:text-[30px] sm:leading-[36px]">
-                  打造零碳、智能、透明的能碳管理系统
+                  让能源与碳排放管理更智能、更透明
                 </h2>
                 <p className="text-[#F9F9F9] text-center font-inter text-lg font-normal leading-[26px] tracking-[-0.1px] w-full">
                   全面赋能工厂实现能碳精益管理，助力双碳目标落地
@@ -489,7 +489,10 @@ export default function Solution() {
                 </p>
               </div>
               <div className="flex justify-center items-center gap-4 w-full">
-                <a href="#contact" className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-white">
+                <a
+                  href="#contact"
+                  className="flex w-[120px] py-3 px-[18px] justify-center items-center gap-1.5 rounded-full bg-white"
+                >
                   <span className="text-[#058A65] text-center font-inter text-[15px] font-bold leading-[22px]">
                     联系我们
                   </span>

@@ -34,7 +34,7 @@ export default function ZeroCarbonPark() {
             <img
               src="/assets/remote/96232ba0ae227372c391ef7914f1eefa297895e9.webp"
               className="w-[157px] h-[50px]"
-              alt="Logo"
+              alt="浙东环境能源交易所"
             />
             <div className="flex items-center gap-40">
               <div className="flex items-center gap-8">
@@ -151,12 +151,12 @@ export default function ZeroCarbonPark() {
                   <img
                     src="/assets/remote/faf28f18a1e75151324b0be17744769ea7bb2acc.webp"
                     className="w-5 h-5"
-                    alt="Language"
+                    alt="切换语言"
                   />
                   <img
                     src="/assets/remote/42c608dd09a41851bb23e2412698e05dfc99feb1.webp"
                     className="w-3 h-3"
-                    alt="Dropdown"
+                    alt="展开语言选项"
                   />
                 </div>
                 <svg

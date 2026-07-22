@@ -40,7 +40,13 @@ function Dropdown({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="flex items-center justify-center gap-1.5 rounded-md cursor-pointer">
+      <button
+        type="button"
+        onClick={onTitleClick}
+        onFocus={handleMouseEnter}
+        aria-expanded={isOpen}
+        className="flex items-center justify-center gap-1.5 rounded-md"
+      >
         <span
           className={`font-inter text-[15px] font-medium leading-[22px] transition-colors duration-300 whitespace-nowrap ${
             isActive && isScrolled
@@ -49,7 +55,6 @@ function Dropdown({
                 ? "text-[#333]"
                 : "text-white"
           }`}
-          onClick={onTitleClick}
         >
           {title}
         </span>
@@ -62,7 +67,7 @@ function Dropdown({
                 : "text-white"
           } ${isOpen ? "rotate-180" : ""}`}
         />
-      </div>
+      </button>
 
       {/* Dropdown Content - Full Width */}
       {isOpen && (
@@ -454,6 +459,7 @@ export function SolutionsDropdown({
       title={t("nav.solutions")}
       isScrolled={isScrolled}
       isActive={isActive}
+      onTitleClick={() => handleNavigation("/solution")}
     >
       <div className="flex h-[308px] min-h-[308px]">
         {/* Left Sidebar */}
@@ -476,35 +482,38 @@ export function SolutionsDropdown({
         {/* Main Content */}
         <div className="flex-1 bg-white relative">
           {/* Top row solutions */}
-          <div className="absolute left-8 top-[30px] flex items-center gap-1">
-            <span
-              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
-              onClick={() => handleNavigation("/solution")}
-            >
+          <button
+            type="button"
+            className="absolute left-8 top-[30px] flex items-center gap-1"
+            onClick={() => handleNavigation("/solution")}
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors">
               {t("solutions.energy.carbon.management.title")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
-          <div className="absolute left-[369px] top-[30px] flex items-center gap-1">
-            <span
-              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
-              onClick={() => handleNavigation("/zero-carbon-park")}
-            >
+          <button
+            type="button"
+            onClick={() => handleNavigation("/zero-carbon-park")}
+            className="absolute left-[369px] top-[30px] flex items-center gap-1"
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors">
               {t("solutions.zero.carbon.park.title")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
-          <div className="absolute left-[650px] top-[30px] flex items-center gap-1">
-            <span
-              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
-              onClick={() => handleNavigation("/zero-carbon-factory")}
-            >
+          <button
+            type="button"
+            onClick={() => handleNavigation("/zero-carbon-factory")}
+            className="absolute left-[650px] top-[30px] flex items-center gap-1"
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors">
               {t("solutions.zero.carbon.factory.title")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
           {/* Description text for top row */}
           <div className="absolute left-8 top-[64px] w-[210px]">
@@ -526,25 +535,27 @@ export function SolutionsDropdown({
           </div>
 
           {/* Bottom row solutions */}
-          <div className="absolute left-8 top-[164px] flex items-center gap-1">
-            <span
-              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
-              onClick={() => handleNavigation("/corporate-carbon-management")}
-            >
+          <button
+            type="button"
+            onClick={() => handleNavigation("/corporate-carbon-management")}
+            className="absolute left-8 top-[164px] flex items-center gap-1"
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors">
               {t("solutions.enterprise.carbon.management.title")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
-          <div className="absolute left-[369px] top-[164px] flex items-center gap-1">
-            <span
-              className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors"
-              onClick={() => handleNavigation("/carbon-footprint")}
-            >
+          <button
+            type="button"
+            onClick={() => handleNavigation("/carbon-footprint")}
+            className="absolute left-[369px] top-[164px] flex items-center gap-1"
+          >
+            <span className="text-[#058A65] font-inter text-[16px] font-medium leading-6 tracking-[-0.16px] cursor-pointer hover:text-[#046B52] transition-colors">
               {t("solutions.carbon.footprint.title")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
           {/* Description text for bottom row */}
           <div className="absolute left-8 top-[198px] w-[210px]">
@@ -635,7 +646,8 @@ export function NewsCenterDropdown({
         {/* Main Content */}
         <div className="relative flex-1 h-[266px] bg-white">
           {/* First Row */}
-          <div
+          <button
+            type="button"
             className="absolute left-[32px] top-[30px] flex items-center gap-1 cursor-pointer"
             onClick={() => handleNavigation("政策解读")}
           >
@@ -643,9 +655,10 @@ export function NewsCenterDropdown({
               {t("news.policy")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
-          <div
+          <button
+            type="button"
             className="absolute left-[262px] top-[30px] flex items-center gap-1 cursor-pointer"
             onClick={() => handleNavigation("本所动态")}
           >
@@ -653,9 +666,10 @@ export function NewsCenterDropdown({
               {t("news.dynamics")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
-          <div
+          <button
+            type="button"
             className="absolute left-[492px] top-[30px] flex items-center gap-1 cursor-pointer"
             onClick={() => handleNavigation("通知公告")}
           >
@@ -663,7 +677,7 @@ export function NewsCenterDropdown({
               {t("news.announcement")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
           {/* First Row Descriptions */}
           <div className="absolute left-[32px] top-[64px] w-[180px]">
@@ -685,7 +699,8 @@ export function NewsCenterDropdown({
           </div>
 
           {/* Second Row */}
-          <div
+          <button
+            type="button"
             className="absolute left-[32px] top-[144px] flex items-center gap-1 cursor-pointer"
             onClick={() => handleNavigation("新闻资讯")}
           >
@@ -693,9 +708,10 @@ export function NewsCenterDropdown({
               {t("news.general")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
-          <div
+          <button
+            type="button"
             className="absolute left-[262px] top-[144px] flex items-center gap-1 cursor-pointer"
             onClick={() => handleNavigation("知识专栏")}
           >
@@ -703,7 +719,7 @@ export function NewsCenterDropdown({
               {t("news.knowledge")}
             </span>
             <ChevronRight className="w-5 h-5 text-[#058A65] -rotate-90" />
-          </div>
+          </button>
 
           {/* Second Row Descriptions */}
           <div className="absolute left-[32px] top-[178px] w-[180px]">

@@ -6,16 +6,25 @@ const SITE_URL = "https://www.zdeaee.com";
 const DEFAULT_DESCRIPTION =
   "浙东环境能源交易所提供碳交易、碳咨询、碳资产管理、零碳园区、零碳工厂及碳培训等一站式双碳服务。";
 
-const pageMeta: Record<string, { title: string; description: string }> = {
-  "/": { title: SITE_NAME, description: DEFAULT_DESCRIPTION },
+const pageMeta: Record<
+  string,
+  { title: string; description: string; image?: string }
+> = {
+  "/": {
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+    image: "/banner-green-factory.jpg",
+  },
   "/about": {
     title: `关于我们 - ${SITE_NAME}`,
     description: "了解浙东环境能源交易所的发展历程、专业能力与服务体系。",
+    image: "/assets/remote/2de65da77c5648ddbe85ded358b4e35acab603fb.webp",
   },
   "/solution": {
-    title: `双碳解决方案 - ${SITE_NAME}`,
+    title: `能碳管理系统解决方案 - ${SITE_NAME}`,
     description:
-      "面向政府、园区和企业提供碳核算、能碳管理、零碳建设与碳普惠解决方案。",
+      "提供能源监测、碳排管控、能效分析、设备运维及碳足迹核算一体化系统。",
+    image: "/assets/remote/8a78814ba839293dd723ad68882b975c1a9dfbf2.webp",
   },
   "/zero-carbon-park": {
     title: `零碳园区解决方案 - ${SITE_NAME}`,
@@ -73,11 +82,13 @@ const pageMeta: Record<string, { title: string; description: string }> = {
     title: `资讯中心 - ${SITE_NAME}`,
     description:
       "获取双碳政策、碳市场动态、行业资讯及浙东环境能源交易所最新消息。",
+    image: "/assets/remote/98e13ab9047ae91c29a19fadad047b469733151f.webp",
   },
   "/success-cases": {
     title: `成功案例 - ${SITE_NAME}`,
     description:
       "查看浙东环境能源交易所在碳管理、零碳建设和绿色交易领域的实践案例。",
+    image: "/assets/remote/unsplash-e8b529f257c91d31.webp",
   },
   "/advanced-carbon-training": {
     title: `双碳战略规划高级研修班 - ${SITE_NAME}`,
@@ -166,6 +177,7 @@ export default function SeoManager() {
       description: DEFAULT_DESCRIPTION,
     };
     const canonicalUrl = `${SITE_URL}${pathname === "/" ? "" : pathname}`;
+    const socialImage = `${SITE_URL}${meta.image || "/banner-1.jpg"}`;
 
     document.title = meta.title;
     document.documentElement.lang = "zh-CN";
@@ -175,13 +187,13 @@ export default function SeoManager() {
     setMeta("og:description", meta.description, true);
     setMeta("og:type", isNewsDetail ? "article" : "website", true);
     setMeta("og:url", canonicalUrl, true);
-    setMeta("og:image", `${SITE_URL}/banner-1.jpg`, true);
+    setMeta("og:image", socialImage, true);
     setMeta("og:site_name", SITE_NAME, true);
     setMeta("og:locale", "zh_CN", true);
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", meta.title);
     setMeta("twitter:description", meta.description);
-    setMeta("twitter:image", `${SITE_URL}/banner-1.jpg`);
+    setMeta("twitter:image", socialImage);
 
     let canonical = document.head.querySelector<HTMLLinkElement>(
       'link[rel="canonical"]',

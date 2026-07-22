@@ -236,7 +236,7 @@ export default function CarbonFootprint() {
             <div className="lg:w-1/2 flex justify-center">
               <img
                 src="/assets/remote/7ca461c02e9998d60d4dfe570f20ad648479e9b6.webp"
-                alt="Policy illustration"
+                alt="产品碳足迹政策说明"
                 className="w-full max-w-lg h-auto"
               />
             </div>

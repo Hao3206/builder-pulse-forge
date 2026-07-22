@@ -61,7 +61,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full h-[950px] overflow-hidden"
+      className="relative h-[680px] w-full overflow-hidden sm:h-[760px] xl:h-[min(820px,calc(100vh-24px))]"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
@@ -106,7 +106,8 @@ export default function Hero() {
                   ? "bg-white"
                   : "bg-white/30 hover:bg-white/50 border border-white/40"
               }`}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`切换到第 ${index + 1} 张轮播图`}
+              aria-current={index === currentSlide ? "true" : undefined}
             />
           ))}
         </div>

@@ -47,6 +47,14 @@ describe("P0 security controls", () => {
     expect(profile.body.data.username).toBe("test-admin");
   });
 
+  it("does not expose starter demo or in-memory mock APIs", async () => {
+    const app = createServer();
+    for (const path of ["/api/demo", "/api/carbon/credits", "/api/solutions"]) {
+      const response = await request(app).get(path);
+      expect(response.status, path).toBe(404);
+    }
+  });
+
   it("publishes only the configured customer service QR code", async () => {
     const app = createServer();
     const publicConfig = await request(app).get(
@@ -77,9 +85,7 @@ describe("P0 security controls", () => {
       .set("Authorization", authorization)
       .send({ wechatQrCodeUrl: "/uploads/customer-test.png" });
     expect(saved.status).toBe(200);
-    expect(saved.body.data.wechatQrCodeUrl).toBe(
-      "/uploads/customer-test.png",
-    );
+    expect(saved.body.data.wechatQrCodeUrl).toBe("/uploads/customer-test.png");
 
     const updatedPublicConfig = await request(app).get(
       "/api/site-settings/customer-service",
@@ -197,7 +203,6 @@ describe("P0 security controls", () => {
   it("keeps named routes reachable before parameter routes", async () => {
     const app = createServer();
     expect((await request(app).get("/api/news/featured")).status).toBe(200);
-    expect((await request(app).get("/api/solutions/cases")).status).toBe(200);
   });
 
   it("sets baseline browser security headers", async () => {
