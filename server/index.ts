@@ -29,6 +29,7 @@ import contactRoutes from "./routes/contact";
 import wechatRoutes from "./routes/wechat";
 import wechatCandidateRoutes from "./routes/wechat-candidates";
 import uploadRoutes from "./routes/upload";
+import siteSettingsRoutes from "./routes/site-settings";
 import { createRateLimiter } from "./middleware/security";
 import "./database"; // Import to initialize
 
@@ -90,6 +91,7 @@ export function createServer() {
   app.use("/api/wechat", wechatRoutes);
   app.use("/api/wechat-candidates", wechatCandidateRoutes);
   app.use("/api/upload", uploadRoutes);
+  app.use("/api/site-settings", siteSettingsRoutes);
 
   // Health check
   app.get("/api/ping", (_req, res) => {

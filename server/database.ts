@@ -35,6 +35,14 @@ async function setup() {
     );
   `);
 
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS site_settings (
+      key TEXT PRIMARY KEY,
+      value TEXT NOT NULL,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+  `);
+
   try {
     await db.exec("ALTER TABLE contact_messages ADD COLUMN source TEXT;");
   } catch (e) {

@@ -8,9 +8,12 @@ import {
   EyeOff,
   KeyRound,
   Loader2,
+  QrCode,
   RefreshCw,
   Settings,
   ShieldCheck,
+  Trash2,
+  Upload,
 } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -41,6 +44,9 @@ export default function AdminWechatConfig() {
   const [loadingConfig, setLoadingConfig] = useState(true);
   const [hasSecret, setHasSecret] = useState(false);
   const [showSecret, setShowSecret] = useState(false);
+  const [wechatQrCodeUrl, setWechatQrCodeUrl] = useState("");
+  const [uploadingQr, setUploadingQr] = useState(false);
+  const [savingQr, setSavingQr] = useState(false);
   const [message, setMessage] = useState<{
     type: "success" | "error";
     text: string;
@@ -67,6 +73,12 @@ export default function AdminWechatConfig() {
         throw new Error(result.error || "配置加载失败");
       setHasSecret(Boolean(result.data?.hasSecret));
       form.reset({ appId: result.data?.appId || "", appSecret: "" });
+
+      const qrResponse = await fetch("/api/site-settings/customer-service");
+      const qrResult = await qrResponse.json().catch(() => ({}));
+      if (!qrResponse.ok || !qrResult.success)
+        throw new Error(qrResult.error || "客服二维码加载失败");
+      setWechatQrCodeUrl(qrResult.data?.wechatQrCodeUrl || "");
     } catch (error) {
       setMessage({
         type: "error",
@@ -80,6 +92,74 @@ export default function AdminWechatConfig() {
   useEffect(() => {
     void fetchConfig();
   }, []);
+
+  const saveCustomerQr = async (url: string) => {
+    setSavingQr(true);
+    setMessage(null);
+    try {
+      const token = localStorage.getItem("admin_token");
+      const response = await fetch("/api/site-settings/customer-service", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ wechatQrCodeUrl: url }),
+      });
+      if (response.status === 401) {
+        navigate("/admin/login", { replace: true });
+        return;
+      }
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.success)
+        throw new Error(result.error || "客服二维码保存失败");
+      setWechatQrCodeUrl(result.data?.wechatQrCodeUrl || "");
+      setMessage({ type: "success", text: result.message || "客服二维码已保存" });
+    } catch (error) {
+      setMessage({
+        type: "error",
+        text: error instanceof Error ? error.message : "客服二维码保存失败",
+      });
+    } finally {
+      setSavingQr(false);
+    }
+  };
+
+  const handleQrUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setUploadingQr(true);
+    setMessage(null);
+    try {
+      const formData = new FormData();
+      formData.append("image", file);
+      const token = localStorage.getItem("admin_token");
+      const response = await fetch("/api/upload/image", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+        body: formData,
+      });
+      if (response.status === 401) {
+        navigate("/admin/login", { replace: true });
+        return;
+      }
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.success)
+        throw new Error(result.error || "二维码上传失败");
+      setWechatQrCodeUrl(result.data.url);
+      setMessage({ type: "success", text: "图片已上传，请点击保存客服二维码。" });
+    } catch (error) {
+      setMessage({
+        type: "error",
+        text: error instanceof Error ? error.message : "二维码上传失败",
+      });
+    } finally {
+      setUploadingQr(false);
+      event.target.value = "";
+    }
+  };
 
   const onSubmit = async (data: WechatConfigForm) => {
     setLoading(true);
@@ -295,6 +375,82 @@ export default function AdminWechatConfig() {
           </div>
         </div>
       </div>
+
+      <Card className="rounded-md">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <QrCode className="h-5 w-5 text-[#058A65]" />
+            官网微信客服二维码
+          </CardTitle>
+          <CardDescription>
+            用户点击官网右侧“微信客服”后将看到此二维码，与公众号开发凭据相互独立。
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+            <div className="flex h-44 w-44 shrink-0 items-center justify-center overflow-hidden rounded-md border border-dashed border-gray-300 bg-gray-50">
+              {wechatQrCodeUrl ? (
+                <img
+                  src={wechatQrCodeUrl}
+                  alt="微信客服二维码预览"
+                  className="h-full w-full object-contain p-2"
+                />
+              ) : (
+                <div className="px-4 text-center text-sm text-gray-400">
+                  <QrCode className="mx-auto mb-2 h-8 w-8" />
+                  暂未配置
+                </div>
+              )}
+            </div>
+            <div className="flex flex-1 flex-col gap-3">
+              <p className="text-sm leading-6 text-gray-500">
+                建议上传正方形 PNG 或 JPG 图片，文件不超过 5MB。保存后官网立即生效。
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <input
+                  id="customer-qr-upload"
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp"
+                  className="sr-only"
+                  onChange={handleQrUpload}
+                  disabled={uploadingQr || savingQr}
+                />
+                <Button asChild variant="outline" disabled={uploadingQr || savingQr}>
+                  <label htmlFor="customer-qr-upload" className="cursor-pointer">
+                    {uploadingQr ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      <Upload className="mr-2 h-4 w-4" />
+                    )}
+                    {uploadingQr ? "上传中..." : "选择二维码"}
+                  </label>
+                </Button>
+                <Button
+                  type="button"
+                  onClick={() => void saveCustomerQr(wechatQrCodeUrl)}
+                  disabled={!wechatQrCodeUrl || uploadingQr || savingQr}
+                  className="bg-[#058A65] hover:bg-[#047558]"
+                >
+                  {savingQr && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                  保存客服二维码
+                </Button>
+                {wechatQrCodeUrl && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => void saveCustomerQr("")}
+                    disabled={uploadingQr || savingQr}
+                    className="text-red-600 hover:text-red-700"
+                  >
+                    <Trash2 className="mr-2 h-4 w-4" />
+                    清除
+                  </Button>
+                )}
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

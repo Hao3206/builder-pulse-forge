@@ -47,6 +47,52 @@ describe("P0 security controls", () => {
     expect(profile.body.data.username).toBe("test-admin");
   });
 
+  it("publishes only the configured customer service QR code", async () => {
+    const app = createServer();
+    const publicConfig = await request(app).get(
+      "/api/site-settings/customer-service",
+    );
+    expect(publicConfig.status).toBe(200);
+    expect(publicConfig.body.data).toEqual(
+      expect.objectContaining({ wechatQrCodeUrl: expect.any(String) }),
+    );
+
+    const unauthorized = await request(app)
+      .put("/api/site-settings/customer-service")
+      .send({ wechatQrCodeUrl: "/uploads/customer.png" });
+    expect(unauthorized.status).toBe(401);
+
+    const login = await request(app)
+      .post("/api/admin/login")
+      .send({ username: "test-admin", password: "test-password" });
+    const authorization = `Bearer ${login.body.data.token}`;
+    const invalid = await request(app)
+      .put("/api/site-settings/customer-service")
+      .set("Authorization", authorization)
+      .send({ wechatQrCodeUrl: "https://untrusted.example/qr.png" });
+    expect(invalid.status).toBe(400);
+
+    const saved = await request(app)
+      .put("/api/site-settings/customer-service")
+      .set("Authorization", authorization)
+      .send({ wechatQrCodeUrl: "/uploads/customer-test.png" });
+    expect(saved.status).toBe(200);
+    expect(saved.body.data.wechatQrCodeUrl).toBe(
+      "/uploads/customer-test.png",
+    );
+
+    const updatedPublicConfig = await request(app).get(
+      "/api/site-settings/customer-service",
+    );
+    expect(updatedPublicConfig.body.data.wechatQrCodeUrl).toBe(
+      "/uploads/customer-test.png",
+    );
+
+    await db.run("DELETE FROM site_settings WHERE key = ?", [
+      "customer_service_wechat_qr",
+    ]);
+  });
+
   it("does not expose secrets or server paths through management APIs", async () => {
     const app = createServer();
     const login = await request(app)
